@@ -1,0 +1,152 @@
+Release Notes:
+============
+	• Task ID-011772 -- Default home page cards setting has been changed below following options.
+	    1. Menu Options
+	    2. Menu Folder
+		l    Note:1. Any project used existing home cards, those cards needs to be resaved after applying this patch.
+		        2. Only KPI cards can be set as home page cards in Axpert Developer cards definition.
+	• Task ID-011724 -Jaipur- Issue Description: In an Iview RUNTIME, More than one Default values are not listing in Multiselect Param
+	Note: If Multi select parameters default values(More than one) needs to be set, then following format(~ separated values) needs to be used either in expression or default values. 
+	Ex.:1. Expression : {EMP-002~EMP-004}
+	    2. Default Value: EMP-002~EMP-004
+	• Task ID-011729 -Jaipur- Requirement: The user needs an option to change the DC caption dynamically.
+	Note: Below Form Control script function introduced to set DC caption dynamically by using form control events.
+	Ex.: SetDCCaption({dc1},{Test DC1})
+	     SetDCCaption({dc2},{Test DC2})
+	• Task ID-011749 -BDF- BDF Issue - When user search the value for approved by field getting this error message "Error occurred(2). Please try again or contact administrator."
+	• Task ID-011696 -QA(Qbridge)- Description: Autosave draft Developer option is not working for Dropdown, time and Multiselect Fields in Grid DC
+	• Task ID-011673 -Support(Trustline)- Issue: The user created a new account in the portal. After account creation, they are allowed to change the password. When they log in with the new credentials for the first time, a message appears: 'Security Alert: Your previous session will be closed.' This error only occurs during the first login; it does not appear on the second or third login. The same popup also appears on the desktop version as well.
+	• Task ID-011768 -QA- The following issues were reported while publishing from Config Studio:
+	   1. Publishing rules not listing in the target  
+	   2. Error during the update of AxPublishReport  
+	   3. Error in FastPrints when handling Memo fields (Oracle DB)  
+	• Task ID-011756 -Support(Dilmah)- There is an issue in the tstruct named Delivery Order where axpvalid is being used to conditionally enable or disable rows. However, it is not functioning as expected. Even with a simple condition like if recordid > 0 then b else a, the logic is failing. Specifically, the delete button is not getting disabled, allowing the user to delete records when they shouldn't be able to
+	• Task ID-011742 -Support(Dilmah)- In one specifc screen, the excel export button on grid is not working. Nothing happening on click. This is very specific to Dilmah instance and request your help in troubleshooting directly on the environment through remote access.
+	• Task ID-011740 -Support(Dilmah)- When items selected through fillgrid, user expectation is to fetch in the grid in the same order as clicked.
+	• Task ID-011743 -Support(Dilmah)- An issue was previously reported regarding retaining selected rows in the Iview when a user opens a form and returns to the Iview without saving. 
+	• Task ID-011746 -BDF- BDF Issue - Arithmetic calculation issue - Multiplication is not working after submitting the form.
+	• Task ID-011730 -- Version 11.3 FCM API change, Google's FCM Legacy HTTP API has been deprecated, which caused our application to stop sending notifications as it relied on this API. 
+	• Task ID-011731 -- When publishing config studio def's webaxpapp not required in the req. payload & handle same in dll
+	When publishing Config Studio definitions, the webaxpapp key is not required in the request payload. This needs to be handled in the DLL to prevent the DLL from expecting this key when making API calls from the client side. 
+	• Task ID-011732 -- Issue with 'From API' Field in Publish Process
+	When publishing a structure containing a 'From API' field (Dropdown/Accept), Publish is executed without updating the 'From API' field in the target form.
+	• Task ID-011733 -Support(Dilmah)- We're encountering a rounding issue in both the client and DLL. For example, when the value is 705.745, it should round off to 705.75, but instead, it’s being displayed as 705.74. The third decimal (5) should be triggering the second decimal to increment, but this is not happening.
+	• Task ID-011204 -Support(Dilmah)- The user aims to enhance search functionality by enabling multiple filters across the entire system. Furthermore, automatically displaying the last-used search option would enhance user convenience. The search button in tstruct to have options to support additional filter parameters, similar to the desktop version, which currently only allows for a single search parameter.
+	• Task ID-011714 -Support(Pentagon)- After a transaction is approved, the approver's name appears truncated in the initiator's view, with only the last part of the name being displayed. For example, if the approver's name is Chamila Jeyasinghe, only Jeyasinghe is shown in the top bar. However, this issue does not occur in the workflow comments or history, where the full name is displayed correctly
+	• Task ID-011719 -Support(Dilmah)- Header attachments are not opening in edit mode after logging out and logging back in. During the session, once attached, they can be opened multiple times without issue, but after logging out and logging in again, this functionality no longer works.
+	• Task ID-011718 -Support(Dilmah)- 1. Tabbing out from DC1 is not properly setting the focus on the grid DC. This functionality works for some structures but fails for others.
+	2. Tabed dc's mode, First grid empty row not getting edit mode.
+	3. Mandatory grid select fields ui showing out of frame. 
+	4. Freeze column ui not proper if fixed header is enabled
+	• Task ID-011715 -Support(Dilmah)- When a mandatory field is missing, an error message should pop up, and the cursor should automatically be directed to the missing field. Currently, there's an issue where the cursor only redirects to fields in the header frame, and it doesn't work for fields in other data containers (DCs)
+	• Task ID-011717 -Support(Dilmah)- The issue pertains to the Iview hyperlink, where parameter values are not being passed as entered, but instead encoded with %20 for spaces and other equivalent characters. This problem occurs when the form is loaded from the cache. When the user logs out and logs back in, it works correctly at the first time since the structure is loaded from db this time.
+	• Task ID-011324 -Support(Dilmah)- Issue:  For non-approvers, it is possible to save and make changes on the screen. However, approvers are unable to save and make changes on the screen; it is throwing an error.
+	• Task ID-011675 -Support(Dilmah)- Issue: When any mandatory field is missing to enter, while submitting the form, the system correctly displays an error message but the cursor is not being directed to the missing field. This is happening only if it is dropdown field and for accept fielsds, the cursor goes to the field straight.
+	• Task ID-011639 -Support(Dilmah)- Issue: When we select the Excel export option under the utility icon, a confirmation popup appears as unexpected. However, after clicking "OK," an error message is displayed: "There was an error, please try again." This issue seems to be isolated to certain Iviews only.
+	• Task ID-011637 -Support(pentagon)- Issue: There is an issue with FillGrid: the total amount for the selected invoices is not being displayed in the footer, even though the footer string is defined.
+	• Task ID-011229 -Support(Dilmah)- Feature Request: Maximize FillGrid and Column Adjustment Functionality
+	• Task ID-011707 -Support(Dilmah)- Grid Import button has issues when the fields are either having expression or SQL.  Even though the XL has data for those fields, it is not setting in the fields when importing 
+	• Task ID-011709 -Support(Dilmah)- When a tstruct is opened via an action button on an iview with a few rows selected (using the checkbox column), users expect the selected rows to remain checked when returning to the iview. 
+	• Task ID-011706 -Support(Dilmah)- Expression evaluation when more decimals involved are coming out with a difference of .01 between client and dll side.
+	• Task ID-011678 -Support(Dilmah)-Fillgrid on the latest version (11.3_R13) has many user experience issues.
+		1. When there are many columns, the headers and rows lose alignment, causing two horizontal scrollbars to appear.
+		2. There's no option to maximize the Fill Grid, which limits users to viewing only 3 or 4 rows at a time when there are more rows to display. 
+		3. On the desktop version, users can set the footer to display a summary of selected rows, but this functionality isn’t working on the web version.
+		4. When navigating through many columns, the checkbox column gets hidden, forcing users to scroll back to the left to select a row.
+		5. On the desktop version, after filling two rows, the filled rows are no longer visible when returning to fill additional records. However, on the web version, the same records are displayed every time the Fill Grid is opened, leading to duplicate entries if users select the same records again.
+	• Task ID-011559 -Support(Dilmah)-Issue: When enabling the ListView option, the structure is not saving properly. 
+	• Task ID-011722 -Kauvery- Issue Description: When a form with a grid DC is configured with a PEG process workflow, the values entered in the Grid DC are deleted during the data load event. Please refer to the attached screen recording for further details.
+	• Task ID-011726 -BDF- BDF Issue - Transaction is not loading through action from iView
+	• Task ID-011721 -BD- BDF Issue - Arithmetic calculation issue - Multiplication is not working in some random values. Ex: 10 * 1.32 (Instead of 10.32, calculated value showing as 0)
+	• Task ID-011699 -BDF- BDF Issue - User trying to delete the field level attachment in modification mode from transaction, but file is not deleting from the attachment path.
+	• Task ID-011691 -BDF- BDF Issue - In Advance Search, The defined column Name's and Employee Name column values are shown incorrectly.  
+	• Task ID-011710 -BDF- BDF Issue - Error while saving the transaction, when user is using Gen Map and SQL post combination. Submit & Action save behavior is different. Submit is giving error and not saving any entry but Action save is showing save success with error message and saving partial data. 
+	• Task ID-011687 -BDF- BDF Issue - Attachment download option not working in iview if user refer archive schema (agileorcl113).
+	• Task ID-011626 -Jaipur- Requirement: Top, Right, Left and Bottom Margins under Page Setup should be set to 1CM in the exported Iview Data as a Word Document
+		l Note: A WordExporting config file has been introduced named as 'ExportConfig.ini' in JSON format(Example given below), which will be having the default settings for the WordExport. Margins(Top,Bottom,Left,Right) in centimeters and orientation(Landscape, portrait) can be set though this ini file to export the report to Word document. 
+			Ex.: {"Word": {
+			      "margin": {
+			        "top": "1",
+			         "left": "1",
+			        "right": "1",
+			        "bottom": "1"
+				   },
+			      "orientation": "portrait"
+			    }}
+
+	• Task ID-011711 -AxpertFlutter- Axpert Hybrid Issue Vegola: Indospanish Bluetooth Get Weight not working and getting this error msg "Error occured while fecting weight, Please try again." 
+	• Task ID-011688 -QA- Description: In Global Parameters, alignment of the single DC layout is not displaying proper when Global params contains user defined params
+	• Task ID-011692 -QA- Product Issue: In grid DC, When the field is defined as Readonly in same row the duplicated field is appearing and the field will be editable.
+	• Task ID-011680 -- The below UI changes has been applied at product level.
+		○ New landing page has been introduced including banner. This banner title and description can be set as a JSON file named as 'mainpagebanner.json' and should be keep it in project_name folder under webcode folder, and banner images also can keep in the same folder.
+			§ Note: 
+				□ KPI dashboard cards can be set in landing page by using the checkbox 'Is required in homepage?' in the cards definition page
+				□ Users can set old landing page as default landing page by using home page setting in User level or Roles level.
+		○ New Listing page introduced instead of listview   
+			§ Note: Smart navigation is now part of Axpert. Smart navigation is achieved by a modern listing page and read only form page. The listing page lists form data as a card or a table. It has advanced features for filtering. It also provides configurable charts and summary. The read only form page presents the tstruct /form data in a standard and intuitive format with options to see all connected and similar data in a single page. By default when a tstruct is created (if no data available), user will be redirected to the new listing page and not to the form page.This functionality can be overridden using the below developer option.
+				□  Developer option(from menu) :
+					® Property: Listview as Default
+					® property Code: Listview as Default
+					® Property Value: true/false (default value is true. To open tstruct directly, value should be 'false')
+					® Form/Report: ALL Forms / Single Form
+					® User Role: All / Single role
+				□ Developer option(from global search) :
+					® Property: Listview as default from search
+					® property Code: Listview as default from search
+					® Property Value: true/false (default value is true. To open tstruct directly, value should be 'false'
+					® Form/Report: ALL Forms / Single Form
+					® User Role: All / Single role
+		○ New Analytics page has been introduced as an option along with Home, active list, dashboard and calendar.
+			§ Note: Analytics page, lets users analyze form data. This presents the users with aggregate fields on x-axis and the group fields in the y-axis. The user will be able to see charts for any pair of aggregate-group field pair. The drill down from here will take the user to the listing page. The next versions will have options to combine multiple more than one group and aggregate fields and create custom views.
+		○ Global parameter UI has been changed to Name-value pair and this can be open from the Title Bar 
+			§ Note: Above UI change will be the default product UI. If the old UI is required for any specific project, below web.config key needs to be introduced with value as 'true'
+				□ Web.config key:  <add key="AxOldModel" value="true"/>
+	• Task ID-011681 -- Config page changes:  a. Enhanced Config page UI changes. And config page title is changed to 'Instance Console' b. Project logo Setting moved to Settings page in Configuration studio. c. Web & Mobile background images setting withdrawn, if separate images required it needs to handled in signin page templates. 
+	• Task ID-011682 -- Setting page optimization in Configuration studio
+	• Task ID-011683 -- AxpFile Upload UI enchantment in tstruct.
+		○  Note: If field level or application variable level file upload path is not set, then 'File Upload Virtual Path' path will be used for AxpFile upload if this path is set in Instance console page. 
+	• Task ID-011684 -- Global Import UI enchantment in global import data page
+	• Task ID-011685 -- Publish listing has been introduce in configuration studio. This page can be used to publish the selected/all 'Form Notifications,Periodic Notification, PEG, Publish API and Rule'
+	• Task ID-011661 -PayAzzure- Oracle DB - Description - When a user enables cached save for a tstruct and saves a record with an exception in that tstruct, when it is loaded from the active list, it is loading empty form and tstrcut is in Disable mode.
+	• Task ID-011605 -PayAzzure- In Iview we are getting below mentioned error message after adding paycycle as parameter.
+	• Task ID-011633 -PayAzzure- Description : In Oracle Schema - Login with Check level user, navigate to the 'Active List,' and click on the 'View Form' button in the PEG task. Observe that it is displaying 'Approve' and 'Reject' buttons instead of 'Check' button
+	• Task ID-011544 -PayAzzure(Mobile)- Android Flutter Issue: After downloading the (PDF & WORD) file, the file format is showing as ".aspx".
+	• Task ID-010965 -PayAzzure(Mobile)- Android Pay Azzure Issue : Tstruct / Iview / Cards - Backbutton functionality is notworking
+	• Task ID-011444 -PayAzzure(Mobile)- IOS and Android Pay Azzure Issue: Grid fields are getting out of frame and the except grid fields the screen is swiping left to right in Flexi Planner screen.
+	• Task ID-011630 -BDF- BDF Requirement - In Tstruct,The user requires an option to navigate HTML page with Display Details. 
+		○ Note : 
+			§ User Need a option to open as popup, this will help to use this feature effectively.
+			§ After closing the popup, the entered field values should be displayed.
+				□ Ex.: Hyperlink definition needs to be defined as follows in display details, where 'displaymode' is newly introduced with value 'p' for popup.
+					® <h>type=t,name=tapfu,displaymode=p</h>
+	• Task ID-011629 -BDF- BDF Requirement - Display details : In BDF, purpose column was used to keep old query, modification details, old expressions, basically for developer's notes.Display details only user using for hint.
+		○ Note:
+			§ Below developer option introduced to Avoid purpose field from display details.
+			§ To avoid purpose field from display details, 'Avoid purpose field from display details' key needs to added with value 'true'
+				□ Developer option:
+					® Property: Avoid purpose field from display details
+					® property Code: Avoid purpose field from display details
+					® Property Value: true/false
+					® Form/Report: ALL Forms / Single Form
+					® User Role: All / Single role
+	• Task ID-011665 -BDF- BDF Issue - Iview refresh issue, Iview name and param details are getting hide while refreshing the Iview.
+	• Task ID-011632 -BDF- Issue Description : Round off issue, while entering the value is not rounding as expected and same issue while saving also.
+		○ Note: The round off value should be ("38.709"),("48.709")
+	• Task ID-011614 -BDF- BDF Issue - Password should be changed to every 60 days, and the user should get password change alert before a week or 10 days. These Options are not working as expected.
+		○ Note:
+			§ Password policies not applicable for the user 'Admin'
+			§ Notification though SignalR is introduced for password expiry notification.
+	• Task ID-011613 -BDF- BDF Requirement - Required Hint option for Password field as per the enforced password policy and length setup. 
+	• Task ID-009699 -ALLSec- Description : In Active List  - When the user returns a transaction with a 'Previous level or initiator' task is  going to Initiator
+	• Task ID-011324 -Support(Dilmah)-Issue:  For non-approvers, it is possible to save and make changes on the screen. However, approvers are unable to save and make changes on the screen; it is throwing an error.
+	• Task ID-011625 -Support(Dilmah)-Issue:  FireSQL is used and should be triggered after the 'After Cancel Transaction' event to update records in the specified table. However, the script isn't working as expected, and the same issue occurs with the, 'Before Cancel Transaction', 'After Save Transaction', the 'Before Save Transaction', event.
+	• Task ID-011563 -Support(Dilmah)- Issue: A recurring issue with the grid functionality needs attention. The error message, "Itemcode Row3 can't be left empty," appears on the line immediately following the last row in the grid. For example, if one row is present, the error displays on the second line; with two rows, it appears on the third line, and so on.
+	• Task ID-011442 -Support(Dilmah)- Issue: Reaching out regarding an issue encountered with our reports and screens. Initially, generating any pending report on the screen works correctly. However, after changing the application parameter selection, the report no longer functions as expected.
+	• Task ID-011618 -QA(ub)- Issue Description: Unable to create a new user,new role and new responsibility under User Management
+	• Task ID-011617 -QA(ub)- Issue Description: Unable to load the iviews in mssql schema. Unable to see the Userlogins,Roles and responsibility Iview.
+	• Task ID-011669 -QA- Form Notifications: ORA-01461 Error.Issue: Error occurred while processing form notifications due to the AxActiveMessages table not being updated. The error encountered was: ORA-01461: can bind a LONG value only for insert into a LONG column.
+	• Task ID-011670 -QA- Autogen Field Data Not Being Pushed to Database.Issue: In the QA environment, when saving a form with an autogen field, the data is not being pushed to the database through the SubmitData API.
+	• Task ID-009890-QA-Test Case Description--In grid dc ,the eye icon for a password field is not visible
+	• Task ID-011017-QA-Issue Description--Add View in Iview- Columns, Even though the user selects all the columns in Column View, the "Show all" checkbox still displays as "Unselect"
+	• Task ID-011016-QA-Issue Description--Add View in Iview- Row Grouping-The user is unable to remove the count selection from the function dropdown once it's been chosen. When attempting to select a different value, the system is adding another count selection in the function dropdown instead of replacing the existing one
+	• Task ID-011668 -QA- Product : When the user opens the form, the select field and calendar fields lov window will populate after clicking out of the field, it does not close and same after loading the data from listview.
