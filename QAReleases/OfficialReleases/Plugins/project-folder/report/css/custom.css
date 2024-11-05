@@ -1,0 +1,715 @@
+.fa-ellipsis-v {
+  display: none;
+}
+
+.table tbody tr:hover .fa-ellipsis-v, .isMobile .table tbody tr .fa-ellipsis-v {
+  display: block;
+}
+
+.btn-group.open .dropdown-toggle {
+  box-shadow: none;
+}
+
+.btn:active {
+  box-shadow: none;
+}
+
+.dropdown-menu a {
+  color: #000;
+}
+
+.dropdown-menu a:hover {
+  text-decoration: none;
+  background-color: #eee;
+  color: #000;
+}
+
+.isMobile .columnTemplate[data-field-name] {
+  display: block !important;
+}
+
+@media (max-width: 960px) {
+  .btn-group .dropdown-menu {
+    left: 0 !important;
+  }
+}
+
+.rounded {
+	border-radius: 0 !important;
+}
+.bg-light {
+	background-color: #fff !important;
+}
+.h1.page-caption::before, .toolbar .h1::before, .toolbar h1::before ,.h1.page-caption::after, .toolbar .h1::after, .toolbar h1::after{
+	background: transparent !important;
+}
+.toolbarRightMenu .btn {
+	border-radius: 4px !important;
+}
+ .btn.btn-active-primary:hover:not(.btn-active), .show > .btn.btn-active-primary {
+  color: #fff;
+  border-color: #c01c26 !important;
+  background-color: #c01c26 !important;
+}
+.page-caption {
+	color: #2b3934 !important;
+	font-size: 19px !important;
+}
+.table-bordered > :not(caption) > * > *{ border-width:0 !important }
+
+.table.table-striped {
+	--bs-table-accent-bg: var(--bs-table-striped-bg);
+	background: #fff !important;
+}
+.btn.btn-primary {
+	color: #fff;
+	border-color: #317f71;
+	background-color: #317f71;
+}
+.bg-primary {
+	background-color: #2c4e9f !important;
+}
+
+.form-check.form-check-custom.form-check-sm .form-check-input {
+	height: 1.2rem !important;
+	width: 1.2rem !important;
+}
+
+.toolbar {
+	/* border-bottom: 1px dashed #2450b7 !important; */
+	border-bottom: double #e3e6ee !important;
+	background: #fbfcfd !important;
+}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td{
+	font-size:14px !important;
+	font-weight: 500;
+}
+
+table.dataTable tbody td, table.dataTable tbody th,table.dataTable thead td, table.dataTable thead th {
+	padding: 8px 10px;
+	border-right: 1px solid #e4e6ee !important;
+}
+
+
+.paramPillContent .tooltiptext {
+	color: #fff;
+	margin-left: 25px !important;
+}
+.paramPillContent .tooltiptext span {
+	background: #ebf4ff;
+	border-radius: 50px;
+	padding: 4px 8px;
+	color: #2c4e9f;
+	font-size: 12px;
+	box-shadow: 0px 1px 1px;
+	font-weight: bold;
+}
+.paramPillContent .tooltiptext ~ span {
+  box-shadow: 1px 1px 1px;
+}
+.paramPillContent .tooltiptext span span {
+  box-shadow: none;
+}
+.paramPillContent .tooltiptext span.seperator {
+  visibility: hidden;
+  padding: 0;
+}
+
+.specialRow {
+	/* background: aqua !important; */
+	background: #2b509a24 !important;
+}
+
+.specialRow td {
+	color: brown;
+	border: 1px solid #a52a2a12 !important;
+	border-right: 0 !important;
+	border-left: 0 !important;
+}
+.specialRow td {
+	color: brown;
+	border: 1px solid #a52a2a12 !important;
+	border-right: 0 !important;
+	border-left: 0 !important;
+	background: #faf2f2 !important;
+}
+/* .toolbarRightMenu a.btn.btn-white:first-child { */
+	/* background: #317f71 !important; */
+	/* color: white !important; */
+/* } */
+/* .toolbarRightMenu a.btn.btn-white:first-child span { */
+	/* color: #fff !important; */
+/* } */
+
+.toolbarRightMenu div:first-child button {
+	background: #317f71 !important;
+	color: white !important;
+}
+
+.toolbarRightMenu div:first-child button span {
+	color: #fff !important;
+}
+.border-hover-warning:hover {
+	border-color: #0774fe !important;
+}
+.searchBoxChildContainer {
+	width: 25% !important;
+	right: 50px;
+	margin-right: 14% !important;
+	border-radius: 0 !important;
+	/* top: 8%; */
+	border: 1px solid #ccc;
+}
+
+#button1,#button2 {
+	border-radius: 6px !important;
+	padding: 0 25px !important;
+	height: 35px;
+}
+#accordion #Filterscollapse.collapse.show {
+	border-top: 1px solid #0774fe;
+	border-bottom: 1px solid #0774fe;
+	border-radius: 0 !important;
+}
+
+
+
+
+.select2-container--bootstrap5 .select2-selection {
+	box-shadow: none !important;
+	height: 32px !important;
+	outline: 0 !important;
+	padding: .56rem 1rem;
+	border-radius: 4px;
+}
+.select2-container--bootstrap5 .select2-dropdown {
+	box-shadow: 0 0 50px 0 rgba(82,63,105,.15);
+	 border-radius:0 !important; 
+	padding: 1rem 0;
+	border: 1px solid #0774fe !important;
+	border-top: 0 !important;
+}
+#accordion {
+	top: 61px !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+.btn.btn-icon:not(.btn-sm) .material-icons::before{ background:transparent !important }
+.dropDownButton__list.menu.menu-sub.menu-sub-dropdown a span {
+	color: #838383 !important;
+}
+
+#grdSearchRes tr th {
+	background: #f5f8fa !important;
+	padding: 15px !important;
+	border-right: 1px solid #cccccc4f !important;
+}
+#grdSearchRes_filter input {
+	border: 1px solid #ececec;
+	height: 32px;
+	padding-left:5px;
+	border-left: 0;
+}
+#grdSearchRes_filter::before {
+	content: "\e8b6";
+	position: absolute;
+	border: 1px solid #ececec !important;
+	padding: 0 5px 0px;
+	margin-left: -23px;
+	font-family: Material icons;
+	font-size: 20px;
+	border-right: 0 !important;
+	color: #B1B1B1;
+}
+table#grdSearchRes tbody tr td {
+	border: 0 !important;
+	border-right: 1px solid #cccccc4f !important;
+}
+#grdSearchRes {
+	border: 1px solid #cccccc4f !important;
+}
+
+table.dataTable tbody tr.even {
+	background-color: #f7fafb !important;
+}
+
+#grdSearchRes_wrapper {
+	height: 64vh;
+}
+#srchcontent {
+	height: 70vh;
+}
+
+#iviewCustom-overalldiv #Filter_Left .card-body {
+	padding: 9px 0 9px 9px !important;
+}
+
+#Ticket-List-container .accordion-button {
+	padding: 0px 20px !important;
+	/* background: transparent !important; */
+}
+.btn.btn-link {
+	font-weight: bold;
+	color: #333;
+	font-size: 15px !important;
+}
+#treeAccordion .card-body span {
+	display: block !important;
+	color: #333 !important;
+	padding: 10px 15px 10px 40px !important;
+	cursor: pointer;
+	font-weight: 600;
+	position: relative;
+	font-size: 14px;
+}
+#treeAccordion .card-body span.accordian-active {
+	color: #008000 !important;
+	background: #0080000f;
+	border: 0;
+	border-radius: 0;
+	font-weight: 700;
+}
+
+#treeAccordion .card-body span.accordian-active::after {
+	content: "\e86c";
+	position: absolute;
+	font-family: Material icons;
+	font-size: 22px;
+	top: 4px;
+	color: #008000a1;
+	left: 0;
+	margin-left: 7px;
+}
+#treeAccordion .child-accordion .card-body span {
+	padding: 10px 40px !important;
+}
+#Filter_Left .child-accordion .card-header {
+	padding: 0 23px !important;
+}
+
+tr.specialRow .customHBUI {
+    display: none !important; 
+}
+
+.paramPillContent .tooltiptext span {
+	background: #ebf4ff;
+	border-radius: 50px;
+	padding: 4px 8px;
+	color: #2c4e9f;
+	font-size: 12px;
+	box-shadow: 0px 1px 1px;
+	font-weight: bold;
+	/* margin-bottom: 55px !important; */
+	height: 30px !important;
+	display: inline-block;
+}
+.paramPillContent .tooltiptext span span {
+	box-shadow: none;
+	height: 0 !important;
+}
+
+#idsearch {
+	font-size: 19px;
+	color: #aaaaaa;
+}
+
+.dataTables_scrollHead th {
+	border-bottom: double #2c4e9f54 !important;
+}
+
+/* .dataTables_scrollBody { */
+	/* height: 100vh !important; */
+	/* max-height: 69vh !important; */
+/* } */
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+	color: #5e6278;
+	background-color: #fff;
+	border-color: #e4e6ef #e4e6ef #fff;
+	border-radius: 0;
+	padding: 11px 35px !important;
+	color: antiquewhite;
+	border-top: 4px solid #2c4e9f;
+}
+li.nav-item a.nav-link {
+	border-radius: 0 !important;
+	background: #f9f9f9;
+	border: 1px solid #e6e9f0;
+	box-shadow: none !important;
+	margin-right: 4px;
+	padding-inline: 21px !important;
+}
+.border-hover-warning:hover {
+	border-color: #e4e4e4 !important;
+}
+.btn[data-bs-dismiss="modal"] {
+background: #5d5d5d;
+	color: white !important;
+	position: absolute !important;
+	/* left: 45%; */
+	top: 1px !important;
+	z-index: 9999999999;
+	width: 32px;
+	height: 32px;
+	right: 2px !important;
+	border-radius: 4px;
+}
+.btn[data-bs-dismiss="modal"] span {color:white !important}
+
+
+
+
+.rowOptionsExist.form-check.form-check-sm.form-check-custom .btn.btn-light-secondary .material-icons.material-icons-style {
+  color: #333 !important;
+}
+.rowOptionsExist.form-check.form-check-sm.form-check-custom .btn.btn-light-secondary {
+  background: #fff;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 4px !important;
+  border: 1px solid #ececec !important;
+  box-shadow: 0 2px 2px #ccc !important;
+}
+.rowOptionsExist.float-start.form-check.form-check-sm.form-check-custom .menu.menu-sub .material-icons.material-icons-2.material-icons-style {
+	background: #f1f1f19c;
+	padding: 18px !important;
+	border-radius: 50px;
+	font-size: 17px !important;
+	margin-right: 14px;
+}
+.rowOptionsExist.float-start.form-check.form-check-sm.form-check-custom .menu.menu-sub .menu-link.px-3 {
+	border-bottom: 1px dashed #e1e1e1;
+	border-radius: 0 !important;
+	transition: all ease 0.3s;
+}
+.rowOptionsExist.float-start.form-check.form-check-sm.form-check-custom .menu.menu-sub {
+	box-shadow: 0 16px 15px #ccc;
+	border: 1px solid #dcdcdc !important;
+	border-radius: 4px !important;
+}
+
+.DTFC_LeftHeadWrapper th, .DTFC_LeftBodyWrapper tr td {
+	background-color: #ebf4ff !important;
+}
+
+
+/*from payrolldev*/
+
+@media screen and (max-width: 768px) { 
+  
+  
+	.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td, .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr.specialRow > td {
+		font-size: 14px !important;
+		border-bottom: 1px dashed #88878752 !important;
+		padding-block: 10px !important;
+		font-weight: bold;
+		padding-left: 15px !important;
+		box-shadow: none !important;
+	}
+  
+ 
+  
+  
+  .paramPillContent .tooltiptext span {
+	  border-radius: 50px;
+	  padding: 4px 8px;
+	  font-size: 12px;
+	  box-shadow: 0px 1px 1px;
+	  font-weight: bold;
+	  /* margin-bottom: 55px !important; */
+	  /* height: 30px !important; */
+	  display: flex;
+	  /* width: 100% !important; */
+	  min-width: fit-content;
+	  white-space:nowrap;
+  }
+  
+  .paramPillContent .tooltiptext span.seperator {
+	  visibility: hidden;
+	  padding: 0;
+	  height: 5px !important;
+	  /* display: none; */
+  }
+  .paramPillContent .tooltiptext span span {
+	  box-shadow: none;
+	  height: 0 !important;
+	  min-width: 37%;
+	  position: relative;
+	  top: -4px;
+  }
+  .paramPillContent .tooltiptext {
+	  color: #fff;
+	  margin-left: 5px !important;
+	  display: flex;
+	 }
+  .paramPillContent.overflow-hidden-- {
+	  display: flex !important;
+	  overflow: scroll;
+	  width: 100% !important;
+	  flex-wrap: nowrap;
+	 }
+  div#rowsTxtCount {
+	   position: relative; 
+	   top: 7px;
+	  /* right: 0; */
+	 }
+  .pageInformationLeft {
+	  position: relative;
+	  /* display: flex; */
+	  /* flex-wrap: nowrap; */
+	  gap: 0 !important;
+  }
+  
+  .pageInformationLeft {
+	  position: relative;
+	  height: auto !important;
+	 }
+  
+  #rowsTxtCountNew {
+	  /* position: absolute; */
+	  /* right: 0; */
+	  /* top: 0px; */
+	 }
+  
+   /* #accordion {
+	  top: 37px !important;
+  }    */
+	  
+   #contentPanelGridIview {
+	  margin-top: 19px;
+  }  
+  
+  #ivirMainDataTableWrapper table.cards tbody tr {
+	  margin: .5rem;
+	  padding: 0px 0;
+	  border-radius: 5px !important;
+	  /* box-shadow: 0 3px 8px -1px #ccc; */
+	  display: inline-block;
+	  border: 1px solid #cccccc21;
+	  position: relative;
+  } 
+  
+  
+  .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td label {
+	  font-weight: normal !important;
+	  margin-right: 15px;
+	  min-width: 20%;
+	  /* display: block; */
+	  font-size: 12px;
+  }
+  
+  .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI:has(span) {
+    display: table-cell !important;
+    width: 50px !important;
+    position: absolute !important;
+    right: -10px;
+    border: 0 !important;
+    top: -3px !important;
+}
+
+  
+  .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI.forceShow:has(:not(span)) {
+	  /* top: -10px; */
+	  top: 5px;
+  }
+  .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td .form-check {
+	  position: absolute;
+	  right: 16px;
+	  /* padding: 5px; */
+  }
+  .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td:has(.form-check) {
+    position: absolute !important;
+    border: 0 !important;
+    right: 0 !important;
+}
+  
+
+  
+  #ivirMainDataTableWrapper table {
+	  /* border: 0 !important; */
+  }
+  
+  .iviewTableWrapperNew .tab-content {
+	  border: 0 !important;
+  }
+  
+  
+  .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td:last-child {
+	  border: 0 !important;
+  }
+   #ivirMainDataTableWrapper table.cards tr td .cardLabelContent a span {
+	  background: #ad3232;
+	  color: white;
+	  border-radius: 4px;
+	  padding: 4px;
+	  font-size: 18px;
+  }
+  
+  .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td a span[title="View/Edit"] {
+	  position: relative;
+	  left: -36px;
+	  border: 1px solid #9a565e !important;
+	  color: #ad3131 !important;
+  }
+  
+ 
+  
+  .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI.forceShow {
+	  top: 12px;
+  } 
+  #iviewFrame .card-body {
+	  padding: 0 !important;
+  }
+  
+  #ivirMainDataTableWrapper table.cards tbody tr:nth-child(even) {
+	  border-left: 2px solid blueviolet;
+  }
+  
+  #ivirMainDataTableWrapper table.cards tbody tr:nth-child(odd) {
+	  border-left: 2px solid forestgreen;
+  }
+  
+  #ivirMainDataTableWrapper table.cards tbody tr:nth-child(3n+1) {
+	  border-left: 2px solid mediumvioletred;
+  }
+  
+  #ivirMainDataTableWrapper table.cards tr td .cardLabelContent a span {
+	  background: white !important;
+	  color: #333;
+	  border-radius: 4px;
+	  padding: 4px;
+	  font-size: 18px;
+	  border: 1px solid #ccccccb3 !important;
+	  box-shadow: 1px 0 5px #cccccc9e;
+  }
+  
+   .dataTables_scrollBody {
+	  height: 100vh !important;
+	  max-height: 100vh !important;
+  }   
+  .isMobile .searchBoxChildContainer {
+    width: 100% !important;
+    right: 0 !important;
+    position: absolute !important;
+    top: 35px;
+    left: 0 !important;
+}
+.interactiveReportWrapper.iviewTableWrapperNew div#rowsTxtCount {
+    /* top: 0 !important; */
+}
+.grid-stack.grid-stack-one-column-mode:has(#dvaxphtml_wcmsg) {
+	height: 100vh !important;
+	overflow: scroll;
+}
+#dvaxphtml_wcmsg {
+	position: relative;
+	top: 55px;
+}
+
+.toolbarRightMenu {
+    right: 0 !important;
+    position: relative;
+}
+#ivirMainDataTableWrapper table.cards tbody td:empty,#ivirMainDataTableWrapper table.cards tbody td.visibleMobileCol.forceShow:empty {
+    display: none;
+}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI.forceShow[data-field-name="empname"] label {
+    display: block !important;
+}
+
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI[data-field-name="empname"] {
+    width: auto !important;
+    position: initial !important;
+    border-bottom: 1px dashed #88878752 !important;
+    /* padding-inline: 15px !important; */
+    display: block !important;
+    padding: 10px   15px !important;
+}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI[data-field-name="empname"] label {
+    color: #333 !important;
+}
+#newViewTabId label.form-label.col-form-label.ivirSortLabel {
+    text-align: left !important;
+    width: 190px;
+}
+.isMobile textarea.select2-search__field {
+    position: absolute !important;
+}
+.pageInformationNew.gap-5 {
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+.pageInformationLeft.gap-10 {
+    gap: 0 !important;
+}
+.paramPillContent span[data-bs-original-title="Clear"] {
+    position: absolute;
+    top: 2px;
+    left: 58px;
+    /* background: #fff; */
+    color: #fff !important;
+    z-index: 9999;
+    /* padding: 10px; */
+}
+#contentPanelGridIview {
+     margin-top: 0px; 
+}
+.btn.btn-light-primary .material-icons.material-icons-style {
+    color: #fff !important;
+}
+td.dataTables_empty.visibleMobileCol {
+    width: 88vw !important;
+    max-width: 90% !important;
+}
+.isMobile .searchBoxChildContainer .rounded-3 {
+    border-radius: 0 !important;
+    margin-right: 0 !important;
+}
+div#dvSelectedFilters {
+    position: absolute;
+    z-index: 99 !important;
+    height: 24px;
+    width: 80px;
+    padding-left: 0 !important;
+    border-radius: 0;
+}
+.paramPillContent .tooltiptext {
+    color: #fff;
+    margin-left: 90px !important;
+    display: flex;
+}
+#FilterValues span.filtertooltipNew {
+    top: 1px;
+    position: relative;
+    left: -3px;
+}
+
+
+.gridData.ivirMainGrid.table-striped  .specialRow {
+    /* background: aqua !important; */
+    background: #2b509a24 !important;
+    /* padding: 5px 15px !important; */
+}
+
+.gridData.ivirMainGrid.table-striped tr.specialRow {
+    background: #f8f2f2 !important;
+}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI:has(span) label {
+    display: none;
+}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI[data-field-name="download_payslip"] label,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI[data-field-name="download_itcomp"] label ,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI[data-field-name="vps"] label ,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI[data-field-name="download"] label ,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI[data-field-name="rowno"] label 
+ {    display: none;}
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI.forceShow[data-field-name="download_payslip"] label,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI.forceShow[data-field-name="download_itcomp"] label ,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI.forceShow[data-field-name="vps"] label ,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI.forceShow[data-field-name="column1"] label ,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI.forceShow[data-field-name="column2"] label ,
+ .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.isHyperlinkUI[data-field-name="rowno"] label 
+
+ {    display: none !important;}
+
+  }

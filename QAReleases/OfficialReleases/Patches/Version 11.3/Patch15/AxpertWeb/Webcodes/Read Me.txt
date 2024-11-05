@@ -1,0 +1,7 @@
+To apply the custom CSS files for a Tstruct and Iview of the respective project- 
+
+    1) Place the custom CSS files in the required Project Folder available in AxpertWeb folder
+
+    2) For enabling Tstruct UI, add the developer key "Custom CSS" and set the property to True for either all forms or specific forms.
+
+    3) For enabling Iview UI, add the developer key "Custom CSS" and set the property to True for either all reports or specific reports 
