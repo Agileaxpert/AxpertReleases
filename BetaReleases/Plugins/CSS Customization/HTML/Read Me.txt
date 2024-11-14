@@ -1,0 +1,22 @@
+To apply the custom CSS files for a Tstruct and Iview of the respective project
+
+1) Place Custom CSS in the Relevant Project Folders
+For Tstruct UI:
+> Navigate to the AxpertWeb folder.
+> Locate the relevant project folder inside the AxpertWeb directory.
+> Under this project folder-->Tstruct folder-->CSS folder (where the Tstruct UI forms are defined).
+> Place your Tstruct-specific custom CSS file inside the CSS folder.
+
+For Report UI:
+> Similarly, inside the same relevant project folder under AxpertWeb, locate the Report folder.
+> Place your report-specific custom CSS file inside the CSS folder.
+
+NOTE:Make sure the files are placed in the folders which is mapped to the IIS site
+
+2) For enabling Tstruct UI, add the developer key "Custom CSS" and set the property to True for either all forms or specific forms.
+
+3) For enabling Iview UI, add the developer key "Custom CSS" and set the property to True for either all reports or specific reports.
+
+NOTE: If Custom CSS is enabled for a specific form, the file should be named transid.css. For multiple forms, individual transid.css files should be created for each form. Similarly, for an iview, use iviewname.css as the file name
+
+4) To view the new UI with the applied custom CSS and settings, you may need to clear the MemDB console at runtime in your AxpertWeb application.
