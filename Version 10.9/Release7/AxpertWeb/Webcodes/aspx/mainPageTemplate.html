@@ -1,0 +1,808 @@
+<!--
+Main Page Templete
+@author       Prashik
+@Date         2019-10-01T09:21:51+0530
+@Description
+    This Templete is an default templete for Axpert Web Application from version 10.7. This templete can be cloned to change UI and UX of Axpert Web Application by an UI developer as per requirements
+    *   @Steps and information for developer:
+    **      Warning: Do not modify this or any dependent files like axpertUI, etc.
+    **      Clone this entire .html file along with the referred CSS & JS files and give some unique name or create your own file
+    **      "ApplicationTemplate" Developer Options property must be set as cloned .html file name of application mainpage templete located in /aspx folder
+    **      @IMPORTANT@: This Section of code is very much important for overall application logic and should be used as it is in any of the cloned templetes
+    **      Modify/Rewrite the code as per requirement to give unique UI and UX
+    **      This file is divided mostly in 3 Sections a. Style(top) section, b. Template(middle) and Script(bottom) sections
+    ***         Templete Section will contain the html to be rendered
+    ***         Script section will initialise the page
+    **IMP   loadAndCall is an generic function to load CSS/JS files dynamically and execute the callback to initialize on successfull files load. This section's instructions to be strictly followed in case of both new/cloned templete since this section covers application level setting and objects for logged in user.
+    ***         renderTemplete should be used called from loadAndCall callback to render the templete(Important)
+    ***         loginToNodeAPI should be called after renderTemplete(Important)
+    ***         Templete initailization should be done after loginToNodeAPI
+    ****            As part of templete initialization user info and settings will be available as part of appGlobalVarsObject._CONSTANTS.axpertUserSettings
+    ****            As part of templete initialization menu configuration will be available as part of appGlobalVarsObject._CONSTANTS.menuConfiguration
+    ****            As part of templete initialization search configuration will be available as part of appGlobalVarsObject._CONSTANTS.search
+    ****            As part of templete initialization history configuration will be available as part of appGlobalVarsObject._CONSTANTS.history
+    ***         Home Page redirection should be done after templete initialization with LoadIframe(appGlobalVarsObject._CONSTANTS.menuConfiguration.homePage.url);
+-->
+<style type="text/css">
+
+</style>
+<template class="templateContent">
+    <div class="fullTempleteWrapper">
+        <!-- #Page Loader -->
+        <div class="page-loader-wrapper">
+            <div class="loader">
+                <div class="preloader">
+                    <div class="spinner-layer pl-blue-grey">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p>Please wait...</p> -->
+            </div>
+        </div>
+        <!-- /Page Loader -->
+        <!-- #Overlay For Sidebars -->
+        <div class="overlay"></div>
+        <!-- /Overlay For Sidebars -->
+        <!-- #Search Bar -->
+        <div class="search-bar">
+            <div class="search-bar-wrapper">
+                <input id="globalSearchinp" type="text" placeholder="Search..." />
+                <div class="search-icon">
+                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="true">search</i>
+                    <ul class="dropdown-menu pull-left">
+                        <li>
+                            <a href="javascript:void(0);" onclick="$.axpertUI.search.searchModeContains(true);">
+                                <i class="material-icons">format_size</i><span>Contains</span>
+                            </a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+
+                        <li>
+                            <a href="javascript:void(0);" onclick="$.axpertUI.search.searchModeContains(false);">
+                                <i class="material-icons">format_size</i><span>Starts with</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="close-search">
+                    <i class="material-icons">close</i>
+                </div>
+            </div>
+        </div>
+        <!-- /Search Bar -->
+        <!-- #Top Bar -->
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!-- <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+                       data-target="#navbar-collapse" aria-expanded="false"></a> -->
+                    <a href="javascript:void(0);" class="bars"></a>
+                    <a class="navbar-brand" href="javascript:void(0)">
+                        <span id="axAppName">
+                        </span>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- #Call Search -->
+                        <li>
+                            <a href="javascript:void(0);" class="js-search" data-close="true">
+                                <i class="material-icons" title="Search" id="searchIcon">search</i>
+                            </a>
+                        </li>
+                        <!-- /Call Search -->
+                        <li class="pull-right" id="optionsPanel">
+                            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                                <i class="material-icons" title="Options">more_vert</i>
+                            </a>
+                        </li>
+                        <li class="pull-right dropdown" id="userProfile">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                <span id="userProfileIcon" class='customUserProfIcon' title="User Details">
+                                    <i class="material-icons" title="User Details">person</i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:void(0);" title="User Name" id="userName">
+                                        <span id="userNameIcon" class='customUserProfIcon'></span>
+                                        <span id="userNameInfo">
+                                            <div class="name" data-toggle="dropdown" aria-haspopup="true"
+                                                 aria-expanded="false" id="AxNickName">
+                                            </div>
+                                            <div class="email" id="AxUserEmail"></div>
+                                        </span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li id="GlobalParams">
+                                    <div id="AxGlo" href="javascript:void(0);">
+                                        <a><i class="material-icons" title="edit">edit</i></a><span>Global Params</span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </li>
+                                <li id="Logout">
+                                    <a href="javascript:void(0);" data-close="true">
+                                        <span class="signout">Sign Out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="pull-right" id="notificationPanel">
+                            <a href="javascript:void(0);" class="js-right-notificationbar" data-close="true">
+                                <i class="material-icons" title="Notifications">notifications</i>
+                                <span id='notifyCountcheck' class='label-count'></span>
+                            </a>
+                        </li>
+                        <li class="pull-right" id="LicInfo">
+                            <a href="javascript:void(0);" class="" data-close="true">
+                                <i class="material-icons pulser">info</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- /Top Bar -->
+
+        <section>
+            <!-- #Left Sidebar -->
+            <aside id="leftsidebar" class="sidebar">
+                <!-- #User Info -->
+                <!-- /User Info -->
+                <!-- #Menu -->
+                <div class="menu">
+                    <ul class="list"></ul>
+                </div>
+                <!-- /Menu -->
+                <!-- #Footer -->
+                <div class="legal">
+                    <div class="copyright">
+                        <img src="../images/loginlogo.png" width="40" height="40" alt="User" /> <span>
+                            &copy; 2020 <a href="javascript:void(0);">Powered by Axpert</a>.
+                        </span>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+                <!-- /Footer -->
+            </aside>
+            <!-- /Left Sidebar -->
+            <!-- #Right Sidebar -->
+            <aside id="notificationbar" class="right-notificationbar">
+                <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                    <li role="presentation" class="active"><a href="#notification" data-toggle="tab">Notifications</a></li>
+                    <li><button type="button" id="Clearnotify">Clear All</button></li>
+                </ul>
+
+                <div class="notify-content">
+
+                    <!-- #notification Panel -->
+                    <div role="tabpanel" class="setting-panel tab-pane fade in active in active" id="notification">
+                        <div class="demo-settings" id="notifycount">
+
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <aside id="rightsidebar" class="right-sidebar">
+                <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                    <li role="presentation"><a href="#historyData" data-toggle="tab">History</a></li>
+                    <li role="presentation"><a href="#utils" data-toggle="tab">Utilities</a></li>
+                    <li role="presentation" class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+                <div class="tab-content">
+                    <!-- #History Panel -->
+                    <div role="tabpanel" class="setting-panel tab-pane fade" id="historyData">
+                        <ul class="setting-list"></ul>
+                    </div>
+                    <!-- /History Panel -->
+                    <!-- #Utilities Panel -->
+                    <div role="tabpanel" class="setting-panel tab-pane fade" id="utils">
+                        <p id="utiltiesMobile">Mobile</p>
+                        <ul class="setting-list">
+                            <li id="qrCodeBtnWrapper">
+                                <a href="javascript:void(0)" class="dropdown-toggle noBg qrcoderelnoBg qrcoderel"
+                                   data-toggle="dropdown" id="qrCode">
+                                    <i class="setting-icon material-icons">center_focus_weak</i>
+                                    <span class="setting-caption">
+                                        Scan QR Code
+                                    </span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <p id="utiltiesGeneral">General</p>
+                        <ul class="setting-list">
+                            <li id="WidgetBuilder" class="clickAutoClose">
+                                <a>
+                                    <i class="setting-icon material-icons">widgets</i>
+                                    <span class="setting-caption">Widget Builder</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li id="pageBuilderBtn" class="clickAutoClose">
+                                <a>
+                                    <i class="setting-icon material-icons">border_all</i>
+                                    <span class="setting-caption">Page Builder</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li id="refreshMenu" title="Refresh Menu" class="clickAutoClose">
+                                <a href="javascript:void(0);">
+                                    <i class="material-icons setting-icon">refresh</i><span class="setting-caption">Refresh Menu</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li id="Dashboard" class="clickAutoClose">
+                                <a>
+                                    <i class="setting-icon material-icons">dashboard</i>
+                                    <span class="setting-caption">Dashboard</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li id="Responsibilities" class="clickAutoClose">
+                                <a>
+                                    <i class="setting-icon material-icons">how_to_reg</i>
+                                    <span class="setting-caption">Responsibilities</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li id="ExportData" class="clickAutoClose">
+                                <a>
+                                    <i class="setting-icon material-icons">merge_type</i>
+                                    <span class="setting-caption">Export Data</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li id="ImportData" class="clickAutoClose">
+                                <a>
+                                    <i class="setting-icon material-icons">vertical_align_bottom</i>
+                                    <span class="setting-caption">Import Data</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li id="ImportHistory" class="clickAutoClose">
+                                <a>
+                                    <i class="setting-icon material-icons">history</i>
+                                    <span class="setting-caption">Import History</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li id="WorkFlow" class="clickAutoClose">
+                                <a>
+                                    <i class="setting-icon material-icons">account_tree</i>
+                                    <span class="setting-caption">Workflow</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /Utilities Panel -->
+                    <!-- #Settings Panel -->
+                    <div role="tabpanel" class="setting-panel tab-pane fade in active in active" id="settings">
+                        <div class="demo-settings">
+                            <p id="settingsGeneral">General</p>
+                            <ul class="setting-list">
+                                <li id="About" class="clickAutoClose">
+                                    <a>
+                                        <i class="setting-icon material-icons">perm_device_information</i>
+                                        <span class="setting-caption">About</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li id="InMemoryDB" class="clickAutoClose">
+                                    <a>
+                                        <i class="setting-icon material-icons">memory</i>
+                                        <span class="setting-caption">InMemory DB</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li id="showLog">
+                                    <a class="clickAutoClose">
+                                        <i class="setting-icon material-icons">menu_book</i>
+                                        <span class="setting-caption">Show Logs</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="switch">
+                                        <span id="chkshowlog">
+                                            <label>
+                                                <input type="checkbox"><span id="imgTogTrace" class="lever" title="Trace On"></span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li id="executionLog">
+                                    <a class="clickAutoClose">
+                                        <i class="setting-icon material-icons">menu_book</i>
+                                        <span class="setting-caption">View Execution Trace</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li id="uiSelector">
+                                    <a class="clickAutoClose">
+                                        <i class="setting-icon material-icons">aspect_ratio</i>
+                                        <span class="setting-caption">Modern UI</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="switch">
+                                        <span id="enableModernUI">
+                                            <label>
+                                                <input type="checkbox"><span id="spanModernUI" class="lever" title="ModernUI off"></span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li id="auditReport" class="clickAutoClose">
+                                    <a>
+                                        <i class="setting-icon material-icons">assignment_turned_in</i>
+                                        <span class="setting-caption">Audit Report</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li id="userManual" class="clickAutoClose">
+                                    <a>
+                                        <i class="setting-icon material-icons">local_library</i>
+                                        <span class="setting-caption">User Manual</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p id="" class="spiltHeading">Split</p>
+                            <ul class="setting-list" id="splitIcon">
+                                <li class="clickAutoClose">
+                                    <a onclick="assocateIframe();splitvertical();" title="Vertical Split"
+                                       id="verticalSplit">
+                                        <i class="setting-icon material-icons">vertical_split</i>
+                                        <span class="setting-caption">Vertical Split</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li class="clickAutoClose">
+                                    <a onclick="assocateIframe();splithorizantal();" title="Horizantal Split"
+                                       id="horizontalSplit">
+                                        <i class="setting-icon material-icons">horizontal_split</i>
+                                        <span class="setting-caption">Horizontal Split</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li class="clickAutoClose">
+                                    <a href="javascript:void(0);" onclick="splitfull();" title="Clear Split"
+                                       id="clearSplit">
+                                        <i class="setting-icon material-icons">clear</i>
+                                        <span class="setting-caption">Clear Split</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p id="settingsPanel">Settings Panel</p>
+                            <ul class="setting-list">
+                                <li id="globalsettings" class="clickAutoClose">
+                                    <a>
+                                        <i class="setting-icon material-icons">vpn_key</i>
+                                        <span class="setting-caption">Global Settings</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li id="AppConfig" class="clickAutoClose">
+                                    <a>
+                                        <i class="setting-icon material-icons">settings_applications</i>
+                                        <span class="setting-caption">Developer Options</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li id="ChangePassword" class="clickAutoClose">
+                                    <a>
+                                        <i class="setting-icon material-icons">lock</i>
+                                        <span class="setting-caption">Change Password</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /Settings Panel -->
+                </div>
+            </aside>
+            <!-- /Right Sidebar -->
+        </section>
+
+
+
+        <section class="content">
+            <!-- #Back page navigation -->
+            <button type="button" class="btn btn-default btn-circle waves-effect waves-circle waves-float appBackBtn"
+                    onclick="prevbtn_click($(this))">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            <!-- /Back page navigation -->
+            <div class="container-fluid">
+                <!-- #IFrames Panel @IMPROTANT@ -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="splitter-wrapper">
+                            <div class="panel-container main-panel-container">
+                                <div class="panel-left panel-fisrt-part">
+                                    <div class="panel-left-inner">
+                                        <iframe id="middle1" name="middle1"
+                                                class="card col-xs-12 col-sm-12 col-md-12 col-lg-12 searchOpened" src=""
+                                                style="padding: 0px;" frameborder="0" scrolling="no"
+                                                allowtransparency="True" width="100%"></iframe>
+                                    </div>
+                                </div>
+                                <div class="splitter panel-splitter" id="drag-point" style="display: none;">
+                                </div>
+                                <div class="panel-right panel-second-part" id="divaxpiframe"
+                                     style="display: none !important">
+                                    <div class="panel-right-inner">
+                                        <iframe id="axpiframe" name="axpiframe"
+                                                class="card col-xs-12 col-sm-12 col-md-12 col-lg-12 searchOpened" src=""
+                                                style="padding: 0px;" frameborder="0" scrolling="no"
+                                                allowtransparency="True" width="100%" style="display: none;"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /IFrames Panel -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Custom Js -->
+    <script src=""></script>
+</template>
+<script type="text/javascript">
+    /**
+     * Show Templete in Header on pageload
+     * @author Prashik
+     * @Date   2019-08-04T13:21:51+0530
+     */
+    // $(function () {
+    var files = {
+        css: ["/Thirdparty/newMaterialUI/plugins/node-waves/waves.css",
+            "/Css/axpertUI.min.css?v=21",
+            "/Css/theme-blue-grey.min.css"
+        ],
+        js: ["/Thirdparty/newMaterialUI/plugins/node-waves/waves.js",
+            "/Js/axpertUI.min.js?v=35",
+            // "/Js/menuJsonData.js"
+        ]
+    };
+
+    var dirLeft = true;
+
+    if ($("body").hasClass("btextDir-rtl")) {
+        dirLeft = false;
+        files.css.push("/ThirdParty/bootstrap_rtl.min.css");
+        files.css.push("/Css/axpertUIRtl.min.css?v=3");
+    }
+
+    loadAndCall({
+        files: files,
+        callBack: function () {
+            $("body").addClass("theme-blue-grey");
+            // if (appGlobalVarsObject._CONSTANTS.compressedMode) {
+            appGlobalVarsObject.methods.toggleCompressModeUI($("body"));
+            // }
+            renderTemplete('template.templateContent');
+            $(function () {
+                loginToNodeAPI();
+                //start AxpertUI Init
+                appGlobalVarsObject._CONSTANTS.menuConfiguration = $.extend(true, {},
+                    appGlobalVarsObject._CONSTANTS.menuConfiguration, {
+                        menuJson: menuJson,
+                        staging: {
+                            div: "#leftsidebar .menu ul.list",
+                            divParent: "#leftsidebar"
+                        },
+                        homePage: {
+                            url: ($("#hdHomeUrl").val() || "")
+                        }
+                    });
+                try {
+                    var lcm = appGlobalVarsObject.lcm;
+                    var tempaxpertUIObj = $.axpertUI
+                        .init({
+                            isHybrid: appGlobalVarsObject._CONSTANTS.isHybrid,
+                            isMobile: isMobile,
+                            showMenu: appGlobalVarsObject._CONSTANTS.showMenu,
+                            compressedMode: appGlobalVarsObject._CONSTANTS.compressedMode,
+                            leftSideBar: {
+                                menuConfiguration: appGlobalVarsObject._CONSTANTS
+                                    .menuConfiguration
+                            },
+                            dirLeft: dirLeft,
+                            axpertUserSettings: {
+                                staging: {
+                                    optionsPanel: {
+                                        div: "#optionsPanel",
+                                        title: lcm[301]
+                                    },
+                                    userProfile: {
+                                        div: "#userProfile",
+                                        icon: "#userProfileIcon",
+                                        options: {
+                                            userName: {
+                                                div: "#userName",
+                                                icon: "#userNameIcon"
+                                            }
+                                        }
+                                    },
+                                    notificationPanel: {
+                                        div: "#notificationPanel",
+                                        title: lcm[301]
+                                    },
+                                    LicInfo: {
+                                        div: "#LicInfo",
+                                        divClick: "i",
+                                        divTitle: "a"
+                                    },
+                                    axAppName: {
+                                        div: "#axAppName"
+                                    },
+                                    AxAppLogo: {
+                                        div: "#AxAppLogo",
+                                        AppLogo: "img",
+                                    },
+                                    AxNickName: {
+                                        div: "#AxNickName"
+                                    },
+                                    AxUserEmail: {
+                                        div: "#AxUserEmail"
+                                    },
+                                    GlobalParams: {
+                                        div: "#GlobalParams",
+                                        divClick: "a",
+                                        divTitle: "#AxGlo",
+                                        divData: '#myPopover',
+                                        title: lcm[468]
+                                    },
+                                    Logout: {
+                                        div: "#Logout",
+                                        title: lcm[457]
+                                    },
+                                    About: {
+                                        div: "#About",
+                                        title: lcm[463]
+                                    },
+                                    InMemoryDB: {
+                                        div: "#InMemoryDB",
+                                        title: lcm[464]
+                                    },
+                                    showLog: {
+                                        div: "#showLog",
+                                        divClick: "a",
+                                        title: lcm[460]
+                                    },
+                                    executionLog: {
+                                        div: "#executionLog",
+                                        divClick: "a",
+                                        title: lcm[496]
+                                    },
+                                    uiSelector: {
+                                        div: "#uiSelector",
+                                        divClick: "a",
+                                        title: lcm[479]
+                                    },
+                                    auditReport: {
+                                        div: "#auditReport",
+                                        divClick: "a",
+                                        title: lcm[459]
+                                    },
+                                    userManual: {
+                                        div: "#userManual",
+                                        divClick: "a",
+                                        title: lcm[492]
+                                    },
+                                    traceValue: {
+                                        div: "#chkshowlog",
+                                        divClick: "label",
+                                        divControl: "input",
+                                        divspan: "span",
+                                        title: {
+                                            on: lcm[465],
+                                            off: lcm[466],
+                                        }
+
+                                    },
+                                    modernUiValue: {
+                                        div: "#enableModernUI",
+                                        divClick: "label",
+                                        divControl: "input",
+                                        divSpan: "span",
+                                        title: {
+                                            on: lcm[481],
+                                            off: lcm[480],
+                                        }
+                                    },
+                                    globalsettings: {
+                                        div: "#globalsettings",
+                                        title: lcm[258]
+                                    },
+                                    AppConfig: {
+                                        div: "#AppConfig",
+                                        title: lcm[467],
+                                    },
+                                    splitIcon: {
+                                        div: "#splitIcon",
+                                        title: lcm[474],
+                                        heading: ".spiltHeading",
+                                        options: {
+                                            verticalSplit: {
+                                                div: "#verticalSplit",
+                                                title: lcm[453]
+
+                                            },
+                                            horizontalSplit: {
+                                                div: "#horizontalSplit",
+                                                title: lcm[454]
+                                            },
+                                            clearSplit: {
+                                                div: "#clearSplit",
+                                                title: lcm[455]
+                                            }
+                                        }
+                                    },
+                                    ChangePassword: {
+                                        div: "#ChangePassword",
+                                        title: lcm[252],
+                                    },
+                                    qrCodeBtnWrapper: {
+                                        div: "#qrCodeBtnWrapper",
+                                        divClick: "a",
+                                        title: lcm[461],
+                                    },
+                                    WidgetBuilder: {
+                                        div: "#WidgetBuilder",
+                                        title: lcm[257],
+                                    },
+                                    pageBuilderBtn: {
+                                        div: "#pageBuilderBtn",
+                                        title: lcm[462],
+                                    },
+                                    refreshMenu: {
+                                        div: "#refreshMenu",
+                                        title: lcm[456]
+                                    },
+                                    Dashboard: {
+                                        div: "#Dashboard",
+                                        title: lcm[458],
+                                    },
+                                    Responsibilities: {
+                                        div: "#Responsibilities",
+                                        title: lcm[313],
+                                    },
+                                    ExportData: {
+                                        div: "#ExportData",
+                                        title: lcm[250],
+                                    },
+                                    ImportData: {
+                                        div: "#ImportData",
+                                        title: lcm[251],
+                                    },
+                                    ImportHistory: {
+                                        div: "#ImportHistory",
+                                        title: lcm[255],
+                                    },
+                                    WorkFlow: {
+                                        div: "#WorkFlow",
+                                        title: lcm[398],
+                                    },
+                                },
+
+                                settings: appGlobalVarsObject._CONSTANTS.axpertUserSettings
+                            },
+                            search: {
+                                staging: {
+                                    div: '#globalSearchinp',
+                                    divParent: '.search-bar',
+                                    title: lcm[350],
+                                    placeholder: lcm[415],
+                                    searchIconDiv: "#searchIcon",
+                                    options: {
+                                        contains: {
+                                            div: "span:eq(0)",
+                                            title: lcm[451]
+                                        },
+                                        startsWith: {
+                                            div: "span:eq(1)",
+                                            title: lcm[452]
+                                        }
+                                    }
+                                }
+
+                            },
+                            notificationbar: {
+                                divParent: "#notificationbar",
+                                notificationTimeout: notifyTimeout || "",
+                                staging: {
+                                    options: {
+                                        notification: {
+                                            div: "a:eq(0)",
+                                            title: lcm[488]
+                                        }
+                                    }
+                                }
+                            },
+                            rightSideBar: {
+                                divParent: "#rightsidebar",
+                                staging: {
+                                    options: {
+                                        history: {
+                                            div: "a:eq(0)",
+                                            title: lcm[469]
+                                        },
+                                        utilities: {
+                                            div: "a:eq(1)",
+                                            title: lcm[470],
+                                            options: {
+                                                general: {
+                                                    div: "#utiltiesGeneral",
+                                                    title: lcm[205]
+                                                },
+                                                mobile: {
+                                                    div: "#utiltiesMobile",
+                                                    title: lcm[472]
+                                                }
+                                            }
+
+                                        },
+                                        settings: {
+                                            div: "a:eq(2)",
+                                            title: lcm[471],
+                                            options: {
+                                                general: {
+                                                    div: "#settingsGeneral",
+                                                    title: lcm[205]
+                                                },
+                                                split: {
+                                                    div: ".spiltHeading",
+                                                    title: lcm[474]
+                                                },
+                                                settingPanel: {
+                                                    div: "#settingsPanel",
+                                                    title: lcm[473]
+                                                }
+                                            }
+
+
+                                        },
+
+
+
+                                    }
+                                }
+                            }
+                        }
+
+                        );
+
+                    appGlobalVarsObject._CONSTANTS.menuConfiguration = tempaxpertUIObj.leftSideBar
+                        .menuConfiguration;
+
+                    appGlobalVarsObject._CONSTANTS.history = tempaxpertUIObj.history;
+
+                } catch (ex) { }
+                //end AxpertUI Init
+
+                //if (callParentNew("nodeApi") || (!callParentNew("nodeApi") && appGlobalVarsObject._CONSTANTS.menuConfiguration.homePage.url.toLowerCase().indexOf("page.aspx") == -1)) {
+                //    LoadIframe(appGlobalVarsObject._CONSTANTS.menuConfiguration.homePage.url);
+                //}
+                LoadIframe(appGlobalVarsObject._CONSTANTS.menuConfiguration.homePage.url, true);
+
+                // $("body").addClass("compressedModeUI");
+            });
+        }
+    });
+    //End HomePage Code
+    // });
+</script>

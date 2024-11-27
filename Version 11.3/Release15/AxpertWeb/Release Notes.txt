@@ -1,0 +1,71 @@
+Task ID-011847 -- Enhancement: With this enhancement, Lower version product site( forms/reports/html pages) can be open from the latest version from menu(by avoiding the separate login to lower version application) by using same schema. following setup needs to be done in the solution level to achieve this enhancement. 
+1. Attached script needs be run in latest upgraded schema. It will add a column as 'oldappurl' in axpages table. 
+2. This "oldappurl" needs to be updated manually with lower version site URL where the forms/report/html pages those needs to be open in lower version by connection to same schema. 
+   EX.: If there is requirement to open some forms/reports/html pages in 10.9 version from latest version, "oldappurl" need to be updated with "https://qa.agilecloud.biz/Axpert10.9Web" (this url mentioned from qa site)
+3. A group of menu items needs to be open in old site, it can be grouped under one header by using Orange Menu( In this case, header also needs be updated with oldappurl)
+4. Required Lower version changes needs to be applied in lower version site which will be released as and when required. 
+
+Task ID-011826 -Quess- Issue: Quess Vulnerability report has been shared for Qbridge application running in Version 11.3 to resolve the reported issues.
+Note: 1. The attached "Web.config" file needs to be merged with "web.config" available in axpert scripts folder.
+      2. "URL Rewrite" setting should be available in IIS Setting tab for the Axpert Script site. Incase "URL Rewrite" setting not available, then it needs to be downloaded from the site "https://www.iis.net/downloads/microsoft/url-rewrite" (32bit or 64bit as per the server) and installed.
+
+Task ID-011839 -DOP-Autocomplete dropdown(MOE: Select fields) fields performance dropping down during continues data entry from same form.
+
+Task ID-011753 -PayAzzure- Description: If a user creates a field with 'Is Data Encryption' set to true and 'Allow Duplicate' set to false, at runtime, but duplicates are being allowed to save.
+
+Task ID-011841 -Support(Dilmah)- Form buttons overlapping issue
+
+Task ID-011825 -BDF-Issue Description : BDF Issue - Iview refresh issue, Iview name and param details are getting hide while refreshing the Iview.
+
+Task ID-011819 -BDF- Issue Description : BDF Issue - Hyper links are not working in iView's when user create hyperlink using HTML script (For the First time click on it is working, afterwards not working) 
+
+Task ID-011803 -BDF- BDF Issue - Auto fill grid option not working if user enable Wizard DC option in tstruct. 
+Note :Same is working fine without wizard DC option.
+
+Task ID-011832 -Zishta- Description: In the Direct Sales module of the Zishta Project, when user enter the expression bulk_discount - Total({discount}) in the roundoffamount field, it displays a value of 0.03 in the Runsite. However, if I change the expression to Total({discount}) - bulk_discount in the roundoffamount field, it shows -0.02 in Runsite. The bulk_discount value is 215, and the Total({discount}) value is 214.97
+
+Task ID-011802 -QA(QuessFMS)- Description: When the user opens Tstruct in pop-up mode and imports more than 15 rows of data into the grid DC, the scrollbar does not display all the rows in the grid.
+
+Task ID-011815 -QA(Agile ERP)- Description: Table field column value not populating from second row onwards if the source given as tstruct field with MOE as 'accept'
+
+Task ID-011794 -QA- Issue Description: Table field column value not populating properly(Grid & Non-Grid) if the source given as tstruct date field
+
+Task ID-011793 -QA(Pay Azzure)- Issue Description: a) The table field column value is not populating correctly (Ex: 1818/1010/2424) when the source is provided as the tstruct field date.
+B) Once the user chooses a date from the datepicker, then it is not allowing to edit that date in the table field.
+Note - The issue is occurring in both grid and non-grid
+
+
+Task ID-011806 -QA- Issue Description: Saving Notification is taking longer time. Data intelligence is not working in Notifications
+
+Task ID-011833 -QA- Description : In Form Notification and PEG Notification - When the user enters Data Intellisense '{' or ':' in rich text field Data list is not showing properly
+
+Task ID-011787 -QA- Issue Description: Facing issue when we try to save the form design sql server 2022 which is connected using ODBC.
+
+Task ID-011829 -Support(Dilmah)- In some scenarios, it's possible to click the save button multiple times across transactions. This may be due to a developer setting—customized popups for transaction save success. This issue mainly occurs on forms that take a little time to save; before the success message appears, users may click the save button again, which results in duplicate data
+
+Task ID-011835 -Support(Dilmah)- Partial data loading issue in transaction forms(Grid dc) 
+
+Task ID-011824 -Support(Dilmah)- Application getting hanged randomly when loading some forms(causes of the issue because url special characters)
+
+Task ID-011820 -Support(Dilmah)- This issue is very similar to the one reported already for General Purchase Bill, where the voucher detail grid (dc4) is not refreshing based on item particulars (dc2).  The sum function coming through EVAL on the last row resulting with large number of decimal places and becoming zero.
+
+Task ID-011804 -BDF-Iview random issue: Root element missing error
+
+Task ID-011805 -Dilmah- UI enhancement for Tabbed dc's: The tabbed dc's showing as slider instated of multiple header lines if the no of tabbed dc's are more.
+
+Task ID-011763 -Support(Dilmah)- PRO484 - The PDF output of Iview in the web version has several differences compared to the output generated using Axpert Desktop. Here are the key differences
+1. In the web version, the grid lines in the PDF output are not visible, whereas, in the desktop version, grid lines are clearly printed.
+2. On the desktop system, only the report headers defined through the Iview properties are printed in the PDF. However, in the web version, the PDF includes all the parameters selected at runtime, which can clutter the report.
+3. In the web version, column headers are not repeated on every page when the report spans multiple pages. This feature is available in the desktop version, improving readability for multi-page reports.
+ 	
+Task ID-011799 -Support(Dilmah)- In the General Purchase Bill screen, the Voucher Detail (dc4) tab generates an ORA error as missing expression through fillgrid execution. This issue occurs because the posalestype reference from Item Particulars (dc2) is not populating correctly. However, it resolves automatically when an extra row is temporarily added and then removed from the Item Particulars grid (dc2) before trying again.
+
+Task ID-011800 -Support(Dilmah)- In the balance sheet report, the amount column is configured to enclose negative values in brackets. However, this functionality does not work if the comma separator is also enabled.
+
+Task ID-011745 -PayAzzure- Issue Description: In Axpages, if the 'webenable' value is empty for any record(If value is [NULL] that is handled), that particular structure is not be visible in the menu, but it will still be available in the global search.
+
+Task ID-011716 -PayAzzure- Description - In Grid DC, if the user creates any "From List" field with a default value, clicking the user-defined button(RefreshFrame(2) + Save Script) saves the default value instead of the provided values
+
+Task ID-011674 -Payazzure- Issue - In Button issue, when user click on Download then Accept and Reject  buttons are Showing as disabled but On Click of those buttons Functionality is Working.
+
+Task ID-011771 -Support(Dilmah)- The issue occurs in edit mode when we use the fillgrid to append rows, where dependent fields are only refreshed based on the last appended row.
