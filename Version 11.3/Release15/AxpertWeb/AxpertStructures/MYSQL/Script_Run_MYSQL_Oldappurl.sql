@@ -1,6 +1,10 @@
+<<
+
 alter table axpages add oldappurl varchar(500);
 
+>>
 
+<<
 
 create or replace
 algorithm = UNDEFINED view `axp_appsearch_data_new` as
@@ -75,9 +79,9 @@ order by
     `SLNO`;
     
    
-   
+>> 
 
-
+<<
 
    create or replace
 algorithm = UNDEFINED view `axp_appsearch` as
@@ -141,5 +145,5 @@ union
         `slno`,
         `username`) `a`;
         
-       
+>>     
        

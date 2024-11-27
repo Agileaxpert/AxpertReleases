@@ -1,3 +1,5 @@
+<<
+
 CREATE OR REPLACE FUNCTION fn_axpanalytics_ap_charts(pentity_transid varchar2, pcriteria varchar2, pfilter varchar2, pusername varchar2 DEFAULT 'admin', papplydac varchar2 DEFAULT 'T')
 RETURN SYS.ODCIVARCHAR2LIST
 IS
@@ -358,6 +360,10 @@ begin
 
    return v_final_sqls ;
 END;
+
+>>
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_chartdata(psource in varchar2, pentity_transid in varchar2, pcondition in varchar2, pcriteria in varchar2,pfilter clob DEFAULT 'NA', pusername varchar2 DEFAULT 'admin', papplydac varchar2 DEFAULT 'T' )
 RETURN  SYS.ODCIVARCHAR2LIST
@@ -829,6 +835,10 @@ END IF;
 
 END;
 
+>>
+
+<<
+
 CREATE OR REPLACE FUNCTION fn_axpanalytics_edittxn(ptransid varchar2, precordid NUMERIC, pusername varchar2 DEFAULT 'admin', papplydac varchar2 DEFAULT 'T')
 RETURN varchar2
 IS 
@@ -1090,6 +1100,10 @@ else 'T' end;
 
 END;
 
+>>
+
+<<
+
 CREATE OR REPLACE FUNCTION fn_axpanalytics_filterdata(ptransid varchar2, pflds clob)
  RETURN  SYS.ODCIVARCHAR2LIST
 is 
@@ -1112,6 +1126,10 @@ return v_result_array;
 
  
 END;
+
+>>
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_listdata(ptransid varchar2, pflds clob DEFAULT 'All', ppagesize numeric DEFAULT 25, ppageno numeric DEFAULT 1, pfilter clob DEFAULT 'NA', pusername varchar2 DEFAULT 'admin', papplydac varchar2 DEFAULT 'T')
 -- RETURN  clob
@@ -1445,6 +1463,10 @@ return v_final_sqls;
 
  END;
 
+>>
+
+<<
+
 CREATE OR REPLACE FUNCTION fn_axpanalytics_metadata(ptransid varchar2, psubentity varchar2 DEFAULT 'F')
  RETURN  axpdef_axpanalytics_mdata
 IS
@@ -1534,6 +1556,10 @@ select axpflds.tstruct transid,t.caption formcap, fname ,axpflds.caption fcap,cu
    	 
 
 END;
+
+>>
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_se_listdata(pentity_transid varchar2, pflds_keyval clob, ppagesize numeric DEFAULT 50, ppageno numeric DEFAULT 1)
 RETURN SYS.ODCIVARCHAR2LIST
@@ -1702,9 +1728,15 @@ begin
 RETURN v_final_sqls;
 END;
 
+>>
+
+<<
 
 alter table axpages add oldappurl varchar2(500);
 
+>>
+
+<<
 
 CREATE OR REPLACE VIEW "AXP_APPSEARCH_DATA_NEW"  AS 
 SELECT 2 AS slno,
@@ -1817,7 +1849,10 @@ SELECT 3 AS slno,
 from axp_vw_menu JOIN axpages p ON axp_vw_menu.name = p.name  
 where axp_vw_menu.pagetype='web' and axp_vw_menu.websubtype='htmlpage'
    ORDER BY 1;
-   
+
+>>   
+
+<<
   
 CREATE OR REPLACE VIEW AXP_APPSEARCH AS
   SELECT
@@ -1885,3 +1920,4 @@ UNION
 	ORDER BY
 		slno,
 		username);
+>>

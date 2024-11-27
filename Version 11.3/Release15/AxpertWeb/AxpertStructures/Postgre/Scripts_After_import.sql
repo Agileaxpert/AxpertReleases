@@ -1,3 +1,4 @@
+<<
 CREATE OR REPLACE FUNCTION fn_axpanalytics_ap_charts(pentity_transid character varying, pcriteria character varying, pfilter character varying, pusername character varying DEFAULT 'admin'::character varying, papplydac character varying DEFAULT 'T'::character varying)
  RETURNS text
  LANGUAGE plpgsql
@@ -364,7 +365,11 @@ END;
 $function$
 ;
 
+>>
+
 -- DROP FUNCTION fn_axpanalytics_chartdata(varchar, varchar, varchar, varchar, varchar, varchar, varchar);
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_chartdata(psource character varying, pentity_transid character varying, pcondition character varying, pcriteria character varying, pfilter character varying DEFAULT 'NA'::character varying, pusername character varying DEFAULT 'admin'::character varying, papplydac character varying DEFAULT 'T'::character varying)
  RETURNS text
@@ -841,7 +846,11 @@ END;
 $function$
 ;
 
+>>
+
 -- DROP FUNCTION fn_axpanalytics_edittxn(varchar, numeric, varchar, varchar);
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_edittxn(ptransid character varying, precordid numeric, pusername character varying DEFAULT 'admin'::character varying, papplydac character varying DEFAULT 'T'::character varying)
  RETURNS text
@@ -1105,7 +1114,10 @@ else 'T' end;
 END; $function$
 ;
 
+>>
 -- DROP FUNCTION fn_axpanalytics_filterdata(varchar, text);
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_filterdata(ptransid character varying, pflds text)
  RETURNS TABLE(datavalue character varying)
@@ -1131,7 +1143,11 @@ return query execute v_sql;
 END; $function$
 ;
 
+>>
+
 -- DROP FUNCTION fn_axpanalytics_listdata(varchar, text, numeric, numeric, text, varchar, varchar);
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_listdata(ptransid character varying, pflds text DEFAULT 'All'::text, ppagesize numeric DEFAULT 25, ppageno numeric DEFAULT 1, pfilter text DEFAULT 'NA'::text, pusername character varying DEFAULT 'admin'::character varying, papplydac character varying DEFAULT 'T'::character varying)
  RETURNS text
@@ -1447,7 +1463,10 @@ return v_sql1;
 END; $function$
 ;
 
+>>
 -- DROP FUNCTION fn_axpanalytics_metadata(varchar, varchar);
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_metadata(ptransid character varying, psubentity character varying DEFAULT 'F'::character varying)
  RETURNS SETOF axpdef_axpanalytics_mdata
@@ -1526,7 +1545,11 @@ end if;
 END; $function$
 ;
 
+>>
+
 -- DROP FUNCTION fn_axpanalytics_se_listdata(varchar, text, numeric, numeric);
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axpanalytics_se_listdata(pentity_transid character varying, pflds_keyval text, ppagesize numeric DEFAULT 50, ppageno numeric DEFAULT 1)
  RETURNS text
@@ -1690,9 +1713,11 @@ END;
 $function$
 ;
 
-
+>>
 
 -- DROP FUNCTION fn_axrelations();
+
+<<
 
 CREATE OR REPLACE FUNCTION fn_axrelations()
  RETURNS trigger
@@ -1774,16 +1799,23 @@ return new;
 $function$
 ;
 
+>>
 
+<<
 create trigger trg_axrelations before
 insert
     on
     axrelations for each row execute function fn_axrelations();
 
+>>
 
+<<
 
 alter table axpages add oldappurl varchar(500);
 
+>>
+
+<<
 
 CREATE OR REPLACE VIEW axp_appsearch_data_new
 AS 
@@ -1852,7 +1884,9 @@ UNION all
   WHERE axp_vw_menu.pagetype::text = 'web'::text
   ORDER BY 1;
 
- 
+>>
+
+<< 
   
 CREATE OR REPLACE VIEW axp_appsearch
 AS 
@@ -1894,3 +1928,5 @@ SELECT DISTINCT a.searchtext,
                      LEFT JOIN axuseraccess a_1 ON s.structname::text = a_1.sname::text AND (a_1.stype::text = ANY (ARRAY['t'::character varying::text, 'i'::character varying::text]))) b
           WHERE lg.usergroup::text = 'default'::text
   ORDER BY 1, 6) a; 
+
+>>
