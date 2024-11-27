@@ -4,9 +4,10 @@ Task ID-011847 -- Enhancement: With this enhancement, Lower version product site
    EX.: If there is requirement to open some forms/reports/html pages in 10.9 version from latest version, "oldappurl" need to be updated with "https://qa.agilecloud.biz/Axpert10.9Web" (this url mentioned from qa site)
 3. A group of menu items needs to be open in old site, it can be grouped under one header by using Orange Menu( In this case, header also needs be updated with oldappurl)
 4. Required Lower version changes needs to be applied in lower version site which will be released as and when required. 
+NOTE: Please update the Axpert Web 10.9.1.1_release7 after Axpert Web 10.9.1.1_release6
 
 Task ID-011826 -Quess- Issue: Quess Vulnerability report has been shared for Qbridge application running in Version 11.3 to resolve the reported issues.
-Note: 1. The attached "Web.config" file needs to be merged with "web.config" available in axpert scripts folder.
+Note: 1. The attached "Web.config" file in ASB Folder needs to be merged with "web.config" available in axpert scripts folder.
       2. "URL Rewrite" setting should be available in IIS Setting tab for the Axpert Script site. Incase "URL Rewrite" setting not available, then it needs to be downloaded from the site "https://www.iis.net/downloads/microsoft/url-rewrite" (32bit or 64bit as per the server) and installed.
 
 Task ID-011839 -DOP-Autocomplete dropdown(MOE: Select fields) fields performance dropping down during continues data entry from same form.
