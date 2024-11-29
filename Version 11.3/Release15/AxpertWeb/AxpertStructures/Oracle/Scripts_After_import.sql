@@ -115,7 +115,7 @@ begin
 				
 				
 				v_normalizedjoin := case when v_srckey='T' then ' left join '||v_srctbl||' b on '||v_grpfld_tbl||'.'||v_grpfld||' = b.'||v_srctbl||'id ' else ' ' end;
-				v_keyname := case when length(v_grpfld) > 0 then case when v_srckey='T' then 'b.'||v_srcfld else v_grpfld_tbl||'.'||v_grpfld end else ' ' end;			
+				v_keyname := case when length(v_grpfld) > 0 then case when v_srckey='T' then 'b.'||v_srcfld else v_grpfld_tbl||'.'||v_grpfld end else 'null' end;			
 			
 				v_tablenames.Extend;
 				v_tablenames(v_tablenames.COUNT) := case when v_srckey='T' then  v_srctbl end;
