@@ -1,0 +1,7 @@
+Release Notes:
+============
+	• Task ID-011908 --Enhancement :1. A new property has been introduced in Iview hyperlink definition as 'Open transaction in readonly mode', which can be used to load the data either in Readonly or Edit mode.
+	2. LoadFormAndData script function modified to accept one more parameter with value as t/f, which can be used to load the data either in Readonly or Edit mode.
+	   Ex.: LoadFormAndData({tform},{username=:username},{d},{f},{t})
+	• Task ID-011839 -DOP- Autocomplete dropdown(MOE: Select fields) fields performance dropping down during continues data entry from same form.
+	• Task ID-011077-QA-Issue Description-: DevSite- Scripts Field--On click cursor is not visible when user selects the FormControls Check box
