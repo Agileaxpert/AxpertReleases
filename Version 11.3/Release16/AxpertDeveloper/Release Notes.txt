@@ -5,3 +5,4 @@ Release Notes:
 	   Ex.: LoadFormAndData({tform},{username=:username},{d},{f},{t})
 	• Task ID-011839 -DOP- Autocomplete dropdown(MOE: Select fields) fields performance dropping down during continues data entry from same form.
 	• Task ID-011077-QA-Issue Description-: DevSite- Scripts Field--On click cursor is not visible when user selects the FormControls Check box
+	• Task ID-011516-QA-While saving the Configuration Property the user getting this error message "Property Code* : value exceeds defined width"
