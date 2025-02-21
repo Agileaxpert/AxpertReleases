@@ -1,0 +1,52 @@
+Release Notes:
+============
+	• Task ID-011908 --Enhancement :1. A new property has been introduced in Iview hyperlink definition as 'Open transaction in readonly mode', which can be used to load the data either in Readonly or Edit mode.
+	2. LoadFormAndData script function modified to accept one more parameter with value as t/f, which can be used to load the data either in Readonly or Edit mode.
+	   Ex.: LoadFormAndData({tform},{username=:username},{d},{f},{t})
+	• Task ID-011906 -- Enhancement: Data Intellisense has been extended to runtime forms as well. Along with this change, Intellisense data( display data details ) has been classified in to 2 type based on the newly introduced developer option as mentioned below.
+		l   Developer option:
+		  Property: Intellisense Config
+		  property Code: Intellisense Config
+		  Property Value: metadata/normal (metadata means field caption with field name. Ex.: {Employee Name[empname]}. normal means only field name Ex.: {empname} )
+		  Form/Report: All Forms / Single Form / Single Field
+		  User Role: All / Single role
+		l Please note the following points also related to this enhancement:
+		 1. The data intelligence will be displayed during the run time by using sql result, which is defined through Data Source.
+		 2. At field level, Mode of entry should be 'From API' and Newly introduced 'Intelligence' property should be ticked.
+		 3. API Name should selected from dropdown during field definition, which is created by using the API definition.
+		 4. Created Data source for Intelligence should be properly selected during API Definition.
+		 5. If the developer option is set for metadata then data source first column should be named as 'id'.
+		 6. Intellisense data will be displayed based on key press '{' or ':"
+		 7. If the developer option is set for metadata, The chars '{' or ':' will be concatenated with selected value 
+		    Ex.: {Employee Name[empname]} for '{' key and :empname for ':' key press
+		 8. If the developer option is set for normal, The selected value will be selected.
+		    Ex.: {empname} for '{' key and empname for ':' key press
+	• Task ID-011834 -QA- Description : In Form Notification and PEG Notification, when the user enters Data Intellisense ':' in large text field and select field - field name is howing without colon.
+	• Task ID-011910 -Support(Dilmah)- The issue in Dilmah production involves certain transaction forms not loading properly when accessed from the menu. On the first attempt, the form loads successfully, but after navigating to another page and trying to reopen it from the menu, the dimmer remains active, and the screen is rendered only partially.
+	• Task ID-011813 -Support(Dilmah)- Cancel and Cancel Remarks fields are not available in List view.  In desktop, it used to be available when configuring the List view for any form
+		l Note: Existing online structures needs to be resaved to get Cancel and Cancel remarks columns in Listview.
+	• Task ID-011875 -Support(Dilmah)- In the Export Sales Order screen, there are two suggestive fields in the grid: listprice and price. The listprice field accepts SQL input, while the price field is set with an expression based on listprice. When users edit these fields to values other than the default, the updated values are displayed correctly after saving. However, if the price field is edited to zero, the default value is being repopulated instead of retaining the zero. Despite this, the value is correctly stored as zero in the database table.
+	• Task ID-011790 -Support(Dilmah)- We are unable to define a memo field in the Tstruct grid for inputting multiline text. In the desktop version, users can do this, and double-clicking opens a small pop-up with a larger text area for entering multiline text.
+		l Note: Multiline text field in grid dc can use 'double click' to open as popup to enter Multiline content, Which increases the end users usability of large text in grid fields. 
+	• Task ID-011841 -Support(Dilmah)- Form buttons overlapping and form submit visibility issue.
+	• Task ID-011857 -Support(Dilmah)- There is an issue with the expression evaluation, causing a rounding discrepancy in the Cleared Balance field on the BRS screen. A similar issue was previously reported and resolved but has reappeared under a different scenario.  
+	• Task ID-011858 -Support(Dilmah)- There is an issue with the FillGrid functionality on the Routing screen, where rows fetched in edit mode are duplicated after saving.
+	• Task ID-011890 -Quess- Issue Description: During data load, the uploaded files in the Attachment field (axpfile_ / dc2_image) are not visible when the DCs are tabbed
+	• Task ID-011899 -QA(Nuwab)-Issue Description: During DataLoad, the "Accept" field containing Arabic characters is displaying as '?' in text fields (both Grid and Non-Grid DC) After applying the hotfix, the Accept field with Arabic characters is displaying as '?' on data load.
+	• Task ID-011860 -QA(Nuwab) -Description: In the dev site, when a user creates a dropdown field using the 'Select from SQL' field with Arabic data, In runtime, on click of 'fld1' dropdown values are showing as'??????' instead of actual Arabic value 
+		l Note: To use hardcoded Unicode characters in select query for MSSQL Server, the Unicode characters needs to be starts with "N''" as shown in below example.
+		Ex.: SELECT N'مرحبا بكم في قاعدة البيانات' AS ArabicMessage
+		      UNION
+		     SELECT N'أهلاً وسهاً' AS ArabicMessage
+		      UNION
+		     SELECT N'كيفية مساعدتك اليو' AS ArabicMessage
+	• Task ID-011859 -QA(Nuwab)- Description: In the dev site, when the user gives Arabic text in the 'Select From list' field, in Runtime, when the user selects a value in 'the'selectlist' field and Submits, it is throwing an error "Invalid selection "إرسال السؤال" in selectlist."
+	• Task ID-011843 -Zishta- Issue Description: After scanning one item and press the Addrow button in grid DC button(Invoice Item Details), it is auto filling the last scanned item details
+	• Task ID-011839 -DOP-Autocomplete dropdown(MOE: Select fields) fields performance dropping down during continues data entry from same form.
+	• Task ID-011816 -QA(agileerpbase)- Issue Description: FillGrid- when having HIDDEN sql columns,it's not fetching data as per the mapping
+	• Task ID-011904 -QA- There is an alignment issue with the toolbar buttons in the Arabic login popup of the TStruct toolbar.
+	• Task ID-011794 -QA- Issue Description: Table field column value not populating properly(Grid & Non-Grid) if the source given as tstruct date field
+	• Task ID-010944-QA-Issue Description-In an advanced search, the mandatory symbol for a dropdown field is displayed in black color.
+	• Task ID-011317-QA-Issue Description-Runtime- Responsibility--Even though the last iview or tstruct in the menu is not showing in responsibility, but after searching it is displayed in responsibility at runtime.
+	• Task ID-011485-QA-Issue Description :--Product Issue : If allow empty is false for checkbox then its not showing '*' symbol at runtime.
+	• Task ID-011767-QA-Issue Description : Description: If user is creating Multiple Merge column caption in single DC then. In runtime, Caption is displaying with double quote(example - "caption)
