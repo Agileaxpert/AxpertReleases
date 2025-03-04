@@ -1,0 +1,5 @@
+Task ID-011959 -Support(Dilmah)- issue: We are experiencing an issue with email-based workflow approval for Dilmah.  Director of Dilmah used to approve only over Email and hence this has become a top priority. Pl help in investigating this and advice to address this on priority..
+Despite "Require Authentication" being unchecked for the workflow, the email approval link prompts a login window in read-only mode. Users are unable to enter any details in the username or password fields. 
+
+Task ID-011861 -Support(Dilmah)- Issue: The date 31/12/9999 is not functioning correctly in the web version of the application across all screens. However, this date works as expected in the desktop version. For instance, in the Price List [Customer] - Product screen, an error popup appears with the message: "Please enter a valid year."
+ Additionally, when using the current date (27/11/2024) in Contains mode, the application displays an error popup with the message: "Incorrect date value has been entered for search value." However, the same date works correctly when using Starts With mode.
