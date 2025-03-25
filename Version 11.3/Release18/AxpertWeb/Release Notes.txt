@@ -1,0 +1,26 @@
+Task ID-012032 -Quess- Kindly refer to the Quees VAPT rescan report attached. Quess security vulnerability fixes for below mentioned points.  
+1. Injection of SQL
+2. DOM-based cross-site scripting 
+
+Task ID-012046 -Quess- 	Unable to use clone option for peg enabled tstructs, If it is approved then   while cloning summit button is not displaying and PEG is 
+still showing for duplicate records.
+
+Task ID-012007 -Support(Dilmah)- The clone action behaves unusually on one particular screen. This screen contains a workflow, and when a user loads any approved record and performs the clone action, only the summary tab becomes completely read-only after the cloning is complete. The other tabs appear normal, and we are unable to determine the cause of this issue
+
+Task ID-012006 -Support(Dilmah)-One specific report is not being processed in ARM Export service and resulting error in the console. When checked the request through postman, it says bad request 
+
+Task ID-012047 -Support(dilmah)- This is regarding the mail approval process. After an action is taken to approve via the email link, the same page reappears after the success message disappears in a few seconds, giving the impression that the approval has not been processed. The requirement is to enhance the UI to clearly indicate that the transaction has been approved by hiding both the comments section and the save button. If an error occurs, the user should remain on the same page to approve the transaction again.
+
+Task ID-012036 -Support(dilmah)-Dilmah has raised a concern on the usability of downloading header attachments in the form and it needs improvement. Currently, to download an attachment, the user must carefully hover over the designated area to trigger a popup displaying the attachments. Then, they must quickly move to the popup and click on the desired attachment. However, the popup is highly sensitive—if the cursor moves slightly away from the links, it closes immediately.
+
+Task ID-012016 -Support(Itech)-In the params section, there is a multiselect option where users can select multiple values. Currently, all selected values, even up to 100, are displayed once the params are applied, making the UI cluttered and visually unappealing. To improve this, they request that only the first 3–4 selected values be shown, followed by an ellipsis (...) to indicate additional selections. A UI fix is needed to implement this enhancement. Please find the following link to access the screenshot for your reference.
+
+Task ID-012061 -Support(Dimah)- There is an issue with the grid import in Tstruct when attempting to append new rows. Even though an alert prompts the user to either clear the grid and import or append, it always defaults to clearing and importing the grid. 
+
+Task ID-011841 -Support(Dilmah)- Form buttons overlapping and form submit visibility issue.
+
+Task ID-011888 -QA(Zysk Technologies)- Issue Description : In Iview params, The updated status values are not being reflected or refreshed in the multi-select parameter list of values.
+
+Task ID-011920 -QA- Description: Create a user with no access in User Logins. Then, open User Configuration, select that user, grant full Admin access, and save. After logging in with that user, observe that the user does not have access to Config Studio, Import Data, and Export Data.
+
+Task ID-011382 -QA- Description - When a user places a user-defined button in a non-grid DC, the button's functionality working in design mode during runtime.

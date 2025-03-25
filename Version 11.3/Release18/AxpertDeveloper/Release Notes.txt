@@ -1,0 +1,9 @@
+Task ID-012063 -Support(DOP)- For DOP project, after upgrading to the recent patch AD_R12 for developer site the html pages are not getting loaded.
+
+Task ID-011945 -QA-Description: In the Data Source, if the user provides a query with parameters, then the Parameters table field popup is showing blank
+
+Task ID-012017 -QA- Product Issue Devsite : In Pages, When user try to load the created HTML pages, the error message appears. 
+
+Task ID-011908 --Enhancement :1. A new property has been introduced in Iview hyperlink definition as 'Open transaction in readonly mode', which can be used to load the data either in Readonly or Edit mode.
+2. LoadFormAndData script function modified to accept one more parameter with value as t/f, which can be used to load the data either in Readonly or Edit mode.
+   Ex.: LoadFormAndData({tform},{username=:username},{d},{f},{t})
