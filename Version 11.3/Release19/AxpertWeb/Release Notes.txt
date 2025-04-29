@@ -1,0 +1,47 @@
+Task ID-012121 -- Enhancement: SMS OTP authentication functionality has been introduced along with Email OTP authentication. 
+Note: 1. ARM Service should be enabled 
+      2. SMTP details should be updated properly in Config Studio (Application properties menu item) for Email OTP
+      3. SMS Provider API application should be hosted in IIS. 
+      4. SMS Consumer service should be available in ARM folder. 
+      5. URL set in IIS(Point#3) should added in the file 'AppSettings.json' which is available under Consumer service folder. 
+       Ex.: "Email": "http://localhost/AxMessage/api/Messaging/email"
+            "Sms": "http://localhost/AxMessage/api/Messaging/send-bulkSms"    
+      6. Incase SMS Service provider is changed, then in the above example SMS API needs to be changed with provider SMS service name. 
+        Ex.: for B2E service provider SMS API url needs to be changed as below.
+             "Sms": "http://localhost/AxMessage/api/Messaging/b2esms" 
+      7. If 'axusers' tstruct customized for any project as per the requirement, please make sure OTP Authentication(otpauth), Password Authentication(pwdauth) and Mobile Number(mobile) fields are available in customized 'axusers' tstruct as well.
+
+Task ID-012107 -Support(GCMS)- This issue pertains to the form display page that opens from the list view. While attachments are listed correctly, attempting to open them results in a 404 error. However, if the same record is opened in edit mode and then returned to the display view, the attachments work as expected
+
+Task ID-012102 -Support(Kotecha)- Some of the screens, where the hyperlink on listview is not working though the link is visible.
+
+Task ID-012089 -Support(DE and DPC)-DE and DPC projects (Jaipur), the security audit findings are received to check on the product level. 
+Note: Below mentioned points are fixed, those are mentioned in Security audit findings. 
+DE Project:
+1. Unencrypted Login Request: Sensitive Data Exposure: Login Credentials in Plain Text
+2. API Mass Assignment : API Mass Assignment exploitation may leads to privilege escalation, data tampering, bypass of security mechanisms
+3. Cookie with Insecure or Improper or Missing SameSite attribute   
+4. Cross-site request forgery 
+5. Vulnerable Component 
+DPC Project:
+1. Reflected Cross Site Scripting  
+2. Unencrypted Login Request  
+3. Cross-site request forgery 
+4. Weak Signature in JWT  
+5. Body Parameters Accepted in Query 
+6. Cookie with Insecure or Improper or Missing SameSite attribute   
+7. eShoplifting  
+8. Missing or Insecure "Script-Src" policy in "Content-Security-Policy" header
+9. Missing or Insecure "Object-Src" policy in "Content-Security-Policy" header
+10. Missing "Content-Security-Policy" header 
+
+Task ID-012092 -Support(Dilmah)- Excel/CSV import through Action not working 
+
+Task ID-012047 -Support(dilmah)- This is regarding the mail approval process. After an action is taken to approve via the email link, the same page reappears after the success message disappears in a few seconds, giving the impression that the approval has not been processed. The requirement is to enhance the UI to clearly indicate that the transaction has been approved by hiding both the comments section and the save button. If an error occurs, the user should remain on the same page to approve the transaction again.
+Note: Workflow mail works on system and android mobile. But on Iphone, the popup is not vanishing and coming back again.(This IOS issue has been fixed)
+
+Task ID-012093 -QA- Issue Description : In Iview--> Except Print button, the following buttons are not visible under the Utility PDF, Excel, HTML, JSON, Copy, and Word.
+
+Task ID-012031 -QA- In Cards, the Options button needs to be removed.
+
+Task ID-011954 -Quess - When the user is trying to import more than 40,000 records through Global Import, but they are where the attached Excel file is not appearing as an attachment after uploading

@@ -1,0 +1,248 @@
+2025-04-23 10:18:10.144 +05:30 [INF]  
+2025-04-23 10:18:10.204 +05:30 [INF] 📨 Received Message: {"queuedata":"{\"email\":{\"to\":[\"karthik@agile-labs.com\"],\"subject\": \"Axpert OTP Authentication\",\"body\":[\"Dear reddy2,<br>One Time Password(OTP) for Axpert login is 202 <br>Regards,<br>Support Team.\"]},\"sms\":{\"mobileno\":[\"8050451036\"],\"message\": \"Hello , Your OTP for accessing TrustLine appneo portal is {#var#}}Please do not disclose this OTP to anyone. -TrustLine Holdings\",\"otp\":\"12345\"},\"redis\":{\"redisserver\":\"127.0.0.1\",\"redisport\":\"6379\",\"redispwd\":\"cloud.01\",\"emailconfigkey\":\"goldendump112-AxEmailSMTPJSON\"}}","queuejson":null,"queuename":"LoginOTPQueue","signalrclient":"","apidesc":null,"timespandelay":0,"trace":false,"responsequeuename":null,"MsgExpirySecs":60}
+2025-04-23 10:18:10.208 +05:30 [INF]  
+2025-04-23 10:18:10.289 +05:30 [INF] 📦 Extracted Queuedata as JSON Object:
+{
+  "email": {
+    "to": [
+      "karthik@agile-labs.com"
+    ],
+    "subject": "Axpert OTP Authentication",
+    "body": [
+      "Dear reddy2,\u003Cbr\u003EOne Time Password(OTP) for Axpert login is 202 \u003Cbr\u003ERegards,\u003Cbr\u003ESupport Team."
+    ]
+  },
+  "sms": {
+    "mobileno": [
+      "8050451036"
+    ],
+    "message": "Hello , Your OTP for accessing TrustLine appneo portal is {#var#}}Please do not disclose this OTP to anyone. -TrustLine Holdings",
+    "otp": "12345"
+  },
+  "redis": {
+    "redisserver": "127.0.0.1",
+    "redisport": "6379",
+    "redispwd": "cloud.01",
+    "emailconfigkey": "goldendump112-AxEmailSMTPJSON"
+  }
+}
+2025-04-23 10:18:10.328 +05:30 [ERR] ❌ Invalid JSON structure received. Skipping message.
+System.Text.Json.JsonException: The JSON value could not be converted to System.Collections.Generic.List`1[System.String]. Path: $.sms.message | LineNumber: 0 | BytePositionInLine: 360.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, TCollection& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>b__0>d.MoveNext() in E:\WorkSpace\2025\___VSCode\OTPService\OTPService\Program.cs:line 131
+2025-04-23 10:18:10.361 +05:30 [INF]  
+2025-04-23 10:18:10.361 +05:30 [INF] 📨 Received Message: {"queuedata":"{\"email\":{\"to\":[\"karthik@agile-labs.com\"],\"subject\": \"Axpert OTP Authentication\",\"body\":[\"Dear reddy2,<br>One Time Password(OTP) for Axpert login is 202 <br>Regards,<br>Support Team.\"]},\"sms\":{\"mobileno\":[\"8050451036\"],\"message\": \"Hello , Your OTP for accessing TrustLine appneo portal is {#var#}}Please do not disclose this OTP to anyone. -TrustLine Holdings\",\"otp\":\"12345\"},\"redis\":{\"redisserver\":\"127.0.0.1\",\"redisport\":\"6379\",\"redispwd\":\"cloud.01\",\"emailconfigkey\":\"goldendump112-AxEmailSMTPJSON\"}}","queuejson":null,"queuename":"LoginOTPQueue","signalrclient":"","apidesc":null,"timespandelay":0,"trace":false,"responsequeuename":null,"MsgExpirySecs":60}
+2025-04-23 10:18:10.362 +05:30 [INF]  
+2025-04-23 10:18:10.364 +05:30 [INF] 📦 Extracted Queuedata as JSON Object:
+{
+  "email": {
+    "to": [
+      "karthik@agile-labs.com"
+    ],
+    "subject": "Axpert OTP Authentication",
+    "body": [
+      "Dear reddy2,\u003Cbr\u003EOne Time Password(OTP) for Axpert login is 202 \u003Cbr\u003ERegards,\u003Cbr\u003ESupport Team."
+    ]
+  },
+  "sms": {
+    "mobileno": [
+      "8050451036"
+    ],
+    "message": "Hello , Your OTP for accessing TrustLine appneo portal is {#var#}}Please do not disclose this OTP to anyone. -TrustLine Holdings",
+    "otp": "12345"
+  },
+  "redis": {
+    "redisserver": "127.0.0.1",
+    "redisport": "6379",
+    "redispwd": "cloud.01",
+    "emailconfigkey": "goldendump112-AxEmailSMTPJSON"
+  }
+}
+2025-04-23 10:18:10.366 +05:30 [ERR] ❌ Invalid JSON structure received. Skipping message.
+System.Text.Json.JsonException: The JSON value could not be converted to System.Collections.Generic.List`1[System.String]. Path: $.sms.message | LineNumber: 0 | BytePositionInLine: 360.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, TCollection& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>b__0>d.MoveNext() in E:\WorkSpace\2025\___VSCode\OTPService\OTPService\Program.cs:line 131
+2025-04-23 10:18:13.691 +05:30 [INF]  
+2025-04-23 10:18:13.692 +05:30 [INF] 📨 Received Message: {"queuedata":"{\"email\":{\"to\":[\"karthik@agile-labs.com\"],\"subject\": \"Axpert OTP Authentication\",\"body\":[\"Dear reddy2,<br>One Time Password(OTP) for Axpert login is 202 <br>Regards,<br>Support Team.\"]},\"sms\":{\"mobileno\":[\"8050451036\"],\"message\": [\"Hello , Your OTP for accessing TrustLine appneo portal is {#var#} Please do not disclose this OTP to anyone. -TrustLine Holdings\"],\"otp\":\"123456\"},\"redis\":{\"redisserver\":\"127.0.0.1\",\"redisport\":\"6379\",\"redispwd\":\"cloud.01\",\"emailconfigkey\":\"goldendump112-AxEmailSMTPJSON\"}}","queuejson":null,"queuename":"LoginOTPQueue","signalrclient":"","apidesc":null,"timespandelay":0,"trace":false,"responsequeuename":null,"MsgExpirySecs":60}
+2025-04-23 10:18:13.693 +05:30 [INF]  
+2025-04-23 10:18:13.694 +05:30 [INF] 📦 Extracted Queuedata as JSON Object:
+{
+  "email": {
+    "to": [
+      "karthik@agile-labs.com"
+    ],
+    "subject": "Axpert OTP Authentication",
+    "body": [
+      "Dear reddy2,\u003Cbr\u003EOne Time Password(OTP) for Axpert login is 202 \u003Cbr\u003ERegards,\u003Cbr\u003ESupport Team."
+    ]
+  },
+  "sms": {
+    "mobileno": [
+      "8050451036"
+    ],
+    "message": [
+      "Hello , Your OTP for accessing TrustLine appneo portal is {#var#} Please do not disclose this OTP to anyone. -TrustLine Holdings"
+    ],
+    "otp": "123456"
+  },
+  "redis": {
+    "redisserver": "127.0.0.1",
+    "redisport": "6379",
+    "redispwd": "cloud.01",
+    "emailconfigkey": "goldendump112-AxEmailSMTPJSON"
+  }
+}
+2025-04-23 10:18:13.701 +05:30 [INF] ScheduledMessage
+2025-04-23 10:18:13.725 +05:30 [INF] 🔍 RedisConfig before injection: {"redisserver":"127.0.0.1","redisport":"6379","redispwd":"cloud.01","emailconfigkey":"goldendump112-AxEmailSMTPJSON"}
+2025-04-23 10:18:13.726 +05:30 [INF] 🔗 Redis details injected into Email.
+2025-04-23 10:18:13.735 +05:30 [INF] 📧 Final Email Request JSON:
+{
+  "to": [
+    "karthik@agile-labs.com"
+  ],
+  "subject": "Axpert OTP Authentication",
+  "body": [
+    "Dear reddy2,\u003Cbr\u003EOne Time Password(OTP) for Axpert login is 202 \u003Cbr\u003ERegards,\u003Cbr\u003ESupport Team."
+  ],
+  "redis": {
+    "redisserver": "127.0.0.1",
+    "redisport": "6379",
+    "redispwd": "cloud.01",
+    "emailconfigkey": "goldendump112-AxEmailSMTPJSON"
+  }
+}
+2025-04-23 10:18:13.737 +05:30 [INF] Email API URL http://localhost:5000/api/Messaging/email
+2025-04-23 10:18:18.074 +05:30 [ERR] 🔥 Exception while calling Email API.
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:5000)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>g__CallEmailApi|1>d.MoveNext() in E:\WorkSpace\2025\___VSCode\OTPService\OTPService\Program.cs:line 246
+2025-04-23 10:18:18.096 +05:30 [INF] 📧 Final SMS Request JSON:
+{
+  "mobileno": [
+    "8050451036"
+  ],
+  "message": [
+    "Hello , Your OTP for accessing TrustLine appneo portal is {#var#} Please do not disclose this OTP to anyone. -TrustLine Holdings"
+  ],
+  "otp": "123456"
+}
+2025-04-23 10:18:18.097 +05:30 [INF] SMS API URL http://localhost:5000/api/Messaging/b2esms
+2025-04-23 10:18:22.199 +05:30 [ERR] 🔥 Exception while calling SMS API.
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:5000)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>g__CallSmsApi|2>d.MoveNext() in E:\WorkSpace\2025\___VSCode\OTPService\OTPService\Program.cs:line 282
+2025-04-23 10:18:44.518 +05:30 [INF]  
+2025-04-23 10:18:44.519 +05:30 [INF] 📨 Received Message: {"queuedata":"{\"email\":{\"to\":[\"karthik@agile-labs.com\"],\"subject\": \"Axpert OTP Authentication\",\"body\":[\"Dear reddy2,<br>One Time Password(OTP) for Axpert login is 202 <br>Regards,<br>Support Team.\"]},\"sms\":{\"mobileno\":[\"8050451036\"],\"message\": [\"Hello , Your OTP for accessing TrustLine appneo portal is {#var#} Please do not disclose this OTP to anyone. -TrustLine Holdings\"],\"otp\":\"123456\"},\"redis\":{\"redisserver\":\"127.0.0.1\",\"redisport\":\"6379\",\"redispwd\":\"cloud.01\",\"emailconfigkey\":\"goldendump112-AxEmailSMTPJSON\"}}","queuejson":null,"queuename":"LoginOTPQueue","signalrclient":"","apidesc":null,"timespandelay":0,"trace":false,"responsequeuename":null,"MsgExpirySecs":60}
+2025-04-23 10:18:44.521 +05:30 [INF]  
+2025-04-23 10:18:44.522 +05:30 [INF] 📦 Extracted Queuedata as JSON Object:
+{
+  "email": {
+    "to": [
+      "karthik@agile-labs.com"
+    ],
+    "subject": "Axpert OTP Authentication",
+    "body": [
+      "Dear reddy2,\u003Cbr\u003EOne Time Password(OTP) for Axpert login is 202 \u003Cbr\u003ERegards,\u003Cbr\u003ESupport Team."
+    ]
+  },
+  "sms": {
+    "mobileno": [
+      "8050451036"
+    ],
+    "message": [
+      "Hello , Your OTP for accessing TrustLine appneo portal is {#var#} Please do not disclose this OTP to anyone. -TrustLine Holdings"
+    ],
+    "otp": "123456"
+  },
+  "redis": {
+    "redisserver": "127.0.0.1",
+    "redisport": "6379",
+    "redispwd": "cloud.01",
+    "emailconfigkey": "goldendump112-AxEmailSMTPJSON"
+  }
+}
+2025-04-23 10:18:44.523 +05:30 [INF] ScheduledMessage
+2025-04-23 10:18:44.524 +05:30 [INF] 🔍 RedisConfig before injection: {"redisserver":"127.0.0.1","redisport":"6379","redispwd":"cloud.01","emailconfigkey":"goldendump112-AxEmailSMTPJSON"}
+2025-04-23 10:18:44.525 +05:30 [INF] 🔗 Redis details injected into Email.
+2025-04-23 10:18:44.525 +05:30 [INF] 📧 Final Email Request JSON:
+{
+  "to": [
+    "karthik@agile-labs.com"
+  ],
+  "subject": "Axpert OTP Authentication",
+  "body": [
+    "Dear reddy2,\u003Cbr\u003EOne Time Password(OTP) for Axpert login is 202 \u003Cbr\u003ERegards,\u003Cbr\u003ESupport Team."
+  ],
+  "redis": {
+    "redisserver": "127.0.0.1",
+    "redisport": "6379",
+    "redispwd": "cloud.01",
+    "emailconfigkey": "goldendump112-AxEmailSMTPJSON"
+  }
+}
+2025-04-23 10:18:44.527 +05:30 [INF] Email API URL http://localhost:5000/api/Messaging/email
+2025-04-23 10:18:47.101 +05:30 [INF] ✅ Email API call succeeded.
+2025-04-23 10:18:47.103 +05:30 [INF] 📧 Final SMS Request JSON:
+{
+  "mobileno": [
+    "8050451036"
+  ],
+  "message": [
+    "Hello , Your OTP for accessing TrustLine appneo portal is {#var#} Please do not disclose this OTP to anyone. -TrustLine Holdings"
+  ],
+  "otp": "123456"
+}
+2025-04-23 10:18:47.104 +05:30 [INF] SMS API URL http://localhost:5000/api/Messaging/b2esms
+2025-04-23 10:18:47.897 +05:30 [INF] ✅ SMS API call succeeded.
