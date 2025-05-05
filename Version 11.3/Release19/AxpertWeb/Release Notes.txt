@@ -45,3 +45,9 @@ Task ID-012093 -QA- Issue Description : In Iview--> Except Print button, the fol
 Task ID-012031 -QA- In Cards, the Options button needs to be removed.
 
 Task ID-011954 -Quess - When the user is trying to import more than 40,000 records through Global Import, but they are where the attached Excel file is not appearing as an attachment after uploading
+
+Task ID-012146 -QA(Trustline)- Steps: When user is inactive, if we try to login with that user credential after username given, on click of next its navigating to the blank screen. With the same scenario in QA instance its working fine.
+ 
+Task ID-012144 -QA(Trustline)- Issue: when a wrong user id is entered then on click of next button the system displays the password page. Instead password screen the username should be validated on click of next. system must display the message " Please enter a valid user id/username "
+ 
+Task ID-012145 -QA(Trustline)- Issue:- After username entry at OTP Screen, there must be the content that includes as "An OTP has been sent to your mobile number +98* * * * * *40 and email id s*a@domail.com".
