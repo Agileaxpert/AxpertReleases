@@ -36,18 +36,12 @@ public partial class aspx_Entity : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        if (Request.QueryString["tstid"] != null)
+        if (Request.QueryString["tstid"] != null && !string.IsNullOrEmpty(Request.QueryString["tstid"].ToString()))
         {
-            if(Request.QueryString["ename"] != null)
-                entityName = Request.QueryString["ename"].ToString();
-
             entityTransId = Request.QueryString["tstid"].ToString();
-            if(!string.IsNullOrEmpty(Request.QueryString["applyfilter"]))
-                applyFilter = Request.QueryString["applyfilter"].ToString();
             util = new Util.Util();
             util.IsValidSession();
-            //ResetSessionTime();
-            //Response.Redirect("analytics.aspx");
+
             if (Session["project"] == null)
             {
                 SessionExpired();
@@ -55,49 +49,48 @@ public partial class aspx_Entity : System.Web.UI.Page
             }
             else
             {
-                string keyField = "";
-                selectedFields = GetSelectedEntityFields(entityTransId);
-                if (string.IsNullOrEmpty(selectedFields))
-                    selectedFields = "All";
-                else
+                Entity entity = new Entity();
+
+                List<Dictionary<string, Object>> filters = new List<Dictionary<string, Object>>();
+                int pageSize = 100;
+
+                if (Request.QueryString["applyfilter"] != null && Request.QueryString["applyfilter"].ToString() == "true" && Request.QueryString["filterfld"] != null)
                 {
-                    keyField = GetEntityKeyField(entityTransId);
+                    Dictionary<string, Object> filterObj = new Dictionary<string, object>();
+                    filterObj.Add("ftransid", entityTransId);
+                    filterObj.Add("fldname", Request.QueryString["filterfld"].ToString());
+                    filterObj.Add("condition", "EQUALS");
+                    if (Request.QueryString["filtertype"] != null && Request.QueryString["filtertype"].ToString() == "date")
+                    {
+                        filterObj.Add("datatype", "DATE");
+                        if(Request.QueryString["filterfrom"] != null)
+                            filterObj.Add("from", Request.QueryString["filterfrom"].ToString());
+                        if (Request.QueryString["filterto"] != null)
+                            filterObj.Add("to", Request.QueryString["filterto"].ToString());
+                    }
+                    else {
+                        filterObj.Add("datatype", "TEXT");
+                        filterObj.Add("value", Request.QueryString["filterval"].ToString());
+                    }
+
+                    filters.Add(filterObj);
                 }
 
-                string entityFilters = "";
-                entityFilters = GetSelectedEntityFilters(entityTransId);
-
-                int pageSize = 50;
-                if(applyFilter == "true")
-                    pageSize = 0;
-
-                string entityListData = GetEntityListData(entityTransId, selectedFields, 1, pageSize, true, "");
+                hdnEntityPageLoadData.Value = entity.GetEntityListPageLoadData("Entity", entityTransId, 1, pageSize, filters, false);
 
                 string axDisallowCreate = "";
                 if (HttpContext.Current.Session["AxDisallowCreate"] != null && HttpContext.Current.Session["AxDisallowCreate"].ToString() != "")
                     axDisallowCreate = HttpContext.Current.Session["AxDisallowCreate"].ToString();
                 
 
-                if (entityListData.IndexOf("\"count\":0,") != -1 && !axDisallowCreate.Split(',').Contains(entityTransId) && applyFilter != "true")
-                {
-                    Response.Redirect("tstruct.aspx?transid=" + entityTransId);
-                    return;
-                }
+                //if (entityListData.IndexOf("\"count\":0,") != -1 && !axDisallowCreate.Split(',').Contains(entityTransId) && applyFilter != "true")
+                //{
+                //    Response.Redirect("tstruct.aspx?transid=" + entityTransId);
+                //    return;
+                //}
+                
 
-                if (string.IsNullOrEmpty(entityName)) {
-                    try
-                    {
-                        Analytics analytics = new Analytics();
-                        var list = analytics.GetEntityList(entityTransId);
-                        JObject jsonObj = JObject.Parse(list);
-                        
-                        entityName = (string)jsonObj["result"]["list"][0]["caption"];
-
-                    }
-                    catch { }
-                }
-
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "EntityListData", "var entityListDataJson = `" + entityListData + "`; var entitySelectedFlds = `" + selectedFields + "`; var entityKeyField = `" + keyField + "`; var entityFilters =  `" + entityFilters + "`; var axDisallowCreate =  `" + axDisallowCreate + "`; var entityName = `"+ entityName + "`", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "EntityListData", "var axDisallowCreate =  `" + axDisallowCreate + "`;", true);
             }
         }
         else
@@ -227,13 +220,30 @@ public partial class aspx_Entity : System.Web.UI.Page
     }
 
     [WebMethod]
-    public static string GetEntityListDataWS(string transId, string fields, int pageNo, int pageSize, string filter)
+    public static string GetEntityListDataWS(string transId, string fields, int pageNo, int pageSize, List<Dictionary<string, Object>> filter)
     {
         if (HttpContext.Current.Session["project"] == null || Convert.ToString(HttpContext.Current.Session["project"]) == string.Empty)
         {
             return Constants.SESSIONTIMEOUT;
         }
-        return GetEntityListData(transId, fields, pageNo, pageSize, false, filter);
+
+        Entity entity = new Entity();
+        var result =  entity.GetEntityListPageLoadData("Entity", transId, pageNo, pageSize, filter, true);
+        return result;
+        //return GetEntityListData(transId, fields, pageNo, pageSize, false, filter);
+    }
+
+    [WebMethod]
+    public static string GetEntityEditableFlagWS(string page, string transId, string recordId)
+    {
+        if (HttpContext.Current.Session["project"] == null || Convert.ToString(HttpContext.Current.Session["project"]) == string.Empty)
+        {
+            return Constants.SESSIONTIMEOUT;
+        }
+
+        Entity entity = new Entity();
+        var result = entity.GetEntityEditableFlag("Entity", transId, recordId);
+        return result;
     }
 
     [WebMethod]

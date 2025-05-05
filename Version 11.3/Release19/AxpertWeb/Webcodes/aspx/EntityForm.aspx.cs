@@ -597,7 +597,7 @@ public partial class aspx_EntityForm : System.Web.UI.Page
         {
             ARMSessionId = ARMSessionId,
             AxSessionId = sessionId,
-            Trace = HttpContext.Current.Session["AxTrace"].ToString(),
+            //Trace =  HttpContext.Current.Session["AxTrace"].ToString(),
             AppName = HttpContext.Current.Session["project"].ToString(),
             UserName = HttpContext.Current.Session["username"].ToString(),
             TransId = transId
@@ -624,7 +624,7 @@ public partial class aspx_EntityForm : System.Web.UI.Page
         {
             ARMSessionId = ARMSessionId,
             AxSessionId = sessionId,
-            Trace = HttpContext.Current.Session["AxTrace"].ToString(),
+            //Trace =  HttpContext.Current.Session["AxTrace"].ToString(),
             AppName = HttpContext.Current.Session["project"].ToString(),
             TransId = transId,
             UserName = HttpContext.Current.Session["username"].ToString()
@@ -691,7 +691,7 @@ public partial class aspx_EntityForm : System.Web.UI.Page
         {
             ARMSessionId = ARMSessionId,
             AxSessionId = sessionId,
-            Trace = HttpContext.Current.Session["AxTrace"].ToString(),
+            //Trace =  HttpContext.Current.Session["AxTrace"].ToString(),
             AppName = HttpContext.Current.Session["project"].ToString(),
             EntityName = entityName,
             UserName = HttpContext.Current.Session["username"].ToString(),
@@ -726,7 +726,7 @@ public partial class aspx_EntityForm : System.Web.UI.Page
         {
             ARMSessionId = ARMSessionId,
             AxSessionId = sessionId,
-            Trace = HttpContext.Current.Session["AxTrace"].ToString(),
+            //Trace =  HttpContext.Current.Session["AxTrace"].ToString(),
             AppName = HttpContext.Current.Session["project"].ToString(),
             EntityName = entityName,
             TransId = transId,
@@ -759,7 +759,7 @@ public partial class aspx_EntityForm : System.Web.UI.Page
         {
             ARMSessionId = ARMSessionId,
             AxSessionId = sessionId,
-            Trace = HttpContext.Current.Session["AxTrace"].ToString(),
+            //Trace =  HttpContext.Current.Session["AxTrace"].ToString(),
             AppName = HttpContext.Current.Session["project"].ToString(),
             EntityName = entityName,
             TransId = transId,
@@ -1191,7 +1191,7 @@ public partial class aspx_EntityForm : System.Web.UI.Page
                     user = HttpContext.Current.Session["user"].ToString(),
                     key = hashedKey,
                     AxSessionId = sessionId,
-                    Trace = HttpContext.Current.Session["AxTrace"].ToString(),
+                    //Trace =  HttpContext.Current.Session["AxTrace"].ToString(),
                     AppName = HttpContext.Current.Session["project"].ToString()
                 };
                 string ARM_URL = string.Empty;

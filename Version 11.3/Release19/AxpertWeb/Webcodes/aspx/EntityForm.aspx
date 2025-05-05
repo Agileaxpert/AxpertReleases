@@ -516,7 +516,7 @@
     <script src="../js/process.min.js?v=322"></script>
     <script src="../js/helper.min.js"></script>
     <script src="../js/Entity-common.min.js?v=8"></script>
-    <script src="../js/entityform.min.js?v=2"></script>
+    <script src="../js/entityform.min.js?v=3"></script>
 
     <script>
 

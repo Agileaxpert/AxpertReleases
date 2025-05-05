@@ -8057,7 +8057,7 @@ namespace ASB
 
 
         [WebMethod(EnableSession = true)]
-        public string ARMExportPushToQueue(string transid, string type, string output, string page, string dateformat)
+        public string ARMExportPushToQueue(string transid, string type, string output, string page, string dateformat, string fields, string entityName)
         {
             string response = string.Empty;
 
@@ -8077,13 +8077,16 @@ namespace ASB
                 ArmScriptURL = HttpContext.Current.Session["ARM_Scripts_URL"].ToString();
 
             if (URL == string.Empty || ArmScriptURL == string.Empty)
-                return "error:ARM Connection defined";
+                return "Error: ARM Connection is not defined";
 
             if (HttpContext.Current.Session["AxConfigFileUploadPath"] != null)
             {
                 axConfigFilePath = HttpContext.Current.Session["AxConfigFileUploadPath"].ToString();
                 axConfigFilePath = axConfigFilePath.Replace(@"\", "\\\\");
             }
+
+            if (HttpContext.Current.Session["ARM_Token"] == null || HttpContext.Current.Session["ARM_Token"].ToString() == "")
+                return "Error: ARM Token is not defined";
 
             AnalyticsUtils _aUtils = new AnalyticsUtils();
             string armSessionId = _aUtils.ARMSessionId;
@@ -8100,7 +8103,7 @@ namespace ASB
                 Page = page,
                 ARMSessionId = armSessionId,
                 AxSessionId = sessionId,
-                Trace = HttpContext.Current.Session["AxTrace"].ToString() ?? "false",
+                Trace = HttpContext.Current.Session["AxTrace"],
                 AppName = HttpContext.Current.Session["project"].ToString(),
                 Roles = roles,
                 UserName = HttpContext.Current.Session["username"].ToString(),
@@ -8108,9 +8111,13 @@ namespace ASB
                 Type = type,
                 Output = output,
                 ARMUrl = armurl,
-                apiURL = apiURL,
+                APIURL = apiURL,
                 DateFormat = dateformat,
-                ArmScriptURL = ArmScriptURL
+                ARMScriptURL = ArmScriptURL,
+                AxConfigFilePath = axConfigFilePath,
+                Token = token,
+                EntityName = entityName,
+                Fields = fields
             });
 
             string saveDetails = JsonConvert.SerializeObject(new

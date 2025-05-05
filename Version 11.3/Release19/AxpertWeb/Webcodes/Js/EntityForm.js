@@ -1,6 +1,7 @@
 ﻿var iframeindex = -1;
 var _subEntity;
 var _entityForm;
+var _entityCommon;
 
 class SubEntity {
     constructor() {
@@ -14,7 +15,7 @@ class SubEntity {
         this.subEntityMapping = {};
         this.listJson = {};
         this.maxPageNumber = 1;
-        this.pageSize = 50;
+        this.pageSize = 100;
         this.chartsMetaData = [];
         this.subEntityList = {};
         this.selectedCharts = "";
@@ -25,6 +26,7 @@ class SubEntity {
         this.isSubEntitiesAvailable = true;
         this.kpiFilter = "";
         this.emptyRowsHtml = `No data found`;
+        this.editable = true;
     }
 
 
@@ -157,9 +159,8 @@ class SubEntity {
         document.querySelector("#add_chart")?.click();
     }
 
-    openNewTstruct() {
-        //parent.ShowDimmer(true);
-        parent.LoadIframe(`../aspx/tstruct.aspx?transid=${this.entityTransId}`)
+    openNewTstruct() {        
+        parent.LoadIframe(`../aspx/tstruct.aspx?transid=${this.entityTransId}&dummyload=false`)
     }
 
     openSubEntityTstruct(transId) {
@@ -169,22 +170,42 @@ class SubEntity {
             params = `act=open&${_this.subEntityMapping[transId]?.["mapfield"]}=${_this.subEntityMapping[transId]?.["mapsrcdata"]}`;
         }
 
-        //parent.ShowDimmer(true);
-        parent.LoadIframe(`../aspx/tstruct.aspx?transid=${transId}&${params}`)
+        
+        parent.LoadIframe(`../aspx/tstruct.aspx?transid=${transId}&${params}&dummyload=false`)
     }
 
     editEntity() {
-        //parent.ShowDimmer(true);
-        parent.LoadIframe(`../aspx/tstruct.aspx?transid=${this.entityTransId}&act=load&recordid=${this.recordId}&dummyload=false`)
+        var _this = this;
+        let inputJson = { page: "EntityForm", transId: _this.entityTransId, recordId: this.recordId };
+        var editable = _entityCommon.getEntityEditableFlag(inputJson);
+
+        if (editable) {
+            parent.LoadIframe(`../aspx/tstruct.aspx?transid=${this.entityTransId}&act=load&recordid=${this.recordId}&dummyload=false`)
+            return true;
+        }
+        else {
+            showAlertDialog("error", "User does not have 'Edit' access for this record. Please check with administrator.");
+            return false;
+        }
+        
     }
 
     editSubEntity(entityTransId, recordId) {
-        //parent.ShowDimmer(true);
-        parent.LoadIframe(`../aspx/tstruct.aspx?transid=${entityTransId}&act=load&recordid=${recordId}&dummyload=false`)
+        let inputJson = { page: "EntityForm", transId: entityTransId, recordId: recordId };
+        var editable = _entityCommon.getEntityEditableFlag(inputJson);
+
+        if (editable) {
+            parent.LoadIframe(`../aspx/tstruct.aspx?transid=${entityTransId}&act=load&recordid=${recordId}&dummyload=false`);
+            return true;
+        }
+        else {
+            showAlertDialog("error", "User does not have 'Edit' access for this record. Please check with administrator.");
+            return false;
+        }
     }
 
     reloadEntityPage() {
-        //parent.ShowDimmer(true);
+        
         parent.LoadIframe(`../aspx/EntityForm.aspx?ename=${this.entityName}&tstid=${this.entityTransId}&recid=${this.recordId}&keyval=${this.keyValue}`)
     }
 
@@ -193,7 +214,7 @@ class SubEntity {
             let _this = this;
             _this.updateRelatedData(transId, rowNo)
         }
-        //parent.ShowDimmer(true);
+        
         var url = `../aspx/EntityForm.aspx?ename=${entityName}&tstid=${transId}&recid=${recordId}&keyval=${keyValue}`;
         parent.LoadIframe(url);
     }
@@ -215,7 +236,7 @@ class SubEntity {
     }
 
     openEntityPage(entityName, entityTransId) {
-        //parent.ShowDimmer(true);
+        
         parent.LoadIframe(`../aspx/Entity.aspx?ename=${entityName}&tstid=${entityTransId}`)
     }
 
@@ -225,7 +246,7 @@ class SubEntity {
         Object.entries(_this.subEntityMapping).forEach(([key, value]) => {
             let mapVal = value["mapdatavalue"];
             let mapFld = value["mapfield"];
-            strFilter += `${key}~~~~${value.mapfieldjson.normalized || "F"}~${value.mapfieldjson.srctable || ""}~${value.mapfieldjson.srcfld || ""}~${value.mapfieldjson.allowempty || "F"}~${value.mapfieldjson.tablename || ""}~${mapFld}~'${mapVal}'^`;
+            strFilter += `${key}~~~~${value.mapfieldjson.normalized || "F"}~${value.mapfieldjson.srctable || ""}~${value.mapfieldjson.srcfield || ""}~${value.mapfieldjson.allowempty || "F"}~${value.mapfieldjson.tablename || ""}~${mapFld}~'${mapVal}'^`;
         });
 
         if (strFilter.endsWith("^"))
@@ -461,6 +482,15 @@ class SubEntity {
                         mapVal = ReverseCheckSpecialChars(mapDataRow[0].v);
 
                     let mapSrcRow = _entityForm.entityFormJson.data.filter(i => i.n === item.srcfield);
+                    if (mapSrcRow.length)
+                        mapSrc = ReverseCheckSpecialChars(mapSrcRow[0].v);
+                }
+                else if (item.entityrelfld) {
+                    let mapDataRow = _entityForm.entityFormJson.data.filter(i => i.n === item.entityrelfld);
+                    if (mapDataRow.length)
+                        mapVal = ReverseCheckSpecialChars(mapDataRow[0].v);
+
+                    let mapSrcRow = _entityForm.entityFormJson.data.filter(i => i.n === item.entityrelfld);
                     if (mapSrcRow.length)
                         mapSrc = ReverseCheckSpecialChars(mapSrcRow[0].v);
                 }
@@ -734,7 +764,7 @@ class SubEntity {
                     files.js.push("/ThirdParty/masonry/masonry.pkgd.min.js");
                 }
 
-                files.js.push(`/js/entity-charts.min.js?v=1`);
+                files.js.push(`/js/entity-charts.min.js?v=3`);
 
                 if (document.getElementsByTagName("body")[0].classList.contains("btextDir-rtl")) {
                     cardsDashboardObj.dirLeft = false;
@@ -1200,7 +1230,7 @@ let formCompJSON = {
             "html": `<input type="date" class="form-control form-control-sm w-auto" value="{{value}}" readonly/>`,
         },
         "ATT": {
-                "html": ` <div id="{{customid}}" class="Files-Attached " onclick="_entityForm.downloadFileAttachment('{{v}}','{{filepath}}')" data-filename="{{v}}" data-filepath="{{filepath}}">
+            "html": ` <div id="{{customid}}" class="Files-Attached ATT" onclick="_entityForm.downloadFileAttachment('{{v}}','{{filepath}}')" data-filename="{{v}}" data-filepath="{{filepath}}">
                                   {{componentimg}}
                                <div class="mx-3 fw-semibold attachmenttxt">
                                <a class="attached-filename" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{v}}">{{v}}</a>
@@ -1208,7 +1238,7 @@ let formCompJSON = {
                        </div><br>`
             },
             "AXPFILE_ATT": {
-                "html": ` <div id="{{customid}}" class="Files-Attached " onclick="_entityForm.downloadAxpFileAttachment('{{fieldid}}','{{v}}','{{scriptspath}}/axpert/{{sid}}/{{v}}',event, this)" data-filename="{{v}}" data-filepath="{{filepath}}">
+                "html": ` <div id="{{customid}}" class="Files-Attached AXPFILE_ATT" onclick="_entityForm.downloadAxpFileAttachment('{{fieldid}}','{{v}}','{{scriptspath}}/axpert/{{sid}}/{{v}}',event, this)" data-filename="{{v}}" data-filepath="{{filepath}}">
                                   {{componentimg}}
                                <div class="mx-3 fw-semibold attachmenttxt">
                                <a class="attached-filename" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{v}}">{{v}}</a>
@@ -1637,7 +1667,7 @@ class EntityForm {
     }
 
     openEntityForm(entityName, transId, recordId, keyValue) {
-        //parent.ShowDimmer(true);
+        
         var url = `../aspx/EntityForm.aspx?ename=${entityName}&tstid=${transId}&recid=${recordId}&keyval=${keyValue}`;
         parent.LoadIframe(url);
     }
@@ -1861,13 +1891,15 @@ class EntityForm {
                 dcMetaData.forEach((field, index) => {
                     if (field.fname.startsWith("axpfile_")) {
                         const axpfilepathUploadObject = _entityForm.entityFormJson.data.find(i => i.n === field.fname.replace("axpfile_", "axpfilepath_"));
-                        var pathVal = axpfilepathUploadObject ? axpfilepathUploadObject.v : null;
+                        var pathVal = axpfilepathUploadObject ? axpfilepathUploadObject.v : "";
                         if (pathVal.indexOf(";bkslh") != -1) {
                             pathVal = pathVal.replace(new RegExp(";bkslh", "g"), "\\");
                         }
 
                         if (pathVal.endsWith("\\"))
                             pathVal = pathVal.substr(0, pathVal.length - 1);
+
+                        pathVal = pathVal.replace(new RegExp("\\\\", "g"), "\\\\");
 
                         var item = {};
                         item["v"] = ReverseCheckSpecialChars(rows[rowKey][field.fname] || '');
@@ -1893,7 +1925,7 @@ class EntityForm {
                     //        //var colclassname = _entityForm.getclassname(data.value, data.props.split("~")[3]);
                             
                     //        const axpfilepathUploadObject = _entityForm.entityFormJson.data.find(i => i.n === item.n.replace("axpfile_", "axpfilepath_"));
-                    //        var pathVal = axpfilepathUploadObject ? axpfilepathUploadObject.v : null;
+                    //        var pathVal = axpfilepathUploadObject ? axpfilepathUploadObject.v : "";
                     //        if (pathVal.indexOf(";bkslh") != -1) {
                     //            pathVal = pathVal.replace(new RegExp(";bkslh", "g"), "\\");                                
                     //        }
@@ -2030,6 +2062,7 @@ class EntityForm {
             if (fieldType == "RT" || fieldType == "LT") {
                 comphtml = this.createRichTextComponent(fldjson, index);
             } else if (fieldType == "ATT" || fldName.startsWith("axpfile_")) {
+                
                 const axpfilepathUploadObject = _entityForm.entityFormJson.data.find(item => item.n === fldName.replace("axpfile_", "axpfilepath_"));
                 var pathVal = axpfilepathUploadObject ? axpfilepathUploadObject.v : "";
     
@@ -2169,6 +2202,7 @@ class EntityForm {
     gridDc(jsonData, index) {
         var columnValues = {};
         jsonData.forEach(function (data) {
+            
             var columnName = data.fieldid;
             var columnValue = data.value;
 
@@ -2185,6 +2219,7 @@ class EntityForm {
 
             var componentHtml = _entityForm.components[data.props.split("~")[0]]?.html || `<div class="inputcontent"  readonly>{{v}}</div>`;
             if (fldtype == "ATT" || fldName.startsWith("axpfile_") || (fldName.startsWith("dc") && fldName.endsWith("_image"))) {
+                
                 var colclassname = _entityForm.getclassname(data.value, data.props.split("~")[3]);
                 //componentHtml = _entityForm.createAttachmentHTML(data, index, colclassname);
                 const axpfilepathUploadObject = _entityForm.entityFormJson.data.find(item => item.n === fldName.replace("axpfile_", "axpfilepath_"));
@@ -2270,6 +2305,7 @@ class EntityForm {
         if (fieldType == "RT" || fieldType == "LT") {
             comphtml = this.createRichTextComponent(fldjson, index);
         } else if (fieldType == "ATT") {
+            
             comphtml = this.createAttachmentHTML(fldjson, index, colclassname)
         } else if (fieldType == "Img") {
             comphtml = this.getimage(fldjson, index, colclassname)
@@ -2348,6 +2384,7 @@ class EntityForm {
     }
     createAttachmentHTML(fldjson, index, colclassname) {
         if (fldjson.v) {
+            
             let componentHtml = this.components["ATT"]?.html || `<div class="inputcontent"  readonly>{{v}}</div>`;
             componentHtml = componentHtml.replaceAll("{{customid}}", `fileattached${index}`);
             var extension = ReverseCheckSpecialChars(fldjson.v).split('.').pop().toLowerCase();
@@ -3141,6 +3178,7 @@ function scrollToTopOfDiv(divElement) {
 }
 /* End Function Set to generate html */
 $(document).ready(function () {
+    _entityCommon = new EntityCommon();
     _entityForm = new EntityForm();
     _subEntity = new SubEntity();
 
