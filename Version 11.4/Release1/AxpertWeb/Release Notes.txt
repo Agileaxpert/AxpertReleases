@@ -1,0 +1,85 @@
+Release Notes
+-----------------
+
+
+AxpertStudio:
+------------
+Task ID-012335 -- PayAzzure: Report Accessible From Menu checkbox is disabled by default in iview, user not able to enable/disable the access for the iview.
+ 
+Task ID-012334 -QA- Calculate using this expression only if the value is empty in params is not working as expected, its calculating the expression even if the value is present
+ 
+Task ID-012308 -QA- Issue Description: If a column is deleted from the top row in the GenMap mapping, the last row gets deleted.
+ 
+Task ID-012309 -QA- Issue Description: When a Tstruct is opened for modification or just for viewing, and the Studio is closed without making any changes, reopening the Studio still shows the Tstruct as modified. However, undo changes cannot be done since there is no any modification.
+ 
+ 
+AxpertWeb:
+---------
+Task ID-012340 -- Security Fix for BMRCL: Account Compromise via Paramter Tampering (Username enumeration is still possible by brute-forcing the pusername parameter—valid usernames can be identified based on content length variations in the responses. It is recommended to implement t strict access controls to ensure users can only access authorized resources)
+ 
+Task ID-012337 -- PayAzzure : Encrypt field data not working properly if the data Import though script
+ 
+Task ID-012311 -Kauvery- The transaction date and time are currently being taken from the browser's system time instead of the application server's time.
+Note: To avoid timezone differences at the transaction level, the application variable named 'axp_timezone' should be added with a value of 0.
+ 
+Task ID-012310 -support(Pentagon)- Import from XL button on grid is not enabling specifically in the below screen and unable to figure out why.
+ 
+Task ID-012296 -- Issue Description : Axpert Hybrid Issue Trustline: Once the application has been logged out, the screen will appear with a login button. Above the login button, the "Your session logged out successfully" line has vanished.
+ 
+Task ID-012297 -QA- Issue Description : Axpert Hybrid Issue Trustline: When user open the application the login page is flickering or resizing.
+ 
+Task ID-012338 -QA- Tstruct multiselect fillgrid popup and table type field popup's UI enhanced
+ 
+Task ID-012317 -QA- Issue Description : When a user enters an incorrect password during login, the blank page appears instead of the valid toast message "Invalid username or password".
+ 
+Task ID-012299 -QA- Product Issue: AxRow Option in Iview is not working.
+ 
+Task ID-012300 -QA- Product Issue: Unable to download the attachments in iview.
+ 
+Task ID-012332 -QA- At Password screen change screen & reset password screen,  password field's layout and view password icon's layout not aligned properly
+ 
+Task ID-012333 -QA- Reset Password is not working when user trying to change the existing password with case change. for example, if the existing password is AGILE, and when user change it as agile its not resetting the password.
+ 
+Task ID-012336 -QA- Data listing page not loading in cloud server
+ 
+Task ID-012298 -- HTML Templates are directly accessible through HTML URL
+Note: 1. Product templates are handled not to access html directly 
+      2. Below code needs to be added incase of User defined templates         
+<script type="text/javascript">
+            var pervsid = typeof callParent == "undefined" ? parent.hdnpsid : eval(callParent('hdnpsid'))
+              if (typeof pervsid == "undefined" || pervsid == "") {
+        try {
+            document.location.href = "./CusError/AxCustomError.aspx";
+        } catch (ex) {
+            window.location.href = "./CusError/AxCustomError.aspx";
+        }
+    }
+</script>
+ 
+ 
+Structures/Scripts:
+-------------------
+1. At userpermission there are two dimension showing as sqltext, scripttext2  by default. that we didn't created any dimention still its showing also we when click inside that sqltext field calculating one query and showing erro
+ 
+2. In forms, When user load any form it is throwing error like "Oops! Error occured due to the following reason: relation "ax_configure_fast_prints" does not exist".
+ 
+3. Issue 1 - When users attempt to load any application variable, it is throwing error like "Data stored in axp_vp is improper. Cannot load transaction"
+Note: The issue occurs exclusively in the Oracle schema.
+Issue 2 - When the user creates a new variable, it throws an error like "ORA-00904: "AXP_FN_GET_SCOLNAME": invalid identifier".
+ 
+4. In Axpert language setup, User unable to download the excel file instead of that it displayed the confirm popup msg "Confirm! arrow_circle_downDownload not completed due to Error in AxPrint-Printform Not Found. Retry Abort".
+ 
+5. Oracle - On Click of View History button at runtime in a form, showing error as "ORA-00942: table or view does not exist"
+ 
+6. On click of Activelist, throwing as "Input array is longer than the number of columns in this table."
+ 
+7. Created Custom Plugin is not reflecting in Home Page
+ 
+8. Postgres- On Resave of existing API Plugins it is throwing error "relation "axpdef_tstruct" does not exist"
+ 
+9. Oracle-On selection and click of Search of Publish Listing in Config Studio,throwing error as ORA-00942: table or view does not exist
+Postgres-Error occured due to the following reason: relation "ax_configure_fast_prints" does not exist
+ 
+10. Postgres - In Selection of Fields in Components it is throwing error"function fn_ruledefv3_scriptgen(unknown, character varying) does not exist"
+ 
+11. Oracle - 1) Configure DAC option is not removed in axrow dropdown in Forms 2) VIew Fastprints button is not removed from Options Button
