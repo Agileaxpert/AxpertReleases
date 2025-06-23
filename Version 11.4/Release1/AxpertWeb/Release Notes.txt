@@ -1,6 +1,7 @@
 Release Notes
 -----------------
 
+NOTE: "Please use AxInstaller to deploy the 11.4 releases. The latest version of AxInstaller can be downloaded from the 'Utilities' folder under BaseCode."
 
 AxpertStudio:
 ------------
@@ -11,6 +12,8 @@ Task ID-012334 -QA- Calculate using this expression only if the value is empty i
 Task ID-012308 -QA- Issue Description: If a column is deleted from the top row in the GenMap mapping, the last row gets deleted.
  
 Task ID-012309 -QA- Issue Description: When a Tstruct is opened for modification or just for viewing, and the Studio is closed without making any changes, reopening the Studio still shows the Tstruct as modified. However, undo changes cannot be done since there is no any modification.
+
+NOTE: "The version information has been updated in the appsettings.json file. Please take a backup of the existing appsettings.json and web.config files. Compare the updated files with the backups and manually apply the necessary changes."
  
  
 AxpertWeb:
