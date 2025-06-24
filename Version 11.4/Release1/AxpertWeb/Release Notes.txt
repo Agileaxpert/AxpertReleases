@@ -1,7 +1,7 @@
 Release Notes
 -----------------
 
-NOTE: "Please use AxInstaller to deploy the 11.4 releases. The latest version of AxInstaller can be downloaded from the 'Utilities' folder under BaseCode."
+NOTE: "Please use AxInstaller to deploy the 11.4 releases. The latest version of AxInstaller can be downloaded from the 'Utilities' folder under BaseCode.Before deployment, ensure to take a backup of your existing code, appsettings.json and web.config files."
 
 AxpertStudio:
 ------------
