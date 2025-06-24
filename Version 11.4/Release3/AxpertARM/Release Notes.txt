@@ -1,0 +1,6 @@
+Release Notes
+-----------------
+
+1) Cards are not showing as per user roles in mobile.
+2) List views permission issue in oracle 11g.
+3) Trace not coming for permission errors.
