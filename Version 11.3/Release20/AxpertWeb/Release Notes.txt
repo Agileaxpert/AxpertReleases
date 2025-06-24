@@ -1,0 +1,57 @@
+Task ID-012310 -support(Pentagon)- Import from XL button on grid is not enabling specifically in the below screen and unable to figure out why.
+
+Task ID-012240 –Support(Kotecha)- 1. Attachments in the grid(dc2_image) are randomly not being stored on the file server.
+ 2. Action with Email task: Grid attachments are not being included in the email when the transaction is in new mode.
+
+Task ID-012210 -- Application properties for Email setting screen has been enhanced to define user defined Email Subject & Content and SMS content for OTP Mails and SMS.
+Note: Predefined variables UserName and OTP can be used in the content by using {username},{otp}
+       Ex.:
+         1. Email:
+            Dear {username},
+             One Time Password(OTP) for Axpert login is {otp} 
+            Regards,
+            Support Team.
+         2. SMS: 
+            Dear {username},
+             One Time Password(OTP) for Axpert login is {otp}
+
+Task ID-012214 -QA(trustline)-Description: In the Trustline project, under Application Properties > OTP Content Format, users require a predefined variable to dynamically retrieve the OTP expiry time (as configured in Settings) in Email/SMS content.
+Note: Predefined variables UserName, OTP and OTPExpiryTime can be used in the content by using {username},{otp} and {otpexpirytime}
+ Ex.: 1. Email:
+            Dear {username},
+             One Time Password(OTP) for Axpert login is {otp} and OTP expires in {otpexpirytime} minutes.
+            Regards,
+            Support Team.
+         2. SMS: 
+            Dear {username},
+             One Time Password(OTP) for Axpert login is {otp} and OTP expires in {otpexpirytime} minutes.
+
+Task ID-012296 -QA- Issue Description : Axpert Hybrid Issue Trustline: Once the application has been logged out, the screen will appear with a login button. Above the login button, the "Your session logged out successfully" line has vanished.
+
+Task ID-012297 -QA- Issue Description : Axpert Hybrid Issue Trustline: When user open the application the login page is flickering or resizing.
+
+Task ID-012198 -QA(Trustline)-Description: In the Trustline project, the OTP functionality is not working when the User ID is created with an email address.
+
+Task ID-012244 -- When upgraded project wants to show old listview page 'AxOldDataList' developer option need to be added with value 'true'. And to display the old home page cards 'AxOldCards' developer option needs to be added with value 'true' as given below properties.
+ Developer option:
+  Property: AxOldDataList
+  property Code: General
+  Property Value: true/false
+  User Role: All
+
+ Developer option:
+  Property: AxOldCards
+  property Code: General
+  Property Value: true/false
+  User Role: All
+
+Task ID-012244 -QA- When upgraded project wants to show old listview page 'AxOldDataList' developer option need to be added with value 'true'. And to display the old home page cards 'AxOldCards' developer option needs to be added with value 'true' as given below properties.
+Note: After the user enabled the developer option 'AxOldDataList', both the iView and TStruct icons appeared similar in the menu bar.
+
+Task ID-012215 -QA- Description: Axpert 11.3 - When the AxOldModel key is set to 'true' in the Web.config file ( add key="AxOldModel" value="true") , At Runtime homepage is not display correctly(eg: some cards on the homepage are overlapping)
+
+Task ID-012126 -QA- Issue Description : Product Issue : Created structures are not reflecting in runtime when clicking refresh menu after logout and login, then the respective structures are reflecting.
+
+Task ID-012120 -QA- Product Issue : When Grid dc having display total, the Send to Excel button does not allow to download the excel file. 
+
+Task ID-012211 -QA- Data and Charts are not loading in listing page
