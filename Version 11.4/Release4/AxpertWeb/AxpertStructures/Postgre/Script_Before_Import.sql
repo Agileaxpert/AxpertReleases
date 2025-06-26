@@ -1,0 +1,3 @@
+<<
+DELETE FROM lviews WHERE TRANSID='AxGlo'
+>>

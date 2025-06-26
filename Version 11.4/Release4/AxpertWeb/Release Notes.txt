@@ -1,0 +1,25 @@
+Task ID-012353 -- Multiselect Fillgrid popup UI enhanced. Numeric selected columns total can be displayed as Footer if the numeric columns name suffixed with ':tot_'. Along with sufficed column name static text also can be added as per business requirement. 
+    Definition Ex.: Suppose a column 'invtot' is available in the Multiselect fillgird popup, ':tot_invtot' OR 'Invoice Quantity = :tot_invtot' can be used as footer definition to display the total invoice quantity of the selected rows in multiselect fillgrid popup.
+  
+Task ID-012354 -- Table type field popup UI enhanced. Numeric selected columns total can be displayed as Footer if the numeric columns are defined in the table type field defined JSON as below.
+    Ex.: {"props":{ "type": "table", "colcount": "4", "rowcount": "1", "addrow": "t", "deleterow": "t", "valueseparator": "|", "rowseparator": "^", "sql":""},"columns":{"1":{"caption": "Uname", "name": "username", "value": "", "source": "", "exp": "", "vexp": "","allowempty":"f"}, "2":{"caption": "Quantity", "name": "qty", "value": "", "source": "", "exp": "", "vexp": "","hide":"f","ftot":"total quantity=:qty"},"3":{"caption": "Rate", "name": "rate", "value": "", "source": "", "exp": "", "vexp": "","readyonly":"f","ftot":"total rate=:rate"},"4":{"caption": "Amount", "name": "amount", "value": "", "source": "", "exp": "rate*qty", "vexp": "","readyonly":"f","ftot":"total amount=:amount"}}} 
+Where 'ftot' is the newly added node(ex.: "ftot":"total quantity=:qty" ) to display the total for numeric fields in table field definition('qty' is the numeric column in table field type definition)
+
+Task ID-012355 -- Forms toggle button solid green color has been reintroduced.
+
+Task ID-012356 -- Kauvery: If the Global parameters query having new line character,then the query is not executing properly during runtime.
+
+Task ID-012358 -- Kauvery: 'Axpflds' table is not getting updated when new Parameters are added through global parameter form. 
+
+Task ID-012359 -- After adding fields in forms through Config Studio corresponding forms in-memory data not clearing
+
+Task ID-012360 -- If In-memory cleared through command prompt, then 'Reset password' and 'Change password' not working properly 
+
+Task ID-012343 -QA- Issue Description: When the user saves ARM Connections for one instance on Config.aspx and then selects another instance from the Connection Name dropdown, the connection details from the previously selected instance are still displayed instead of loading the details for the newly selected instance.
+
+Task ID-012340 -- Security Fix for BMRCL: Account Compromise via Paramter Tampering (Username enumeration is still possible by brute-forcing the pusername parameter—valid usernames can be identified based on content length variations in the responses. It is recommended to implement t strict access controls to ensure users can only access authorized resources)
+
+DB Changes
+-----------
+* In Oracle, Delete button is not showing in Application Constants and Variables.
+* In Postgre, Application constants and Variables screens are provided with new DELETE button.
