@@ -1,0 +1,12 @@
+Task ID-012387 - AxpertAPIs - Hook functions to be added to product 
+ Note: The JS reference to call following functions are moved from AxpertAPIs/Js/AxpertAPIs.js to Js/AxInterface.min.js file.
+	* CallDataSourceAPI
+	* AxSetValueAPI
+	* CallSubmitDataAPI
+	- All HTML pages using above reference 'AxpertAPIs/Js/AxpertAPIs.js' should be changed to 'Js/AxInterface.min.js'
+	- All HTML pages using function 'AxSetValue' should change to new renamed function 'AxSetValueAPI'
+	- GIT: https://github.com/Agileaxpert/Axpert/tree/main/Axpert%20Samples/Axpert%20APIs
+
+Task ID-012374 -QA- In the Import Data, Download Template popup, when a user selects a large number of fields in the Select Fields list, the list expands beyond the visible area. As a result, the ‘OK’ button is no longer visible on the screen when scrolling down.
+ 
+Task ID-012383 -QA- In the Import Data, if the excel contains spaces and empty rows and columns then it is not showing the proper exceptional message instead throwing oops error.
