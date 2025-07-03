@@ -1,0 +1,5 @@
+Task ID-012400 -Support-We are planning to start using Agilespace internally to replace Agiletime, but we’ve encountered a blocker. When a user has no tasks assigned, the "My Tasks" iView keeps loading indefinitely. However, it works perfectly when task data is available.
+
+Task ID-012405 -- PayAzzure: Reports not getting loaded if the hidden parameter values are more.
+
+Task ID-012340 -- Security Fix for BMRCL: Account Compromise via Paramter Tampering (Username enumeration is still possible by brute-forcing the pusername parameter—valid usernames can be identified based on content length variations in the responses. It is recommended to implement t strict access controls to ensure users can only access authorized resources)

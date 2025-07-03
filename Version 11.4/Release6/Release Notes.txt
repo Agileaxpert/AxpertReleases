@@ -1,0 +1,23 @@
+Task ID-012364 -BMRCL-	In AxpImage - Image is not getting stored in the file path & it is storing as Blob
+Note: The Images will be saved in 'AxpImagePath' variable path by default. In case if there is a requirement to save image in DB, the below developer option needs to be enabled with value true. 
+ Developer option :
+    Property: Save Image in DB
+    Property Code: SaveImage
+    Property Value: true
+    Form/Report: ALL Forms / Single Form
+    User Role: All / Single role 
+
+
+Task ID-012362 -BMRCL- 1. Attachment files to be stored in Linux serve
+(Attachment files should be stored on the Linux server)
+Note: To store the attachments in Linux server, the Application variable 'axp_linuxserver' needs to be added with value 'true'.
+2. Attachment option for Video.
+(Option to attach video files)
+Note: To upload videos files in any format, the below developer option needs to be added with value 'true' and Property Info with comma separated video file types.
+    Developer option : 
+       Property: Allow Video File in Attachments
+       Property Code: Allow Video File in Attachments
+       Property Value: true/false 
+       Property Info: Comma separated video file types need to be mentioned (ex.: mp4,mp3)
+       Form/Report: ALL Forms / Single Form
+       User Role: All / Single role 
