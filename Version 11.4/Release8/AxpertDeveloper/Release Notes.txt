@@ -1,0 +1,8 @@
+Task ID-012328---Kauvery Issue: When user changes the default button position, it is not reflected in runtime, the previous position remains displayed.
+Task ID-012329---Kauvery Issue: In Studio in an Iview, when a user makes modifications to the default buttons "new" and "remove", and then modifies the query, those 2 buttons are reset to enabled.
+
+Task ID-012402 -- UI enhancement points: 
+1. In Drag & Drop panel, on select the node is getting highlighted in black
+2. The loader backgrounds aren't opaque enough, text not visible clearly (especially saving loader)
+3. Fonts css not loading properly 
+4. Publish to Runtime button caption changed to 'Save'
