@@ -1,0 +1,15 @@
+AxpertWeb:
+1) Task ID-012376---Product Issues: In Cards, The chart properties functionality changes are not being reflected in dashboard and homepage. Scroll is coming
+2) Data lising page. Right side panel. Fixed the Scroll issue.
+3) Payazzure charts properties. Not working in oracle.
+4) Data listing page - No Data Found - Changed UI
+
+Scripts:
+After Import script is released.
+
+Note: Resaving of cards is needed after script execution.
+
+ARM:
+Note: Appsettings.json is modified.
+1) New SSO feature is added using JWKS file. Refer file 'ARM - JWT authentication Tokens.docx' for more details.
+2) Remove old arm folder fully (not replace) and apply new ARM.
