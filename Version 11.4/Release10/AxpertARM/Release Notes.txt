@@ -1,0 +1,14 @@
+Fixes for following points is released:
+
+1) SQL Server - Data page not loading after latest changes. (Nuwab) 
+2) Global variables error in listing page. (erpdemo) 
+3) Task ID-012444 - Data page - Image not showing in data page. (agileerpbase)
+4) Check Box UI fix 
+5) Task ID-012366 - Right side panel not hiding in Data Page
+6) Connecteddata not coming for some screens.
+
+Note:
+Following files are released in ARM to maintain the developer versioning:
+
+ARM_APIs.VersionInfo.json
+ARMCommon.VersionInfo.json

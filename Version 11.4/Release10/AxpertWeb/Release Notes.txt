@@ -1,0 +1,32 @@
+Task ID-012470 -BMRCL- Enhancement: Tstruct attachments can be zipped with Password protected files. To get do this protected attachments in tstruct's below Application variable and Developer Option needs to be added in concerned projects.
+  1. Application variable: 'axp_uploadfileprotectedpwd' value is the Password characters.
+  2. Developer option : 
+       Property: File Protected in tstruct attachments
+       Property Code: File Protected in tstruct attachments
+       Property Value: true/false 
+       Form/Report: ALL Forms / Single Form
+       User Role: All / Single role 
+
+Task ID-012421 -BMRCL- In Table Field Json ,I have given IsEmpty expression But it is not working in alpha site .
+
+Task ID-012471 -BAFCO- The Approval through mails defined in Axpert Desktop Workflows incorporated with SSO mail authentications.  
+ 
+Task ID-012413 -BAFCO-In the Invoice form, the batch is not displayed when selecting it for the first time. However, after refreshing the Warehouse field, the batch appears. (DLL)
+
+Task ID-012230 -PayAzzure- Issue with Time Fields in Bulk Upload Data. It appears that the time fields were not handled correctly in the bulk upload data.
+
+
+ARM
+-----
+Task ID-012472 -SaaS- Fixes for following points:
+1) SQL Server - Data page not loading after latest changes. (Nuwab) 
+2) Global variables error in listing page. (erpdemo) 
+3) Data page - Image not showing in data page. (agileerpbase)
+4) Check Box UI fix 
+5) Right side panel not hiding in Data Page
+6) Connected data not coming for some screens.
+
+Note:
+Following files are released in ARM to maintain the developer versioning:
+ARM_APIs.VersionInfo.json
+ARMCommon.VersionInfo.json
