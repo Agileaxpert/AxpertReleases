@@ -1,0 +1,39 @@
+Task ID-012404 -Support(GCMS)- Security audit reported below issue in Web Application:
+ 1. API Mass Assignment (Fixed)
+ 2. Reflected Cross Site Scripting (Fixed) 
+ 3. eShoplifting (Seems to be the latest code is not applied as the fix for this issue available in last released patch)
+
+Task ID-012403 -Support(GCMS)- Security audit reported below issue in Web Application:
+  1. Vulnerable and Outdated Components      
+    a. Some js files available in ASPX folder which needs to be checked and removed.
+    b. moment.min.js (Fixed)
+  2. Security Misconfiguration: 
+     Note: Seems to be below mentioned web.config keys are missing, which needs to be verified. 
+      <customHeaders>
+       <add name="X-Frame-Options" value="SAMEORIGIN" />
+       <remove name="X-Powered-By" />
+       <remove name="X-Content-Type-Options" />
+       <add name="X-Content-Type-Options" value="nosniff" />
+       <add name="Access-Control-Allow-Methods" value="GET, POST" />
+       <add name="X-XSS-Protection" value="1; mode=block" />
+       <add name="Content-Security-Policy" value="script-src 'unsafe-inline' 'unsafe-eval' http: https:; style-src 'self' 'unsafe-inline'; font-src * data:;img-src * blob: data:; default-src *;" />
+       <!--Strict-Transport-Security (HSTS) header should only be applied to HTTPS sites-->
+      <add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />
+     </customHeaders>   
+  3. Malicious File Upload: 
+     PDF with txt extension file is uploaded, needs to be verified either opening in folder or not. 
+  4. Improper Error Handling: 
+     Note:
+     1. Below keys needs to be rectified in web.config file. If not available it needs to added back. 
+          a. <compilation debug="false" targetFramework="4.6">
+          b. <customErrors defaultRedirect="cuserror/AxcustomError.aspx" mode="On">
+              <error statusCode="403" redirect="cuserror/Ax500Error.aspx" />
+              <error statusCode="404" redirect="cuserror/Ax500Error.aspx" />
+              <error statusCode="500" redirect="cuserror/Ax500Error.aspx" />
+            </customErrors>
+     2. Below mentioned line should not be customized or commented out in global.asax file.
+        Response.Redirect("~/CusError/AxCustomError.aspx");
+
+Task ID-012424 -Support(Kotecha)-We are facing a serious issue in Axpert Web 11.3 Patch 19. On some screens, the listview, search buttons, and columns disappear randomly. This is affecting all users, including the admin.
+
+Task ID-012230 -PayAzzure- Issue with Time Fields in Bulk Upload Data. It appears that the time fields were not handled correctly in the bulk upload data.
