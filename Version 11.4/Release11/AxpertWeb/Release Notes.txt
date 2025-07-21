@@ -1,0 +1,39 @@
+Task ID-012488 -- Enhancement: SSO Settings has been moved from 'Config.aspx' page to 'Application properties' page in Configuration Studio.    
+
+Task ID-012475 -PayAzzure- The 12-hour time field is being captured as empty by default. It should default to the 12-hour format in pattern.
+
+Task ID-012473 -PayAzzure- There was an error processing the request. The application variables are not being registered during login. When we try to execute function manually, we receive the following error: 'There was an error processing the request'.
+
+Task ID-012461 -PayAzzure- In an iView, if there are no records available, it is displaying a blank page(Mobile).
+
+Task ID-012429 -QA(Kauvery)- If a Field is made as Allow Duplicate False and Allow Empty True, the value saved as null on insert, but on edit it is not saving as null. So duplicate values error is throwing for the edit on second record.
+
+TASK-0025 -QA(Kauvery)- Issue Description: When a user creates a script using AxHideControls({save, remove}), the Save button is not being hidden during runtime
+
+Task ID-012419 -BAFCO- While entering or copying and pasting the product name 'Hi-lok Protrusion Gauge One Set' — which consists of pin diameter sizes: 5/32", 3/16", 1/4", 5/16", and 3/8", and is intended for Hi-lok P/Ns: HL20PB5, HL20PB6, HL20PB8, HL21PB5, HL21PB6, HL21PB8 and Collar P/Ns: HL70-5, HL70-6, HL70-8 — an issue occurs upon submitting the transaction
+
+TASK-0078 -BAFCO- Workflow Status Column to be added in Data Page (List View of Form) in 11.4 (BAFCO)
+
+TASK-0080 -BAFCO- In an Iview we have given the below validate expression in endate parameter.  
+
+TASK-0064 -SaaS- Map columns option is not visible when user upload an excel file
+
+TASK-0071 -QA- ax_userconfigdata table is missing in New applicaiton default structures(Structures related)
+TASK-0070 -QA- Handle lower(username) in Activity card data source(Structures related)
+TASK-0069 -QA- Add SSO related options in Axpert Properties(Structures related)
+
+Task ID-012489 -- CSS changes withdrawn for Grid dropdown field auto expending based on the selected value length.
+
+Task ID-012242 -Quess- To display workflow status as userid with nick name, a node called unamesql was added to axprops.xml. 
+However, if this node is added, the workflow's approval button does not appear; if this node is removed, 
+the approval button appears properly. We need unamesql node as per the client requirement.
+Note: If the workflow status required as 'username' concatenated with 'nickname' then below SQL should added in 'AxProps.xml' (available in AxpertScripts folder) with a new node as 'unamesql' as given below.
+ ex.: <unamesql>select concat(pusername,'-',nickname) name, pusername from axusers where pusername in (:username)</unamesql>
+
+Task ID-012404 -Support(GCMS)- Security audit reported below issue in Web Application:
+Note: 1. API Mass Assignment 2. Reflected Cross Site Scripting points are fixed
+
+Task ID-012403 -Support(GCMS)- Security audit reported below issue in Web Application:
+Note: Vulnerable and Outdated Components (moment.min.js) fixed
+
+Task ID-012424 -Support(Kotecha)- the listview, search buttons, and columns disappear randomly. This is affecting all users.
