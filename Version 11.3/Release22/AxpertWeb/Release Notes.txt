@@ -1,0 +1,9 @@
+TASK-0239 -Support(Kotecha)- After applying patch version 11.3_R21, file attachments added through the TStruct grid are not retained after saving the record.
+Before saving, the attachment folder is correctly created, and all uploaded files are visible as expected.
+After saving, the original files are deleted. Instead, a new temporary folder is created inside the attachment path, which contains only a one-line text file.
+This results in loss of the originally uploaded files after save.
+
+TASK-0081 -Support(GCMS)- There is always an exception "Clear in-memory keys and try again" when loading DMG Registration screen from menu.
+When checking in redis, only this transid related keys are missing and we tried clearing all keys once to check if it is resolving. 
+ 
+TASK-0235 -Support(Pentagon)- in iview, if the parameter dropdown value contains & symbol then the iview is not opening, it keep on loading
