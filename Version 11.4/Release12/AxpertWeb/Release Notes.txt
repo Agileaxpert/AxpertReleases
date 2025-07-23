@@ -1,0 +1,13 @@
+AxpertWeb:
+---------
+TASK-0235 -QA- in iview, if the parameter dropdown value contains & symbol then the iview is not opening, it keep on loading
+TASK-0236 -PayAzzure- Global Variables are not getting registered through DB functions if the definition is set to register through 'On Login'
+Task ID-012461 -PayAzzure- In an iView, if there are no records available, it is displaying a blank page(Mobile).
+
+
+AxpertStudio:
+------------
+TASK-0237 -- Delete functionality for saved fields has been enhanced to show the field dependencies(if any) for the deleting field as a popup information.       
+TASK-0238 -- Enhancement: Change Field Type has been introduced in field definition level
+Task ID-012398 -- In tstruct script definition required to add 'Push to queue' check box after is API check box and the value should add in structure xml script node 
+
