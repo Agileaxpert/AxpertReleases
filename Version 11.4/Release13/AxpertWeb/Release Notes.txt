@@ -1,0 +1,23 @@
+TASK-0380 -- OTP Settings( OTP authentication, OTP authentication characters, OTP authentication expiry time) moved from Global settings page to Application properties page under OTP Settings tab.
+Note: OTP settings needs to be resaved once this patch is applied. 
+
+TASK-0296 -BAFCO- Taking more time to login to application(especially for admin login) 
+Note: Login trace should not be ON by default in Production/UAT instances as it will impact the application performance during application login. 
+
+TASK-0292 -BAFCO- Accept field is not refreshing the value. First time while entering data in row1 of approval list grid dc in workflow-lite form, the xml text is not fetching properly, but if I delete the row1 then click add row then enter values, it is fetching properly. Then if we enter multiple records in grid after saving the form, if we open dataload row1 of grid is missing.
+
+TASK-0204 -Kauvery- Issue Description: When a user creates a mandatory field in DC3 or DC4 and clicks the Submit button without entering a value, it is showing validation message but the cursor does not move to that specific mandatory field
+
+Task ID-012386 -Kauvery- Issue Description: When a value is selected from the dropdown list in the Table field, the value is presented as ID.
+
+TASK-0360 -QA- Issue Description: After applying Release 11, the "Test Mail" button is not showing under Application Properties.
+
+TASK-0239 -Support(Kotecha)- After applying patch version 11.3_R21, file attachments added through the TStruct grid are not retained after saving the record.
+Before saving, the attachment folder is correctly created, and all uploaded files are visible as expected.
+After saving, the original files are deleted. Instead, a new temporary folder is created inside the attachment path, which contains only a one-line text file.
+This results in loss of the originally uploaded files after save.
+ 
+TASK-0081 -Support(GCMS)- There is always an exception "Clear in-memory keys and try again" when loading DMG Registration screen from menu.
+When checking in redis, only this transid related keys are missing and we tried clearing all keys once to check if it is resolving. 
+
+TASK-0417 -QA- Iview Picklist and dynamic filter parameters ui is not proper
