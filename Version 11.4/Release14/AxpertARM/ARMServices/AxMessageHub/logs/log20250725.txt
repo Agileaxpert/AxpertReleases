@@ -1,0 +1,28 @@
+2025-07-25 22:29:33.588 +05:30 [INF] Now listening on: http://localhost:5000
+2025-07-25 22:29:33.728 +05:30 [INF] Now listening on: https://localhost:5001
+2025-07-25 22:29:33.744 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-25 22:29:33.750 +05:30 [INF] Hosting environment: Production
+2025-07-25 22:29:33.757 +05:30 [INF] Content root path: E:\WorkSpace\2025\___VSCode\AxMessageHub 23072025\AxMessageHub\bin\Release\net6.0\AxMessageHub\
+2025-07-25 22:32:34.252 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/Messaging/email application/json 632
+2025-07-25 22:32:34.338 +05:30 [INF] Executing endpoint 'AxMessageHub.Controllers.MessagingController.SendEmail (AxMessageHub)'
+2025-07-25 22:32:34.438 +05:30 [INF] Route matched with {action = "SendEmail", controller = "Messaging"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(AxMessageHub.Dto.SendEmailDto) on controller AxMessageHub.Controllers.MessagingController (AxMessageHub).
+2025-07-25 22:32:35.294 +05:30 [INF] DAta: 921
+2025-07-25 22:32:35.306 +05:30 [INF] Extracted Json{
+  "host": "smtp.office365.com",
+  "port": "587",
+  "user": "karthik@agile-labs.com",
+  "pwd": "Agile@2024",
+  "arm_url": "https://uae.agilecloud.biz/UATArm/api/v1/ARMPushToQueue",
+  "emailsubject": "OTP AUTH",
+  "emailbody": "Dear EMAIL {username},<br> <br>Your One-Time Password (OTP) for accessing your Account is: {otp}<br> <br>This OTP is valid for the next {otpexpirytime} minutes. Please do not share this code with anyone. If you did not request this code, please contact our support team immediately.<br> <br>Thank you,<br>Axpert Support",
+  "smscontent": "Dear SMS {username},<br> <br>Your One-Time Password (OTP) for accessing your Account is: {otp}<br> <br>This OTP is valid for the next {otpexpirytime} minutes. Please do not share this code with anyone. If you did not request this code, please contact our support team immediately.<br> <br>Thank you,<br>Axpert Support"
+}
+2025-07-25 22:32:35.321 +05:30 [INF] Configuration Retrieved Successfully
+2025-07-25 22:32:35.326 +05:30 [INF] Configuration loading from redis
+2025-07-25 22:32:35.337 +05:30 [INF] Configuration loaded from redis
+2025-07-25 22:32:40.231 +05:30 [INF] Result: Success, Message: Email sent Successfully
+2025-07-25 22:32:40.255 +05:30 [INF] Executing OkObjectResult, writing value of type 'AxMessageHub.Dto.ApiResponseDto'.
+2025-07-25 22:32:40.315 +05:30 [INF] Executed action AxMessageHub.Controllers.MessagingController.SendEmail (AxMessageHub) in 5853.3542ms
+2025-07-25 22:32:40.332 +05:30 [INF] Executed endpoint 'AxMessageHub.Controllers.MessagingController.SendEmail (AxMessageHub)'
+2025-07-25 22:32:40.343 +05:30 [INF] HTTP POST /api/Messaging/email responded 200 in 6007.7430 ms
+2025-07-25 22:32:40.369 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/Messaging/email application/json 632 - 200 - application/json;+charset=utf-8 6129.7055ms

@@ -1,0 +1,24 @@
+
+AxpertWeb:
+----------
+TASK-0565 -- Tstruct HTML caching enhancement. 
+ Note to QA: 1. Smoke test for Tstruct functionalities and scenarios needs to be done. 
+             2. Duplicate tab scenarios needs to be reverified. 
+
+TASK-0513 -Support- Login page console errors handled.
+
+TASK-0343 -Kauvery- Issue Description: When a user creates custom HTML content in Design Mode and saves it, Upon reopening the same HTML code, the saved changes are not reflected in Custom HTML 
+
+TASK-0401 -QA- Issue Description: 
+Issue1: When a form is opened in pop-up mode and the Run button is clicked in Design Mode, it does not retain the pop-up behavior. Instead, the form opens in Display Mod
+NOTE: Issue in both oracle and Postgres
+Issue2: Observed same issue in Config Studio with Design Mode. On click of RUN in design mode, it is opening the screen behind the config studio Refrence Screens :OTP Screen, PEG,User Management
+
+TASK-0402 -QA- Issue Description: When a user creates or modifies an ARM connection and clicks Save, the connection appears blank in the UI. Selecting the saved connection still displays old values. After a page reload or relogin, the correct (new) values are shown.
+
+TASK-0552 -- Through AXIMPORT bulk upload, if a data field is blank or null, it is still being encrypted. However, in iView, it is not getting decrypted back to blank or null.
+
+ARM:
+----
+TASK-0464 -- The email OTP service is not working as expected after configuring it for BAFCO version 11.4.
+TASK-0552 -- Through AXIMPORT bulk upload, if a data field is blank or null, it is still being encrypted. However, in iView, it is not getting decrypted back to blank or null.
