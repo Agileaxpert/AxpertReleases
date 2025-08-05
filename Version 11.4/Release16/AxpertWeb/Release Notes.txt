@@ -1,0 +1,7 @@
+TASK-0312 -payazzure- News and event's card is not visible in home page.
+Note: News card changes:
+1) Provided SQL script should be executed 
+2) Default image will be loaded if no image uploaded, Datasource need to modified to include 'IMAGE' column for the uploaded images appear in new cards. 
+   For existing query needs to be modified with "'images/news/$APP_NAME$/' || img.recordid || '.' || img.ftype image" if image required other than default image. 
+3) Existing records needs to be resaved with image. 
+4) Take latest html for News card from https://github.com/Agileaxpert/Axpert/blob/main/Axpert%20Samples/HTML%20Plugins/News%20Card.html
