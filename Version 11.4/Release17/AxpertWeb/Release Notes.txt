@@ -1,0 +1,22 @@
+TASK-0565 -- Tstruct HTML caching enhancement. 
+
+TASK-0555 –PayAzzure- Encryption and Decryption in TStruct, The decryption of encrypted data fields was not supported in either FastReports or our custom-built Python reports.
+Note:1. The supporting component 'AxFast.exe ' has been released along with this patch. 
+     2. Detailed document has been provided to define/use Encrypt/Decrypt data in Fast Report.
+
+TASK-0558 -PayAzzure- When a user has access to multiple screens, and navigates to one screen via the menu bar and then searches for another screen using the search bar, the focus does not shift to the newly selected screen.
+
+TASK-0312 -PayAzzure- News and event's card is not visible in home page.
+Note: News card changes:
+1) Provided SQL script should be executed 
+2) Default image will be loaded if no image uploaded, Datasource need to modified to include 'IMAGE' column for the uploaded images appear in new cards. 
+   For existing query needs to be modified with "'images/news/$APP_NAME$/' || img.recordid || '.' || img.ftype image" if image required other than default image. 
+3) Existing records needs to be resaved with image. 
+4) Take latest html for News card from https://github.com/Agileaxpert/Axpert/blob/main/Axpert%20Samples/HTML%20Plugins/News%20Card.html
+
+TASK-0665 -Bafco- Issue in displaying cards for different user roles in Home page.
+Remarks - Issue has been fixed in the DB script. 
+
+TASK-0636 -JFI- Issue Details: The Clone functionality is not resetting the Doc ID to Auto immediately after cloning a document. Instead, it temporarily retains the original document’s Doc ID, which causes confusion for users. Although the Doc ID gets updated correctly after saving the cloned transaction, it is not reflected instantly. During this interim period, the unchanged Doc ID appears in the form and the list view, misleading users into thinking the original document is being modified.
+
+TASK-0690 -QA- During login, the error message was coming as 'Invalid username/ Password' instead of the error message 'Inactive user' when inactive users are trying to login.
