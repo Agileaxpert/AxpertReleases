@@ -1,0 +1,8 @@
+Fixes for following points is released:
+
+TASK-0687-QA-Recent activities card is not visible
+TASK-0684-QA-Version overlapping UI issue
+Task ID-012433-QA-Wrong screen opens on click's the chart.
+TASK-0779-QA-Homepage loading and dashboard page charts not visible issue.
+TASK-0773-Bafco-Cards/Menu not showing properly
+TASK-0828-QA-Charts are visible multiple times in Dashboard
