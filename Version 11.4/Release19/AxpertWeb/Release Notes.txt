@@ -1,0 +1,16 @@
+TASK-0671 -Kauvery- Issue Description: When the user selects a value in Dropdown2 (which depends on Dropdown1), then clears the value in Dropdown1 and clicks Save, the system throws an error: 'Invalid selection "Star Health And Allied Insurance" in Concession Reference.'
+
+TASK-0784 -Support- There are console errors when any iview is opened in web.
+
+Task ID-012086 -QA- Product Issue: On Dataload user unable to load the previous and next transaction on clicking prev & next button it is getting disabled.
+
+TASK-0799 -QA- Issue Description :Product Issue: In Rich Text field, When the user enter the value containing an Grave accent symbol it is throwing error like "Invalid value. ' is a reserved word." When the form is submitted and the user loads the record, the rich text field value becomes vanished.
+
+TASK-0677 -GCMS- Issue Summary: The user is experiencing Hindi font display issues when exporting a report to PDF via the default export button in the iView. While the Word export renders the Hindi text correctly, the PDF shows unreadable characters.
+ 
+TASK-0667 -GCMS- Issue Summary: The user is facing layout and formatting issues while exporting data to Word format. The problems observed are:
+Group row header/group label (e.g., DS (JPN) and DS (MK)) is shifting to the first column instead of staying in the second column.
+From the second to the last column, the cells are being unintentionally merged, disrupting table alignment.
+Last column cell borders are not rendering properly, resulting in a broken layout.
+ 
+TASK-0668 -GCMS- Issue Summary: The user is experiencing Hindi font display issues when exporting a report to PDF via the default export button in the iView. While the Word export renders the Hindi text correctly, the PDF shows garbled or unreadable characters.
