@@ -1,0 +1,63 @@
+AxpertWeb:
+-------------
+
+TASK-0858 -- Enhancement: HTML plugins has been enchanneled to load Multiple tstruct's in single html page. Mainly below points needs to be noted to implement this functionality in HTML Plugins.
+     Note: 1. JavaScript variable named as 'transidlist' needs to be added in html page with comma separated transid's, those transid's suppose to load in html page. 
+           2. Below API's can be used to load those tstructs and keep in redis or local storage and save all together. 
+              a. LoadAndkeepTstructAPI
+              b. ActivateTstructAPI
+              c. MultiFrameDataPushToQueue
+              d. MultiFrameUpdateDataXML 
+           3. HTML iframe id's needs to be starts with 'axMultiiframe_' followed index number. 
+           4. A sample Plugin HTML named as 'MultiForms.html' is available in GitHub html plugins repository
+
+TASK-0859 -- Enhancement: A new field type named as 'Timestamp' has been introduced, which can be used to store date&time in transaction tables. 
+Note: This field type can not be used any Axpert Expressions. 
+
+Task ID-012385 -Kauvery- Issue Description : Even when the script is inactive, the defined script is executed 
+
+TASK-0839 -Kauvery- Empty value is storing in database for character fields on resaving the form
+
+TASK-0772 -BMRCL- When we load the Tstruct data in a pop-up from the iView using AxRowOption, and modify the data in the Tstruct, the pop-up closes upon submission, but the iView does not refresh automatically.
+
+TASK-0836 -PayAzzure- While performing a bulk upload using aximport, the process fails if any field contains a comma, throwing the following error: "SQL Error – extra data after last expected column."
+
+TASK-0677 -GCMS- The user is experiencing Hindi font display issues when exporting a report to PDF via the default export button in the iView. While the Word export renders the Hindi text correctly, the PDF shows unreadable characters.
+
+TASK-0598 -Trustline- The OTP is generated twice very rarely, and the OTP generated first is accepted by the system during login. 
+
+TASK-0823 - Bafco(Mobile App) - Data page(List view) is not showing on clicking the transaction from menu in mobile app
+
+TASK-0822 - Bafco(Mobile App) - When listview button is click in "Purchase Request" form, then the application gets closed and acts like a web browser application.
+
+TASK-0940 -QA- During open the form an error message popsup as 'Object reference not set to an instance of an object.' rarely.
+
+TASK-0933 -BAFCO- Axpert Flutter: Few forms do not have the Submit and Discard buttons to save the transaction in mobile app. 
+
+TASK-0939 -BAFCO- Axpert Flutter: Even if the maximum attachment file size is set to 6mb, the user attempts to attach a file lesser than 6mb but receives an error message stating that "File is too big (4.21MiB)." Maximum file size: 1MB."
+
+
+
+AxpertStudio:
+-------------
+
+TASK-0719 -- Timestamp Field Not Supported in Axpert for Grid/Non-Grid DCs
+
+Task ID-012385 -Kauvery- Issue Description : Even when the script is inactive, the defined script is executed 
+
+Task ID-012420 -QA- Product Issue : In devstudio default buttons, the new and save buttons default position is shown wrongly as "Header" instead the by default position should be "Footer", and If user do position changes it is not reflecting runtime.
+
+Task ID-012330 -QA- Product Issue: In Devsite, once the user saves the custom button, the position dropdown selection of values only shows "Default and Footer" instead of that it should show all default position values.
+
+TASK-0062 -QA- Product Issue: In devsite, when the transid created with (case-sensitive) or (Uppercase) the Duplicate transid allows users to create the form.
+Note: It should throw error like "Error! Duplicate Transid is not allowed."
+
+TASK-0372 -QA- Descriptions: In Oracle, when a user attempts to delete a dependent field, the field is deleted immediately without displaying a dependency confirmation popup.
+
+TASK-0504 -QA- Issue Description: Issue1:Postgres - If Data exists in the field, and when user change the field type(char to num), upon publishing the form, throwing error as "invalid syntax for type numeric" instead of proper error message. Even after clearing data of that field, unable to publish
+If we close the studio in this state and reopens, not able to fetch the tstruct.
+NOTE: In oracle it is showing as "column to be modified must be empty to change datatype". On emptying the field value, able to publish
+Issue2:Even though the field contains data, it is allowing changes from character type to other field types (except Date & Numeric), and vice versa
+Issue3: When user trying to change from time field to Large text field, upon publishing the form, throwing error as "invalid alteration of datatype"
+
+TASK-0846 -QA- For all delete/change/switching UI related confirmation boxes, the default focus should be on the No/reject button.
