@@ -1,0 +1,16 @@
+AxpertWeb:
+---------
+
+TASK-1029 -- Enhancement: As per the Axpert license, one username can be loggedin from one device at a time. Multiple logins through multiple devices for the same Axpert user has been restricted  
+
+TASK-0999 -BAFCO- Once we navigate into the structure, to bring back to the Home Page again, it takes many back clicks from mobile or clicking back arrows at the top for many times.
+Sometimes back arrow is not visible .
+
+TASK-0952 -qciassess- On the load of the tstruct page, the customization is not visible because the tstruct custom.js file is not loading. I have to clear the memdb cache each time then i will be able to see the customization.
+
+TASK-0821: BAFCO 11.4 (Mobile App) - Login Page is not getting refreshed once the OTP is enabled(enter username and pwd and click "get OTP" button and without entering OTP click back button and try for new user)
+
+
+ARM:
+----
+TASK-0823 - Bafco 11.4 - Mobile App : Data page(List view) is not showing on clicking the transaction from menu in mobile app
