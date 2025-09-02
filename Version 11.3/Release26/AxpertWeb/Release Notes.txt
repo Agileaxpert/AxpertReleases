@@ -1,0 +1,23 @@
+TASK-0954 -CMIS- Issue Description: Currently, there is no option to set the page orientation to Landscape for exported reports in PDF and Excel formats, similar to the option available for Word exports. This functionality was provided in an earlier fix by the product team but appears to be limited. The orientation setting should be available for all formats for a specific iView.
+Note: Word & PDF Exporting config file has been introduced named as 'ExportConfig.ini' in JSON format(Example given below), which will be having the default settings for the WordExport and PDFExport. Margins(Top,Bottom,Left,Right) in centimetres and orientation(Landscape, portrait) can be set though this ini file to export the report to Word/PDF document. 
+Ex.: {"Word": {
+      "margin": {
+        "top": "1",
+        "left": "1",
+        "right": "1",
+        "bottom": "1"
+      },
+      "orientation": "portrait"
+    },
+    "PDF": {
+      "margin": {
+        "left": "1",
+        "right": "1",        
+        "top": "1",
+        "bottom": "1"
+      },
+      "orientation": "portrait"
+    }
+}
+
+TASK-0971 -Support(11.3 )- Issue Description: In the Axpert Desktop version, the keyword tot (e.g., tot_fieldname) in a fillgrid correctly displays the column total. However, in the Web version, this functionality is not working as expected — the total is not displayed. Further, when we tried using an alias name in a parameter (e.g., :tot_prov), the field was updated as 0, but it still did not sum the values.
