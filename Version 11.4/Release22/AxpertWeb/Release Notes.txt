@@ -1,0 +1,83 @@
+AxpertWeb:
+----------
+TASK-1193 -- Enhancement: Home page loading performance improvement along with Application back button and Loader issues in some scenarios. Please note the following points with respective this change.
+Note: 1. Cards definition screen 'Refresh Interval' withdrawn  
+      2. In Axpert Data Source Screen, 2 properties are added for 'Cache data' and 'Refresh interval'. Cache data will be On and Refresh interval will be 6 Hrs by default. 
+      3. If any Axpert Data Source required live data, then 'Cache Data' flag should Off for that particular Axpert Data Source. 
+      4. Existing application's data source these 2 properties needs to be rechecked and update as per the business requirement. 
+      5. Any Cards or Custom HTML Pages data needs to be refreshed manually, then a refresh button can be provided in the Custom HTML pages or Cards and 'GetDataFromDataSource' API can be called with additional parameter as 'refresh=true' in refresh button click event. 
+      Ex.: 1. Default API call: GetDataFromDataSource( name: "datasourcename",   sqlParams: {},   refreshCache: false) 
+           2. Refresh button click api call: GetDataFromDataSource( name: "datasourcename",   sqlParams: {},   refreshCache: true)             
+
+TASK-1128 -BMRCL- Custom HTML home page performance issue
+
+TASK-0997 -BAFCO- As current SSO requirement mandates that the username in the axusers table must be the user's email ID, we request a feature to use the existing username in axusers table to be used as login through SSO instead of email ID. 
+Please note the following points for SSO login enabled Users:
+1. EmailID is mandatory in 'AxUsers' table in 'Email' column and it should be unique. 
+2. Once Axpert Application Authenticated with SSO, then value in 'UserName' column will be used for further identification of the loggedin User for that particular session. 
+
+TASK-0943 -BAFCO- Forget Password Redirecting to Microsoft Login Portal
+
+TASK-1014 -BAFCO- Mobile App Bafco 11.4 - Calendar icon is not shown in Date fields in Grid Dc and calendar format is different for header
+
+Task ID-012446 –QA- When a user creates GenMap and Save Normalized dropdowns for a form, the related details are stored in the axrelations table (connected data). When the form containing these GenMap and Save Normalized dropdowns is deleted, the related record still remains in the axrelations table in the backend.
+ 
+Task ID-012268 -QA- Requirement: View History is enabled - In Created History(transid+history) Table, the datawidth of a username field should be atleast varchar(50)
+
+TASK-1112 -QA- Issue Description : Product Issue Mobile : When user opens the form and navigates to Data page the page is visible blank with error like "Error occured Please check with administrator".
+
+TASK-1107 -QA- Issue Description : Product Issue Mobile : When user opens the form the Datalisting page is visible blank with error like "Error occured Please check with administrator".
+Note: The issue occurs only particular forms in mobile.
+
+TASK-1093 -QA- Issue Description : Product Issue Mobile : In datapage, Nongrid and Grid DC attachments are unable to download.
+
+TASK-1091 -QA- Issue Description : Product Issue Mobile : The confirmation popup is not populated when user modify and apply any changes.
+Note 1: The popup should be populated like "Confirm Apply this change for? All Users and Myself"
+Note 2 : The popup should populate for these options aswell.
+Note 3 : Issue occurs in postgres and oracle schema's aswell.
+
+TASK-1090 -QA- Issue Description :Product Issue Mobile : Under Utilities, when user click on "Field Captions" or ">" symbol, the page is getting refreshed instead of displaying the following options "Visible"/ "Hidden".
+
+TASK-0669 -BMRCL-Resending this ticket again with reference to the old task #67, where since it was returned back saying attachment not working.
+1. Usernames can be enumerated by manipulating the “axPassword” and “hdnPuser” parameters in the request, indicating insufficient access control mechanisms. Additionally, login attempts using a default password for the enumerated users resulted in a response stating “User not activated” confirming user enumeration is possible without proper account protection.
+   Note: UserName and Password has been handled through encryption to avoid tampering.				
+2. The default Internet Information Services (IIS) page is exposed, as shown  below.	
+   Note: In web.config below key needs to be enabled and verify this point. 				
+    web.config key: <add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />
+
+TASK-1392 -QA- Saving and Loading data not happening properly if the data having special characters ('<', '>')
+
+
+ARM:
+----
+TASK-1193 -- Enhancement: Home page loading performance improvement along with Application back button and Loader issues in some scenarios. Please note the following points with respective this change.
+Note: 1. Cards definition screen 'Refresh Interval' withdrawn  
+      2. In Axpert Data Source Screen, 2 properties are added for 'Cache data' and 'Refresh interval'. Cache data will be On and Refresh interval will be 6 Hrs by default. 
+      3. If any Axpert Data Source required live data, then 'Cache Data' flag should Off for that particular Axpert Data Source. 
+      4. Existing application's data source these 2 properties needs to be rechecked and update as per the business requirement. 
+      5. Any Cards or Custom HTML Pages data needs to be refreshed manually, then a refresh button can be provided in the Custom HTML pages or Cards and 'GetDataFromDataSource' API can be called with additional parameter as 'refresh=true' in refresh button click event. 
+      Ex.: 1. Default API call: GetDataFromDataSource( name: "datasourcename",   sqlParams: {},   refreshCache: false) 
+           2. Refresh button click api call: GetDataFromDataSource( name: "datasourcename",   sqlParams: {},   refreshCache: true) 
+TASK-1128 -BMRCL- Custom HTML home page performance issue
+TASK-0823 - Bafco 11.4 - Mobile App : Data page(List view) is not showing on clicking the transaction from menu in mobile app
+
+AxpertStudio:
+-------------
+TASK-0919 -QA- SQLPOST Script with After Save Transaction Event
+TASK-0878 -QA- Header and Footer fields are not allowing to enter more than 5 character values.
+TASK-0881 -QA- When column caption is modified and it is added in subtotal in runtime it is throwing error when opening iview.
+TASK-0880 -QA- On save iview getting error in devsite.
+TASK-0879 -QA- "Key Column" and "Caption" dropdowns should only show the column name.	
+TASK-0345 -QA- Search option is not working in iview hyperlink.	
+TASK-1150 -QA- Row mappings are not proper for newly created Genmap
+
+Structures:
+----------
+TASK-0422 -QA- Enable history for Axpert properties
+TASK-0624 -QA- In Oracle, News and announcements Tstruct, there is an dummy 'test' field is showing
+Task ID-012401 -QA- Remove button is not available in the Publish Listing Server Details screen. (Remove button cannot be provided as we have to maintain the logs, Instead you can use the Inactive flag)
+TASK-1113 -QA- Searched values are not visible in cards report.
+TASK-1137 -QA- a) ADS, In oracle submit button is not visible
+     b) ADS, Refresh interval '3 Hr' added and set by default
+     c) ADS, Update script to set cache = T and interval = 3 Hr for all existing data
+     d) Cards, Refresh interval is hidden. 
