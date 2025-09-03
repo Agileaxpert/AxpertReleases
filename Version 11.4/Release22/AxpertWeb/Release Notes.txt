@@ -24,11 +24,6 @@ Task ID-012446 –QA- When a user creates GenMap and Save Normalized dropdowns f
  
 Task ID-012268 -QA- Requirement: View History is enabled - In Created History(transid+history) Table, the datawidth of a username field should be atleast varchar(50)
 
-TASK-1112 -QA- Issue Description : Product Issue Mobile : When user opens the form and navigates to Data page the page is visible blank with error like "Error occured Please check with administrator".
-
-TASK-1107 -QA- Issue Description : Product Issue Mobile : When user opens the form the Datalisting page is visible blank with error like "Error occured Please check with administrator".
-Note: The issue occurs only particular forms in mobile.
-
 TASK-1093 -QA- Issue Description : Product Issue Mobile : In datapage, Nongrid and Grid DC attachments are unable to download.
 
 TASK-1091 -QA- Issue Description : Product Issue Mobile : The confirmation popup is not populated when user modify and apply any changes.
