@@ -1,0 +1,1 @@
+TASK-1461 -QA- Issue Description: In Runtime Configuration Studio, Reports are showing with HTML Tags (Publish Axpert API--Created/Modified, News and Announcements---Active, Process Definition Iview, Forms Iview, Publish Listing, Users -- Active and Portal Users, Actor Listing--Created/Modified, User Groups -- Active)
