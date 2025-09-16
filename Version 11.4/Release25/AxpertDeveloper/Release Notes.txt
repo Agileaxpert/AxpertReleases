@@ -1,0 +1,4 @@
+TASK-1830 -- Performance Improvement changes as Submitting and Saving structures are taking more time. 
+
+TASK-1185 -- Developer studio - UI enhancements 
+	
