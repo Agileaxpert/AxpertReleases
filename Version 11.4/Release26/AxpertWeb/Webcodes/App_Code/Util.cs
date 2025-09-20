@@ -832,7 +832,7 @@ namespace Util
                 bool isRedisConnected = HttpContext.Current.Session["RedisIsConnected"] != null ? bool.Parse(HttpContext.Current.Session["RedisIsConnected"].ToString()) : false;
                 if (isRedisConnected)
                 {
-                    FDR fObj = new FDR();
+                    FDR fObj = new FDR(pName);
                     lstUser = fObj.HashGetKey(Constants.AXLOGGEDUSER, uName);
                 }
                 else
