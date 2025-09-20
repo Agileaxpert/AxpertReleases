@@ -1,0 +1,97 @@
+AxpertWeb:
+----------
+TASK-1875 -- Config.aspx has been renamed as 'AxpertAdmin.aspx' page. 
+
+TASK-1775 -- Enhancement: Agile connect avoided during ARM API's execution. All Required setup which was there in Agile Connect has been moved to 'AxpertAdmin.aspx' page. And all separate setup '.ini' files are removed and introduced single '.ini' file as 'AppSettings.ini'
+Note: 1. Mobile related settings which was there in Agile connect page has been moved to 'Application Properties' under Configuration studio.
+      2. 'AxpertAdmin.aspx' needs to be opened and verify the existing settings.
+      3. Additionally Separate server's or connection's can be used for Redis for separate project in cloud environment( As till now Redis setup was common for all the project's in same instance).
+      4. 'AppSettings.ini' file create through 'AxpertAdmin.aspx' page needs to be copied in ARM folder as well and ARM application pool needs to be recycle. 
+      5. Following Web.Config key's have been withdrawn. 
+        a. <add key="redisCacheConnection" value="" />
+        b. <add key="axpLicRedisConnection" value="" />      
+      6. Redis Connection host with 'localhost' can not be set as connection details, as this 'localhost' connection effect the Redis connectivity performance. Any existing project using 'localhost' host should be update with proper IP address.
+
+TASK-1987 -- Enhancement: AxpertStudio settings introduced in 'AxpertAdmin.aspx' page. Please note the following points related to this change.
+   Note: 1. Once AxpertStudio Setting is done though 'AxpertAdmin.aspx' page, AppSettings.ini and Appsettings.json files needs to be copied to AxpertStudio physical folder and AxpertStudio application pool needs to be recycle. 
+         2. Following Web.Config key's have been withdrawn. 
+            a. <add key="axpertstudioReact" value="" />
+            b. <add key="axDevStudioRedisIP" value="" />
+            c. <add key="axDevStudioRedisPass" value="" />
+
+TASK-1631 -- We have a button for "Sign Out" and when we click on the button, Axpert shows "Do you really want to log out?" where as it should show "Do you really want to sign out?"
+Next popup shows "You have successfully logged out" where as Axpert should show "You have successfully signed out" and we have "Login" button where as it should be "Signin" button.
+We should have uniformity and use either Sign-in/Sign-out or Login/Logout.
+
+TASK-1957 -- Axpert Data source definition screen has been modified to control caching data for dynamic SQL's 
+ Note: If ADS SQL contains any of the below keys word then 'Cache Data' flag will not be allow to change.
+  1) --ax_ui_filter_withwhere -> This is to append a dynamic 'where' clause
+  2) --ax_ui_filter -> This is to add a dynamic 'and' statement
+  3) --ax_orderby -> This is to add a dynamic 'orderby' clause
+  4) --ax_orderby_append -> This is to append a  field to existing 'orderby' clause
+  5) --ax_pagination -> This is to add pagination.
+  6) --ax_permission_filter -> This is to apply constraints from user permissions
+
+TASK-1947 -- ADS - Dynamic permission filter is changed from --permission_filter to --ax_permission_filter.
+
+TASK-0522 -Support- The setup of 11.4 is too complex. This needs to simplified. Agile connect can be removed and moved to the Axpert admin page.
+
+TASK-1774 -- Capturing client browser IP Address and saving in AxAudit table during application login.
+
+TASK-1370 -BDF- Capturing Login IP Address in Axpert Log in Load balancer environment.
+Note: As the part of audit, IP address will be captured in AxAudit table.
+
+TASK-1126 -QA- Issue Description:  When a user creates an email field, it allows saving input values even if they do not follow a valid email format.
+
+TASK-1530 -bmrcldev- I have uploaded multiple attachments for a single record in the Tstruct. In the iView, the attachments are displayed as comma-separated values in one line. However, I am only able to download one of the files  the others are not downloadable, even though all attachments can be previewed in Tstruct and files are available defined folder path.
+
+TASK-1619 -BAFCO- In iviews which have multiselect , it is showing only few records. The count of records is 1149 but showing only 100 records. 
+
+TASK-1129 -jasdacare- Custom error message defined through axconstraints table is not working in postgres schema.
+
+Structures:
+-----------
+TASK-1776 - Axlist - Oracle is throwing error FN_PERMISSIONS_GETADSCND is not available for oracle DB
+
+TASK-1947 - ADS - Dynamic permission filter is changed from --permission_filter to --ax_permission_filter.
+ 
+TASK-1962 - we are getting this error on submit of user configuration in Alpha site for avdeldev schema as well as avdel schema in metaspeed
+
+ARM:
+----
+TASK-1875 -- Config.aspx has been renamed as 'AxpertAdmin.aspx' page. 
+
+TASK-1775 -- Enhancement: Agile connect avoided during ARM API's execution. All Required setup which was there in Agile Connect has been moved to 'AxpertAdmin.aspx' page. And all separate setup '.ini' files are removed and introduced single '.ini' file as 'AppSettings.ini'
+Note: 1. Mobile related settings which was there in Agile connect page has been moved to 'Application Properties' under Configuration studio.
+      2. 'AxpertAdmin.aspx' needs to be opened and verify the existing settings.
+      3. Additionally Separate server's or connection's can be used for Redis for separate project in cloud environment( As till now Redis setup was common for all the project's in same instance).
+     4. 'AppSettings.ini' file create through 'AxpertAdmin.aspx' page needs to be copied in ARM folder as well and ARM application pool needs to be recycle. 
+      5. Redis Connection host with 'localhost' can not be set as connection details, as this 'localhost' connection effect the Redis connectivity performance. Any existing project using 'localhost' host should be update with proper IP address.
+
+TASK-1347 - CrossPlatform - AxListAPI
+
+TASK-0041 - Cross platform - ARMSignIn API and ARMSigninDetails API changes
+
+TASK-1755: The SignOut API (ARMSignOut) is being called and we are receiving the following response. However, when attempting to log in again, the sign-in API prompts a duplicate session error. Please review the SignOut API.
+
+TASK-1347 - AxListAPI: For Oracle while executing Only ADS Payload, Getting response as -"ORA-22905: cannot access rows from a non-nested table item"
+
+AxpertStudio:
+-------------
+TASK-1987 -- Enhancement: AxpertStudio settings introduced in 'AxpertAdmin.aspx' page. Please note the following points related to this change.
+   Note: 1. Once AxpertStudio Setting is done though 'AxpertAdmin.aspx' page, AppSettings.ini and Appsettings.json files needs to be copied to AxpertStudio physical folder and AxpertStudio application pool needs to be recycle. 
+         2. Following Web.Config key's have been withdrawn. 
+            a. <add key="axpertstudioReact" value="" />
+            b. <add key="axDevStudioRedisIP" value="" />
+            c. <add key="axDevStudioRedisPass" value="" />
+
+TASK-1830 -- Performance Improvement changes as Submitting and Saving structures are taking more time.
+ 
+TASK-1185 -- Developer studio - UI enhancements
+
+Task ID-012345 --The Merge with Prior option is not available in the new devstudio Table Layout	
+Task ID-012365 -- Iview Merge Column Option	
+TASK-1509 -- The Merge Column option is not available in Axpert Studio 11.4 Iviews	
+Task ID-012363 -- Iview column Width	
+TASK-1845 -- Tab Order - Iview Parameter
+
