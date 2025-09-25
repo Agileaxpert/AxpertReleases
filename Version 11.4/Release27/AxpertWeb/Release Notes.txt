@@ -1,0 +1,13 @@
+TASK-2079 -Nuwab- Facing issue when we try to login to MSSQL DB using ODBC connection.   
+
+TASK-1991 -Jasdacare- we are doing a savedata call which fails to update one specific field named "active" randomly. This is a character field but we save value either 0 or 1 here. Scenario here is that, even though we send payload with active=1, it resets back to 0 just before the insert command and unable to figure out exactly when it is happening.
+
+TASK-1975 -PayAzzure- Issue description: In the IView with many records, even after clicking showall records, when user click on select all checkbox, it is selecting  only current page records instead of  all records
+
+TASK-0619 -Bluspring- Request you to rename the Button Name as "Approve" instead of the "Save"  Caption in the Dekstop Workflow Approval Page.
+
+TASK-1675 -QA- Issue Description: Product Issue: When the user defines the following variable and developer option for the Tstruct, if the user attaches any format file after upload, it still displays as the actual format, instead of that it should display the zip format.
+
+TASK-0467 -QA- UI issue: Non Grid Attachments are not showing properly at the time of upload and on dataload. Additionally it is showing Scroll Bar in Non Grid Upload Fields
+
+TASK-0506 -QA- When user strech's the field from design mode in grid dc, the numeric and date field alignments are visible improper.
