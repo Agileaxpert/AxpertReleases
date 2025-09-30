@@ -1,0 +1,93 @@
+1) AxList API with ADS:
+------------------------
+This API provides the option to execute a set of ADS and get the response in JSON format. Axpert Developers can configure the ADS Definition in way to handle the following and users can implement dynamic SQLs in ADS:
+	* Filtering
+	* Sorting
+	* Pagination
+
+It is achieved by adding following keywords as comments:
+1) --ax_ui_filter_withwhere -> This is to append a dynamic 'where' clause
+2) --ax_ui_filter -> This is to add a dynamic 'and' statement
+3) --ax_orderby -> This is to add a dynamic 'orderby' clause
+4) --ax_orderby_append -> This is to append a  field to existing 'orderby' clause
+5) --ax_pagination -> This is to add pagination.
+6) --ax_permission_filter -> This is to apply constraints from user permissions
+
+NOTE:
+----
+Comments are prefixed with --ax_ now. So, comments has been changed from --ui_filter_withwhere, --ui_filter,--orderby,--orderby_append, --pagination,--permission_filter to --ax_ui_filter_withwhere, --ax_ui_filter,--ax_orderby,--ax_orderby_append, --ax_pagination,--ax_permission_filter 
+
+Sample SQL:
+-----------
+select * from users
+where allusergroup = 'default'
+--ax_permission_filter
+--ax_ui_filter or --ax_ui_filter_withwhere
+--ax_orderby or --ax_orderby_append
+--ax_pagination
+
+Final SQL to be executed:
+------------------------
+select * from users
+where allusergroup = 'default'
+and username like '%admin%'
+orderby username desc
+LIMIT 100 offset 1
+
+The sample API input for this is as following:
+----------------------------------------
+URL: {{LOCALARM}}/api/v1/AxList
+Method: Post
+Auth: ARM token passed as bearer token.
+Input JSON:
+{
+    "ARMSessionId": "{{session}}",
+    "action": "view",
+    "ADSNames": [
+        "dstest_glouserkeyval",
+        "dstest_gloparams2",
+        "dstest_gloparams1",
+        "dstest_noparams"
+    ],
+    "ADS":true, // true for executing API in ADS mode and false for AxList with user specific permissions from configuration studio. 
+    "trace": true, //optional. 'false' by default
+    "pageno": 1, //optional.
+    "pagesize": 10,  //optional
+    "getallrecordscount": true, //optional. 'false' by default
+    "CachePermissions": false, //optional. 'true' by default
+    "keyfield": "username", //optional
+    "keyvalue": "ALL",//optional
+    "sqlparams": {
+        "my_username": "ALL",
+        "my_email": "ALL",
+        "my_appdesc2": "1"
+    },
+    "sorting": [
+        {
+            "fldname": "username",
+            "sort_order": "asc"
+        }
+    ],
+    "filters": [
+        {
+            "fldname": "username",
+            "datatype": "TEXT",
+            "value": "admin",
+            "condition": "CONTAINS"
+        },
+        {
+            "fldname": "groupno",
+            "datatype": "NUMERIC",
+            "from": "0",
+            "to": "3"
+        },
+        {
+            "fldname": "allusergroup",
+            "datatype": "DROPDOWN",
+            "value": [
+                "default",
+                "QA"
+            ]
+        }
+    ]
+}

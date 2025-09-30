@@ -1,0 +1,61 @@
+AxpertWeb:
+----------
+TASK-2126 -QA- AxpertDataSource definition screen has been enhanced to accept the Encrypted column names those are present in SQL statements. If these columns are defined, then AxList API will return the decrypted value of these columns. 
+
+TASK-2085 -BAFCO- We are able to attach .msg type files, but when trying to open the same, it throws error as 404 directory not found
+Note: To address this issue, the following IIS level setting needs to be applied in AxpertWeb and AxpertScript site's.
+      1. Site level IIS tab, The option 'MIME Types' needs to be open and add the following information if it is not already exist.
+       a. File name extension: .msg
+       b. MIME type: application/vnd.ms-outlook
+
+TASK-0998 -BAFCO(Mobile)- In Leave Application form, grid works based on the data selected in the header. Since value '1' is showing on form load, when we enter "Leave From" then automatically the grid is getting filled.
+
+TASK-1885 -BAFCO- Menu is freezed after searching any structure from Global Search. Menu is expand and collapse when different folders are selected by default. 
+But when we search a form or iview from Global Search then the particular folder remains expanded and will not collapse even on click of the arrow icon.
+
+TASK-2041 -BAFCO- When the Created user tries to load a data in a form which has approval process , it throws Cannot read properties of undefined error.
+
+TASK-2077 -Jasdacare- Back button not working especially when navigating from html page, it doesn't remember history. Eg. If a tstruct is opened from a html page and clicked on back, it opens some other tstruct which was opened previously
+
+TASK-2093 -MPIIPL- When the user enters an invalid Access code and enters a valid User Name and attempts to login, the toast message appears properly and without refreshing the web URL. If the user attempts to log in with a valid Access Code and User Name, the next button action is not getting performed.
+
+TASK-1194 -QA(Mobile)- When a user fills in a row value through a fillgrid, the Grid DC UI changes from mobile row format to inline format, and if the user attempts to edit the fields in a row it is not allowing to edit, and if user presses the Addrow button again the UI returns to mobile row format and date field is visible multiple time in a row and filled values also getting cleared.
+
+TASK-2117 -QA- Removal of below properties for Password field
+ 1. Password must contain Alpha Numeric Characters
+ 2. Minimum number of Password Characters
+ 3. No. of Days for Password Expiry
+
+
+AxpertStudio:
+------------
+TASK-2048 -MPIIPL- Drop down fields which is having multiline SQL queries, in Axpert studio not showing full query instead first line only taking and throwing error like missing expression.
+
+TASK-2117 -QA- Removal of below properties for Password field
+ 1. Password must contain Alpha Numeric Characters
+ 2. Minimum number of Password Characters
+ 3. No. of Days for Password Expiry
+	
+
+ARM:
+----
+TASK-2038 -- Merge GetDataFromDataSource API with AxList API
+Notes:
+ARM API Changes:
+1) ARM GetDataFromDataSource API is withdrawn. AxList API can be used instead of this with changes in input JSON with new ADS = true/false flag. 
+	a. Additional flag 'ADS' is introduced to execute the API as datasource.
+		- ADS = true will execute API with datasource permission
+		- ADS = false (default value) will execute API with user permission from config studio
+        b. Encrypted data has been handled to decrypt and provide the output. Please note, AxpertDataSource definition screen has been enhanced to accept the Encrypted column names those are present in SQL statements. If these columns are defined, then AxList API will return the decrypted value of these columns. 
+	
+Axpert Web Changes:
+1) EntityCommon.getDataFromDataSource method is deprecated. 
+2) Use EntityCommon.getDataFromAxList method (for Entity/EntityForm) or AxInterface.GetDataFromAxList (For custom html plugins) instead
+3) API output Data format has been changed and data_json node is removed. 
+
+AxList API samples:
+A fully functional example of use cases of AxList API in Axpert is demonstrated here using a HTML plugin.
+
+GitHub Link: https://github.com/Agileaxpert/Axpert/tree/main/Axpert%20Samples/Axpert%20APIs/AxList%20API
+
+TASK-0041 -- Cross platform - Sign In API: Cross platform Sigin API is modified to handled the application variable types. There was a mismatch in variable names and variable types.
