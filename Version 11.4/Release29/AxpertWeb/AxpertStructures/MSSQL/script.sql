@@ -1,3 +1,3 @@
 <<
-ALTER TABLE axaudit ADD servertime DATETIME2
+ALTER TABLE axaudit ADD servertime DATETIME2;
 >>
