@@ -1,0 +1,26 @@
+AxpertWeb:
+----------
+TASK-2205 -BAFCO- URL is not showing access code, during SSO SignIn and SignOut.
+
+TASK-0998 -BAFCO(Mobile)- In Leave Application form, grid works based on the data selected in the header. Since value '1' is showing on form load, when we enter "Leave From" then automatically the grid is getting filled.
+
+TASK-2166 -BAFCO- SAML SSO: Unable to login 
+
+TASK-2160 -BAFCO - Workflow (old workflow not PEG). When 'Review" or "Approval" button is clicked on approval workflow, the alert is showing. This alert should check only when the submit is clicked, not in the workflow. 
+
+TASK-2230 -BAFCO- When a user logs in and opens any screen from a mobile device, and then the same user tries to log in from the web, a "Server error" appears, and the user is unable to access the URL as well.
+
+TASK-2227 -QA- Unable to create the new form from Forms Section under config studio. Throwing error as "Error while creating field,Please try later"
+
+TASK-2249 -- Enhancement to capture Application sever time in AxAudit table 
+
+
+
+ARM:
+----
+TASK-2206 BAFCO - Not able to login when OTP is enabled.
+
+
+AxpertStudio:
+-------------
+TASK-2227 -QA- Unable to create the new form from Forms Section under config studio. Throwing error as "Error while creating field,Please try later"
