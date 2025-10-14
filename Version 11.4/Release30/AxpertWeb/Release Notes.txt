@@ -1,0 +1,62 @@
+AxpertWeb:
+---------
+TASK-2155 -Maris - Upon deletion of a Custom Page, the associated menu item should no longer appear in the sidebar of the Axpert Home Page
+
+TASK-2255 -Maris- In Tablet Device, Grid DC is displayed in a row format but need the same Grid design layout of Laptop/Desktop version
+ Developer option:
+  Property: Display form grids in tabular format for mobile
+  property Code: Display form grids in tabular format for mobile
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Forms / Single Form
+  User Role: All / Single role
+
+TASK-2435 -BDF- If data needs to be validated during old workflow action's( approve, reject, return), below mentioned developer option needs to introduced form level or application level as per the details given below.
+ Developer option:
+  Property: Form data validate on workflow action 
+  property Code: Form data validate on workflow action 
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Forms / Single Form
+  User Role: All / Single role
+
+TASK-2030 -BAFCO- Mobile App - Developer option setting for List View as Default is made false but not working as expected in Mobile App.
+
+TASK-2388 -BAFCO- In Bafco, on click of Time field and manually entering value as 12456, it automatically takes time value as 12:56
+It is considering the value as :  same when manually entered value is 1235 then it takes the value as 12:05 but it should take as 12:35
+
+TASK-2077 -jasdacare- Back button not working especially when navigating from html page, it doesn't remember history. Eg. If a tstruct is opened from a html page and clicked on back, it opens some other tstruct which was opened previously
+
+TASK-2379 -MPIP- Sub total heading not visible for newly created Reports. 
+
+TASK-2382 -SSERPPROD- Issue Description: In the GRN Screen, after saving the data, if the supplier is changed (for example, when an incorrect supplier was initially selected),
+the user is unable to edit and save. The grid does not refresh after changing the supplier. 
+
+TASK-2319 -QA- Product Issue Mobile: The Grid DC disappears after selecting a value from the dropdown list.
+ 
+TASK-2314 -QA- Product Issue Mobile: In Grid DC, after deleting the row the dc name and row number are visible multiple times and on clicking new button the screen is keep on loading until user clicks the back button.
+
+TASK-2403 -QA- Copy and Paste of the description is not happening in Alpha and Metaspeed sites- In dropdown search or Accept fields in the forms
+
+TASK-2262 -QA- Issue Description: If the report caption contains a backslash (/), then after exporting the Excel file from the iView, clicking on a SignalR notification or an active list results in a browser download error stating "File wasn't available on site."
+
+TASK-1249 -QA- Issue Description: Product issue: In Iview Subtotal, the total value is not displayed, instead, the header values are only visible in runtime.
+
+TASK-1250 -QA- Issue Description: Product issue: The Iview Subtotal is not rendering properly and it is showing only total value.
+1) Header value's are not being displayed.
+2) Footer value's are not being displayed.
+
+TASK-2406 -QA- Login Page - Copy Right description and Version detsils are getting overlapped when we go to schema level Login page
+
+
+AxpertStudio:
+------------
+TASK-2177 -- Enhancement: An option has been introduced to load the structures from DB. Please note the following points on this. 
+1. In-memory keys will cleared for the reloading structure.
+2. Client side latest changes will be discarded when reloading the structures from DB. 
+
+TASK-1473 -- Enhancement: Trace has been introduced and it can be enabled during the structures from DB. When loading structure from the DB, this log file will provide the error details if any error occurred during the structures load.
+
+TASK-2373 -MPIP- Fill grid issue in case of defining from source DC with group by field instead of sql 
+
+TASK-2195 -- Expert 11.4 dev studio - while reselecting source field in gen map, all other fields are getting empty.	
+
+TASK-2431 -QA- Grouptype property for Radiogroup field is coming empty.
