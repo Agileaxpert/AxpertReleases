@@ -1,0 +1,3 @@
+TASK-2508 -JFIProd-  Error when exporting excel containing the character "&" in iview parameters 
+ 
+TASK-0804 -Pentagon- Product Related Issue - Cancel transactions need to be highlighted and bold 
