@@ -1,3 +1,12 @@
+TASK-1306 -CMIS- Issue in PDF export in reports – Incorrect Hindi Spellings.
+Note: The following developer option needs to be enabled for multilingual data export to PDF in Reports. It will open the print preview, allowing the user to either print or save the file as a PDF.
+  Developer option:
+  Property: Advanced multilingual pdf export in reports
+  property Code: Advanced multilingual pdf export in reports
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Reports / Single Report
+  User Role: All / Single role
+
 TASK-2508 -JFIProd-  Error when exporting excel containing the character "&" in iview parameters 
  
 TASK-0804 -Pentagon- Product Related Issue - Cancel transactions need to be highlighted and bold 
