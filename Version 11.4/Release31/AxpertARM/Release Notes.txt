@@ -1,0 +1,2 @@
+TASK-2340 -MPIP- Excel export in views: html tags are used to highlight the data and same has been exporting along with html tags.
+Note: Appsettings.ini file needs to be copied in ARMExportService consumer service folder. 

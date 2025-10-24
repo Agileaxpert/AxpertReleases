@@ -1,0 +1,30 @@
+TASK-1306 -CMIS- Issue in PDF export in reports – Incorrect Hindi Spellings.
+Note: The following developer option needs to be enabled for multilingual data export to PDF in Reports. It will open the print preview, allowing the user to either print or save the file as a PDF.
+  Developer option:
+  Property: Advanced multilingual pdf export in reports
+  property Code: Advanced multilingual pdf export in reports
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Reports / Single Report
+  User Role: All / Single role
+
+TASK-2638 -jasdacare- Mandatory indication (red) not coming for multi select fields even though allow empty is set to false.
+
+TASK-2509 -Sangeetha- Issue Summary: In the "New Report" menu, none of the sub-menus are returning query responses. All related HTML pages are encountering errors when accessed via the Axpert Flutter application during API calls. However, the same pages are functioning correctly when accessed via a web browser.
+
+TASK-2340 -MPIP- Excel export in views: html tags are used to highlight the data and same has been exporting along with html tags.
+Note: Appsettings.ini file needs to be copied in ARMExportService consumer service folder. 
+
+TASK-2508 -JFIProd- Error when exporting excel containing the character "&" in iview parameters 
+
+TASK-2661 -RAWABI- Issue Description: Product Issue & Reported by "RAWABI" Team: On data load in Grid DC, the disabled checkboxes become enabled when the user focuses on the fields.
+
+TASK-2660 -RAWABI- Issue Description: Product Issue & Reported by "RAWABI" Team: In the Form Level Search, the Contains, Starts With, and Ends With mode options are not functioning for the Date field.
+Note: Additional 'Equals' search mode has been introduced for search values with Date and proper date value should be entered for search with date scenario. 
+
+TASK-2480 -QA- Menu fluctuating issue
+
+TASK-2495 -QA- Issue Description: When a user manually enter or modifies the date in the Time Stamp field, the changes are not being captured on the form page  before the record is
+ submitted
+
+TASK-2506 -QA- Issue Description: Time format inconsistency observed in Tstruct and IView for the TimeStampField — in the Tstruct, the time is displayed in a 24-hour format
+
