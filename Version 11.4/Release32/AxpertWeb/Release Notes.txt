@@ -1,0 +1,45 @@
+AxpertWeb:
+-----------
+TASK-2688 -BAFCO- Unable to see the last record in the iview, scroll bar is not working properly. The application gets hang when you load all the records and scroll to the end of the record.
+
+TASK-2708 -PayAzzure- In an iView containing 40 columns, when exporting the data to an Excel file using the Export Service, the downloaded file includes an additional column. This extra column contains all the field names concatenated and separated by commas in every record.
+
+TASK-2718 -Payazzure- Product Issue & Reported by "Payazzure" Team: When transid is uppercase and case-sensitive based forms are published from the source to the target using the Publish Listing, and those forms are assigned to a non-default user, an error appears when the non-default user logs in and opens the form: “Oops! Error occurred due to the following reason: Root element is missing.” In the database, under the AXUSERACCESS table, the sname column stores the transid in lowercase, which causes the issue.
+
+TASK-2711 -RAWABI- Issue Description: Product Issue & Reported by "RAWABI" Team: After the next-level user approves a record, if the next-level user performs an in-memory clear, then the make-level user logs out and logs back in and loads the approved record upon clicking the Back button and then the New button, the New and Submit buttons disappear, while the Draft and Options buttons are disabled. Additionally, in the RAWABI team instance, the Approved Status message remains visible.
+
+TASK-2774 -BDF- Issue Description: Product Issue & Reported by "BDF" Team: When a record is submitted, the defined notification is generated. However, if the user opens the notification through SignalR, it opens a new transaction instead of loading the corresponding record. After performing a Form Level Clear Cache, if the user opens the notification through SignalR again, the respective record loads correctly. Note: Once the notification is generated, if the user first loads the record through the Active List and then opens it via the SignalR notification, the record loads correctly.
+
+TASK-2781 -MPCO- Design for grid dc- In design mode for some of the structure not allowing to column alignment.
+
+TASK-2682 -BMRCL- On the Linux server, the Aximport functionality is failing because the system does not permit using the copy command with a network-shared IP address. The operation only works when the shared location is mounted as a local folder. A fix is required to enable Aximport to support direct copy from network shares.
+
+TASK-2801 -JF&I - Issue Description: Excel export not working as expected incase use the parameters in iview column caption.
+
+TASK-2624 -QA- API for executing Axpert scripts that can be used in custom pages and custom JS. 
+Note: Forms or Reports scripts can call from Custom HMTL pages by using 'AxCallScriptAPIAsync' function from AxInterface.js
+Github link for HTML example: https://github.com/Agileaxpert/Axpert/blob/main/Axpert%20Samples/Axpert%20APIs/AxScript%20API/Test%20AxScript.html
+AxInterface function example: AxCallScriptAPIAsync('script name', 'form/report', 'transid / ivname', 'recordid / 0', 'paramvalue array');
+ 
+
+ 
+
+
+AxpertStudio:
+------------
+TASK-2421 -BMRCL- Duplicate Column Captions Displaying Identical Column Names in 11.4 DevStudio 
+
+TASK-2617 -BDF- The toast message needs to be repositioned.  
+
+TASK-2669 -BDF- The SQL Text popup needs to be displayed in a maximized view, and an expand option should be provided to allow users to view the query. 
+
+TASK-2666 -BDF- The BDF team requires a confirmation popup to appear before closing the SQL Text popup when the user presses the ESC key twice.  
+
+TASK-2720 -MPCO- Axpert Studio- Normalized field, source table name disappearing  when we change SQL 
+
+TASK-2270 -QA- Search result dropdown doesn't toggle
+
+TASK-2352 -QA- Iview column properties vanishing & existing changes removed issue.
+
+TASK-2376 -QA- Option required for report parameters order change 
+
