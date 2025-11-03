@@ -13,6 +13,7 @@ TASK-2774 -BDF- Issue Description: Product Issue & Reported by "BDF" Team: When 
 TASK-2781 -MPCO- Design for grid dc- In design mode for some of the structure not allowing to column alignment.
 
 TASK-2682 -BMRCL- On the Linux server, the Aximport functionality is failing because the system does not permit using the copy command with a network-shared IP address. The operation only works when the shared location is mounted as a local folder. A fix is required to enable Aximport to support direct copy from network shares.
+NOTE:"AxpDbDirPath_mount & AxpRpdImpPath_Mount" appvars needs to be created
 
 TASK-2801 -JF&I - Issue Description: Excel export not working as expected incase use the parameters in iview column caption.
 
