@@ -1,0 +1,55 @@
+AxpertWeb:
+---------
+TASK-3029 -- Enhancement: AxpertAdmin page has been enhanced to Add additional settings information for RMQueue and External Resources and the settings information will be saved in AppSettings.ini file. 
+Note: 'AppSettings.ini' file create through 'AxpertAdmin.aspx' page needs to be copied in ARM folder as well. 
+
+TASK-3030 -- Enhancement: Arabic login RTL scenario, Application setting options and Studio options are showing in English captions changed to Arabic captions.             
+
+TASK-2743 -payazzure- Request for Bulk User Activation Option
+
+TASK-2433 -MPCO- User activation script or work around for one time activation on Go-live day
+
+TASK-2881 -MPCO- Issue Description: Product Issue & Reported by "MPCO" Team: In the AxRow Options iView, when the user exports the Excel file, the AxRow Options column is also included in the exported file along with other columns, whereas it should be excluded from the export.
+
+TASK-2771 -BMRCL- In the iView, attachments are currently being downloaded,  they should only be previewed.
+ Developer option:
+  Property: Preview file in Reports instead of download
+  property Code: Preview file in Reports instead of download
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Reports / Single Report
+  User Role: All / Single role
+
+TASK-2804 -BMRCL- In the dropdown search option, results appear only when typing a minimum of 3 characters. However, the hint message displayed says “Required to search minimum 2 characters.”
+
+TASK-2914 -Nuwab- Request an option to add Arabic language so that when logging in Arabic , the buttons available in  icon next to notifications as well as buttons in Axpert Developer Studio should be displayed in Arabic. 
+
+TASK-2920 -Nuwab- (MS SQL Database), after applying version 11.4 release 26 in Nuwab application, we were unable to open the application. It logs in but keep on loading.unn
+We were able to open only after updating homepage column in axusers table for the particular user to any tstruct or iview transid. 
+
+TASK-2841 -BDF-Issue Description: Product Issue & Reported by "BDF" Team: In Application DB Variables, when the user tries to execute a DB function name, an error message appears: "ORA-00923: FROM keyword not found where expected."
+
+TASK-2902 -kauvery- Issue Description: The newly created dimensions are not immediately reflected in the Permission setup until the memdb cache is cleared.
+
+TASK-2948 -Kauvery- Issue Description: Product Issue: After entering a value in the numeric field and moving the focus outside, when the user focuses on the field again and then clicks outside once more, the numeric field value is not getting masked as expected.
+
+TASK-2802 -BAFCO- In mobile, could not view the attachment uploaded. It is showing in readonly page. When we click edit button to download the attachment, the attachment is missing.
+
+TASK-2600 -Flutter(QA)- Issue Description: Product Issue Mobile: In the My Tasks screen, clicking on a PDF file does not allow the file to be downloaded
+
+TASK-2753 -QA- Issue Description: On click of Next and Previous Transactions, it is throwing error as "column "ivdatakey" does not exist"
+
+
+AxpertStudio:
+--------------
+TASK-2724 -MPCO- Genmap posting - source transaction detail id not posting to target transaction
+Note: Structures having GenMap with detailId mapping (Mapping fields) needs to be resaved.
+
+TASK-2931 -MPCO- Studio: Expression  issue : when we are concatenating the  String with Numeric columns, getting "not valid floating point" error
+
+TASK-2715 -MPCO- Axpert studio- while defining Expression or Validate expressions giving error like "0" is not valid date.
+
+ARM:
+----
+TASK-2920 -Nuwab- MSSQL application keeps on loading main and home page
+
+

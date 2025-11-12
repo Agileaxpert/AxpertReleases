@@ -1,0 +1,8 @@
+ARM:
+----
+TASK-2920 -Nuwab- After applying version 11.4 release 26 we are unable to open the application as it keeps on loading the Home page.
+
+
+ARMExportService:
+----------------
+TASK-2881 -MPCO- Issue Description: Product Issue & Reported by "MPCO" Team: In the AxRow Options iView, when the user exports the Excel file, the AxRow Options column is also included in the exported file along with other columns, whereas it should be excluded from the export.
