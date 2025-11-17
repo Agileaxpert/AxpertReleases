@@ -1,0 +1,5 @@
+TASK-3096 -JF&I- Import Shipment - In this screen can't able to adjust the column width in Duty Details Grid
+
+TASK-2801 -JF&I - Issue Description: Excel export not working as expected incase use the parameters in iview column caption.
+
+TASK-2973 -Kotecha- Please check the rest dlls of 11.3 version. unable to open android application because of this.
