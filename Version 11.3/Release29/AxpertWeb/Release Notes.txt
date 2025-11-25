@@ -1,0 +1,11 @@
+TASK-3270 -JF&I- The General Excel Export feature is not functioning for all users. While admin users are able to generate Excel files, but non-admin users are unable to do so. In some cases, it works intermittently for certain non-admin users. Please find the attached console error messages for reference.
+
+TASK-3295 -JF&I- Excel Export – Formulas Displaying Instead of Values for Certain Rows	
+During Excel export of the IView AP Ageing Pending Bill Detail, a functional inconsistency was observed.
+For a few rows, instead of exporting the computed value, the system is exporting the underlying Excel formula (e.g., =TEXT("1000005281","0")).
+
+TASK-3145 -JF&I- While posting through genmaps, randomly the namount and samount field calculation is resulting in roundoff issue in target tstruct.
+
+TASK-1669 -Trustline- Session logout is not happening automatically when Session Expiry is set to one day in Settings.
+
+TASK-3184 -Kauvery- Total Bill Amount Not Updating After Fill Grid Deletion
