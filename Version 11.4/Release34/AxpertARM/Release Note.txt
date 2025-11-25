@@ -1,0 +1,51 @@
+TASK-3289 -- A new consumer program named as 'ARMExecuteScriptService' has been introduced as Worker Service with Cross Platform capability. Please note the below points related to this new consumer program.
+Note: 1. Any scripts creating under forms can be executed through this consumer program by Pushing the script to RabbitMQ with appropriate queue names. 
+         The required scripts can be Pushed to RabbitMQ by following ways. 
+          a. A new property introduced in form script definition. 'Push to Queue' checkbox needs to be enabled along with to accept Queue name which can be a added as static name or dynamic name by using :parameters ( values from field or global variable). During runtime, the scripts which is enabled 'push to queue' will be Push to queue during the button click where the script is attached.
+          b. AxExecuteAPI can be used with appropriate queue name. 
+      2. The defined Queue name should be added in 'appsettings.json' file which is available in the service folder
+         ex.: "AppConfig": {
+                "QueueName": "PayProcessQueue"
+                 }
+      3. The service needs to be started with the following command in command prompt.
+         Service Start command ex.:
+          sc create PayProcessService binPath= "D:\ProcessService\ARMExecuteScriptService.exe D:\ProcessService\appsettings1.json"
+          sc start PayProcessService       
+     4. Multiple scripts can be executed with different queue names by using same service exe with out duplicating service folder, but different appsettings.json files. 
+        Ex.: Suppose PayProcess1 and PayProcess2 scripts needs to be run with queue names 'PayProcessQueue1' and 'PayProcessQueue2' 
+         1. In this case appsettings.json can be duplicated as 'appsettings1.json' and 'appsettings2.json' by mentioning queue names as follows. 
+            a. file#1 appsettings1.json 
+                   "AppConfig": {
+                "QueueName": "PayProcessQueue1"
+                 }
+             b. file#2 appsettings2.json
+                   "AppConfig": {
+                "QueueName": "PayProcessQueue2"
+                 }
+          2. After duplicating the appsettings.json file as above, needs to run the following commands to start respective services.
+             a. Service#1 needs be started as follows: 
+                 sc create PayProcessService1 binPath= "D:\ProcessService\ARMExecuteScriptService.exe D:\ProcessService\appsettings1.json"
+                 sc start PayProcessService1
+             b. Service#2 needs to be started as follows:
+                 sc create PayProcessService2 binPath= "D:\ProcessService\ARMExecuteScriptService.exe D:\ProcessService\appsettings2.json"
+                 sc start PayProcessService2
+       5. This service wanted to stop or remove from the windows service needs to be run below command.
+          Ex.: sc stop PayProcessService1
+               sc delete PayProcessService1   
+       6. Please follow for Linux to start this consumer service. 
+          a. Create a folder for your service:
+              /home/ubuntu/ProcessService/
+          b. Create the systemd service file
+              sudo nano /etc/systemd/system/PayProcessService1.service
+          c. Reload system
+              sudo systemctl daemon-reload
+          d. Enable the service at boot
+              sudo systemctl enable PayProcessService1
+          e. Start the service
+              sudo systemctl start PayProcessService1
+          f. Check status
+              sudo systemctl status PayProcessService1
+          g. To STOP / RESTART the service
+              sudo systemctl stop PayProcessService1
+              sudo systemctl restart PayProcessService1
+NOTE: Ensure that the service path does not contain any folder names with spaces. All folder names should use continuous characters without spaces. Also, make sure the Appsettings.ini file is placed directly inside the Service Folder

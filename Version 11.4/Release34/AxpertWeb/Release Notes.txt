@@ -1,0 +1,125 @@
+AxpertWeb:
+----------
+TASK-3289 -- A new consumer program named as 'ARMExecuteScriptService' has been introduced as Worker Service with Cross Platform capability. Please note the below points related to this new consumer program.
+Note: 1. Any scripts creating under forms can be executed through this consumer program by Pushing the script to RabbitMQ with appropriate queue names. 
+         The required scripts can be Pushed to RabbitMQ by following ways. 
+          a. A new property introduced in form script definition. 'Push to Queue' checkbox needs to be enabled along with to accept Queue name which can be a added as static name or dynamic name by using :parameters ( values from field or global variable). During runtime, the scripts which is enabled 'push to queue' will be Push to queue during the button click where the script is attached.
+          b. AxExecuteAPI can be used with appropriate queue name. 
+      2. The defined Queue name should be added in 'appsettings.json' file which is available in the service folder
+         ex.: "AppConfig": {
+                "QueueName": "PayProcessQueue"
+                 }
+      3. The service needs to be started with the following command in command prompt.
+         Service Start command ex.:
+          sc create PayProcessService binPath= "D:\ProcessService\ARMExecuteScriptService.exe D:\ProcessService\appsettings1.json"
+          sc start PayProcessService       
+     4. Multiple scripts can be executed with different queue names by using same service exe with out duplicating service folder, but different appsettings.json files. 
+        Ex.: Suppose PayProcess1 and PayProcess2 scripts needs to be run with queue names 'PayProcessQueue1' and 'PayProcessQueue2' 
+         1. In this case appsettings.json can be duplicated as 'appsettings1.json' and 'appsettings2.json' by mentioning queue names as follows. 
+            a. file#1 appsettings1.json TASK-3290
+                   "AppConfig": {
+                "QueueName": "PayProcessQueue1"
+                 }
+             b. file#2 appsettings2.json
+                   "AppConfig": {
+                "QueueName": "PayProcessQueue2"
+                 }
+          2. After duplicating the appsettings.json file as above, needs to run the following commands to start respective services.
+             a. Service#1 needs be started as follows: 
+                 sc create PayProcessService1 binPath= "D:\ProcessService\ARMExecuteScriptService.exe D:\ProcessService\appsettings1.json"
+                 sc start PayProcessService1
+             b. Service#2 needs to be started as follows:
+                 sc create PayProcessService2 binPath= "D:\ProcessService\ARMExecuteScriptService.exe D:\ProcessService\appsettings2.json"
+                 sc start PayProcessService2
+       5. This service wanted to stop or remove from the windows service needs to be run below command.
+          Ex.: sc stop PayProcessService1
+               sc delete PayProcessService1   
+       6. Please follow for Linux to start this consumer service. 
+          a. Create a folder for your service:
+              /home/ubuntu/ProcessService/
+          b. Create the systemd service file
+              sudo nano /etc/systemd/system/PayProcessService1.service
+          c. Reload system
+              sudo systemctl daemon-reload
+          d. Enable the service at boot
+              sudo systemctl enable PayProcessService1
+          e. Start the service
+              sudo systemctl start PayProcessService1
+          f. Check status
+              sudo systemctl status PayProcessService1
+          g. To STOP / RESTART the service
+              sudo systemctl stop PayProcessService1
+              sudo systemctl restart PayProcessService1
+NOTE:Ensure that the service path does not contain any folder names with spaces. All folder names should use continuous characters without spaces. Also, make sure the Appsettings.ini file is placed directly inside the Service Folder
+
+TASK-3029 -- Enhancement: AxpertAdmin page has been enhanced to Add additional settings information for RMQueue and External Resources and the settings information will be saved in AppSettings.ini file. Please note the additional enhancements in axpertadmin page as below. 
+1. RabbitMQ Server Setting added to the page 
+2. An External Resources panel introduced in this page for accepting external Named URLs, Named SFTPs and Named File Servers settings as and when required as per the business requirement.
+3. An Internal Resources panel introduced to show the information related to Internal urls(RM Queue API URL, SignalR API URL,FCM Send Msg URL, Rapid Save URL, PEG Email Action URL, Scripts API URL) those using different lawyers in the product. from now onwards additional application variables need not introduce in the application level.
+4. All these URLs available in API Plugins for name based selection of URLs
+
+TASK-2629 -- Use internal storage first for caching and then use Redis as secondary storage. 
+Note: Below Developer option needs to be added for the required forms to Cache the dropdown value in LocalStorage. Also Please note, this LocalStorage feature not applicable for picklist dropdown fields
+Developer option:
+  Property: Store Dropdown values in Local Storage
+  property Code: Store Dropdown values in Local Storage
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Forms / Single Form
+  User Role: All / Single role
+
+TASK-3049 -maris- Implement Strong Session Handling Mechanism for Better User Experience in Axpert Web
+
+TASK-0786 -jasdacare- After a period of time, all the html pages start throwing an exception 401 Unauthorized hinting about invalid ARM session. But other regular axpert pages (tstruct/iview) are working fine and this exception comes only on html pages till we logout and login again.
+
+TASK-2786 -PayAzzure- The Form Notification is not functioning when using a user-defined Save button.
+
+TASK-3146 -agileerp- Multiple Records Cancellation Issue in iView – Only First Record Getting Cancelled.
+
+TASK-3048 -BMRCL- Issue Description: 1) created a new tstruct, opened it in Design Mode → Custom HTML, copied the Axpert default HTML into the Custom HTML tab, and clicked OK.
+                              2)I then added a new field to the same tstruct and opened it in runtime. The new field is not visible. In Design Mode, the default Axpert HTML isn’t regenerating code for that new field, and I’m also unable to delete the Custom HTML content.
+
+TASK-3290 -BMRCL- For Iview table columns: Allow to shrink a columnbeyond its caption content length. The cropped caption text is to hidden with elipses.
+
+TASK-3145 -JF&I- While posting through genmaps, randomly the namount and samount field calculation is resulting in roundoff issue in target tstruct.
+We had a detailed discussion regarding this along with pentagon team for JFI project and as requested, the UAT dump has been restored in alpha site for detailed troubleshooting.
+Here are the instance and steps to reproduce.
+
+TASK-2896 -MPCO- Need option in iviews for "Printed by and Printed date and time" 
+
+TASK-3052 -BDF- Issue Description: Product Issue & Issue Reported by BDF Team : When Excel Import action is defined in Axpert Desktop and the form is converted through AxMetaDataMaster, if the developer option “Tstruct Button Style” is set with the Property Value = “old”, then during runtime, clicking the Action button throws the following error
+
+TASK-1184 -QA- Issue Description: When two systems or two browsers log in to the same application using the same user credentials and URL. the first user opens a form with a Data Listing page. After the second login with the same credentials, if the first user clicks on the Edit option or New button, the system shows the error "User doesn't have Edit access for this record" instead of a session expiry message. 
+
+TASK-3285 -QA- API Plugin - API URL to be filled from dropdown
+
+
+
+
+AxpertStudio:
+------------
+TASK-3153 -PayAzzure- In 11.4 studio (Tstruct), the DTOC function is throwing error.
+ 
+TASK-2962 -BDF- The created action is not appearing in the Action List in 11.4 Studio (Tstruct)
+
+TASK-2655 -BDF-	The Value column dropdown is displaying parameter captions instead of parameter names. 
+
+TASK-3088 -BDF- Eventhough Hidden checkbox is checked the column is not getting highlighted.
+
+TASK-3227 -BDF-	The system does not allow submitting a field without entering a Field Caption. 
+
+TASK-3290 -BMRCL- For Iview table columns: Allow to shrink a columnbeyond its caption content length. The cropped caption text is to hidden with elipses.
+
+TASK-3200 -QA- In Tstruct Scripts add a text field option called "Queue Name" which should be visible, only when "Push To Queue" is checked.	
+
+TASK-2389 -AQ- Unable to fetch action list data for tstruct		
+
+
+Structures:
+-----------
+
+TASK-2933 -Maris- Column Sorting doesn't work properly in "Axpert Data Source" - "Custom SQL List" - "Last Updated On" Column
+
+TASK-3285 -QA- API Plugin - API URL to be filled from dropdown
+ 
+TASK-3286 -QA- calldetails in axpertlog table,  alter script is missed in 11.3 Upgrade to 11.4 base version
+ 
