@@ -88,7 +88,7 @@
     <script src="../Js/helper.min.js?v=172"></script>
     <script src="../assets/js/loadingoverlay.min.js?v=3" type="text/javascript"></script>
     <script type="text/javascript" src="../Js/common.min.js?v=158"></script>
-    <script src="../Js/process.min.js?v=338"></script>
+    <script src="../Js/process.min.js?v=339"></script>
     <script type="text/javascript" src="../Js/lang/content-<%=langType%>.js?v=64"></script>
     <script src="../ThirdParty/QRcode/qrcode.js?v=1"></script>
 

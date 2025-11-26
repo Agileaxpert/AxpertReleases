@@ -959,6 +959,7 @@ function CallAction(actionName, fileup, confirmmsg, remarks, manRemarks, dsignac
                     return;
                 } else {
                     let _scripName = tstActionName[actInd];
+                    let _scripCaption = tstActionCaption[actInd];
                     let _queueName = actScriptQueueName[actInd];
                     let _queueNameVal = "";
                     if (_queueName != "" && _queueName.startsWith(":")) {
@@ -1007,7 +1008,7 @@ function CallAction(actionName, fileup, confirmmsg, remarks, manRemarks, dsignac
                     } else {
                         _queueNameVal = _queueName;
                     }
-                    ExecuteScriptPushtoQueue(_scripName, _queueNameVal);
+                    ExecuteScriptPushtoQueue(_scripName, _scripCaption, _queueNameVal);
                     return;
                 }
             }
@@ -7453,7 +7454,7 @@ function GetTstHtmlLsKey(_tId) {
     }
     return _isDummyLoad;
 }
-function ExecuteScriptPushtoQueue(_scripName, _queueName) {
+function ExecuteScriptPushtoQueue(_scripName, _scriptCaption, _queueName) {
     AxWaitCursor(true);
     ShowDimmer(true);
     try {
@@ -7463,7 +7464,7 @@ function ExecuteScriptPushtoQueue(_scripName, _queueName) {
         var chngRows = GetChangedRows();
         var rid = $j("#recordid000F0").val();
         let txt = '<root axpapp="' + proj + '" trace="' + trace + '" recordid="' + rid + '"  fno="" afiles=""  dcname="' + visDcname + '" actrow="" sessionid="' + sid + '"  stype="tstructs" sname="' + tid + '" actname="" __file="" options="true" dsignstatus=""><varlist><row>';
-        ASB.WebService.ExecuteScriptPushtoQueue(ChangedFields, ChangedFieldDbRowNo, ChangedFieldValues, DeletedDCRows, DeletedFieldValue, ArrActionLog, visDcname, txt, delRows, chngRows, tstDataId, resTstHtmlLS, tid, rid, _scripName, _queueName, tstructCaption, SuccessCallbackScriptPushtoQueue, OnException);
+        ASB.WebService.ExecuteScriptPushtoQueue(ChangedFields, ChangedFieldDbRowNo, ChangedFieldValues, DeletedDCRows, DeletedFieldValue, ArrActionLog, visDcname, txt, delRows, chngRows, tstDataId, resTstHtmlLS, tid, rid, _scripName, _scriptCaption, _queueName, tstructCaption, SuccessCallbackScriptPushtoQueue, OnException);
     }
     catch (exp) {
         actionCallbackFlag = actionCallFlag;
@@ -7485,11 +7486,15 @@ function SuccessCallbackScriptPushtoQueue(result, eventArgs) {
         return;
     }
     resTstHtmlLS = "";
-    let resJson = JSON.parse(result);
-    if (typeof resJson.result.success != "undefined" && resJson.result.success) {
-        showAlertDialog("success", resJson.result.message);
+    if (result == "keyexist") {
+        showAlertDialog('warning', "Previous request still in process. Please wait till you get the notification");
     } else {
-        showAlertDialog("error", resJson.result.message);
+        let resJson = JSON.parse(result);
+        if (typeof resJson.result.success != "undefined" && resJson.result.success) {
+            showAlertDialog("success", resJson.result.message);
+        } else {
+            showAlertDialog("error", resJson.result.message);
+        }
     }
     ArrActionLog = "";
     AxWaitCursor(false);

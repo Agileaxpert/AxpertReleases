@@ -989,6 +989,7 @@ public class TStructDef
     public struct ActionStruct
     {
         string actName;
+        string actCap;
         string actDesc;
         string actApply;
         string actApplyOn;
@@ -1009,6 +1010,12 @@ public class TStructDef
         {
             get { return actName; }
             set { actName = value; }
+        }
+
+        public string actcap
+        {
+            get { return actCap; }
+            set { actCap = value; }
         }
 
         public string actdesc
@@ -4827,6 +4834,8 @@ public class TStructDef
                 else
                 {
                     act.actname = actionNode.Name.ToString();
+                    if (actionNode.Attributes["cap"] != null)
+                        act.actcap = actionNode.Attributes["cap"].Value.ToString();
                     if (actionNode.Attributes["sname"] != null)
                         act.actstrname = actionNode.Attributes["sname"].Value.ToString();
                     if (actionNode.Attributes["apply"] != null)
@@ -5006,7 +5015,7 @@ public class TStructDef
                     }
                     if (isActButton)
                         actions.Add(act);
-                    formcontrol.Append("tstActionName[" + actNo + "]= " + "\"" + act.actname + "\";actParRefresh[" + actNo + "]= " + "\"" + act.actParRefresh + "\";actSaveTask[" + actNo + "]= " + "\"" + act.actSaveTask + "\";actScriptTask[" + actNo + "]=" + "\"" + act.actScriptTask + "\";actScriptCancel[" + actNo + "]=\"" + act.actScriptCancel + "\";actScriptActive[" + actNo + "]=\"" + act.scriptActive + "\";actScriptPushtoQueue[" + actNo + "]=\"" + act.pushtoQueue + "\";actScriptQueueName[" + actNo + "]=\"" + act.queueName + "\";");
+                    formcontrol.Append("tstActionName[" + actNo + "]= " + "\"" + act.actname + "\";tstActionCaption[" + actNo + "]= " + "\"" + act.actcap + "\";actParRefresh[" + actNo + "]= " + "\"" + act.actParRefresh + "\";actSaveTask[" + actNo + "]= " + "\"" + act.actSaveTask + "\";actScriptTask[" + actNo + "]=" + "\"" + act.actScriptTask + "\";actScriptCancel[" + actNo + "]=\"" + act.actScriptCancel + "\";actScriptActive[" + actNo + "]=\"" + act.scriptActive + "\";actScriptPushtoQueue[" + actNo + "]=\"" + act.pushtoQueue + "\";actScriptQueueName[" + actNo + "]=\"" + act.queueName + "\";");
                     if (act.actSaveTask == "save")
                         SaveScriptList.Add(act.actname);
                     actNo++;

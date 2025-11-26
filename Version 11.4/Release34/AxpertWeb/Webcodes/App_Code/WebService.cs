@@ -11510,7 +11510,7 @@ namespace ASB
         }
 
         [WebMethod(EnableSession = true)]
-        public string ExecuteScriptPushtoQueue(ArrayList fldArray, ArrayList fldDbRowNo, ArrayList fldValueArray, ArrayList fldDeletedArray, ArrayList deletedFldArrayValues, string ArrActionLog, string visibleDcs, string s, string delRows, string changedRows, string key, string resTstHtmlLS, string tid, string rid, string _scripName, string _queueName, string tstructCaption)
+        public string ExecuteScriptPushtoQueue(ArrayList fldArray, ArrayList fldDbRowNo, ArrayList fldValueArray, ArrayList fldDeletedArray, ArrayList deletedFldArrayValues, string ArrActionLog, string visibleDcs, string s, string delRows, string changedRows, string key, string resTstHtmlLS, string tid, string rid, string _scripName, string _scriptCaption, string _queueName, string tstructCaption)
         {
             string res = string.Empty;
             try
@@ -11518,6 +11518,15 @@ namespace ASB
                 string response = string.Empty;
                 if (HttpContext.Current.Session["project"] == null || Session["nsessionid"] == null)
                     return utilObj.SESSTIMEOUT;
+                string _RKey = tid + "-execScript-" + HttpContext.Current.Session["username"].ToString() + "-" + _queueName;
+                FDR fdrObj = (FDR)HttpContext.Current.Session["FDR"];
+                string armExportExcell = fdrObj.ReadStringKey(_RKey);
+                if (armExportExcell != string.Empty && armExportExcell == "requestinprocess")
+                {
+                    res = "keyexist";
+                    return res;
+                }
+
                 string _tstKeyChanged = "";
                 if (resTstHtmlLS != "")
                 {
@@ -11555,7 +11564,7 @@ namespace ASB
                 _axapps = _axapps.Replace(@"\", "\\\\");
 
                 //DATA = "{\"executescript\":{\"trace\":\"" + HttpContext.Current.Session["AxTrace"].ToString() + "\",\"project\":\"" + HttpContext.Current.Session["project"].ToString() + "\",\"s\":\"" + Session.SessionID + "\",\"username\":\"" + Session["username"].ToString() + "\",\"script\":\"" + _scripName + "\",\"type\":\"form\",\"name\":\"" + tid + "\",\"rid\":\"" + rid + "\",\"pageCaption\":\"" + tstructCaption + "\"},\"varlist\":{\"row\":{\"axp_recid1\":{\"_rowno\":\"001\",\"__text\":\"1185220000000\"},\"flda\":{\"_rowno\":\"001\",\"__text\":\"admin\"},\"fldb\":{\"_rowno\":\"001\",\"__text\":\"ARMAxpertJobsQueueLocal\"},\"apibody\":{\"_rowno\":\"001\"},\"queueName\":{\"_rowno\":\"001\"}}},\"axprops\":\"" + HttpContext.Current.Application["axProps"].ToString() + "\",\"axapps\":\"" + _axapps + "\",\"globalvars\":\"" + globalVars + "\",\"uservars\":\"" + HttpContext.Current.Session["axUserVars"].ToString() + "\"}";
-                DATA = "{\"executescript\":{\"trace\":\"" + HttpContext.Current.Session["AxTrace"].ToString() + "\",\"project\":\"" + HttpContext.Current.Session["project"].ToString() + "\",\"s\":\"" + Session.SessionID + "\",\"username\":\"" + Session["username"].ToString() + "\",\"script\":\"" + _scripName + "\",\"type\":\"form\",\"name\":\"" + tid + "\",\"rid\":\"" + rid + "\",\"pageCaption\":\"" + tstructCaption + "\"}," + resultsss.Replace("\r\n", "") + ",\"axprops\":\"" + HttpContext.Current.Application["axProps"].ToString() + "\",\"axapps\":\"" + _axapps + "\",\"globalvars\":\"" + globalVars + "\",\"uservars\":\"" + HttpContext.Current.Session["axUserVars"].ToString() + "\"}";
+                DATA = "{\"executescript\":{\"trace\":\"" + HttpContext.Current.Session["AxTrace"].ToString() + "\",\"project\":\"" + HttpContext.Current.Session["project"].ToString() + "\",\"s\":\"" + Session.SessionID + "\",\"username\":\"" + Session["username"].ToString() + "\",\"script\":\"" + _scripName + "\",\"scriptcaption\":\"" + _scriptCaption + "\",\"scriptqueuename\":\"" + _queueName + "\",\"type\":\"form\",\"name\":\"" + tid + "\",\"rid\":\"" + rid + "\",\"pageCaption\":\"" + tstructCaption + "\"}," + resultsss.Replace("\r\n", "") + ",\"axprops\":\"" + HttpContext.Current.Application["axProps"].ToString() + "\",\"axapps\":\"" + _axapps + "\",\"globalvars\":\"" + globalVars + "\",\"uservars\":\"" + HttpContext.Current.Session["axUserVars"].ToString() + "\"}";
 
                 var saveDetails = "{\"queuename\":\"" + _queueName + "\",\"queuedata\":" + JsonConvert.SerializeObject(DATA) + ",\"timespandelay\":\"0\"}";
 
