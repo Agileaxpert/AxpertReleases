@@ -1,0 +1,111 @@
+AxpertWeb:
+----------
+TASK-3421 -- Enhancement: Global Import exceptions are handled to show the proper error message to end user. Please note the following changes on this regards.
+    Note: 1. The Consumer services (ARMConvertXLtoJSONWorkerService, ARMRapidSaveWorkerService) used for Global Import have been changed to cross platform work process services. 
+          2. These 2 Consumer services needs to be started by using the below commands before using Global Import feature from AxpertWeb. 
+             Windows:
+              ARMConvertXLtoJSONWorkerService:
+               sc create ARMConvertXLtoJSONWorkerService binPath= "D:\ImportConvertXlToJson\ARMConvertXLtoJSONWorkerService.exe D:\ImportConvertXlToJson\appsettings.json"
+               sc start ARMConvertXLtoJSONWorkerService           
+           
+              ARMRapidSaveWorkerService:
+               sc create ARMRapidSaveWorkerService binPath= "D:\RapidSaveService\ARMRapidSaveWorkerService.exe D:\RapidSaveService\appsettings.json"
+               sc start ARMRapidSaveWorkerService
+             
+            To Stop or Delete Windows services:
+              ARMConvertXLtoJSONWorkerService:
+               sc stop ARMConvertXLtoJSONWorkerService
+               sc delete ARMConvertXLtoJSONWorkerService
+
+              ARMRapidSaveWorkerService:
+               sc stop ARMRapidSaveWorkerService
+               sc delete ARMRapidSaveWorkerService
+
+            Linux:
+              a. Create a folder for your service:
+               /home/ubuntu/RapidSaveService/
+              b. Create the systemd service file
+               sudo nano /etc/systemd/system/RapidSaveService.service
+              c. Reload system
+               sudo systemctl daemon-reload
+              d. Enable the service at boot
+               sudo systemctl enable RapidSaveService
+               e. Start the service
+               sudo systemctl start RapidSaveService
+              f. Check status
+               sudo systemctl status RapidSaveService
+              g. To STOP / RESTART the service
+               sudo systemctl stop RapidSaveService
+               sudo systemctl restart RapidSaveService
+         3. AppSettings.ini needs to be copied to the consumer service folders.
+
+NOTE: Scenarios involving an Excel sheet where a numeric field is used as the primary key and a dropdown field with “Select From API (MOE)” are currently not supported in RapidImport. These cases are not handled in the present release and will be addressed in a upcoming release.
+
+TASK-3420 -- Enhancement: Custom Data Types available in options menu has been enhanced to accept Special Data Type as 'JSON' and 'GUID' additionally. As per the business requirement, these data types can be used to store JSON or GUID formatted data in connected DB's.
+
+TASK-3055 -Kauvery- Issue Description: Updating an existing draft and saving it is creating duplicate entries instead of updating the existing draft record
+ Developer option:
+  Property: Option to avoid multiple draft per a transaction
+  property Code: Option to avoid multiple draft per a transaction
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Forms / Single Form
+  User Role: All / Single role
+
+TASK-3265 -MPCO- Labels created  in desktop, for those same labels on right click it is not showing the options to remove 11.4 web design
+ Note: Desktop labels can not be delete from run time using design mode. If labels wants to be deleted, it should delete from the desktop itself.
+       Incase desktop labels don't want to show in runtime, below developer option needs to be enabled for single form or all forms. 
+ Developer option:
+  Property: Labels created in desktop hide in runtime
+  property Code: Labels created in desktop hide in runtime
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Forms / Single Form
+  User Role: All / Single role
+
+TASK-3438 -MPCO- Width Adjustment not retaining issue in runtime.
+
+TASK-3435 -MPCO- The Pivot iView column values are appearing misaligned during runtime.
+
+TASK-3004 -BAFCO- Image attached in field is split into more than one file, when this breaking of image happens, the respective image is not displayed in the corresponding field on data load as well as in entity page. Only when there is no split of image and single entry is there for a record in the backend table (transid+imagefield), we can view the image on data load.
+
+TASK-3226 -BDF- Issue Description: Product Issue & Reported by BDF Team : The user is unable to view the grouped buttons when loading the data from the Data Listing page mutiple times. The grouped buttons become visible only after performing a memdb clear, until then, the user cannot see them.
+
+TASK-3357 -BDF-Issue Description:Product Issue & Reported by BDF Team: When the user searches for a parameter value in Global Search, the searched parameter value is not displayed.
+
+TASK-3300 -BDF-	Button hint option required Customer
+
+TASK-3228 -Nuwab- In Nuwab, we have defined an Iview Topic dashboard in App Global Search Data/Periodically.  But on searching a Topic ID is not displaying the result in front end.
+On checking the trace file the result is displayed correctly for the searched text. 
+
+TASK-3326 -Nuwab- Nuwab (Old workflow) - Arabic content in approval mail is displayed as junk characters.
+
+TASK-3323 -BMRCL- While uploading a document delete document also getting attached. this happens only where ZIP With protected password
+
+TASK-3343 -QA- Custom Pluging Card- On creation of card and then on deletion from cards, card is not getting removed from the Home Page
+
+TASK-3475 -QA- Iview column width not getting set properly in runtime if iview contains hidden columns 
+
+TASK-3513 -QA- Active list: When clicking the link, the active list keeps loading and the loader does not close until the page is refreshed.
+
+AxpertStudio:
+------------
+
+TASK-3082 -agileerp - Decimal values not getting update as decimal value instead it is getting update by round of value through MDMAP.
+
+TASK-2658 -BDF- The BDF team requires the "Reload Structure Definition from DB" option to be available for iView as well. 
+ 
+TASK-3300 -BDF-	Button hint option required Customer
+
+TASK-3394 -QA- Special datatype is required based on customdatatype
+
+TASK-3375 -QA- In Iview Scripts add a text field  option called "Queue Name" which should be visible, only when "Push To Queue" is checked
+Note to QA: Runtime functionalities will be added in next patch
+
+TASK-3374 -BDF- The view history buttons appear outside the Default Buttons in 11.4 Studio.
+
+ARM:
+----
+TASK-3320 -BAFCO- Menu structure is not the same for a particular user in Mobile and web login.
+
+TASK-2225 -Nuwab- API response issue in Postman. In API, when we tried changing the page size as 10 and setting the sql pagination value as true, we are getting an error as CDS__xds21.Cannot perform the operation on closed dataset.
+
+Note:Existing configuration files such as appsettings.json, appsettings.ini, and service_key.json must be retained
