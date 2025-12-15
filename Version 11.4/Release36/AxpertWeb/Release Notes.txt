@@ -1,0 +1,51 @@
+AxpertWeb:
+---------
+TASK-3403 -MPCO- PDF export not working iviews
+
+TASK-3402 -MPCO- Submit button is enabled after final final approval and it is allowing to save the record. 
+
+TASK-2970 -MPCO- Copy option not working in dropdown fields
+
+TASK-3056 -MPCO- Refresh issue in Iviews - refreshiview() used on scripts and it is refreshing the parameters also.
+
+TASK-3622 -BMRCL- Issue Description: Excel Export is not working. We've resaved all the details in Axpertadmin page and replaced the appsetting.ini file in ARM, Axpertstudio even also getting the same error. The response is not going to Rabbit queue also (Excel Consumer service is running).
+
+TASK-3492 -BMRCL- Auto fetching the records in iview based on page size in customized iview
+
+TASK-3302 -Maris- Tstruct sopped working properly in TABLET device suddenly
+
+TASK-3244 -BAFCO- A security vulnerability was raised by Bafco indicating that the Forgot Password page is revealing sensitive user information.
+Request to update the screen to hide or obfuscate the email address for compliance.
+
+TASK-3417 -PayAzzure- Issue Description: Issue 1 - When data encryption is enabled at the TStruct level, the encrypted value is not getting decrypted when a record is loaded through TStruct Search. Issue 2 - When loading a record from TStruct Search, the data appears encrypted if the user opens it from the Data Listing page or a Report. However, if the user opens the same record directly (without loading from tstruct search), the value is decrypted correctly.
+
+TASK-3344 -Kauvery- The custom html page does not open from the search option.
+
+TASK-3495 -AgileERP- News and Announcement- Images attached in the News record is not displaying in the HTML Card nor with default image or uploaded image, even after checking with the QA team  still issue exist 
+
+TASK-3462 -AgileERP- from listing page export to excel and data having first letter as T then it getting trimmed and exporting. please check the same.
+
+TASK-3584 -QA- Random Issue-Getting Error message  "Could not process the request. Please try again" in Login Page
+
+TASK-3579 -QA- Unnecessary Redis key creation in  Notify method with key format  "Schemaname-username-notify-ddmmyyyyhhmmss". 
+
+TASK-3637 -QA- Issue Description: Unable to log in to RUNTIME after updating the schema password using the AxpManager Change App Password option with a password different from the default password.
+    
+
+AxpertStudio:
+-------------
+TASK-3016 -PAYAZZURE- Error message is throwing in iview sqltext 11.4 studio 
+
+TASK-2952 -MPCO- Global Search issue in Developer Studio 
+
+TASK-3415 -Kauvery- The iView columns values appear fully bold and black during runtime.
+
+TASK-3539 -BDF- The hint (tooltip) option is not available for iview default button's.
+
+TASK-3574 -BDF- When the query is entered in to two lines the application throws an error and unable to submit the field
+
+TASK-3575 -BDF- When the structure is imported using axpmanager and then converted to online mode, the iView throws an error when opened in 11.4 Studio. 
+
+TASK-3301 -BDF- The Hyperlink action is not visible in the ‘On Double Click' dropdown under Column Properties in Axpert Studio. 
+
+TASK-3369 -BDF-	The Autogenerate field is not functioning properly as expected.
