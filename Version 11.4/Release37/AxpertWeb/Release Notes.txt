@@ -1,0 +1,64 @@
+AxpertWeb:
+---------
+TASK-2868 -BMRCL- Removal of Cancel button in validation message Customer.
+Note: The developer option mentioned below has been introduced to enable this functionality for particular forms or all forms. 
+  Property: Hide cancel button in validation expression messages
+  property Code: Hide cancel button in validation expression messages
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Forms / Single Form
+  User Role: All / Single role
+
+TASK-3611 -Kauvery- While clicking the draft button need saved message warning as pop up
+
+TASK-3880 -JF&I- "WebService Timeout" developer option has been added and the timeout value has been increased, but SaveData is still not working and it continues to time out after 90 seconds.
+
+TASK-3881 -JF&I- CSV export has been introduced in Iview to export to CSV.
+
+TASK-3820 -QA-In 11.4 when axoldcards is enabled, the Axpert Studio options icon is not available on the Main page.
+
+TASK-3821 -QA-In 11.4, if axoldcards is enabled, existing/upgraded cards are not shown.
+
+TASK-3680 -QA- Hint functionality is not working for iview during runtime
+
+TASK-3943 -- Character to numeric conversion error occurs on form load when passing parameters from the iView hyperlink to open the form.
+
+AxpertStudio:
+------------
+TASK-3573 -BDF-	Without caption field name in not visible in the genmap source field. 
+
+TASK-2656 -BDF- The Value column dropdown is becomes unselected instead of retaining the selected parameter names
+
+TASK-2616 -BDF- In the Tstruct Developer site, for a Dropdown field, after entering a query in the SQL Text popup, executing it, and closing the popup, when the user enables the Save Normalized checkbox, the SQL query disappears.
+
+TASK-3757 -BDF- The Merge With Prior functionality is not working for existing iViews in 11.4 studio.
+
+TASK-3298 -BDF-	Getting error when open the Form from 11.4 studio.
+
+TASK-3422 -MPCO- Axpert Studio- Gen Map mapping: target fields are disappearing in migrated structure when we try to change mapping
+
+TASK-3519 -BMRCL- Columns are visible dark black when user tries to apply Merge With Prior.
+
+TASK-3592 -Kauvery- Iview hyperlink dynamically with transid in columns based on condition
+
+TASK-3271 -QA- GenMap Mapping Not Retained for First Target TStruct
+
+TASK-1869 -QA-	Developer Stuido - When the user creates a new Tstruct and adds fields in the Tstruct Visualizer, While attempting to delete a field it is showing error message 'Unable to 
+find data for field'.
+
+TASK-3552 -QA-	Unnecessary error toast message displayed while deleting a field from TStruct Visualizer
+
+TASK-1016 -QA- Dropdown value issue in the Iview-once hyperlink popup form is selected, respective fields are not populating in Params fields	
+
+TASK-3538 -QA- The selected field name is not displayed in Track change fields.	
+
+TASK-3751 -QA- Merge Column Issue (Table Layout Disabled) - Axpert Studio
+
+TASK-3745 -QA- When the user removes the query from the SQL Text and then pastes the query, the SQL Text does not refresh, and the Table Layout keeps loading continuously without displaying the data.	
+
+TASK-1291 -QA- Dropdown field  MOE Change from Select From List to Select From Form without clearing List Values
+
+
+
+
+
+
