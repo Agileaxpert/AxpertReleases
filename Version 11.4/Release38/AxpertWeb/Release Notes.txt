@@ -1,0 +1,82 @@
+TASK-4060 -- Enhancement: Product level notifications has been enhanced to handle load-balancer application setup.
+   Note: Needs to change the required parameters in AxpertAdmin page. Detailed document has been attached for the same. 
+
+TASK-2890 -BDF- SignalR is experiencing issues when using the load-balanced site for notifications.
+
+TASK-3259 -BDF- When the user defines script "AxHideControls({dc3, field2})" in 11.4 Studio (Tstruct), the script works correctly during on-data-load. However, when the user loads the Data Page, the AxHideControls script does not execute, and the controls are not hidden as expected.
+Note: In the Data page, the following Form Control scripts are supported and can be executed on the 'On Data Load' event:
+      1. AxHideControls
+      2. AxUnhideControls
+      3. SetFieldCaption
+      4. SetDCCaption
+      5. AxDcExpand
+      6. AxDcCollapse 
+
+TASK-3961 -BDF- Issue Description: Product Issue and Reported By BDF TEAM: When the user loads a cancelled transaction record and tries to submit it, the system allows the submission. Instead, it should block the submission and display a proper validation/error message indicating that cancelled records cannot be submitted.
+
+TASK-3957 -BDF- Issue Description: Product Issue and Reported By BDF TEAM: In runtime, the New and Remove buttons are not getting Hidden using AxHideControls with Form Control (Events = “All”) when the developer option “Tstruct Button Style” is set to “Old.”
+
+TASK-3956 -BDF- Issue Description: Product Issue and Reported By BDF TEAM: In runtime, the New, Save, and Remove buttons are not getting disabled using AxDisableControls with Form Control (Events = “All”) when the developer option “Tstruct Button Style” is set to “Old.”
+
+TASK-3726 -PayAzzure- Configured Page Names Missing in Downloaded FastReport
+
+TASK-3158 -PayAzzure- Audit Trail Not Captured for AxImport Updates
+
+TASK-4038 -PayAzzure- YTD Report Export Data Mismatch
+
+TASK-3693 -Paybooks- in Grid JSON fields whenever user edits the row, special characters and append / rewrites the JSON. 
+
+TASK-3402 -MPCO- Submit button is enabled after final final approval and it is allowing to save the record. 
+
+TASK-3930 -MPCO- Pivot report , PDF showing html tags for headings.
+
+TASK-3929 -MPCO- Pivot report excel export not working as expected
+
+TASK-3555 –QA- QA team reported Global Import Issues are fixed.
+
+TASK-3018 -QA- Data Page (Entityform.aspx) - All DC accordions should be expanded by default on page load.
+
+TASK-4001 -QA- Changes made on the Settings page in Configuration Studio are not taking effect after re-logging into the application.
+
+TASK-3915 -QA- Issue 1: If user uploading empty excel file, it is throwing "Error Oops! there seems to be some problem. Please try later."
+Issue : In import screen, there should be an validation in choose form to uploaded file
+For EG: Testform1 selected in Choose Form and TestForm2 uplaoded, on submission there is no validation"
+Issue 3: In the Download Template screen, the Select field is not filtering according to the DC selection.
+Issue 4: In Download Template screen, Search is not working in "Select Primary Key" dropdown
+Issue 5: In Import defintion screen, Without selecting Choose Form, it is allowing to upload file, Once the file is uploaded, if user click on Choose Form dropdown UI field is changed and searchbar is also missing
+
+
+
+NotificationHub(ARM):
+----------------
+TASK-4060 -- Enhancement: Product level notifications has been enhanced to handle load-balancer application setup.
+   Note: NotificationHub application needs to be created in IIS level. Detailed document has been attached for the same.  
+
+TASK-2890 -BDF- SignalR is experiencing issues when using the load-balanced site for notifications.
+
+TASK-3405 -MPCO- Excel export notification not working with users and for admin it is working 
+
+
+AxpertStudio:
+-------------
+TASK-4013 -PayBooks- Issue Description: After updating the schema password to a complex password using AxpManager → Change App Password (different from the default password), when the user clears Axpert Studio Redis and navigates to Dev Studio, the system throws the error "Error while fetching data!
+
+TASK-3101 -BDF- When modifying the column caption, the highlighted column values lose their color formatting and appear in black during runtime. 
+
+TASK-3797 -BDF- When the user performs Reload Structure Definition from DB, the right-side screen does not refresh automatically.
+
+TASK-3873 -BDF- When the user clicks on the Source field dropdown the existing value is getting cleared.
+
+TASK-1234 -BDF- Modified and previous subtotal's are visible in devsite.
+
+TASK-4023 -QA- The task description - In Agilespace application from my tasks iview ,I am not able to navigate to mentioned form on click of the '+' icon
+
+TASK-3763 -QA- Issue Description: In the iView, when the user tries to open the form, an error is displayed:
+“Oops! Error occurred due to the following reason: Structure XML is not proper. Please resave the definition and retry.”	
+
+TASK-3921 -QA- In Iview, when the SQL editor is empty, the table section should not be displayed at all.
+
+TASK-3697 -QA- When I create a script in IView and submit it, then modify that script(not scriptname) and click Submit again before publishing the IView, it is throwing error as : "Duplicate values are not allowed in script name."
+
+
+
