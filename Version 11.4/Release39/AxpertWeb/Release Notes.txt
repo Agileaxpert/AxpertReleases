@@ -1,0 +1,195 @@
+TASK-4181 -- Enhancement: ARMExportService has been converted to Window Worker process services named 'ARMExportWorkerService'.
+Please note that with this enhancement, the FIFO nature of the Export Consumer service has been changed to support concurrent user export requests. As a result, if a large file takes longer to export, smaller files can finish earlier even while the larger export request is still in progress.
+Below points needs to be noted related to this new consumer program.
+Note: 1. The service needs to be started with the following command in command prompt.
+         Service Start command ex.:
+          sc create ARMExportWorkerService binPath= "D:\ExportService\ARMExportWorkerService.exe D:\ExportService\appsettings.json"
+          sc start ARMExportWorkerService  
+      2. This service wanted to stop or remove from the windows service needs to be run below command.
+          Ex.: sc stop ARMExportWorkerService
+               sc delete ARMExportWorkerService   
+      3. Please follow for Linux to start this consumer service. 
+          a. Create a folder for your service:
+              /home/ubuntu/ARMExportWorkerService/
+          b. Create the systemd service file
+              sudo nano /etc/systemd/system/ARMExportWorkerService.service
+          c. Reload system
+              sudo systemctl daemon-reload
+          d. Enable the service at boot
+              sudo systemctl enable ARMExportWorkerService
+          e. Start the service
+              sudo systemctl start ARMExportWorkerService
+          f. Check status
+              sudo systemctl status ARMExportWorkerService
+          g. To STOP / RESTART the service
+              sudo systemctl stop ARMExportWorkerService
+              sudo systemctl restart ARMExportWorkerService
+
+TASK-4180 -- Enhancement: Confirmation message has been introduced in on script button click. 
+Note: A new property introduced in form/reports script definition. 'Confirmation Message required ?' checkbox needs to be enabled along with to accept Confirmation Message For Runtime. During runtime, the scripts which is enabled 'Confirmation Message required ?' on click of button will show this confirmation message. If the user clicks OK, the script will proceed with execution. If the user clicks Cancel, the script will not be executed.
+
+TASK-4036 -MPCO- Global parameters are not refreshing while opening the fresh form for data entry.
+
+TASK-3876 -MPCO- Hyper link not able to define for label in 11.4 design mode
+
+TASK-2966 -MPCO- Filter option in listing page: Normalize fields are not showing the results 
+
+TASK-4198 -MPCO- Excel Export : Number in text column is exporting in excel with "=TEXT("1,000.00","0.00")"
+
+TASK-4213 -MPCO- Global import and export not working: Forms are not listing for selection.
+
+TASK-4082 -BMRCL- The Tstruct field changes are not reflecting in runtime when user do Mem Db Clear.
+
+TASK-4079 -MARIS- Entry is missing while Editing a TStruct 
+
+TASK-4137 -AXPERTAGILE- Issues While Saving Data from Custom Page to TStruct Using AxSubmitData
+
+TASK-3430 –QA- Verify Global Variable and SessionID Handling in ASBScriptRest
+Note to QA: FormNotification scenario needs to be tested. 
+
+TASK-3031 -BDF- Apply filter issue 
+
+TASK-2765 -BDF- Dashboard/Cards Grouping Configuration is not working as expected. 
+
+TASK-3257 -BDF- When there is no data, the Grid DC should remain visible on the data page. 
+
+TASK-2690 -BDF- The column values become misaligned with their respective headers in the Data Listing page. 
+
+TASK-3256 -BDF- In Datalistingpage the hidden columns are still it is visible.
+
+TASK-4172 -BDF- List View page is loading with hidden fileds as columns as they are not available to hide form Select Fields configuration Customer - Metaspeed	This is not an bug. Server promotion related issue. Wrong code was promoted to cloud server by UI devs. Reapplying the patch will be resolve.
+
+TASK-4205 -QA- Cards data not loading after latest ARM AXIS release
+
+TASK-4179 -QA- Application connection name not allowing with underscore(_) in AxpertAdmin page.
+
+TASK-4178 -QA- User defined buttons along with caption icon not showing in tstruct  
+
+TASK-3822 -- 'ARMExecuteScriptService' worker service has been incorporated for iview scripts as well. 
+
+TASK-4139 -QA- SignalR Notification	
+
+Structures:
+----------
+TASK-4153 -JFI- If multiple desktop workflows defined then the listing page is showing error.
+
+
+AxpertStudio:
+-------------
+TASK-3954 -BDF- The Button Icon Picker does not provide a Remove or None option to clear the selected icon.
+
+TASK-3373 -BDF- During runtime the hidden field is still visible in the Tstruct Search.
+
+TASK-4087 -BDF- During runtime the Save button starts behaving like a normal save instead of triggering the configured custom action. 
+
+TASK-3372 -MPCO- The Hide in Search checkbox is checked by default for a field.
+
+TASK-4144 -MPCO- Need to add the following properties to scripts in tstructs and iviews: confirmation message required, confirmation message
+
+TASK-2175 -QA- Firm bind is suppose to not checked for multiselect fillgrid.
+
+TASK-3935 -QA- In iview, empty column group cells should not be visible, when there are no column groups
+
+
+ARM:
+---
+TASK-3631 -- Refresh of filed using sql (localized) Customer - Paybooks Technologies
+
+TASK-3630 -- Validation in 3rd dc Customer - Paybooks Technologies
+
+TASK-3629 -- Data - Invalid date Customer - Paybooks Technologies
+
+TASK-3628 -- Timestamp validation when data passed as date Customer - Paybooks Technologies
+
+TASK-4161 -- AxPut - Metadata and Axpert key validation Cstomer - Paybooks Technologies
+
+TASK-4162 -- ARM Signin API changes Customer - Paybooks Technologies
+
+TASK-4163 -- Axput - FieldChanged validation not working Customer - Paybooks Technologies
+
+TASK-4164 -- Signin and Signout API - Logging Customer - Paybooks Technologies
+
+TASK-4166 -- ARM - Session handling enhancement
+
+TASK-4165 -- AxList - Error in pagination Customer - Paybooks Technologies
+Note: 1. If pagination is enabled via --ax_pagination keyword,
+      2. Default pageno = 1 and pagesize = 100.
+      3. If all data is needed, pass pagesize = 0.
+
+TASK-3684 -- Enhancements needed in AxList API Customer - Paybooks Technologies
+AxList API is enhanced with following new features:
+Paybooks enhancements:
+* "select_columns" via --ax_select_columns keyword is introduced to handle dynamic select columns .
+* "aggregations" via --ax_aggregations keyword is introduced to add dynamic aggregate functions.
+* "groupby_columns" via --ax_groupby keyword is introduced to handle dynamic group by columns .
+* "NOT CONTAINS" and "NOT EQUALS" conditions are added to TEXT datatype in dynamic filters.
+* "IN" & "NOT IN" conditions are added to DROPDOWN datatype in dynamic filters. Default value if condtion node is empty means, IN clause will be added.
+Note:
+Sample SQL with new keywords:
+select --ax_select_columns --ax_aggregations 
+from axusers
+--ax_groupby
+
+Sample JSON:
+{
+    "ARMSessionId": "{{session}}",
+    "action": "view",
+    "Project": "pgbase114",
+    "ADSNames": [
+        "ds_groupby_test"
+    ],
+    "trace": true,
+    "getallrecordscount": false,
+    "CachePermissions": false,    
+    "pageno": 1,
+    "pagesize": 10,
+    "keyfield": "username",
+    "keyvalue": "ALL",
+    "AxClient_dateformat" : "MM/dd/yyyy", //optional
+    "select_columns" : ["username","sqlsrc"],
+    "aggregations" : {"total_sqlname": "count(*)"},
+    "groupby_columns" : ["username","sqlsrc"],
+    "sorting": [
+        {
+            "fldname": "sqlsrc",
+            "sort_order": "asc"
+        }
+    ],
+    "filters": [
+        {
+            "fldname": "sqlname",
+            "datatype": "TEXT",
+            "value": "test",
+            "condition": "NOT EQUALS" //NOT EQUALS //NOT CONTAINS // STARTSWITH // ENDSWITH // CONTAINS // EQUALS
+        },   
+        {
+            "fldname": "app_desc",
+            "datatype": "NUMERIC",
+            "from": "0",
+            "to": "3"
+        },
+        {
+            "fldname": "createdby",
+            "datatype": "DROPDOWN",
+            "condition": "IN",  // NOT IN
+            "value": [
+                "admin",
+                "mohan",
+                "lakshmi"
+            ]
+        },
+        {
+            "fldname": "modifiedon",
+            "datatype": "DATE",
+            "from": "12/31/2021",
+            "to": "12/31/2026"
+        },
+        {
+            "fldname": "modifiedon",
+            "datatype": "TIMESTAMP",
+            "from": "12/31/2021 00:00:00",
+            "to": "12/31/2026 23:59:59"
+        }
+    ]
+}
+
