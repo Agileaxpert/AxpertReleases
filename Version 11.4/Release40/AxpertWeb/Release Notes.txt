@@ -1,0 +1,49 @@
+AxpertWeb:
+----------
+TASK-4259 -Payazzure- Request to Enable ZIP File Upload as Attachment in TStruct
+Note: Product level zip files attachments are not allowed because of security reasons. For any project requires ZIP attachments as per the business requirement below mentioned developer option needs to be enabled.
+  Developer option :
+       Property: Allow Specific File Types in Attachments
+       Property Code: Allow Specific File Types in Attachments
+       Property Value: true/false
+       Property Info: Comma separated file types need to be mentioned (ex.: zip, rar)
+       Form/Report: ALL Forms / Single Form
+       User Role: All / Single role
+
+TASK-3690 -Why Digit- Non-mandatory Grid not working - Mobile version 
+
+TASK-3494 -AgileERP- Enabling and Displaying of Buttons to be included in the Rule Engine in case of records which are Fully Approved as form will load in read only mode in order to generate the Fastprint PDFs against the records
+Note: User defined buttons are enabled which is not having 'Save' function in scripts.
+
+TASK-3782 -Kauvery- Issue Description: Password policy validation has to be work without OTP authentication.
+
+TASK-3744 -Kauvery- Issue Description: When the user clicks the Pick List search icon and searches using the first two characters, then selects a value, the selected picklist value is not displayed in the report. Instead, the entered search text remains selected in the parameters.
+
+TASK-3978 -BDF- Issue Description: Product Issue and Reported By BDF TEAM: When a record is submitted, the notification is generated. However, opening the notification via SignalR on the second attempt opens a new transaction instead of the record. After performing a Mem DB Clear Cache and logout/login, the notification opens the record correctly.
+
+TASK-2664 -BDF- BDF team requires both the Row Count and Total Row Count option to be displayed in the Data Listing.
+
+TASK-4318 -BMRCL- In the IView, we have used the Grand Total option. It shows 488 total records, but when we scroll down manually to fetch all records, the total calculation does not match. However, when we click the “Show All Records” button, the count is displayed correctly.
+
+TASK-4280 -United Breweries- Custom Pages -  Added 'Inward Attachment New' html page in custom pages under Axpert Studio.  This appears in the menu at run time but not navigating to the relevant page while selecting that page from menu.
+
+TASK-3736 -MARIS- Issue Description: When the user does not have access to a structure, the system throws the error “Root element is missing.” Instead, it should display a clear and proper access-related error message.
+
+TASK-3504 -BAFCO- In Leave Application screen, "Leave Deduction days " field calculation is not working when they apply leave for 1 day on formload.
+After changing the No of days from 5 to 1 then the Leave Deduction days is calculating properly. but still unable to save the transaction
+
+
+NotificationHub:
+------------------
+TASK-4338 -BDF- BDF - CORS error in load-balancer setup Customer - 
+Note: Support team should follow the attached "Configuring AllowedDomains for NotificationHub.txt" for Loadbalancer setups.
+ 
+ARM:
+----
+TASK-4316 -United Breweries- Mobile API for MS SQL not working 
+ 
+TASK-4312 -United Breweries- Signin API throwing error for  mssql schema
+
+TASK-4337 -QA- AxList API error when ADS caching is enabled
+ 
+

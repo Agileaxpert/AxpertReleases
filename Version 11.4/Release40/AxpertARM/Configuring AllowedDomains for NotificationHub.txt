@@ -1,0 +1,25 @@
+This application supports an optional "AllowedDomains" setting in appsettings.json to control CORS.
+
+{
+...,
+	"AllowedDomains": [
+		"https://agileqa.agilecloud.biz",
+		"https://server2.test.bh"
+	]
+}
+
+1) If AllowedDomains is missing or empty
+	* Only same domain/origin urls will be supported.
+	* AxpertWeb and ARMNotificationHub should be from same domain URL.
+	
+2) If AllowedDomains is present
+	* Listed domain URLs are allowed 
+	* Works when AxpertWeb and ARMNotificationHub are from different URLs.
+	
+CheckList:
+* Domain name should be exact with proper http/https as well. 
+* Also there should not be / at the end:
+
+https://server2.test.bh   ✅
+https://server2.test.bh/ ❌
+http://server2.test.bh    ❌
