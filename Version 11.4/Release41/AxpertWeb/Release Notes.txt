@@ -1,0 +1,42 @@
+AxpertWeb:
+----------
+
+TASK-4307 -BDF- We are able to modify the disabled or hidden button behavior from the client side, thereby enabling the re-save action that was used formload control restricted.
+
+TASK-4373 -BDF- User Required "Show All Records" and page loader options.
+
+TASK-4374 -BDF- User Required the fetch size developer option for datalisting page aswell. 
+
+TASK-4280 -United Breweries- Custom Pages -  Added 'Inward Attachment New' html page in custom pages under Axpert Studio.  This appears in the menu at run time but not navigating to the relevant page while selecting that page from menu.
+
+TASK-4321 -BMRCL- iView having merge column column width not able to increase or decrease 
+
+TASK-3897 -BMRCL- The width adjustments are not reflected during runtime only for merged columns
+
+TASK-3900 -BMRCL- Issue Description: Product Issue: In runtime, for merged columns, when the user enables Freeze Column for one of the merged columns and then selects Running Total, the column caption disappears, and the running total and it's caption is not displayed properly.
+
+TASK-4227 -QA- Schema-related configurations not fully removed from appsettings.ini after DB connection deletion
+
+TASK-4063 -QA- Issue Description: When Data Page JSON field value (created using customn Data type(json)) is showing double quotes as " like below
+Eg: { /"ename/": /"EMP-0001/", /"date/": /"05/10/2025/"}
+
+TASK-4462 -QA- Exception handling has been implemented in the push-to-queue scenario to display appropriate error messages to the user.
+
+
+AxpertStudio:
+-------------
+TASK-1667 -BDF- Script field is throwing error.
+
+TASK-3958 -BDF- Script field is throwing error when define if else condition. 
+
+TASK-4306 -QA- When both the Multiselect and Firm Bind checkboxes are checked, both checkboxes become disabled.
+
+TASK-4336 -QA- Menu displacement issue - The dropdown menu for each node on the left panel, shifts location on subsequent clicks.
+
+ARM:
+----
+TASK-4450 -- Remove unused nodes in appsettings.json of ARM
+
+TASK-4459 -- Remove roles in Tstruct Structdef caching keys.
+
+
