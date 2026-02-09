@@ -1,0 +1,44 @@
+AxpertWeb:
+----------
+TASK-4607 -- Enhancement: 'Validate ARM Settings' button introduced in axpertadmin page to verify all ARM settings. This feature needs to be used for checking ARM Settings before start using application.
+
+TASK-4608 -- Enhancement: In In-Memory DB clearing functionality. Introduced a new confirmation message if all keys or general keys are selected for clearing.
+
+TASK-4504 -Paybooks- The Axpert system should allow users to connect to a PostgreSQL database hosted on a cloud-managed service.
+Note: Axpert can connect to OCI Managed PostgreSQL databases only via ODBC connections. Therefore, if the application is connecting to Managed PostgreSQL DBs, the following points must be configured at the application level (AxpertAdmin page):
+ 1. Create an ODBC connection (DSN) from the App/ARM server to the PostgreSQL schema created in the OCI Managed PostgreSQL database.
+     a. If the PostgreSQL ODBC driver is not available in the ODBC configuration, it can be downloaded from:
+        https://www.postgresql.org/ftp/odbc/releases/
+ 2. In the AxpertAdmin page:
+     a. Enable the “ODBC Connection” switch.
+     b. Provide the configured ODBC DSN name in the “ODBC Connection Name” field. 
+
+TASK-4441 -WhyDigit-When opening a Tstruct from a report in "Popup mode", some buttons are overlapped by the "close" button. In the attached screenshot, I am opening a transaction which has header attachment. After opening, the Three-dots which is used to view the attachments are overlapped by the close button from the popup Mode. 
+
+TASK-4471 -MPCO- Desktop approval process: after returning the document by the approver to the creator , unable to re submit the document by the creator.
+Desktop approval process: after returning the document by the approver to the creator , unable to re-submit the document by the creator.
+
+
+
+ARM:
+----
+TASK-4595 -- Postgres DB - Support ODBC connections, support axprops -> searchpath 
+
+TASK-4481 -- ARM enhancement: Create a new AppSettingsValidater class and new API ValidateAppSettings
+
+TASK-4540 -- Appsettings.json clearnup - Remove clientsso, JWT expirymins, RMQ. Read from appsettings.ini
+
+TASK-4541 -- ARMSigninDetails API enhancement - Add SSO details to the API
+
+
+AxpertStudio:
+-------------
+TASK-4120 -BDF- When without captions fields are defined for the following dropdowns - Tracking, Save Control Field, and Delete Control Field in 11.4 Studio, the form throws an error. 
+
+TASK-3785 -BDF- In 11.4 Studio, for existing iViews, defined hyperlink is not available.
+
+TASK-3377 -BDF- The custom buttons position drop-down values for Data Controls (DC1, DC2, etc.) are not appearing.
+
+TASK-3298 -BDF- Getting error when open the Form from 11.4 studio. 
+
+TASK-3602 -Kavery Hospital- Simultaneously using axpert studio two transaction page for same gen maps mapping
