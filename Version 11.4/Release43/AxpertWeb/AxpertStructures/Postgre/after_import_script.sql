@@ -1175,6 +1175,10 @@ $function$
 >>
 
 <<
+DROP FUNCTION fn_permissions_getadscnd;
+>>
+
+<<
 CREATE OR REPLACE FUNCTION fn_permissions_getadscnd(ptransid character varying, padsname character varying, pusername character varying, proles character varying DEFAULT 'All'::character varying, pkeyfield character varying DEFAULT NULL::character varying, pkeyvalue character varying DEFAULT NULL::character varying)
  RETURNS TABLE(fullcontrol character varying, userrole character varying, view_access character varying, view_includeflds character varying, view_excludeflds character varying, maskedflds character varying, filtercnd text, permissiontype character varying)
  LANGUAGE plpgsql
