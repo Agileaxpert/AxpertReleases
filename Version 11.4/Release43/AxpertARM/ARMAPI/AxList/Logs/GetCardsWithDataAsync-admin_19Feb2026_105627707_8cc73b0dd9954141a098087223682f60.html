@@ -1,0 +1,1101 @@
+GetCardsWithDataAsync API call started.
+Start Time: 19-02-2026 10:56:27
+Input JSON: {"ARMSessionId":"ARM-pgbase114-8bd8d849-13f9-4c24-8359-f4a37a749b63","Roles":"default","UserName":"admin","AppName":"pgbase114","SchemaName":"pgbase114~axpertdb","HomePageCards":false,"RefreshData":false,"IsMobile":false,"Trace":true}
+Initiating DB connection for application 'pgbase114'
+Reading AxProps XML: <axprops getfrom="" setto=""><lastlogin>pgbase114</lastlogin><oradatestring>dd/mm/yyyy hh24:mi:ss</oradatestring><crlocation></crlocation><lastusername>admin</lastusername><login>local</login><skin>Black</skin><lastlang>ENGLISH</lastlang><axhelp>true</axhelp><agileerpbase>agileerpbase,public</agileerpbase><pgbase114odbc>pgbase114</pgbase114odbc></axprops>
+
+<b>[SQL]</b>
+Select now() as sdt
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.371, Ended: 2026-02-19 10:56:27.379, Duration: 8.20ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>sdt</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>19-02-2026 05:12</td></tr></tbody></table><b>[SQL]</b>
+select distinct axp_cardsid, cardtype, cardname, cardicon, charttype, pluginname, htmltext html_editor_card, card_datasource, width, height, autorefresh, context, orderno, chartjson from vw_cards_dashboard where uroles in ( 'default' ) order by orderno asc
+<b>[Result]</b>
+Rows count: 52, Started: 2026-02-19 10:56:27.383, Ended: 2026-02-19 10:56:27.413, Duration: 29.50ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axp_cardsid</th><th style='padding: 8px; background-color: #f2f2f2;'>cardtype</th><th style='padding: 8px; background-color: #f2f2f2;'>cardname</th><th style='padding: 8px; background-color: #f2f2f2;'>cardicon</th><th style='padding: 8px; background-color: #f2f2f2;'>charttype</th><th style='padding: 8px; background-color: #f2f2f2;'>pluginname</th><th style='padding: 8px; background-color: #f2f2f2;'>html_editor_card</th><th style='padding: 8px; background-color: #f2f2f2;'>card_datasource</th><th style='padding: 8px; background-color: #f2f2f2;'>width</th><th style='padding: 8px; background-color: #f2f2f2;'>height</th><th style='padding: 8px; background-color: #f2f2f2;'>autorefresh</th><th style='padding: 8px; background-color: #f2f2f2;'>context</th><th style='padding: 8px; background-color: #f2f2f2;'>orderno</th><th style='padding: 8px; background-color: #f2f2f2;'>chartjson</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1783770000000</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>Quick Links</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>Menu icons</td><td style='padding: 8px; text-align: left;'><div data-shadowdom="false" class="dasboard-cards">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title mb-4">{{cardname}}</h4>
+
+    </div>
+    <div class="card-body">
+      <div class="Empty-card-msg d-none">
+        <img class="img-fluid" alt="Card image" src="https://cdn-icons-png.flaticon.com/128/17426/17426064.png">
+        <p>Your menu links will be listed in this space.</p>
+      </div>
+      <div class="placeholder-content">
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+      </div>
+      <div class="HomePageMenuOptionCards_{{axp_cardsid}} HomePageMenuOptionCards mb-8 col-md-12"></div>
+    </div>
+  </div>
+<style>
+/* Outer card container */
+/*
+.menu-card {
+  background: #fff; 
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+.menu-card:hover {  transform: translateY(-3px);}
+
+.menu-card-icon {
+  background-color: #fef8f5; 
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.menu-card-icon img {
+  height: auto;}
+
+.menu-card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+*/
+
+  </style>
+
+  <script>
+    setTimeout(function () {
+      //Enable this code once you have datasource ready.
+      //columns needed from datasource ->title,subtitle,time,link,image
+
+      var dsObj = new EntityCommon();
+      var data = dsObj.getCardData(`{{cardname}}`);
+
+      if (data && data.length == 0) {
+        $(".HomePageMenuOptionCards_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none");
+        $(".HomePageMenuOptionCards_{{axp_cardsid}}").addClass("d-none");
+        $(".HomePageMenuOptionCards_{{axp_cardsid}}").parent().find(".Empty-card-msg").removeClass("d-none");
+      }
+      else {
+        let generatedMenuOptionHTML = '';
+        data.forEach((rowData, index) => {
+          const moreOption = rowData.moreoption;
+          var stransid = rowData.stransid;
+          const rowCount = index;
+          rowData.rowCount = rowCount;
+
+generatedMenuOptionHTML +=
+  `<div class="mt-3 widgetWrapper htmlDomWrapper col-lg-4 col-md-4 col-sm-4 Home-cards-list" data-cardname="${rowData.name}">
+      <div class="menu-card " onclick="navigateToUrl('${rowData.link}')">
+          <div class="menu-card-icon Hp-card-icon">
+              <img class="img-fluid w-60px cardsIcons" src="../images/homepageicon/${rowData.name}.png"
+                   onerror="this.onerror=null;this.src='../images/homepageicon/default.png';">
+          </div>
+          <div class="menu-card-title Hp-card-title text-truncate" title="${rowData.name}">
+            ${rowData.name}
+          </div>
+      </div>
+  </div>`;
+
+
+
+        });
+
+        if (generatedMenuOptionHTML != '') {
+          let divOpen = `<div class=""><div class=""><div class="row d-flex">` + generatedMenuOptionHTML + `</div></div></div>`;
+          const tabContainer = document.querySelector(`.HomePageMenuOptionCards_{{axp_cardsid}}`);
+          tabContainer.innerHTML = divOpen;
+          $(".HomePageMenuOptionCards_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none")
+        } else {
+          const tabContainer = document.querySelector(`.HomePageMenuOptionCards_{{axp_cardsid}}`);
+          tabContainer.classList.add("d-none");
+          $(".HomePageMenuOptionCards_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none")
+        }
+
+      }
+    }, 1);
+
+  </script>
+</div></td><td style='padding: 8px; text-align: left;'>ds_homepage_custom_quicklinks</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>300px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>2</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1080440000000</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>Iviewcard</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>KPI List</td><td style='padding: 8px; text-align: left;'><div data-shadowdom="false" class="dasboard-cards">
+    <div class="card KPI-dashcards">
+        <div class="card-header pb-0">
+            <h4 class="card-title mb-4 cardtitle_{{axp_cardsid}}">TestFormRecords</h4>
+            <div class="card-toolbar">
+                <a href="#" data-bs-toggle="tooltip" class=" " onclick="LoadIframe('processflow.aspx?dashboard=t');">
+                    <span class="material-icons material-icons-style material-icons-2">
+                        open_in_new
+                    </span>
+                </a>
+                <a href="#" data-bs-toggle="tooltip" class=" d-none" >
+                    <span class="material-icons material-icons-style material-icons-2">
+                        fullscreen
+                    </span>
+                </a>
+            </div>
+
+        </div>
+        <div class="card-body">
+          <div class="placeholder-content">
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+        </div>
+            <div class="row" id="KPI_CardsList_Wrapper_{{axp_cardsid}}">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+          var dsObj = new EntityCommon();
+          var data = dsObj.getCardData(`{{cardname}}`); 
+
+      let generatedMenuOptionHTML = '';
+      data.forEach((rowData, index) => {
+        const moreOption = rowData.moreoption;
+        var stransid = rowData.stransid;
+        const rowCount = index;
+        rowData.rowCount = rowCount;
+
+        generatedMenuOptionHTML +=
+          `<div class=" widgetWrapper kpiWrapper " card-index="0">
+                        <div class="card rounded-1 shadow-sm h-100 cardbg-${(index % 6) + 1}">
+                            <!--begin::Card content wrapper-->
+                            <div class="card-content-wrapper d-flex align-items-center">
+                                <div class="card-title d-flex ">
+
+                                    <div class="d-none mainIcon w-100--- me-2">
+                                        <img alt="Icon" src="" class="mh-35px mw-35px">
+      </div>
+
+                                    <div class="symbol symbol-35px me-2 mainIcon">
+                                        <div class="symbol-label cardbg-inverse-${(index % 6) + 1}">
+                                            <div class="Invoice-icon" style="display: flex;">
+                                                <span class="material-icons material-icons-style material-icons-2">bar_chart</span>
+      </div>
+      </div>
+      </div>
+
+                                    <div class="Kpi-content">
+                                        <span class="Kpi-caption mainHeading">${rowData.name}</span>
+                                        <a href="#" onclick="navigateToUrl('${rowData.link}')">${rowData.value}</a>
+      </div>
+      </div>
+      </div>
+
+                            <!-- Card Toolbar -->
+                            <div class="card-toolbar d-flex justify-content-end d-none">
+                                <a href="javascript:void(0);" class="btn btn-sm btn-flex btn-light-primary cardbg-3">
+                                    <statuscontent></statuscontent>
+      </a>
+      </div>
+
+                            <!-- Card Footer -->
+                            <div class="card-footer border-0 d-none">
+                                <div class="fs-7 fw-normal text-muted">
+                                    <footercontent></footercontent>
+      </div>
+      </div>
+      </div>
+      </div>`;
+      });
+
+      document.querySelector(`#KPI_CardsList_Wrapper_{{axp_cardsid}}`).innerHTML = generatedMenuOptionHTML;
+      $("#KPI_CardsList_Wrapper_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none")
+		document.querySelector(".cardtitle_{{axp_cardsid}}").innerHTML = `{{cardname}}`;
+
+        }, 1)
+
+    </script>
+</div></td><td style='padding: 8px; text-align: left;'>ds_homepage_kpicons</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>7</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1140880000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Pie Chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>DS_ChartType2</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>8</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"sunset","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1162110000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Donut Chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>donut</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>donut</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>9</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1211550000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>BarChart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>bar</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>barchart</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>10</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"sand","shwLgnd":true,"xAxisL":"1","yAxisL":"","gradClrChart":false,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1213440000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Line Chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>line</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>linechart</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>11</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"avacado","shwLgnd":true,"xAxisL":"1","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1214440000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Stacked bar</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stacked-bar</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stacked-bar</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>12</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"avacado","shwLgnd":true,"xAxisL":"1","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1214770000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Column Chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>column</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>Column</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>12</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"sunset","shwLgnd":true,"xAxisL":"1","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1215010000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>stacked-column chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stacked-column</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stacked-column</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>12</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"grid","shwLgnd":true,"xAxisL":"1","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1215330000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>stacked%column chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stacked-percentage-column</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stacked-percentage-column</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>12</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"skies","shwLgnd":true,"xAxisL":"1","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1215440000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Area Chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>area</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>area</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>12</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"skies","shwLgnd":true,"xAxisL":"1","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1215880000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Semi Donut Chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>semi-donut</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>semi-donut chart</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>17</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"skies","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":false,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1216770000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Funnel Chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>funnel</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>funnel chart</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>17</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"sunset","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1219550000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>scatter-plot chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>scatter-plot</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>scatter-plot</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>19</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"grid","shwLgnd":true,"xAxisL":"1","yAxisL":"2","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1220010000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>scatter-plot-3D chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>scatter-plot-3D</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>scatter-plot-3D</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>19</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"avacado","shwLgnd":true,"xAxisL":"1","yAxisL":"2","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1230010000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>stacked-group-column chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stacked-group-column</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stacked-group-column chart</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>21</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"avacado","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":false,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1293440000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Pie7</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>donut_nohype</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>30</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>22</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet3","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":true,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1698010000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>userinfo</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>empdata</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>5</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>23</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet1","shwLgnd":false,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1698550000000</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>cudtomdata</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>KPI List</td><td style='padding: 8px; text-align: left;'><div data-shadowdom="false" class="dasboard-cards">
+    <div class="card KPI-dashcards">
+        <div class="card-header pb-0">
+            <h4 class="card-title mb-4 cardtitle_{{axp_cardsid}}">TestFormRecords</h4>
+            <div class="card-toolbar">
+                <a href="#" data-bs-toggle="tooltip" class=" " onclick="LoadIframe('processflow.aspx?dashboard=t');">
+                    <span class="material-icons material-icons-style material-icons-2">
+                        open_in_new
+                    </span>
+                </a>
+                <a href="#" data-bs-toggle="tooltip" class=" d-none" >
+                    <span class="material-icons material-icons-style material-icons-2">
+                        fullscreen
+                    </span>
+                </a>
+            </div>
+
+        </div>
+        <div class="card-body">
+          <div class="placeholder-content">
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+        </div>
+            <div class="row" id="KPI_CardsList_Wrapper_{{axp_cardsid}}">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+          var dsObj = new EntityCommon();
+          var data = dsObj.getCardData(`{{cardname}}`); 
+
+      let generatedMenuOptionHTML = '';
+      data.forEach((rowData, index) => {
+        const moreOption = rowData.moreoption;
+        var stransid = rowData.stransid;
+        const rowCount = index;
+        rowData.rowCount = rowCount;
+
+        generatedMenuOptionHTML +=
+          `<div class=" widgetWrapper kpiWrapper " card-index="0">
+                        <div class="card rounded-1 shadow-sm h-100 cardbg-${(index % 6) + 1}">
+                            <!--begin::Card content wrapper-->
+                            <div class="card-content-wrapper d-flex align-items-center">
+                                <div class="card-title d-flex ">
+
+                                    <div class="d-none mainIcon w-100--- me-2">
+                                        <img alt="Icon" src="" class="mh-35px mw-35px">
+      </div>
+
+                                    <div class="symbol symbol-35px me-2 mainIcon">
+                                        <div class="symbol-label cardbg-inverse-${(index % 6) + 1}">
+                                            <div class="Invoice-icon" style="display: flex;">
+                                                <span class="material-icons material-icons-style material-icons-2">bar_chart</span>
+      </div>
+      </div>
+      </div>
+
+                                    <div class="Kpi-content">
+                                        <span class="Kpi-caption mainHeading">${rowData.name}</span>
+                                        <a href="#" onclick="navigateToUrl('${rowData.link}')">${rowData.value}</a>
+      </div>
+      </div>
+      </div>
+
+                            <!-- Card Toolbar -->
+                            <div class="card-toolbar d-flex justify-content-end d-none">
+                                <a href="javascript:void(0);" class="btn btn-sm btn-flex btn-light-primary cardbg-3">
+                                    <statuscontent></statuscontent>
+      </a>
+      </div>
+
+                            <!-- Card Footer -->
+                            <div class="card-footer border-0 d-none">
+                                <div class="fs-7 fw-normal text-muted">
+                                    <footercontent></footercontent>
+      </div>
+      </div>
+      </div>
+      </div>`;
+      });
+
+      document.querySelector(`#KPI_CardsList_Wrapper_{{axp_cardsid}}`).innerHTML = generatedMenuOptionHTML;
+      $("#KPI_CardsList_Wrapper_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none")
+		document.querySelector(".cardtitle_{{axp_cardsid}}").innerHTML = `{{cardname}}`;
+
+        }, 1)
+
+    </script>
+</div></td><td style='padding: 8px; text-align: left;'>empdata</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>5</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>24</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1699110000000</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>newcard</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>KPI List</td><td style='padding: 8px; text-align: left;'><div data-shadowdom="false" class="dasboard-cards">
+    <div class="card KPI-dashcards">
+        <div class="card-header pb-0">
+            <h4 class="card-title mb-4 cardtitle_{{axp_cardsid}}">TestFormRecords</h4>
+            <div class="card-toolbar">
+                <a href="#" data-bs-toggle="tooltip" class=" " onclick="LoadIframe('processflow.aspx?dashboard=t');">
+                    <span class="material-icons material-icons-style material-icons-2">
+                        open_in_new
+                    </span>
+                </a>
+                <a href="#" data-bs-toggle="tooltip" class=" d-none" >
+                    <span class="material-icons material-icons-style material-icons-2">
+                        fullscreen
+                    </span>
+                </a>
+            </div>
+
+        </div>
+        <div class="card-body">
+          <div class="placeholder-content">
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+        </div>
+            <div class="row" id="KPI_CardsList_Wrapper_{{axp_cardsid}}">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+          var dsObj = new EntityCommon();
+          var data = dsObj.getCardData(`{{cardname}}`); 
+
+      let generatedMenuOptionHTML = '';
+      data.forEach((rowData, index) => {
+        const moreOption = rowData.moreoption;
+        var stransid = rowData.stransid;
+        const rowCount = index;
+        rowData.rowCount = rowCount;
+
+        generatedMenuOptionHTML +=
+          `<div class=" widgetWrapper kpiWrapper " card-index="0">
+                        <div class="card rounded-1 shadow-sm h-100 cardbg-${(index % 6) + 1}">
+                            <!--begin::Card content wrapper-->
+                            <div class="card-content-wrapper d-flex align-items-center">
+                                <div class="card-title d-flex ">
+
+                                    <div class="d-none mainIcon w-100--- me-2">
+                                        <img alt="Icon" src="" class="mh-35px mw-35px">
+      </div>
+
+                                    <div class="symbol symbol-35px me-2 mainIcon">
+                                        <div class="symbol-label cardbg-inverse-${(index % 6) + 1}">
+                                            <div class="Invoice-icon" style="display: flex;">
+                                                <span class="material-icons material-icons-style material-icons-2">bar_chart</span>
+      </div>
+      </div>
+      </div>
+
+                                    <div class="Kpi-content">
+                                        <span class="Kpi-caption mainHeading">${rowData.name}</span>
+                                        <a href="#" onclick="navigateToUrl('${rowData.link}')">${rowData.value}</a>
+      </div>
+      </div>
+      </div>
+
+                            <!-- Card Toolbar -->
+                            <div class="card-toolbar d-flex justify-content-end d-none">
+                                <a href="javascript:void(0);" class="btn btn-sm btn-flex btn-light-primary cardbg-3">
+                                    <statuscontent></statuscontent>
+      </a>
+      </div>
+
+                            <!-- Card Footer -->
+                            <div class="card-footer border-0 d-none">
+                                <div class="fs-7 fw-normal text-muted">
+                                    <footercontent></footercontent>
+      </div>
+      </div>
+      </div>
+      </div>`;
+      });
+
+      document.querySelector(`#KPI_CardsList_Wrapper_{{axp_cardsid}}`).innerHTML = generatedMenuOptionHTML;
+      $("#KPI_CardsList_Wrapper_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none")
+		document.querySelector(".cardtitle_{{axp_cardsid}}").innerHTML = `{{cardname}}`;
+
+        }, 1)
+
+    </script>
+</div></td><td style='padding: 8px; text-align: left;'>dataepfor</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>300px</td><td style='padding: 8px; text-align: left;'>5</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>25</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1790330000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>stestinfo</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>bar</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>stestinfo</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>26</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet4","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1847010000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>datalist</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>PieChart</td><td style='padding: 8px; text-align: left;'>col-md-2</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>27</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1890010000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>testsmoke</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>PieChart</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>28</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet3","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1992990000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>MPIIPL</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>DS_MPIIPL</td><td style='padding: 8px; text-align: left;'>col-md-12</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>29</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1005660000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>MPIIPL Employees</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>DS_MPIIPL</td><td style='padding: 8px; text-align: left;'>col-md-2</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>30</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1023220000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>pbarchart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>PieChart</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>31</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet3","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1071010000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>card29</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>cards29</td><td style='padding: 8px; text-align: left;'>col-md-2</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>32</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet3","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1101330000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>cards30</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>carduser30</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>33</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1138990000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>smo6</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>cardsmo6</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>34</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1205110000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>smoketest13</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>smoke13chart</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>35</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1206440000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>test13</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>test13</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>36</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1215770000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>test pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>PieChart</td><td style='padding: 8px; text-align: left;'>col-md-2</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>37</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1257010000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>Iview donut chart</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>donut</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ds_homepage_kpicons</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>300px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>38</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet1","shwLgnd":false,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":false,"threeD":"remove","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1287440000002</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>testsmoke23</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>testsmoke23</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>39</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet3","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1433660000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>semidonut</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>semi-donut</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>PieChartnew</td><td style='padding: 8px; text-align: left;'>col-md-4</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>41</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"avacado","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"remove","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1454660000003</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>smokecardnov1</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>smokecardnov1</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>41</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1455330000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>smoketes</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>smoketest1</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>41</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1563770000000</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>kpilistcustomplugin</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>KPI List</td><td style='padding: 8px; text-align: left;'><div data-shadowdom="false" class="dasboard-cards">
+    <div class="card KPI-dashcards">
+        <div class="card-header pb-0">
+            <h4 class="card-title mb-4 cardtitle_{{axp_cardsid}}">TestFormRecords</h4>
+            <div class="card-toolbar">
+                <a href="#" data-bs-toggle="tooltip" class=" " onclick="LoadIframe('processflow.aspx?dashboard=t');">
+                    <span class="material-icons material-icons-style material-icons-2">
+                        open_in_new
+                    </span>
+                </a>
+                <a href="#" data-bs-toggle="tooltip" class=" d-none" >
+                    <span class="material-icons material-icons-style material-icons-2">
+                        fullscreen
+                    </span>
+                </a>
+            </div>
+
+        </div>
+        <div class="card-body">
+          <div class="placeholder-content">
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+        </div>
+            <div class="row" id="KPI_CardsList_Wrapper_{{axp_cardsid}}">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+          var dsObj = new EntityCommon();
+          var data = dsObj.getCardData(`{{cardname}}`); 
+
+      let generatedMenuOptionHTML = '';
+      data.forEach((rowData, index) => {
+        const moreOption = rowData.moreoption;
+        var stransid = rowData.stransid;
+        const rowCount = index;
+        rowData.rowCount = rowCount;
+
+        generatedMenuOptionHTML +=
+          `<div class=" widgetWrapper kpiWrapper " card-index="0">
+                        <div class="card rounded-1 shadow-sm h-100 cardbg-${(index % 6) + 1}">
+                            <!--begin::Card content wrapper-->
+                            <div class="card-content-wrapper d-flex align-items-center">
+                                <div class="card-title d-flex ">
+
+                                    <div class="d-none mainIcon w-100--- me-2">
+                                        <img alt="Icon" src="" class="mh-35px mw-35px">
+      </div>
+
+                                    <div class="symbol symbol-35px me-2 mainIcon">
+                                        <div class="symbol-label cardbg-inverse-${(index % 6) + 1}">
+                                            <div class="Invoice-icon" style="display: flex;">
+                                                <span class="material-icons material-icons-style material-icons-2">bar_chart</span>
+      </div>
+      </div>
+      </div>
+
+                                    <div class="Kpi-content">
+                                        <span class="Kpi-caption mainHeading">${rowData.name}</span>
+                                        <a href="#" onclick="navigateToUrl('${rowData.link}')">${rowData.value}</a>
+      </div>
+      </div>
+      </div>
+
+                            <!-- Card Toolbar -->
+                            <div class="card-toolbar d-flex justify-content-end d-none">
+                                <a href="javascript:void(0);" class="btn btn-sm btn-flex btn-light-primary cardbg-3">
+                                    <statuscontent></statuscontent>
+      </a>
+      </div>
+
+                            <!-- Card Footer -->
+                            <div class="card-footer border-0 d-none">
+                                <div class="fs-7 fw-normal text-muted">
+                                    <footercontent></footercontent>
+      </div>
+      </div>
+      </div>
+      </div>`;
+      });
+
+      document.querySelector(`#KPI_CardsList_Wrapper_{{axp_cardsid}}`).innerHTML = generatedMenuOptionHTML;
+      $("#KPI_CardsList_Wrapper_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none")
+		document.querySelector(".cardtitle_{{axp_cardsid}}").innerHTML = `{{cardname}}`;
+
+        }, 1)
+
+    </script>
+</div></td><td style='padding: 8px; text-align: left;'>ds_test_qa</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>41</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1554880000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>smokecard12</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>smokecard12</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>42</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1749770000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>smokecarddec11</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>smokecard11dec</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>42</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1792990000000</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>custom plugin </td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>News Card</td><td style='padding: 8px; text-align: left;'><div data-shadowdom="false" class="dasboard-cards">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title mb-4">{{cardname}}</h4>
+      <div class="card-toolbar">
+        <a href="#" data-bs-toggle="tooltip" class="border-bottom" onclick="LoadIframe('processflow.aspx?calendar=t');">
+          <span class="material-icons material-icons-style material-icons-2">
+            open_in_new
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="Empty-card-msg d-none">
+        <img class="img-fluid" alt="Card image"  src="https://cdn-icons-png.flaticon.com/128/17426/17426064.png">
+        <p>Interesting news/Upcoming events will be listed in this space.</p>
+      </div>
+      <div class="placeholder-content">
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+      </div>
+      <div class="row eventsContainer" id="eventsContainer_{{axp_cardsid}}">
+        <!-- Dynamic Events will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(function () {
+      //Enable this code once you have datasource ready.
+      //columns needed from datasource ->title,subtitle,time,link,image
+
+function htmlDecode(str) {
+  const txt = document.createElement('textarea');
+  txt.innerHTML = str;
+  return txt.value;
+}
+
+
+
+      var dsObj = new EntityCommon();
+var key = htmlDecode(`{{cardname}}`);
+var data = dsObj.getCardData(key);
+
+      const container = document.getElementById('eventsContainer_{{axp_cardsid}}');
+
+      // Function to calculate human-readable time difference
+      function timeAgo(date) {
+        const now = new Date();
+        const eventDate = new Date(date);
+        const diffInSeconds = Math.floor((now - eventDate) / 1000);
+        const minutes = Math.floor(diffInSeconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const weeks = Math.floor(days / 7);
+        const months = Math.floor(days / 30);
+
+        if (diffInSeconds < 60) return "Last updated just now";
+        if (minutes < 60) return `Last updated ${minutes} min${minutes > 1 ? "s" : ""} ago`;
+        if (hours < 24) return `Last updated ${hours} hour${hours > 1 ? "s" : ""} ago`;
+        if (days < 7) return `Last updated ${days} day${days > 1 ? "s" : ""} ago`;
+        if (weeks < 4) return `Last updated ${weeks} week${weeks > 1 ? "s" : ""} ago`;
+        return `Last updated ${months} month${months > 1 ? "s" : ""} ago`;
+      }
+      if (data && data.length == 0) {
+        $("#eventsContainer_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none");
+        $("#eventsContainer_{{axp_cardsid}}").addClass("d-none");
+        $("#eventsContainer_{{axp_cardsid}}").parent().find(".Empty-card-msg").removeClass("d-none");
+      }
+      else {
+
+        data.forEach(event => {
+          const card = document.createElement('div');
+          card.className = 'col-lg-12 Events-items';
+          if(event?.image && typeof event.image != "undefined" && event.image != "")
+            event.image = event.image.replace('$APP_NAME$', window.top.mainProject) + "?v=" + event.modifiedon.replaceAll(" ", "").replaceAll("T", "").replaceAll("-", "") ;
+    else
+            event.image = "images/NotificationIcons/Announcement.png";
+          
+          card.innerHTML = `
+              <div class="card">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col-md-3">
+                          <img class="card-img img-fluid" height="100" width="100" alt="Card image" src="../${event.image}">
+                      </div>
+                      <div class="col-md-9">
+                          <div class="card-body">
+                              <h5 class="card-title">
+                                  <a href="#" class="text-decoration-none" onclick="navigateToUrl('${event.link}')">${event.title}</a>
+                              </h5>
+                              <p class="card-text">${event.subtitle}</p>
+                              <p class="card-text"><small class="text-muted">${timeAgo(event.modifiedon.replaceAll("T", " "))}</small></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          `;
+
+          container.appendChild(card);
+        });
+
+        $("#eventsContainer_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none");
+      }
+    }, 1)
+
+  </script>
+</div></td><td style='padding: 8px; text-align: left;'>ds_homepage_events</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>43</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1094330000001</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>cardjan26_9</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>cardjan26_9</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>56px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>44</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1094550000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>ghhjjhjh</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>PieChart</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>44</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1094990000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>pbarchart899</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>PieChart</td><td style='padding: 8px; text-align: left;'>col-md-2</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>44</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":false,"xAxisL":"","yAxisL":"","gradClrChart":false,"shwChartVal":false,"threeD":"remove","enableSlick":false,"numbSym":false}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1107990000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>testjan12_2</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>testjan12_2</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>48</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":false,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1108330000000</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>testjan12_3</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>News Card</td><td style='padding: 8px; text-align: left;'><div data-shadowdom="false" class="dasboard-cards">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title mb-4">{{cardname}}</h4>
+      <div class="card-toolbar">
+        <a href="#" data-bs-toggle="tooltip" class="border-bottom" onclick="LoadIframe('processflow.aspx?calendar=t');">
+          <span class="material-icons material-icons-style material-icons-2">
+            open_in_new
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="Empty-card-msg d-none">
+        <img class="img-fluid" alt="Card image"  src="https://cdn-icons-png.flaticon.com/128/17426/17426064.png">
+        <p>Interesting news/Upcoming events will be listed in this space.</p>
+      </div>
+      <div class="placeholder-content">
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+        <div class="placeholder-content_item"></div>
+      </div>
+      <div class="row eventsContainer" id="eventsContainer_{{axp_cardsid}}">
+        <!-- Dynamic Events will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(function () {
+      //Enable this code once you have datasource ready.
+      //columns needed from datasource ->title,subtitle,time,link,image
+
+function htmlDecode(str) {
+  const txt = document.createElement('textarea');
+  txt.innerHTML = str;
+  return txt.value;
+}
+
+
+
+      var dsObj = new EntityCommon();
+var key = htmlDecode(`{{cardname}}`);
+var data = dsObj.getCardData(key);
+
+      const container = document.getElementById('eventsContainer_{{axp_cardsid}}');
+
+      // Function to calculate human-readable time difference
+      function timeAgo(date) {
+        const now = new Date();
+        const eventDate = new Date(date);
+        const diffInSeconds = Math.floor((now - eventDate) / 1000);
+        const minutes = Math.floor(diffInSeconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const weeks = Math.floor(days / 7);
+        const months = Math.floor(days / 30);
+
+        if (diffInSeconds < 60) return "Last updated just now";
+        if (minutes < 60) return `Last updated ${minutes} min${minutes > 1 ? "s" : ""} ago`;
+        if (hours < 24) return `Last updated ${hours} hour${hours > 1 ? "s" : ""} ago`;
+        if (days < 7) return `Last updated ${days} day${days > 1 ? "s" : ""} ago`;
+        if (weeks < 4) return `Last updated ${weeks} week${weeks > 1 ? "s" : ""} ago`;
+        return `Last updated ${months} month${months > 1 ? "s" : ""} ago`;
+      }
+      if (data && data.length == 0) {
+        $("#eventsContainer_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none");
+        $("#eventsContainer_{{axp_cardsid}}").addClass("d-none");
+        $("#eventsContainer_{{axp_cardsid}}").parent().find(".Empty-card-msg").removeClass("d-none");
+      }
+      else {
+
+        data.forEach(event => {
+          const card = document.createElement('div');
+          card.className = 'col-lg-12 Events-items';
+          if(event?.image && typeof event.image != "undefined" && event.image != "")
+            event.image = event.image.replace('$APP_NAME$', window.top.mainProject) + "?v=" + event.modifiedon.replaceAll(" ", "").replaceAll("T", "").replaceAll("-", "") ;
+    else
+            event.image = "images/NotificationIcons/Announcement.png";
+          
+          card.innerHTML = `
+              <div class="card">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col-md-3">
+                          <img class="card-img img-fluid" height="100" width="100" alt="Card image" src="../${event.image}">
+                      </div>
+                      <div class="col-md-9">
+                          <div class="card-body">
+                              <h5 class="card-title">
+                                  <a href="#" class="text-decoration-none" onclick="navigateToUrl('${event.link}')">${event.title}</a>
+                              </h5>
+                              <p class="card-text">${event.subtitle}</p>
+                              <p class="card-text"><small class="text-muted">${timeAgo(event.modifiedon.replaceAll("T", " "))}</small></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          `;
+
+          container.appendChild(card);
+        });
+
+        $("#eventsContainer_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none");
+      }
+    }, 1)
+
+  </script>
+</div></td><td style='padding: 8px; text-align: left;'>ds_homepage_events</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>49</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1165880000005</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>cardjan26_20</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>cardjan26_20</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>49</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1498770000002</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>cardjan26_28</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>cardjan26_28</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>50</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1501660000001</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>customplugintest</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>Banner card</td><td style='padding: 8px; text-align: left;'>
+<div data-shadowdom="false" class="dasboard-cards">
+    <div class="card welcome-card">
+        <div class="WelcomeCard-Wrapper">
+            <img class="DashSliser-img" alt=""
+                src="https://agileqa.agilecloud.biz/qaaxpert11.4base/CustomPages/images/slider1.png">
+            <div id="Dashboard_Slider" class="carousel carousel-custom carousel-stretch slide" data-bs-ride="carousel"
+                data-bs-interval="8000"></div>
+        </div>
+    </div>
+
+    <script>
+    setTimeout(() => {
+
+  var dsObj = new EntityCommon();
+  var data = dsObj.getCardData(`{{cardname}}`); 
+
+  const slides = data.map((item, index) => ({
+    title: item.title,
+    description: `${item.subtitle} - ${item.time}`,
+    isActive: index === 0 
+  }));
+
+  const carouselData = {
+    carouselId: "Dashboard_Slider",
+    title: "PGBASE114",
+    interval: 8000,
+    slides: slides
+  };
+
+  const container = document.getElementById(carouselData.carouselId);
+
+  const headingHtml = `
+    <div class="d-flex flex-stack align-items-center flex-wrap">
+      <h4 class="SliderHeading">${carouselData.title}</h4>
+      <ol class="p-0 m-0 carousel-indicators carousel-indicators-dots">
+        ${carouselData.slides
+          .map(
+            (slide, index) => `
+              <li data-bs-target="#${carouselData.carouselId}" data-bs-slide-to="${index}" class="ms-1 ${
+              slide.isActive ? "active" : ""
+            }" ${slide.isActive ? 'aria-current="true"' : ""}></li>
+            `
+          )
+          .join("")}
+      </ol>
+    </div>`;
+
+  container.innerHTML += headingHtml;
+
+  const innerHtml = `
+    <div class="carousel-inner pt-6">
+      ${carouselData.slides
+        .map(
+          (slide) => `
+        <div class="carousel-item ${slide.isActive ? "active" : ""}">
+          <div class="carousel-wrapper">
+            <div class="d-flex flex-column flex-grow-1">
+              <a href="#" class="Slider-Title border-bottom">${slide.title}</a>
+              <p class="text-gray-600 fs-6 fw-semibold pt-3 mb-0">${slide.description}</p>
+            </div>
+            <div class="d-flex flex-stack pt-8">
+              <!-- Optionally, you can add extra markup here -->
+            </div>
+          </div>
+        </div>
+      `
+        )
+        .join("")}
+    </div>`;
+
+  container.innerHTML += innerHtml;
+}, 1);
+
+    </script>
+</div></td><td style='padding: 8px; text-align: left;'>ds_homepage_banner</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>51</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1562770000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>cardfeb26_4</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>cardfeb26_4</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>52</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1415010000000</td><td style='padding: 8px; text-align: left;'>Custom plugin</td><td style='padding: 8px; text-align: left;'>KPI Cards</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>KPI List</td><td style='padding: 8px; text-align: left;'><div data-shadowdom="false" class="dasboard-cards">
+    <div class="card KPI-dashcards">
+        <div class="card-header pb-0">
+            <h4 class="card-title mb-4 cardtitle_{{axp_cardsid}}">TestFormRecords</h4>
+            <div class="card-toolbar">
+                <a href="#" data-bs-toggle="tooltip" class=" " onclick="LoadIframe('processflow.aspx?dashboard=t');">
+                    <span class="material-icons material-icons-style material-icons-2">
+                        open_in_new
+                    </span>
+                </a>
+                <a href="#" data-bs-toggle="tooltip" class=" d-none" >
+                    <span class="material-icons material-icons-style material-icons-2">
+                        fullscreen
+                    </span>
+                </a>
+            </div>
+
+        </div>
+        <div class="card-body">
+          <div class="placeholder-content">
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+            <div class="placeholder-content_item"></div>
+        </div>
+            <div class="row" id="KPI_CardsList_Wrapper_{{axp_cardsid}}">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+          var dsObj = new EntityCommon();
+          var data = dsObj.getCardData(`{{cardname}}`); 
+
+      let generatedMenuOptionHTML = '';
+      data.forEach((rowData, index) => {
+        const moreOption = rowData.moreoption;
+        var stransid = rowData.stransid;
+        const rowCount = index;
+        rowData.rowCount = rowCount;
+
+        generatedMenuOptionHTML +=
+          `<div class=" widgetWrapper kpiWrapper " card-index="0">
+                        <div class="card rounded-1 shadow-sm h-100 cardbg-${(index % 6) + 1}">
+                            <!--begin::Card content wrapper-->
+                            <div class="card-content-wrapper d-flex align-items-center">
+                                <div class="card-title d-flex ">
+
+                                    <div class="d-none mainIcon w-100--- me-2">
+                                        <img alt="Icon" src="" class="mh-35px mw-35px">
+      </div>
+
+                                    <div class="symbol symbol-35px me-2 mainIcon">
+                                        <div class="symbol-label cardbg-inverse-${(index % 6) + 1}">
+                                            <div class="Invoice-icon" style="display: flex;">
+                                                <span class="material-icons material-icons-style material-icons-2">bar_chart</span>
+      </div>
+      </div>
+      </div>
+
+                                    <div class="Kpi-content">
+                                        <span class="Kpi-caption mainHeading">${rowData.name}</span>
+                                        <a href="#" onclick="navigateToUrl('${rowData.link}')">${rowData.value}</a>
+      </div>
+      </div>
+      </div>
+
+                            <!-- Card Toolbar -->
+                            <div class="card-toolbar d-flex justify-content-end d-none">
+                                <a href="javascript:void(0);" class="btn btn-sm btn-flex btn-light-primary cardbg-3">
+                                    <statuscontent></statuscontent>
+      </a>
+      </div>
+
+                            <!-- Card Footer -->
+                            <div class="card-footer border-0 d-none">
+                                <div class="fs-7 fw-normal text-muted">
+                                    <footercontent></footercontent>
+      </div>
+      </div>
+      </div>
+      </div>`;
+      });
+
+      document.querySelector(`#KPI_CardsList_Wrapper_{{axp_cardsid}}`).innerHTML = generatedMenuOptionHTML;
+      $("#KPI_CardsList_Wrapper_{{axp_cardsid}}").parent().find(".placeholder-content").addClass("d-none")
+		document.querySelector(".cardtitle_{{axp_cardsid}}").innerHTML = `{{cardname}}`;
+
+        }, 1)
+
+    </script>
+</div></td><td style='padding: 8px; text-align: left;'>ds_test_qa1</td><td style='padding: 8px; text-align: left;'>col-md-12</td><td style='padding: 8px; text-align: left;'>20px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'>cards</td><td style='padding: 8px; text-align: left;'>54</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"","shwLgnd":,"xAxisL":"","yAxisL":"","gradClrChart":,"shwChartVal":,"threeD":"remove","enableSlick":,"numbSym":}}</td></tr><tr><td style='padding: 8px; text-align: left;'>1416330000000</td><td style='padding: 8px; text-align: left;'>chart</td><td style='padding: 8px; text-align: left;'>cardfeb26_6</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>pie</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>cardfeb26_16</td><td style='padding: 8px; text-align: left;'>col-md-3</td><td style='padding: 8px; text-align: left;'>0px</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>55</td><td style='padding: 8px; text-align: left;'>{"attributes":{"cck":"pallet2","shwLgnd":true,"xAxisL":"","yAxisL":"","gradClrChart":true,"shwChartVal":true,"threeD":"create","enableSlick":true,"numbSym":true}}</td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>barchart</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.429, Ended: 2026-02-19 10:56:27.440, Duration: 10.94ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1211330000000</td><td style='padding: 8px; text-align: left;'>Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name
+</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name
+
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.444, Ended: 2026-02-19 10:56:27.469, Duration: 25.45ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>x_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>value</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>47</td><td style='padding: 8px; text-align: left;'>h1=tempfr()</td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>linechart</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.471, Ended: 2026-02-19 10:56:27.476, Duration: 4.99ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1213110000000</td><td style='padding: 8px; text-align: left;'>Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.477, Ended: 2026-02-19 10:56:27.488, Duration: 11.65ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>x_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>value</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>47</td><td style='padding: 8px; text-align: left;'>h1=tempfr()</td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>stacked-bar</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.489, Ended: 2026-02-19 10:56:27.493, Duration: 3.81ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1214010000000</td><td style='padding: 8px; text-align: left;'>Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.494, Ended: 2026-02-19 10:56:27.498, Duration: 3.56ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>x_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>value</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>47</td><td style='padding: 8px; text-align: left;'>h1=tempfr()</td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>Column</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.499, Ended: 2026-02-19 10:56:27.502, Duration: 3.07ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1214550000000</td><td style='padding: 8px; text-align: left;'>Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.503, Ended: 2026-02-19 10:56:27.506, Duration: 3.00ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>x_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>value</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>47</td><td style='padding: 8px; text-align: left;'>h1=tempfr()</td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>stacked-column</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.507, Ended: 2026-02-19 10:56:27.511, Duration: 3.54ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1214880000000</td><td style='padding: 8px; text-align: left;'>Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.512, Ended: 2026-02-19 10:56:27.517, Duration: 4.94ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>x_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>value</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>47</td><td style='padding: 8px; text-align: left;'>h1=tempfr()</td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>stacked-percentage-column</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.518, Ended: 2026-02-19 10:56:27.521, Duration: 3.69ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1214110000000</td><td style='padding: 8px; text-align: left;'>Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+Select name as data_label,name as x_axis,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.522, Ended: 2026-02-19 10:56:27.526, Duration: 3.89ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>x_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>value</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>47</td><td style='padding: 8px; text-align: left;'>h1=tempfr()</td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>semi-donut chart</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.529, Ended: 2026-02-19 10:56:27.533, Duration: 4.07ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1215550000000</td><td style='padding: 8px; text-align: left;'>select name as data_label,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+select name as data_label,count(*) as value,'h1=tempfr()' as link from empfr1
+Group BY name
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.534, Ended: 2026-02-19 10:56:27.542, Duration: 8.36ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>value</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>47</td><td style='padding: 8px; text-align: left;'>h1=tempfr()</td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>scatter-plot</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.544, Ended: 2026-02-19 10:56:27.548, Duration: 3.91ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1217990000000</td><td style='padding: 8px; text-align: left;'>Select name as data_label,name as x_axis,salary as y_axis,doj as z_axis from empfr1</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+Select name as data_label,name as x_axis,salary as y_axis,doj as z_axis from empfr1
+<b>[Result]</b>
+Rows count: 47, Started: 2026-02-19 10:56:27.549, Ended: 2026-02-19 10:56:27.558, Duration: 8.69ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>x_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>y_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>z_axis</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>45334.00</td><td style='padding: 8px; text-align: left;'>29-05-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>900.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1100.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>30000.00</td><td style='padding: 8px; text-align: left;'>12-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>400000.00</td><td style='padding: 8px; text-align: left;'>13-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>09-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>15-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>08-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23242.00</td><td style='padding: 8px; text-align: left;'>28-06-2024 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>02-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>09-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>04-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>16-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>05-05-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>12-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1200.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1300.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>21-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>50000.00</td><td style='padding: 8px; text-align: left;'>03-09-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>2000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>3000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>4000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>2400.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>100.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>200.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>300.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>400.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>500.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>600.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>600.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>700.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>800.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>22-10-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>100.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>232323.00</td><td style='padding: 8px; text-align: left;'>06-11-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>12-11-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>05-11-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>07-11-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>20000000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>232323.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+SELECT axdirectsqlid, sqltext, paramcal as sqlparams, accessstring as roles, cachedata, cacheinterval, encryptedflds FROM axdirectsql a WHERE sqlname = @datasource 
+<b>[Parameters]</b>
+  <b>@datasource</b> (String/System.String) : <b>scatter-plot-3D</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 10:56:27.560, Ended: 2026-02-19 10:56:27.567, Duration: 6.86ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>axdirectsqlid</th><th style='padding: 8px; background-color: #f2f2f2;'>sqltext</th><th style='padding: 8px; background-color: #f2f2f2;'>sqlparams</th><th style='padding: 8px; background-color: #f2f2f2;'>roles</th><th style='padding: 8px; background-color: #f2f2f2;'>cachedata</th><th style='padding: 8px; background-color: #f2f2f2;'>cacheinterval</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1218440000000</td><td style='padding: 8px; text-align: left;'>Select name as data_label,name as x_axis,salary as y_axis,doj as z_axis from empfr1</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>ALL</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>6 Hr</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+Select name as data_label,name as x_axis,salary as y_axis,doj as z_axis from empfr1
+<b>[Result]</b>
+Rows count: 47, Started: 2026-02-19 10:56:27.568, Ended: 2026-02-19 10:56:27.574, Duration: 5.53ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>data_label</th><th style='padding: 8px; background-color: #f2f2f2;'>x_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>y_axis</th><th style='padding: 8px; background-color: #f2f2f2;'>z_axis</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>45334.00</td><td style='padding: 8px; text-align: left;'>29-05-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>900.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1100.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>30000.00</td><td style='padding: 8px; text-align: left;'>12-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>400000.00</td><td style='padding: 8px; text-align: left;'>13-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>09-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>15-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>08-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23242.00</td><td style='padding: 8px; text-align: left;'>28-06-2024 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>02-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>09-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>04-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>16-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>05-05-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>12-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1200.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1300.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>21-06-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>50000.00</td><td style='padding: 8px; text-align: left;'>03-09-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>2000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>3000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>4000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>2400.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>100.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>200.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>300.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>400.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>500.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>600.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>600.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>700.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>800.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>22-10-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>100.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>232323.00</td><td style='padding: 8px; text-align: left;'>06-11-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>12-11-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>05-11-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>07-11-2025 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>20000000.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>232323.00</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[Error]</b>
+Exception in GetCardsWithData for card datasource 'DS_MPIIPL': Parameter 'dept' is missing in input params.    at ARMCommon.Helpers.Utils.ValidateSQLAndExtractParams(String sqlText, String parameters, Dictionary`2 globalParams, Dictionary`2 sqlParams) in D:\Codeset\GIT\ARM 11.4 for Release3\ARMCommon\Helpers\Utils.cs:line 2261
+   at AxList.ADSDataService.GetADSDataWithCachingAsync(ADSDataSource dataSource, ADSDataRequest request, String schemaName) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\ADSDataService.cs:line 94
+   at AxList.ADSDataService.GetADSDataAsync(ADSDataRequest request) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\ADSDataService.cs:line 89
+   at AxList.Service.CardsDataService.GetCardsWithData(CardsData cards) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\CardsDataService.cs:line 107
+<b>[Error]</b>
+Exception in GetCardsWithData for card datasource 'DS_MPIIPL': Parameter 'dept' is missing in input params.    at ARMCommon.Helpers.Utils.ValidateSQLAndExtractParams(String sqlText, String parameters, Dictionary`2 globalParams, Dictionary`2 sqlParams) in D:\Codeset\GIT\ARM 11.4 for Release3\ARMCommon\Helpers\Utils.cs:line 2261
+   at AxList.ADSDataService.GetADSDataWithCachingAsync(ADSDataSource dataSource, ADSDataRequest request, String schemaName) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\ADSDataService.cs:line 94
+   at AxList.ADSDataService.GetADSDataAsync(ADSDataRequest request) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\ADSDataService.cs:line 89
+   at AxList.Service.CardsDataService.GetCardsWithData(CardsData cards) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\CardsDataService.cs:line 107
+<b>[SQL]</b>
+select name,salary, 'h1=ttstfm()' as link FROM empfr1
+<b>[Result]</b>
+Rows count: 47, Started: 2026-02-19 10:56:27.606, Ended: 2026-02-19 10:56:27.611, Duration: 5.57ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>name</th><th style='padding: 8px; background-color: #f2f2f2;'>salary</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>45334.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>900.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1100.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>30000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>400000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23242.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1200.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1300.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>1000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>50000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>2000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>3000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>4000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>2400.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>100.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>200.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>300.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>400.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>500.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>600.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>600.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>700.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>800.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>100.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>232323.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>23.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>20000000.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>232323.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr><tr><td style='padding: 8px; text-align: left;'>EMP-0001</td><td style='padding: 8px; text-align: left;'>0.00</td><td style='padding: 8px; text-align: left;'>h1=ttstfm()</td></tr></tbody></table><b>[SQL]</b>
+select name,salary, 'h1=ttstfm()' as link FROM empf1
+<b>[Error]</b>
+42P01: relation "empf1" does not exist
+
+POSITION: 48
+
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|215_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlCommand.<Prepare>g__PrepareLong|91_1(NpgsqlCommand command, Boolean async, NpgsqlConnector connector, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.Prepare()
+   at ARMCommon.Helpers.DBHelper.PostgresHelper.ExecuteSQLAsync(String query, String[] paramName, DbType[] paramType, Object[] paramValue) in D:\Codeset\GIT\ARM 11.4 for Release3\ARMCommon\Helpers\DBHelper.cs:line 2669
+<b>[Error]</b>
+Error fetching data for card datasource 'smokecardnov1': 42P01: relation "empf1" does not exist
+
+POSITION: 48
+<b>[SQL]</b>
+select	title,subdetails subtitle,modifiedon ,'ta__na(recordid='||axpdef_news_eventsid||')' link, 'images/news/$APP_NAME$/' || img.recordid || '.' || img.ftype image
+from axpdef_news_events a left join a__naeventimg img on img.recordid = a.axpdef_news_eventsid
+where active='T'
+and  (current_date >= effectfrom and (effecto >= current_date or effecto is null))
+group by title,subdetails ,modifiedon ,'ta__na(recordid='||axpdef_news_eventsid||')' , 'images/news/$APP_NAME$/' || img.recordid || '.' || img.ftype,a.effectfrom
+order by effectfrom
+<b>[Result]</b>
+Rows count: 22, Started: 2026-02-19 10:56:27.647, Ended: 2026-02-19 10:56:27.679, Duration: 32.21ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>title</th><th style='padding: 8px; background-color: #f2f2f2;'>subtitle</th><th style='padding: 8px; background-color: #f2f2f2;'>modifiedon</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th><th style='padding: 8px; background-color: #f2f2f2;'>image</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>Sytest</td><td style='padding: 8px; text-align: left;'>Test Sy</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:27</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500550000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>Test 1</td><td style='padding: 8px; text-align: left;'>Test 1 Test 1 Test 1 Test 1 Test 1 Test 1</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:20</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500440000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>Agile</td><td style='padding: 8px; text-align: left;'>Agile Labs</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:31</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500770000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1500770000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>Agile Labs</td><td style='padding: 8px; text-align: left;'>Axpert is a versatile low-code platform that allows individuals and organizations to build custom applications across various domains with ease, eliminating the need for extensive manual coding and streamlining the development process.</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:29</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500660000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1500660000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>Agile test</td><td style='padding: 8px; text-align: left;'>Agile</td><td style='padding: 8px; text-align: left;'>04-08-2025 10:25</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500880000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1500880000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>Axpert</td><td style='padding: 8px; text-align: left;'>Axpert is a versatile low-code platform that allows individuals and organizations to build custom applications across various domains with ease, eliminating the need for extensive manual coding and streamlining the development process.</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:57</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1499550000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1499550000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>fromadmin</td><td style='padding: 8px; text-align: left;'>asdas</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:38</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501440000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>fromlakshmi</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>30-07-2025 16:40</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501550000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1501550000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>sdfdsf</td><td style='padding: 8px; text-align: left;'>sdfsdfsdf</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:35</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501110000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1501110000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>sfdsf</td><td style='padding: 8px; text-align: left;'>sdfdsf</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:36</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501220000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>testdummy</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>30-07-2025 16:37</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501330000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>tter</td><td style='padding: 8px; text-align: left;'>dfdsf</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:32</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500990000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>werewr</td><td style='padding: 8px; text-align: left;'>werwerwe</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:33</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501010000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1501010000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>News Data</td><td style='padding: 8px; text-align: left;'>asdfvbnxdhf</td><td style='padding: 8px; text-align: left;'>22-08-2025 10:56</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1708220000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>test9</td><td style='padding: 8px; text-align: left;'>test9</td><td style='padding: 8px; text-align: left;'>24-09-2025 10:28</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1994440000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1994440000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>happy navarathri</td><td style='padding: 8px; text-align: left;'>This little tradition is our way of blending culture with creativity. It is something unique to Agile Labs and a beautiful reminder that innovation thrives when we celebrate diversity and togetherness 🌍🤝. Let us light up the office 🪔, both literally and figuratively, with the vibrant hues of Navratri 🌈🌸.
+See you in colour tomorrow! 🌼
+
+ </td><td style='padding: 8px; text-align: left;'>25-09-2025 11:54</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1023440000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1023440000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>welcome to agile lab</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>06-10-2025 16:40</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1139110000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1139110000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>happy deepavali</td><td style='padding: 8px; text-align: left;'>🎆 Happy Deepavali! 🎇
+May the festival of lights brighten your life with happiness, prosperity, and success.
+Let this Diwali bring new beginnings, positive energy, and endless joy to you and your loved ones. ✨
+Wishing you a sparkling celebration filled with laughter, sweets, and togetherness. 💫
+
+Have a Safe and Joyous Deepavali! 🪔💛</td><td style='padding: 8px; text-align: left;'>13-10-2025 15:40</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1209990000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1209990000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>happy monday1</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>01-12-2025 12:09</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1456440000001)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>Merry Christmas Wishes to You and Your Family 🎄</td><td style='padding: 8px; text-align: left;'>As the festive season is here, we wanted to take this moment to extend our heartfelt Christmas wishes to you and your family. ❄
+
+This is the time of year when joy, gratitude and hope fill the air. It is also a time to look back at the dedication, effort and resilience you have shown throughout the year—not just in your professional endeavours, but in all the personal milestones and challenges you have navigated as well.🎅</td><td style='padding: 8px; text-align: left;'>11-12-2025 16:24</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1779550000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1779550000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>test11dec</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>11-12-2025 14:25</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1760010000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1760010000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>testjan26_9</td><td style='padding: 8px; text-align: left;'>happy friday</td><td style='padding: 8px; text-align: left;'>09-01-2026 18:33</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1095550000000)</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>[SQL]</b>
+select	title,subdetails subtitle,modifiedon ,'ta__na(recordid='||axpdef_news_eventsid||')' link, 'images/news/$APP_NAME$/' || img.recordid || '.' || img.ftype image
+from axpdef_news_events a left join a__naeventimg img on img.recordid = a.axpdef_news_eventsid
+where active='T'
+and  (current_date >= effectfrom and (effecto >= current_date or effecto is null))
+group by title,subdetails ,modifiedon ,'ta__na(recordid='||axpdef_news_eventsid||')' , 'images/news/$APP_NAME$/' || img.recordid || '.' || img.ftype,a.effectfrom
+order by effectfrom
+<b>[Result]</b>
+Rows count: 22, Started: 2026-02-19 10:56:27.685, Ended: 2026-02-19 10:56:27.694, Duration: 8.54ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>title</th><th style='padding: 8px; background-color: #f2f2f2;'>subtitle</th><th style='padding: 8px; background-color: #f2f2f2;'>modifiedon</th><th style='padding: 8px; background-color: #f2f2f2;'>link</th><th style='padding: 8px; background-color: #f2f2f2;'>image</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>Sytest</td><td style='padding: 8px; text-align: left;'>Test Sy</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:27</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500550000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>Test 1</td><td style='padding: 8px; text-align: left;'>Test 1 Test 1 Test 1 Test 1 Test 1 Test 1</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:20</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500440000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>Agile</td><td style='padding: 8px; text-align: left;'>Agile Labs</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:31</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500770000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1500770000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>Agile Labs</td><td style='padding: 8px; text-align: left;'>Axpert is a versatile low-code platform that allows individuals and organizations to build custom applications across various domains with ease, eliminating the need for extensive manual coding and streamlining the development process.</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:29</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500660000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1500660000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>Agile test</td><td style='padding: 8px; text-align: left;'>Agile</td><td style='padding: 8px; text-align: left;'>04-08-2025 10:25</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500880000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1500880000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>Axpert</td><td style='padding: 8px; text-align: left;'>Axpert is a versatile low-code platform that allows individuals and organizations to build custom applications across various domains with ease, eliminating the need for extensive manual coding and streamlining the development process.</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:57</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1499550000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1499550000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>fromadmin</td><td style='padding: 8px; text-align: left;'>asdas</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:38</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501440000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>fromlakshmi</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>30-07-2025 16:40</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501550000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1501550000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>sdfdsf</td><td style='padding: 8px; text-align: left;'>sdfsdfsdf</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:35</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501110000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1501110000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>sfdsf</td><td style='padding: 8px; text-align: left;'>sdfdsf</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:36</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501220000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>testdummy</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>30-07-2025 16:37</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501330000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>tter</td><td style='padding: 8px; text-align: left;'>dfdsf</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:32</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1500990000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>werewr</td><td style='padding: 8px; text-align: left;'>werwerwe</td><td style='padding: 8px; text-align: left;'>30-07-2025 16:33</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1501010000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1501010000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>News Data</td><td style='padding: 8px; text-align: left;'>asdfvbnxdhf</td><td style='padding: 8px; text-align: left;'>22-08-2025 10:56</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1708220000000)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>test9</td><td style='padding: 8px; text-align: left;'>test9</td><td style='padding: 8px; text-align: left;'>24-09-2025 10:28</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1994440000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1994440000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>happy navarathri</td><td style='padding: 8px; text-align: left;'>This little tradition is our way of blending culture with creativity. It is something unique to Agile Labs and a beautiful reminder that innovation thrives when we celebrate diversity and togetherness 🌍🤝. Let us light up the office 🪔, both literally and figuratively, with the vibrant hues of Navratri 🌈🌸.
+See you in colour tomorrow! 🌼
+
+ </td><td style='padding: 8px; text-align: left;'>25-09-2025 11:54</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1023440000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1023440000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>welcome to agile lab</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>06-10-2025 16:40</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1139110000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1139110000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>happy deepavali</td><td style='padding: 8px; text-align: left;'>🎆 Happy Deepavali! 🎇
+May the festival of lights brighten your life with happiness, prosperity, and success.
+Let this Diwali bring new beginnings, positive energy, and endless joy to you and your loved ones. ✨
+Wishing you a sparkling celebration filled with laughter, sweets, and togetherness. 💫
+
+Have a Safe and Joyous Deepavali! 🪔💛</td><td style='padding: 8px; text-align: left;'>13-10-2025 15:40</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1209990000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1209990000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>happy monday1</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>01-12-2025 12:09</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1456440000001)</td><td style='padding: 8px; text-align: left;'></td></tr><tr><td style='padding: 8px; text-align: left;'>Merry Christmas Wishes to You and Your Family 🎄</td><td style='padding: 8px; text-align: left;'>As the festive season is here, we wanted to take this moment to extend our heartfelt Christmas wishes to you and your family. ❄
+
+This is the time of year when joy, gratitude and hope fill the air. It is also a time to look back at the dedication, effort and resilience you have shown throughout the year—not just in your professional endeavours, but in all the personal milestones and challenges you have navigated as well.🎅</td><td style='padding: 8px; text-align: left;'>11-12-2025 16:24</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1779550000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1779550000000.png</td></tr><tr><td style='padding: 8px; text-align: left;'>test11dec</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>11-12-2025 14:25</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1760010000000)</td><td style='padding: 8px; text-align: left;'>images/news/$APP_NAME$/1760010000000.jpg</td></tr><tr><td style='padding: 8px; text-align: left;'>testjan26_9</td><td style='padding: 8px; text-align: left;'>happy friday</td><td style='padding: 8px; text-align: left;'>09-01-2026 18:33</td><td style='padding: 8px; text-align: left;'>ta__na(recordid=1095550000000)</td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table>

@@ -1,0 +1,16 @@
+Below 2 fields are manually needs to added in existing application to enable Keep signed in feature
+
+Field - Checkbox 
+data width - 1
+Field name - staysignedin
+Caption - Keep me signed in
+expression - {F}
+Save value - T
+
+
+Field - Whole number 
+data width - 2
+Field name - signinexpiry
+Caption - Signin expiry in days
+expression - 14
+Save value - IIF(staysignedin={T} & signinexpiry < 1,{ - Minimum 1 day required},{T})

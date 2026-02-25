@@ -1,0 +1,165 @@
+Input JSON - {"ARMSessionId":"ARM-pgbase114-43fa6409-e779-4d15-b6f6-ed70d63dc4f7","AxSessionId":null,"Project":null,"UserName":null,"Trace":true,"TransId":"tst23","RecordId":0,"Action":"Cancel","KeyField":"recordid","KeyValue":"100000000005330","Roles":[],"Remarks":"Cancelled by admin"}
+Initiating DB connection for application 'pgbase114'
+Reading AxProps XML: <axprops getfrom="" setto=""><lastlogin>pgbase114</lastlogin><oradatestring>dd/mm/yyyy hh24:mi:ss</oradatestring><crlocation></crlocation><lastusername>admin</lastusername><login>local</login><skin>Black</skin><lastlang>ENGLISH</lastlang><axhelp>true</axhelp><agileerpbase>agileerpbase,public</agileerpbase><pgbase114odbc>pgbase114</pgbase114odbc></axprops>
+
+<b>[SQL]</b>
+Select now() as sdt
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 17:36:24.242, Ended: 2026-02-19 17:36:24.247, Duration: 5.00ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>sdt</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>19-02-2026 11:52</td></tr></tbody></table><b>[SQL]</b>
+select * from fn_permissions_getcnd( @action , @transid , @keyfield , @keyvalue , @username , @roles )
+<b>[Parameters]</b>
+  <b>@action</b> (String/System.String) : <b>Cancel</b>
+  <b>@transid</b> (String/System.String) : <b>tst23</b>
+  <b>@keyfield</b> (String/System.String) : <b>recordid</b>
+  <b>@keyvalue</b> (String/System.String) : <b>'100000000005330'</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@roles</b> (String/System.String) : <b>default</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 17:36:24.247, Ended: 2026-02-19 17:36:24.278, Duration: 31.19ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>fullcontrol</th><th style='padding: 8px; background-color: #f2f2f2;'>userrole</th><th style='padding: 8px; background-color: #f2f2f2;'>allowcreate</th><th style='padding: 8px; background-color: #f2f2f2;'>view_access</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includedc</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludedc</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_access</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_includedc</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_excludedc</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>maskedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>filtercnd</th><th style='padding: 8px; background-color: #f2f2f2;'>recordid</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>permissiontype</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>100000000005330</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table><b>StructDef and Validate initialized for {StructName}</b>
+tst23
+<b>[SQL]</b>
+select tst231.tst231id,tst231.cancel,tst231.sourceid,tst231.mapname,tst231.username,tst231.modifiedon,tst231.createdby,tst231.createdon,tst231.wkid,tst231.app_level,tst231.app_desc,tst231.app_slevel,tst231.cancelremarks,tst231.wfroles,tst231.txtfld,tst231.txtfld2,tst231.decnum,tst231.wholenum,tst231.datafld,tst231.timefld,tst231.timestampfld,tst231.autogen,tst231.dropdown,tst231.multifld,tst231.richtext,tst231.chklist,tst231.chkbox,tst231.radiogrp,tst231.empng empng_sourceid,empng.emp_id empng,tst231.testa,tst231.largetext from tst231  left join emplo1 empng on tst231.empng = empng.emplo1id where tst231.tst231id= :recordid
+<b>[Parameters]</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005330</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 17:36:24.286, Ended: 2026-02-19 17:36:24.297, Duration: 11.79ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>tst231id</th><th style='padding: 8px; background-color: #f2f2f2;'>cancel</th><th style='padding: 8px; background-color: #f2f2f2;'>sourceid</th><th style='padding: 8px; background-color: #f2f2f2;'>mapname</th><th style='padding: 8px; background-color: #f2f2f2;'>username</th><th style='padding: 8px; background-color: #f2f2f2;'>modifiedon</th><th style='padding: 8px; background-color: #f2f2f2;'>createdby</th><th style='padding: 8px; background-color: #f2f2f2;'>createdon</th><th style='padding: 8px; background-color: #f2f2f2;'>wkid</th><th style='padding: 8px; background-color: #f2f2f2;'>app_level</th><th style='padding: 8px; background-color: #f2f2f2;'>app_desc</th><th style='padding: 8px; background-color: #f2f2f2;'>app_slevel</th><th style='padding: 8px; background-color: #f2f2f2;'>cancelremarks</th><th style='padding: 8px; background-color: #f2f2f2;'>wfroles</th><th style='padding: 8px; background-color: #f2f2f2;'>txtfld</th><th style='padding: 8px; background-color: #f2f2f2;'>txtfld2</th><th style='padding: 8px; background-color: #f2f2f2;'>decnum</th><th style='padding: 8px; background-color: #f2f2f2;'>wholenum</th><th style='padding: 8px; background-color: #f2f2f2;'>datafld</th><th style='padding: 8px; background-color: #f2f2f2;'>timefld</th><th style='padding: 8px; background-color: #f2f2f2;'>timestampfld</th><th style='padding: 8px; background-color: #f2f2f2;'>autogen</th><th style='padding: 8px; background-color: #f2f2f2;'>dropdown</th><th style='padding: 8px; background-color: #f2f2f2;'>multifld</th><th style='padding: 8px; background-color: #f2f2f2;'>richtext</th><th style='padding: 8px; background-color: #f2f2f2;'>chklist</th><th style='padding: 8px; background-color: #f2f2f2;'>chkbox</th><th style='padding: 8px; background-color: #f2f2f2;'>radiogrp</th><th style='padding: 8px; background-color: #f2f2f2;'>empng_sourceid</th><th style='padding: 8px; background-color: #f2f2f2;'>empng</th><th style='padding: 8px; background-color: #f2f2f2;'>testa</th><th style='padding: 8px; background-color: #f2f2f2;'>largetext</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005330</td><td style='padding: 8px; text-align: left;'>F</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>admin</td><td style='padding: 8px; text-align: left;'>19-02-2026 17:35</td><td style='padding: 8px; text-align: left;'>admin</td><td style='padding: 8px; text-align: left;'>19-02-2026 17:35</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>1</td><td style='padding: 8px; text-align: left;'>1</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>QWWQQWWAAZ</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>4.00</td><td style='padding: 8px; text-align: left;'>404</td><td style='padding: 8px; text-align: left;'>25-12-2025 00:00</td><td style='padding: 8px; text-align: left;'>04:04 AM</td><td style='padding: 8px; text-align: left;'>25-12-2025 00:00</td><td style='padding: 8px; text-align: left;'>AUTO-0000000319</td><td style='padding: 8px; text-align: left;'>Item2</td><td style='padding: 8px; text-align: left;'>mohan</td><td style='padding: 8px; text-align: left;'>t t 0404A</td><td style='padding: 8px; text-align: left;'>Check2,Check3</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>Radio2</td><td style='padding: 8px; text-align: left;'>1015550000000</td><td style='padding: 8px; text-align: left;'>001</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>TES SS TES 04A</td></tr></tbody></table>ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 25/12/2025, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 25/12/2025, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, Value : 25/12/2025 00:00:00, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025 00:00:00
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, OldValue : 25/12/2025 00:00:00, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025 00:00:00
+<b>[SQL]</b>
+select tst232.tst231id,tst232.tst232id,tst232.tst232row,tst232.gridtxt,tst232.griddecimal,tst232.griddate from tst232  where tst232.tst231id= :recordid order by tst232row
+<b>[Parameters]</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005330</b>
+<b>[Result]</b>
+Rows count: 3, Started: 2026-02-19 17:36:24.298, Ended: 2026-02-19 17:36:24.307, Duration: 9.11ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>tst231id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst232id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst232row</th><th style='padding: 8px; background-color: #f2f2f2;'>gridtxt</th><th style='padding: 8px; background-color: #f2f2f2;'>griddecimal</th><th style='padding: 8px; background-color: #f2f2f2;'>griddate</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005330</td><td style='padding: 8px; text-align: left;'>100000000005331</td><td style='padding: 8px; text-align: left;'>1</td><td style='padding: 8px; text-align: left;'>DC2-1-04A</td><td style='padding: 8px; text-align: left;'>4.00</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005330</td><td style='padding: 8px; text-align: left;'>100000000005332</td><td style='padding: 8px; text-align: left;'>2</td><td style='padding: 8px; text-align: left;'>DC2-2-04A</td><td style='padding: 8px; text-align: left;'>5.04</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005330</td><td style='padding: 8px; text-align: left;'>100000000005333</td><td style='padding: 8px; text-align: left;'>3</td><td style='padding: 8px; text-align: left;'>DC2-3-04A</td><td style='padding: 8px; text-align: left;'>6.00</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td></tr></tbody></table>ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+<b>[SQL]</b>
+select tst234.tst231id,tst234.tst234id,tst234.tst234row,tst234.grid2txt,tst234.grid2txt2,tst234.grid2date,tst234.grid2num,empgg.emp_id empgg,tst234.empgg empgg_sourceid from tst234  left join emplo1 empgg on tst234.empgg = empgg.emplo1id where tst234.tst231id= :recordid order by tst234row
+<b>[Parameters]</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005330</b>
+<b>[Result]</b>
+Rows count: 2, Started: 2026-02-19 17:36:24.307, Ended: 2026-02-19 17:36:24.317, Duration: 9.64ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>tst231id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst234id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst234row</th><th style='padding: 8px; background-color: #f2f2f2;'>grid2txt</th><th style='padding: 8px; background-color: #f2f2f2;'>grid2txt2</th><th style='padding: 8px; background-color: #f2f2f2;'>grid2date</th><th style='padding: 8px; background-color: #f2f2f2;'>grid2num</th><th style='padding: 8px; background-color: #f2f2f2;'>empgg</th><th style='padding: 8px; background-color: #f2f2f2;'>empgg_sourceid</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005330</td><td style='padding: 8px; text-align: left;'>100000000005334</td><td style='padding: 8px; text-align: left;'>1</td><td style='padding: 8px; text-align: left;'>DC4-1-04A</td><td style='padding: 8px; text-align: left;'>AAA-04A</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td><td style='padding: 8px; text-align: left;'>1004</td><td style='padding: 8px; text-align: left;'>001</td><td style='padding: 8px; text-align: left;'>1015550000000</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005330</td><td style='padding: 8px; text-align: left;'>100000000005335</td><td style='padding: 8px; text-align: left;'>2</td><td style='padding: 8px; text-align: left;'>DC4-2-04A</td><td style='padding: 8px; text-align: left;'>BBB-04A</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td><td style='padding: 8px; text-align: left;'>2004</td><td style='padding: 8px; text-align: left;'>002</td><td style='padding: 8px; text-align: left;'>1015880000000</td></tr></tbody></table>ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 24/12/2045, clientDateFormat: dd/MM/yyyy)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+<b>[SQL]</b>
+select tst235.tst231id,tst235.tst235id,tst235.nongrid_largetext,tst235.nongrid_num from tst235  where tst235.tst231id= :recordid
+<b>[Parameters]</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005330</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 17:36:24.317, Ended: 2026-02-19 17:36:24.326, Duration: 9.10ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>tst231id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst235id</th><th style='padding: 8px; background-color: #f2f2f2;'>nongrid_largetext</th><th style='padding: 8px; background-color: #f2f2f2;'>nongrid_num</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005330</td><td style='padding: 8px; text-align: left;'>100000000005336</td><td style='padding: 8px; text-align: left;'>TEST -04A</td><td style='padding: 8px; text-align: left;'>104</td></tr></tbody></table>RefreshFieldOnLoad started for row with 27 fields
+DC Name: DC1
+Field Name:  txtfld
+Field Name:  txtfld2
+Field Name:  decnum
+Field Name:  wholenum
+Field Name:  datafld
+Field Name:  timefld
+Field Name:  timestampfld
+Field Name:  autogen
+Field Name:  dropdown
+Field Name:  multifld
+Field Name:  richtext
+Field Name:  chklist
+Field Name:  chkbox
+Field Name:  radiogrp
+Field Name:  empng
+Field Name:  testa
+DC Name: DC2
+Field Name:  gridtxt
+Field Name:  griddecimal
+Field Name:  griddate
+Field Name:  gridtxt
+Field Name:  griddecimal
+Field Name:  griddate
+Field Name:  gridtxt
+Field Name:  griddecimal
+Field Name:  griddate
+DC Name: DC3
+Field Name:  largetext
+DC Name: DC4
+Field Name:  grid2txt
+Field Name:  grid2txt2
+Field Name:  grid2date
+Field Name:  grid2num
+Field Name:  empgg
+Field Name:  grid2txt
+Field Name:  grid2txt2
+Field Name:  grid2date
+Field Name:  grid2num
+Field Name:  empgg
+DC Name: DC5
+Field Name:  nongrid_largetext
+Field Name:  nongrid_num
+RefreshField completed for row  Processed 0 fields. Final result: 
+Update SQL for tst231 : update tst231 set cancel = @cancel, cancelremarks = @cancelremarks, username = @username, modifiedon = to_timestamp( @modifiedon ,'dd/mm/yyyy hh24:mi:ss'), app_desc = @app_desc, app_level = @app_level where tst231id = @tst231id
+<b>Parameters</b>
+["@cancel","cancelremarks","@username","@modifiedon","@app_desc","@app_level","@tst231id"]
+<b>Param Types</b>
+[16,16,16,16,12,12,12]
+<b>Values</b>
+["T","Cancelled by admin","admin","19/02/2026 17:36:24",1,1,100000000005330]
+<b>Transaction started.</b>
+
+<b>[SQL]</b>
+update tst231 set cancel = @cancel, cancelremarks = @cancelremarks, username = @username, modifiedon = to_timestamp( @modifiedon ,'dd/mm/yyyy hh24:mi:ss'), app_desc = @app_desc, app_level = @app_level where tst231id = @tst231id
+<b>[Parameters]</b>
+  <b>@cancel</b> (String/System.String) : <b>T</b>
+  <b>cancelremarks</b> (String/System.String) : <b>Cancelled by admin</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@modifiedon</b> (String/System.String) : <b>19/02/2026 17:36:24</b>
+  <b>@app_desc</b> (Int64/System.Int32) : <b>1</b>
+  <b>@app_level</b> (Int64/System.Int32) : <b>1</b>
+  <b>@tst231id</b> (Int64/System.Int64) : <b>100000000005330</b>
+<b>[SQL]</b>
+Rows Affected : 1
+Transaction : Success
+Total Statements : 1
+Total Rows Affected : 1
+<b>Transaction Committed.</b>
+
+Transaction Disposed.
+<b>Transaction : Success</b>
+
+<b>[SQL]</b>
+insert into axpertlog (sessionid, username, calledon, callfinished, structname, recordid, servicename, serviceresult, timetaken, dbtimetaken, db_conntime , calldetails ) values ( @sessionid, @username, to_timestamp( @starttime ,'dd/mm/yyyy hh24:mi:ss'), to_timestamp( @endtime ,'dd/mm/yyyy hh24:mi:ss'), @structname, @recordid, @servicename, @result , @timetaken, @dbtimetaken, @dbconntime, @calldetails)
+<b>[Parameters]</b>
+  <b>@sessionid</b> (String/System.String) : <b>6a40ed0515f54abb9dc6d785b70f38</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@starttime</b> (String/System.String) : <b>19-02-2026 17:36:24</b>
+  <b>@endtime</b> (String/System.String) : <b>19-02-2026 17:36:24</b>
+  <b>@structname</b> (String/System.String) : <b></b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005330</b>
+  <b>@servicename</b> (String/System.String) : <b>ARM - AxCancel API</b>
+  <b>@result</b> (String/System.String) : <b>success</b>
+  <b>@timetaken</b> (Int32/System.Int32) : <b>196</b>
+  <b>@dbtimetaken</b> (Int32/System.Int32) : <b>0</b>
+  <b>@dbconntime</b> (Int32/System.Int32) : <b>92</b>
+  <b>@calldetails</b> (String/System.String) : <b>success</b>
+<b>[Result]</b>
+Result: , Started: 2026-02-19 17:36:24.342, Ended: 2026-02-19 17:36:24.349, Duration: 7.33ms
+Result JSON - {"data":{"recordid":100000000005330,"transid":"tst23","caption":"AxPut Test form","username":"admin","message":"Cancelled successfully."},"success":true,"error":null}

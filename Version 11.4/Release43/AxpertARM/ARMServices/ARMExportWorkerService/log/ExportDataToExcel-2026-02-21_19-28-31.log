@@ -1,0 +1,41 @@
+Worker Service Start time: 2026-02-21 19:28:31.079
+API URL:http://localhost/scripts6411.2/ASBIviewRest.dll/datasnap/rest/TASBIViewREST/GetReport
+Request Json:{
+  "getreport": {
+    "trace": "true",
+    "pageno": "0",
+    "pagesize": "0",
+    "metadata": "true",
+    "fetchhidcol": "false",
+    "_dateformat": "dd/MM/yyyy",
+    "ivcaption": "Test iview hidden param",
+    "sqlpagination": "false",
+    "params": {
+      "pusername": "admin"
+    },
+    "ivParamCaption": "",
+    "project": "goldendump114",
+    "name": "tivhpar",
+    "token": "a01f06f0837d2fd91b1ca4c5f1dadcd7",
+    "seed": "389238",
+    "userauthkey": "00050148015001580159016132163450607080013",
+    "s": "zwjyb0irojudrdlix1ln4ass",
+    "username": "admin",
+    "arm_url": "http://localhost/ARM_API",
+    "ARMScriptURL": "http://localhost/scripts6411.2/",
+    "axConfigFilePath": "\\\\localhost\\Sharefolder\\"
+  },
+  "axprops": "<axprops><lastlogin>axidev</lastlogin><oradatestring>dd/mm/yyyy hh24:mi:ss</oradatestring><crlocation></crlocation><lastusername>admin</lastusername><login>local</login><skin>Black</skin><lastlang>ENGLISH</lastlang><axhelp>true</axhelp><trace>false</trace><almconnections></almconnections><showuser>t</showuser><goldendump112>global</goldendump112><agilepost113>global</agilepost113></axprops>",
+  "axapps": "<goldendump114><type>db</type><structurl></structurl><db>Postgre</db><driver>dbx</driver><version></version><dbcon>localhost:5433</dbcon><dbuser>goldendump114\\axpertdb</dbuser><pwd></pwd><dataurl></dataurl></goldendump114>",
+  "globalvars": "<globalvars><pusername>admin</pusername><AxUserName></AxUserName><axp_uploadfileprotectedpwd>Agile@123</axp_uploadfileprotectedpwd><AxAttachFilePath>\\\\localhost\\Sharefolder\\</AxAttachFilePath><testvarmalakonda>testscript</testvarmalakonda><AxFCMSendMsgURL>http://localhost/ARM_API/ARM_APIs/api/v1/SendFCMNotification</AxFCMSendMsgURL><testmultivar>agile\r\nlabs\r\npvt\r\nltd</testmultivar><axglo_recordid>1009440000002</axglo_recordid><fromuserlogin>F</fromuserlogin><axglo_user>reddy</axglo_user><axp_displaytext>test param:test,test param2:aaa</axp_displaytext><axglo_hide>T</axglo_hide><axpimageserver></axpimageserver><axpimagepath>\\\\localhost\\Sharefolder\\News\\</axpimagepath><testparam>test</testparam><testparam2>aaa</testparam2><testparam3></testparam3><millions>F</millions><username>admin</username><responsibilies>default</responsibilies><rolename>default</rolename><ax_evalcopy>F</ax_evalcopy><sesid>zwjyb0irojudrdlix1ln4ass</sesid><usergroup>default</usergroup><project>goldendump114</project><axp_connectionname>goldendump114</axp_connectionname><groupno>2</groupno><userroles>default</userroles><pageaccess></pageaccess><axp_apipath>http://localhost/Scripts11464bit/</axp_apipath><axp_appschema>goldendump114</axp_appschema><axp_clientlocale>en-US*Asia/Calcutta^english*2/21/2026 6:57:13 PM*2914</axp_clientlocale><transidlist>0D000000184F7E99FE480F7E53F064DE71EB2E83</transidlist><appvartypes>cccccccnccccccccc</appvartypes><auth_path>D:\\Axpert96\\Scripts11464bit</auth_path><AxRMQAPIURL>http://localhost/ARM_API/ARM_APIs/api/v1/ARMPushToQueue</AxRMQAPIURL><AxSignalRapiURL>http://localhost/notificationhub/api/v1/SendSignalR</AxSignalRapiURL><AxRapidSaveURL>http://localhost/scripts6411.2/ASBRapidSaveRest.dll/datasnap/rest/TASBRapidSaveRest/RapidSave</AxRapidSaveURL><axpegemailactionurl>http://localhost/ARM_API/ARM_APIs/api/v1/ARMMailTaskAction</axpegemailactionurl><AxScriptsAPIURL>http://localhost/scripts6411.2/ASBScriptRest.dll/datasnap/rest/TASBScriptRest/scriptsapi</AxScriptsAPIURL><VirtualUploadFilePath>\\\\localhost\\Sharefolder\\</VirtualUploadFilePath><VirtualDownloadFilePath>\\\\localhost\\Sharefolder\\</VirtualDownloadFilePath><VirtualFilePathMapUser></VirtualFilePathMapUser><VirtualFilePathMapPwd></VirtualFilePathMapPwd></globalvars>",
+  "uservars": "<uservars></uservars>"
+}
+Before Rest Service: 2026-02-21 19:28:31.257
+Rest response: {"status":"success","result":{"reporthf":{"hideprojname":"@","hidereportdate":"@","header":{"h1":{"font":"@clBlack,12,,T","header_aline":"@center","text":"  tivhpar"}}},"metadata":{"rowno":{"@hide":"false"},"axrowtype":{"@hide":"true","@width":"80","@dec":"0","@type":"c","#text":"axrowtype"},"axp__font":{"@hide":"true","@width":"80","@dec":"0","@type":"c","#text":"axp__fontdetails"},"username":{"#text":"username","@width":"78","@dec":"0","@align":"Left","@type":"c","@freezecol":"F","@hide":"false"},"build":{"#text":"build","@width":"58","@dec":"0","@align":"Left","@type":"c","@freezecol":"F","@hide":"false"},"manage":{"#text":"manage","@width":"30","@dec":"0","@align":"Left","@type":"c","@freezecol":"F","@hide":"false"},"groupno":{"#text":"groupno","@width":"100","@dec":"0","@align":"Center","@type":"n","@freezecol":"F","@hide":"false"}},"row":[{"rowno":"1","username":"admin","build":"T","manage":"T","groupno":"2","axp__font":"username,Arial,8,f,f,f,f,clBlack~build,Arial,8,f,f,f,f,clBlack~manage,Arial,8,f,f,f,f,clBlack~groupno,Arial,8,f,f,f,f,clBlack"}]}}
+After Rest Service: 2026-02-21 19:28:31.687
+Before Export Excel: 2026-02-21 19:28:31.741
+After Export Excel: 2026-02-21 19:28:33.045
+Inser Query:INSERT INTO axactivemessages(eventdatetime, msgtype,fromuser,touser,tasktype,processname,taskname,transid, displaytitle,displaycontent,hlink_params) values('20260221192833047','export excel1','admin','admin','export','export excel2','export excel-tivhpar','tivhpar','export excel generated successfully','Test iview hidden param','\\\\localhost\\Sharefolder\\Exports\\admin\\Test iview hidden param_20260221192832621.xlsx')
+Connection String:Server=localhost; Port=5433; Database=axpertdb;Uid=goldendump114;Pwd=log;Pooling=false;
+DBType:POSTGRE
+After notification:2026-02-21 19:28:33.404

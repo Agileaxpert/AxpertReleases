@@ -1,0 +1,697 @@
+Input JSON - {"ARMSessionId":"ARM-pgbase114-a5b9e0b4-564d-4ef5-a29e-5e2df69168f3","AxSessionId":null,"Project":null,"UserName":null,"Trace":true,"ValidateOnly":false,"AxClient_DateFormat":"yyyy-MM-dd","Roles":[],"Data":[{"TransId":"tst23","RecordId":0,"Action":"edit","KeyField":"recordid","KeyValue":"100000000005258","UserName":null,"Roles":[],"SubmitData":{"dc1":{"row1":{"axp_recid":"100000000005258","axrow_action":"edit","txtfld":"BAD 04A B1","txtfld2":"BAB 04A AAAAAB","decnum":"04.00","wholenum":"0404","datafld":"2025-12-26","timefld":"04:04 AM","timestampfld":"2025-12-26","dropdown":"Item2","multifld":"mohan","richtext":"t t 0404B","chklist":"Check2,Check3","chkbox":"T","radiogrp":"Radio2","empng":"002"}}}}]}
+Initiating DB connection for application 'pgbase114'
+Reading AxProps XML: <axprops getfrom="" setto=""><lastlogin>pgbase114</lastlogin><oradatestring>dd/mm/yyyy hh24:mi:ss</oradatestring><crlocation></crlocation><lastusername>admin</lastusername><login>local</login><skin>Black</skin><lastlang>ENGLISH</lastlang><axhelp>true</axhelp><agileerpbase>agileerpbase,public</agileerpbase><pgbase114odbc>pgbase114</pgbase114odbc></axprops>
+
+<b>[SQL]</b>
+Select now() as sdt
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-18 11:28:21.025, Ended: 2026-02-18 11:28:21.031, Duration: 6.46ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>sdt</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>18-02-2026 05:43</td></tr></tbody></table><b>[SQL]</b>
+select * from fn_permissions_getcnd( @action , @transid , @keyfield , @keyvalue , @username , @roles )
+<b>[Parameters]</b>
+  <b>@action</b> (String/System.String) : <b>edit</b>
+  <b>@transid</b> (String/System.String) : <b>tst23</b>
+  <b>@keyfield</b> (String/System.String) : <b>recordid</b>
+  <b>@keyvalue</b> (String/System.String) : <b>'100000000005258'</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@roles</b> (String/System.String) : <b>default</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-18 11:28:21.033, Ended: 2026-02-18 11:28:21.068, Duration: 35.40ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>fullcontrol</th><th style='padding: 8px; background-color: #f2f2f2;'>userrole</th><th style='padding: 8px; background-color: #f2f2f2;'>allowcreate</th><th style='padding: 8px; background-color: #f2f2f2;'>view_access</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includedc</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludedc</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_access</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_includedc</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_excludedc</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>maskedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>filtercnd</th><th style='padding: 8px; background-color: #f2f2f2;'>recordid</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>permissiontype</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>100000000005258</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table>Excluded DC Elements - NONE
+Included DC Elements - ALL
+Excluded Elements - NONE
+Included Elements - ALL
+RecordId - 100000000005258
+tst23_EDIT_RECORDID_100000000005258 Access Result JSON - {"data":{"ExcludedDCs":["NONE"],"IncludedDCs":["ALL"],"ExcludedFields":["NONE"],"IncludedFields":["ALL"],"RecordId":"100000000005258"},"success":false,"error":null}
+Client date format from AxPut Input Json: yyyy-MM-dd
+Client date format from Global Vars: yyyy-MM-dd
+Final client date format: yyyy-MM-dd
+<b>StructDef and Validate initialized for {StructName}</b>
+tst23
+<b>[SQL]</b>
+select tst231.tst231id,tst231.cancel,tst231.sourceid,tst231.mapname,tst231.username,tst231.modifiedon,tst231.createdby,tst231.createdon,tst231.wkid,tst231.app_level,tst231.app_desc,tst231.app_slevel,tst231.cancelremarks,tst231.wfroles,tst231.txtfld,tst231.txtfld2,tst231.decnum,tst231.wholenum,tst231.datafld,tst231.timefld,tst231.timestampfld,tst231.autogen,tst231.dropdown,tst231.multifld,tst231.richtext,tst231.chklist,tst231.chkbox,tst231.radiogrp,tst231.empng empng_sourceid,empng.emp_id empng,tst231.testa,tst231.largetext from tst231  left join emplo1 empng on tst231.empng = empng.emplo1id where tst231.tst231id= :recordid
+<b>[Parameters]</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005258</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-18 11:28:21.079, Ended: 2026-02-18 11:28:21.090, Duration: 10.98ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>tst231id</th><th style='padding: 8px; background-color: #f2f2f2;'>cancel</th><th style='padding: 8px; background-color: #f2f2f2;'>sourceid</th><th style='padding: 8px; background-color: #f2f2f2;'>mapname</th><th style='padding: 8px; background-color: #f2f2f2;'>username</th><th style='padding: 8px; background-color: #f2f2f2;'>modifiedon</th><th style='padding: 8px; background-color: #f2f2f2;'>createdby</th><th style='padding: 8px; background-color: #f2f2f2;'>createdon</th><th style='padding: 8px; background-color: #f2f2f2;'>wkid</th><th style='padding: 8px; background-color: #f2f2f2;'>app_level</th><th style='padding: 8px; background-color: #f2f2f2;'>app_desc</th><th style='padding: 8px; background-color: #f2f2f2;'>app_slevel</th><th style='padding: 8px; background-color: #f2f2f2;'>cancelremarks</th><th style='padding: 8px; background-color: #f2f2f2;'>wfroles</th><th style='padding: 8px; background-color: #f2f2f2;'>txtfld</th><th style='padding: 8px; background-color: #f2f2f2;'>txtfld2</th><th style='padding: 8px; background-color: #f2f2f2;'>decnum</th><th style='padding: 8px; background-color: #f2f2f2;'>wholenum</th><th style='padding: 8px; background-color: #f2f2f2;'>datafld</th><th style='padding: 8px; background-color: #f2f2f2;'>timefld</th><th style='padding: 8px; background-color: #f2f2f2;'>timestampfld</th><th style='padding: 8px; background-color: #f2f2f2;'>autogen</th><th style='padding: 8px; background-color: #f2f2f2;'>dropdown</th><th style='padding: 8px; background-color: #f2f2f2;'>multifld</th><th style='padding: 8px; background-color: #f2f2f2;'>richtext</th><th style='padding: 8px; background-color: #f2f2f2;'>chklist</th><th style='padding: 8px; background-color: #f2f2f2;'>chkbox</th><th style='padding: 8px; background-color: #f2f2f2;'>radiogrp</th><th style='padding: 8px; background-color: #f2f2f2;'>empng_sourceid</th><th style='padding: 8px; background-color: #f2f2f2;'>empng</th><th style='padding: 8px; background-color: #f2f2f2;'>testa</th><th style='padding: 8px; background-color: #f2f2f2;'>largetext</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005258</td><td style='padding: 8px; text-align: left;'>F</td><td style='padding: 8px; text-align: left;'>0</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>admin</td><td style='padding: 8px; text-align: left;'>18-02-2026 11:27</td><td style='padding: 8px; text-align: left;'>admin</td><td style='padding: 8px; text-align: left;'>18-02-2026 11:27</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>1</td><td style='padding: 8px; text-align: left;'>1</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>QWWQQWWAAZ</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>4.00</td><td style='padding: 8px; text-align: left;'>404</td><td style='padding: 8px; text-align: left;'>25-12-2025 00:00</td><td style='padding: 8px; text-align: left;'>04:04 AM</td><td style='padding: 8px; text-align: left;'>25-12-2025 00:00</td><td style='padding: 8px; text-align: left;'>AUTO-0000000314</td><td style='padding: 8px; text-align: left;'>Item2</td><td style='padding: 8px; text-align: left;'>mohan</td><td style='padding: 8px; text-align: left;'>t t 0404A</td><td style='padding: 8px; text-align: left;'>Check2,Check3</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'>Radio2</td><td style='padding: 8px; text-align: left;'>1015550000000</td><td style='padding: 8px; text-align: left;'>001</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'>TES SS TES 04A</td></tr></tbody></table>ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2025-12-25, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2025-12-25, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, Value : 2025-12-25 00:00:00, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025 00:00:00
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, OldValue : 2025-12-25 00:00:00, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025 00:00:00
+<b>[SQL]</b>
+select tst232.tst231id,tst232.tst232id,tst232.tst232row,tst232.gridtxt,tst232.griddecimal,tst232.griddate from tst232  where tst232.tst231id= :recordid order by tst232row
+<b>[Parameters]</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005258</b>
+<b>[Result]</b>
+Rows count: 3, Started: 2026-02-18 11:28:21.091, Ended: 2026-02-18 11:28:21.099, Duration: 8.00ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>tst231id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst232id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst232row</th><th style='padding: 8px; background-color: #f2f2f2;'>gridtxt</th><th style='padding: 8px; background-color: #f2f2f2;'>griddecimal</th><th style='padding: 8px; background-color: #f2f2f2;'>griddate</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005258</td><td style='padding: 8px; text-align: left;'>100000000005259</td><td style='padding: 8px; text-align: left;'>1</td><td style='padding: 8px; text-align: left;'>DC2-1-04A</td><td style='padding: 8px; text-align: left;'>4.00</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005258</td><td style='padding: 8px; text-align: left;'>100000000005260</td><td style='padding: 8px; text-align: left;'>2</td><td style='padding: 8px; text-align: left;'>DC2-2-04A</td><td style='padding: 8px; text-align: left;'>5.04</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005258</td><td style='padding: 8px; text-align: left;'>100000000005261</td><td style='padding: 8px; text-align: left;'>3</td><td style='padding: 8px; text-align: left;'>DC2-3-04A</td><td style='padding: 8px; text-align: left;'>6.00</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td></tr></tbody></table>ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+<b>[SQL]</b>
+select tst234.tst231id,tst234.tst234id,tst234.tst234row,tst234.grid2txt,tst234.grid2txt2,tst234.grid2date,tst234.grid2num,empgg.emp_id empgg,tst234.empgg empgg_sourceid from tst234  left join emplo1 empgg on tst234.empgg = empgg.emplo1id where tst234.tst231id= :recordid order by tst234row
+<b>[Parameters]</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005258</b>
+<b>[Result]</b>
+Rows count: 2, Started: 2026-02-18 11:28:21.100, Ended: 2026-02-18 11:28:21.116, Duration: 16.35ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>tst231id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst234id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst234row</th><th style='padding: 8px; background-color: #f2f2f2;'>grid2txt</th><th style='padding: 8px; background-color: #f2f2f2;'>grid2txt2</th><th style='padding: 8px; background-color: #f2f2f2;'>grid2date</th><th style='padding: 8px; background-color: #f2f2f2;'>grid2num</th><th style='padding: 8px; background-color: #f2f2f2;'>empgg</th><th style='padding: 8px; background-color: #f2f2f2;'>empgg_sourceid</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005258</td><td style='padding: 8px; text-align: left;'>100000000005262</td><td style='padding: 8px; text-align: left;'>1</td><td style='padding: 8px; text-align: left;'>DC4-1-04A</td><td style='padding: 8px; text-align: left;'>AAA-04A</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td><td style='padding: 8px; text-align: left;'>1004</td><td style='padding: 8px; text-align: left;'>001</td><td style='padding: 8px; text-align: left;'>1015550000000</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005258</td><td style='padding: 8px; text-align: left;'>100000000005263</td><td style='padding: 8px; text-align: left;'>2</td><td style='padding: 8px; text-align: left;'>DC4-2-04A</td><td style='padding: 8px; text-align: left;'>BBB-04A</td><td style='padding: 8px; text-align: left;'>24-12-2045 00:00</td><td style='padding: 8px; text-align: left;'>2004</td><td style='padding: 8px; text-align: left;'>002</td><td style='padding: 8px; text-align: left;'>1015880000000</td></tr></tbody></table>ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+<b>[SQL]</b>
+select tst235.tst231id,tst235.tst235id,tst235.nongrid_largetext,tst235.nongrid_num from tst235  where tst235.tst231id= :recordid
+<b>[Parameters]</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>100000000005258</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-18 11:28:21.116, Ended: 2026-02-18 11:28:21.126, Duration: 9.28ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>tst231id</th><th style='padding: 8px; background-color: #f2f2f2;'>tst235id</th><th style='padding: 8px; background-color: #f2f2f2;'>nongrid_largetext</th><th style='padding: 8px; background-color: #f2f2f2;'>nongrid_num</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005258</td><td style='padding: 8px; text-align: left;'>100000000005264</td><td style='padding: 8px; text-align: left;'>TEST -04A</td><td style='padding: 8px; text-align: left;'>104</td></tr></tbody></table>RefreshFieldOnLoad started for row with 27 fields
+DC Name: DC1
+Field Name:  txtfld
+Field Name:  txtfld2
+Field Name:  decnum
+Field Name:  wholenum
+Field Name:  datafld
+Field Name:  timefld
+Field Name:  timestampfld
+Field Name:  autogen
+Field Name:  dropdown
+Field Name:  multifld
+Field Name:  richtext
+Field Name:  chklist
+Field Name:  chkbox
+Field Name:  radiogrp
+Field Name:  empng
+Field Name:  testa
+DC Name: DC2
+Field Name:  gridtxt
+Field Name:  griddecimal
+Field Name:  griddate
+Field Name:  gridtxt
+Field Name:  griddecimal
+Field Name:  griddate
+Field Name:  gridtxt
+Field Name:  griddecimal
+Field Name:  griddate
+DC Name: DC3
+Field Name:  largetext
+DC Name: DC4
+Field Name:  grid2txt
+Field Name:  grid2txt2
+Field Name:  grid2date
+Field Name:  grid2num
+Field Name:  empgg
+Field Name:  grid2txt
+Field Name:  grid2txt2
+Field Name:  grid2date
+Field Name:  grid2num
+Field Name:  empgg
+DC Name: DC5
+Field Name:  nongrid_largetext
+Field Name:  nongrid_num
+RefreshField completed for row  Processed 0 fields. Final result: 
+Starting to process 5 data containers
+Processing Data Container: dc1 (Frame 1)
+Processing Row: row1 (Row Number 1) in dc1
+Processing Field: 'txtfld' with Value: 'QWWQQWWAAZ' in dc1->row1
+Successfully processed field 'txtfld' = 'QWWQQWWAAZ'
+Processing Field: 'txtfld2' with Value: '' in dc1->row1
+Successfully processed field 'txtfld2' = ''
+Processing Field: 'decnum' with Value: '4.00' in dc1->row1
+Successfully processed field 'decnum' = '4.00'
+Processing Field: 'wholenum' with Value: '404' in dc1->row1
+Successfully processed field 'wholenum' = '404'
+Processing Field: 'datafld' with Value: '2025-12-25' in dc1->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2025-12-25, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2025-12-25, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025
+Successfully processed field 'datafld' = '2025-12-25'
+Processing Field: 'timefld' with Value: '04:04 AM' in dc1->row1
+Successfully processed field 'timefld' = '04:04 AM'
+Processing Field: 'timestampfld' with Value: '2025-12-25 00:00:00' in dc1->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, Value : 2025-12-25 00:00:00, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025 00:00:00
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, OldValue : 2025-12-25 00:00:00, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 25/12/2025 00:00:00
+Successfully processed field 'timestampfld' = '2025-12-25 00:00:00'
+Processing Field: 'autogen' with Value: 'AUTO-0000000314' in dc1->row1
+Successfully processed field 'autogen' = 'AUTO-0000000314'
+Processing Field: 'dropdown' with Value: 'Item2' in dc1->row1
+Successfully processed field 'dropdown' = 'Item2'
+Processing Field: 'dropdown_sourceid' with Value: '0' in dc1->row1
+Field dropdown_sourceid not found in struct definition
+Processing Field: 'multifld' with Value: 'mohan' in dc1->row1
+Successfully processed field 'multifld' = 'mohan'
+Processing Field: 'multifld_sourceid' with Value: '0' in dc1->row1
+Field multifld_sourceid not found in struct definition
+Processing Field: 'richtext' with Value: 't t 0404A' in dc1->row1
+Successfully processed field 'richtext' = 't t 0404A'
+Processing Field: 'chklist' with Value: 'Check2,Check3' in dc1->row1
+Successfully processed field 'chklist' = 'Check2,Check3'
+Processing Field: 'chklist_sourceid' with Value: '0' in dc1->row1
+Field chklist_sourceid not found in struct definition
+Processing Field: 'chkbox' with Value: 'T' in dc1->row1
+Successfully processed field 'chkbox' = 'T'
+Processing Field: 'radiogrp' with Value: 'Radio2' in dc1->row1
+Successfully processed field 'radiogrp' = 'Radio2'
+Processing Field: 'radiogrp_sourceid' with Value: '0' in dc1->row1
+Field radiogrp_sourceid not found in struct definition
+Processing Field: 'empng' with Value: '001' in dc1->row1
+Successfully processed field 'empng' = '001'
+Processing Field: 'empng_sourceid' with Value: '1015550000000' in dc1->row1
+Field empng_sourceid not found in struct definition
+Processing Field: 'testa' with Value: '' in dc1->row1
+Successfully processed field 'testa' = ''
+Completed processing all fields for dc1->row1
+Completed processing all rows for dc1
+Processing Data Container: dc2 (Frame 2)
+Processing Row: row1 (Row Number 1) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-1-04A' in dc2->row1
+Successfully processed field 'gridtxt' = 'DC2-1-04A'
+Processing Field: 'griddecimal' with Value: '4.00' in dc2->row1
+Successfully processed field 'griddecimal' = '4.00'
+Processing Field: 'griddate' with Value: '2045-12-24' in dc2->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+Successfully processed field 'griddate' = '2045-12-24'
+Completed processing all fields for dc2->row1
+Processing Row: row2 (Row Number 2) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-2-04A' in dc2->row2
+Successfully processed field 'gridtxt' = 'DC2-2-04A'
+Processing Field: 'griddecimal' with Value: '5.04' in dc2->row2
+Successfully processed field 'griddecimal' = '5.04'
+Processing Field: 'griddate' with Value: '2045-12-24' in dc2->row2
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+Successfully processed field 'griddate' = '2045-12-24'
+Completed processing all fields for dc2->row2
+Processing Row: row3 (Row Number 3) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-3-04A' in dc2->row3
+Successfully processed field 'gridtxt' = 'DC2-3-04A'
+Processing Field: 'griddecimal' with Value: '6.00' in dc2->row3
+Successfully processed field 'griddecimal' = '6.00'
+Processing Field: 'griddate' with Value: '2045-12-24' in dc2->row3
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+Successfully processed field 'griddate' = '2045-12-24'
+Completed processing all fields for dc2->row3
+Completed processing all rows for dc2
+Processing Data Container: dc3 (Frame 3)
+Processing Row: row1 (Row Number 1) in dc3
+Processing Field: 'largetext' with Value: 'TES SS TES 04A' in dc3->row1
+Successfully processed field 'largetext' = 'TES SS TES 04A'
+Completed processing all fields for dc3->row1
+Completed processing all rows for dc3
+Processing Data Container: dc4 (Frame 4)
+Processing Row: row1 (Row Number 1) in dc4
+Processing Field: 'grid2txt' with Value: 'DC4-1-04A' in dc4->row1
+Successfully processed field 'grid2txt' = 'DC4-1-04A'
+Processing Field: 'grid2txt2' with Value: 'AAA-04A' in dc4->row1
+Successfully processed field 'grid2txt2' = 'AAA-04A'
+Processing Field: 'grid2date' with Value: '2045-12-24' in dc4->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+Successfully processed field 'grid2date' = '2045-12-24'
+Processing Field: 'grid2num' with Value: '1004' in dc4->row1
+Successfully processed field 'grid2num' = '1004'
+Processing Field: 'empgg' with Value: '001' in dc4->row1
+Successfully processed field 'empgg' = '001'
+Processing Field: 'empgg_sourceid' with Value: '1015550000000' in dc4->row1
+Field empgg_sourceid not found in struct definition
+Completed processing all fields for dc4->row1
+Processing Row: row2 (Row Number 2) in dc4
+Processing Field: 'grid2txt' with Value: 'DC4-2-04A' in dc4->row2
+Successfully processed field 'grid2txt' = 'DC4-2-04A'
+Processing Field: 'grid2txt2' with Value: 'BBB-04A' in dc4->row2
+Successfully processed field 'grid2txt2' = 'BBB-04A'
+Processing Field: 'grid2date' with Value: '2045-12-24' in dc4->row2
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 2045-12-24, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 24/12/2045
+Successfully processed field 'grid2date' = '2045-12-24'
+Processing Field: 'grid2num' with Value: '2004' in dc4->row2
+Successfully processed field 'grid2num' = '2004'
+Processing Field: 'empgg' with Value: '002' in dc4->row2
+Successfully processed field 'empgg' = '002'
+Processing Field: 'empgg_sourceid' with Value: '1015880000000' in dc4->row2
+Field empgg_sourceid not found in struct definition
+Completed processing all fields for dc4->row2
+Completed processing all rows for dc4
+Processing Data Container: dc5 (Frame 5)
+Processing Row: row1 (Row Number 1) in dc5
+Processing Field: 'nongrid_largetext' with Value: 'TEST -04A' in dc5->row1
+Successfully processed field 'nongrid_largetext' = 'TEST -04A'
+Processing Field: 'nongrid_num' with Value: '104' in dc5->row1
+Successfully processed field 'nongrid_num' = '104'
+Completed processing all fields for dc5->row1
+Completed processing all rows for dc5
+Processed 38 fields total across all data containers and rows
+Starting to process 1 data containers
+Processing Data Container: dc1 (Frame 1)
+Processing Row: row1 (Row Number 1) in dc1
+Processing Field: 'txtfld' with Value: 'BAD 04A B1' in dc1->row1
+Successfully processed field 'txtfld' = 'BAD 04A B1'
+Processing Field: 'txtfld2' with Value: 'BAB 04A AAAAAB' in dc1->row1
+Successfully processed field 'txtfld2' = 'BAB 04A AAAAAB'
+Processing Field: 'decnum' with Value: '04.00' in dc1->row1
+Successfully processed field 'decnum' = '04.00'
+Processing Field: 'wholenum' with Value: '0404' in dc1->row1
+Successfully processed field 'wholenum' = '0404'
+Processing Field: 'datafld' with Value: '2025-12-26' in dc1->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 2025-12-26, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 26/12/2025
+ConvertClientDateToDBDateFormat(CustomDataType : Date, OldValue : 25/12/2025, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '25/12/2025' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2150","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+Successfully processed field 'datafld' = '2025-12-26'
+Processing Field: 'timefld' with Value: '04:04 AM' in dc1->row1
+Successfully processed field 'timefld' = '04:04 AM'
+Processing Field: 'timestampfld' with Value: '2025-12-26' in dc1->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, Value : 2025-12-26, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat response, Value : 26/12/2025 00:00:00
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, OldValue : 25/12/2025 00:00:00, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '25/12/2025 00:00:00' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2838\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2150","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+Successfully processed field 'timestampfld' = '2025-12-26'
+Processing Field: 'dropdown' with Value: 'Item2' in dc1->row1
+Successfully processed field 'dropdown' = 'Item2'
+Processing Field: 'multifld' with Value: 'mohan' in dc1->row1
+Successfully processed field 'multifld' = 'mohan'
+Processing Field: 'richtext' with Value: 't t 0404B' in dc1->row1
+Successfully processed field 'richtext' = 't t 0404B'
+Processing Field: 'chklist' with Value: 'Check2,Check3' in dc1->row1
+Successfully processed field 'chklist' = 'Check2,Check3'
+Processing Field: 'chkbox' with Value: 'T' in dc1->row1
+Successfully processed field 'chkbox' = 'T'
+Processing Field: 'radiogrp' with Value: 'Radio2' in dc1->row1
+Successfully processed field 'radiogrp' = 'Radio2'
+Processing Field: 'empng' with Value: '002' in dc1->row1
+Successfully processed field 'empng' = '002'
+Completed processing all fields for dc1->row1
+Completed processing all rows for dc1
+Processed 14 fields total across all data containers and rows
+ValidateData started for row with 27 fields
+Processing field 1: txtfld
+Calling RefreshFieldAsync for txtfld
+Refresh Field - txtfld Row No 1
+Refresh Field Value - BAD 04A B1
+RefreshFieldAsync completed for txtfld: 'BAD 04A B1'
+Calling RapidValidateData for txtfld
+RapidValidateData result for txtfld: True
+Validation Success: Field 'txtfld' (Row No: 1) with value 'BAD 04A B1' is Valid.
+Processing field 2: txtfld2
+Calling RefreshFieldAsync for txtfld2
+Refresh Field - txtfld2 Row No 1
+Refresh Field Value - BAB 04A AAAAAB
+RefreshFieldAsync completed for txtfld2: 'BAB 04A AAAAAB'
+Calling RapidValidateData for txtfld2
+RapidValidateData result for txtfld2: True
+Validation Success: Field 'txtfld2' (Row No: 1) with value 'BAB 04A AAAAAB' is Valid.
+Processing field 3: decnum
+Calling RefreshFieldAsync for decnum
+Refresh Field - decnum Row No 1
+Refresh Field Value - 4.00
+RefreshFieldAsync completed for decnum: '4.00'
+Calling RapidValidateData for decnum
+RapidValidateData result for decnum: True
+Validation Success: Field 'decnum' (Row No: 1) with value '4.00' is Valid.
+Processing field 4: wholenum
+Calling RefreshFieldAsync for wholenum
+Refresh Field - wholenum Row No 1
+Refresh Field Value - 404
+RefreshFieldAsync completed for wholenum: '404'
+Calling RapidValidateData for wholenum
+RapidValidateData result for wholenum: True
+Validation Success: Field 'wholenum' (Row No: 1) with value '404' is Valid.
+Processing field 5: datafld
+Calling RefreshFieldAsync for datafld
+Refresh Field - datafld Row No 1
+Refresh Field Value - 26/12/2025
+RefreshFieldAsync completed for datafld: '26/12/2025'
+Calling RapidValidateData for datafld
+RapidValidateData result for datafld: True
+Validation Success: Field 'datafld' (Row No: 1) with value '26/12/2025' is Valid.
+Processing field 6: timefld
+Calling RefreshFieldAsync for timefld
+Refresh Field - timefld Row No 1
+Refresh Field Value - 04:04 AM
+RefreshFieldAsync completed for timefld: '04:04 AM'
+Calling RapidValidateData for timefld
+RapidValidateData result for timefld: True
+Validation Success: Field 'timefld' (Row No: 1) with value '04:04 AM' is Valid.
+Processing field 7: timestampfld
+Calling RefreshFieldAsync for timestampfld
+Refresh Field - timestampfld Row No 1
+Refresh Field Value - 26/12/2025 00:00:00
+RefreshFieldAsync completed for timestampfld: '26/12/2025 00:00:00'
+Calling RapidValidateData for timestampfld
+RapidValidateData result for timestampfld: True
+Validation Success: Field 'timestampfld' (Row No: 1) with value '26/12/2025 00:00:00' is Valid.
+Processing field 8: autogen
+Calling RefreshFieldAsync for autogen
+Refresh Field - autogen Row No 1
+Refresh Field Value - AUTO-0000000314
+RefreshFieldAsync completed for autogen: 'AUTO-0000000314'
+Calling RapidValidateData for autogen
+RapidValidateData result for autogen: True
+Validation Success: Field 'autogen' (Row No: 1) with value 'AUTO-0000000314' is Valid.
+Processing field 9: dropdown
+Calling RefreshFieldAsync for dropdown
+Refresh Field - dropdown Row No 1
+Refresh Field Value - Item2
+RefreshFieldAsync completed for dropdown: 'Item2'
+Calling RapidValidateData for dropdown
+RapidValidateData result for dropdown: True
+Validation Success: Field 'dropdown' (Row No: 1) with value 'Item2' is Valid.
+Processing field 10: multifld
+Calling RefreshFieldAsync for multifld
+Refresh Field - multifld Row No 1
+Database Type POSTGRE
+<b>[SQL]</b>
+select username from axusers
+<b>[Parameters]</b>
+<b>[Result]</b>
+Rows count: 156, Started: 2026-02-18 11:28:21.137, Ended: 2026-02-18 11:28:21.149, Duration: 11.79ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>username</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>aarav</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser01</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser02</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser03</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser04</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser05</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser06</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser07</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser08</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser09</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser10</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser11</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser12</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser13</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser14</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser15</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser16</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser17</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser18</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser19</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser20</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser21</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser22</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser23</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser24</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser25</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser26</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser27</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser28</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser29</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser30</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser31</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser32</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser33</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser34</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser35</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser36</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser37</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser38</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser39</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser40</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser41</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser42</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser43</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser44</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser45</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser46</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser47</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser48</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser49</td></tr><tr><td style='padding: 8px; text-align: left;'>actuser50</td></tr><tr><td style='padding: 8px; text-align: left;'>admin</td></tr><tr><td style='padding: 8px; text-align: left;'>agile1</td></tr><tr><td style='padding: 8px; text-align: left;'>agile2</td></tr><tr><td style='padding: 8px; text-align: left;'>akila</td></tr><tr><td style='padding: 8px; text-align: left;'>amrith</td></tr><tr><td style='padding: 8px; text-align: left;'>amrithanath@agile-labs.com</td></tr><tr><td style='padding: 8px; text-align: left;'>ashish</td></tr><tr><td style='padding: 8px; text-align: left;'>axidev</td></tr><tr><td style='padding: 8px; text-align: left;'>babu</td></tr><tr><td style='padding: 8px; text-align: left;'>babu2</td></tr><tr><td style='padding: 8px; text-align: left;'>babu3</td></tr><tr><td style='padding: 8px; text-align: left;'>Deeksha</td></tr><tr><td style='padding: 8px; text-align: left;'>demouser</td></tr><tr><td style='padding: 8px; text-align: left;'>emp01</td></tr><tr><td style='padding: 8px; text-align: left;'>emp02</td></tr><tr><td style='padding: 8px; text-align: left;'>emp03</td></tr><tr><td style='padding: 8px; text-align: left;'>emp04</td></tr><tr><td style='padding: 8px; text-align: left;'>emp05</td></tr><tr><td style='padding: 8px; text-align: left;'>emp06</td></tr><tr><td style='padding: 8px; text-align: left;'>emp07</td></tr><tr><td style='padding: 8px; text-align: left;'>emp08</td></tr><tr><td style='padding: 8px; text-align: left;'>guna</td></tr><tr><td style='padding: 8px; text-align: left;'>Highp</td></tr><tr><td style='padding: 8px; text-align: left;'>itadmin@agile-labs.com</td></tr><tr><td style='padding: 8px; text-align: left;'>jaga</td></tr><tr><td style='padding: 8px; text-align: left;'>jesh</td></tr><tr><td style='padding: 8px; text-align: left;'>jeshma</td></tr><tr><td style='padding: 8px; text-align: left;'>kamala</td></tr><tr><td style='padding: 8px; text-align: left;'>karthi1</td></tr><tr><td style='padding: 8px; text-align: left;'>karthik</td></tr><tr><td style='padding: 8px; text-align: left;'>karthikeyan</td></tr><tr><td style='padding: 8px; text-align: left;'>karthikeyan@agile-labs.com</td></tr><tr><td style='padding: 8px; text-align: left;'>lakshmi</td></tr><tr><td style='padding: 8px; text-align: left;'>logesh</td></tr><tr><td style='padding: 8px; text-align: left;'>Lowp</td></tr><tr><td style='padding: 8px; text-align: left;'>mahendra</td></tr><tr><td style='padding: 8px; text-align: left;'>mahi</td></tr><tr><td style='padding: 8px; text-align: left;'>malakonda</td></tr><tr><td style='padding: 8px; text-align: left;'>managertest</td></tr><tr><td style='padding: 8px; text-align: left;'>manju</td></tr><tr><td style='padding: 8px; text-align: left;'>manoj</td></tr><tr><td style='padding: 8px; text-align: left;'>Mediump</td></tr><tr><td style='padding: 8px; text-align: left;'>mohan</td></tr><tr><td style='padding: 8px; text-align: left;'>mohanj</td></tr><tr><td style='padding: 8px; text-align: left;'>narasimha</td></tr><tr><td style='padding: 8px; text-align: left;'>newqauser</td></tr><tr><td style='padding: 8px; text-align: left;'>newuser</td></tr><tr><td style='padding: 8px; text-align: left;'>newuser1</td></tr><tr><td style='padding: 8px; text-align: left;'>notuser1</td></tr><tr><td style='padding: 8px; text-align: left;'>otpuser1</td></tr><tr><td style='padding: 8px; text-align: left;'>pavan</td></tr><tr><td style='padding: 8px; text-align: left;'>pentagon</td></tr><tr><td style='padding: 8px; text-align: left;'>prajwala</td></tr><tr><td style='padding: 8px; text-align: left;'>prajwala.s@agile-labs.com</td></tr><tr><td style='padding: 8px; text-align: left;'>prajwalaodbc</td></tr><tr><td style='padding: 8px; text-align: left;'>prajwalaop</td></tr><tr><td style='padding: 8px; text-align: left;'>prajwalaotp</td></tr><tr><td style='padding: 8px; text-align: left;'>prajwalau</td></tr><tr><td style='padding: 8px; text-align: left;'>prajwalau1</td></tr><tr><td style='padding: 8px; text-align: left;'>prajwalau23</td></tr><tr><td style='padding: 8px; text-align: left;'>ramya</td></tr><tr><td style='padding: 8px; text-align: left;'>rani</td></tr><tr><td style='padding: 8px; text-align: left;'>sabarish</td></tr><tr><td style='padding: 8px; text-align: left;'>salman</td></tr><tr><td style='padding: 8px; text-align: left;'>sandipansaha</td></tr><tr><td style='padding: 8px; text-align: left;'>sasi</td></tr><tr><td style='padding: 8px; text-align: left;'>sharma</td></tr><tr><td style='padding: 8px; text-align: left;'>shilpa</td></tr><tr><td style='padding: 8px; text-align: left;'>shilpac</td></tr><tr><td style='padding: 8px; text-align: left;'>shilpas</td></tr><tr><td style='padding: 8px; text-align: left;'>smokeuser1</td></tr><tr><td style='padding: 8px; text-align: left;'>srijesh</td></tr><tr><td style='padding: 8px; text-align: left;'>srijesh@agile-labs.com</td></tr><tr><td style='padding: 8px; text-align: left;'>srijesh@gmail.com</td></tr><tr><td style='padding: 8px; text-align: left;'>sruthi</td></tr><tr><td style='padding: 8px; text-align: left;'>syamala</td></tr><tr><td style='padding: 8px; text-align: left;'>syamala@agile-labs.com</td></tr><tr><td style='padding: 8px; text-align: left;'>SyaMala25</td></tr><tr><td style='padding: 8px; text-align: left;'>SYAMALA26</td></tr><tr><td style='padding: 8px; text-align: left;'>syamalab</td></tr><tr><td style='padding: 8px; text-align: left;'>syamalat</td></tr><tr><td style='padding: 8px; text-align: left;'>syamalay</td></tr><tr><td style='padding: 8px; text-align: left;'>tamil</td></tr><tr><td style='padding: 8px; text-align: left;'>tamil1</td></tr><tr><td style='padding: 8px; text-align: left;'>tamil2</td></tr><tr><td style='padding: 8px; text-align: left;'>test15</td></tr><tr><td style='padding: 8px; text-align: left;'>testnew</td></tr><tr><td style='padding: 8px; text-align: left;'>testuser</td></tr><tr><td style='padding: 8px; text-align: left;'>ttuser</td></tr><tr><td style='padding: 8px; text-align: left;'>user1</td></tr><tr><td style='padding: 8px; text-align: left;'>user11</td></tr><tr><td style='padding: 8px; text-align: left;'>user12</td></tr><tr><td style='padding: 8px; text-align: left;'>user13</td></tr><tr><td style='padding: 8px; text-align: left;'>user2</td></tr><tr><td style='padding: 8px; text-align: left;'>user22</td></tr><tr><td style='padding: 8px; text-align: left;'>user23</td></tr><tr><td style='padding: 8px; text-align: left;'>user3</td></tr><tr><td style='padding: 8px; text-align: left;'>userop</td></tr><tr><td style='padding: 8px; text-align: left;'>userop1</td></tr><tr><td style='padding: 8px; text-align: left;'>userop2</td></tr><tr><td style='padding: 8px; text-align: left;'>userop3</td></tr><tr><td style='padding: 8px; text-align: left;'>userop4</td></tr><tr><td style='padding: 8px; text-align: left;'>userp</td></tr><tr><td style='padding: 8px; text-align: left;'>vlakshmi.d@agile-labs.com</td></tr><tr><td style='padding: 8px; text-align: left;'>yuvan</td></tr></tbody></table>Refresh Field Value - mohan
+RefreshFieldAsync completed for multifld: 'mohan'
+Calling RapidValidateData for multifld
+RapidValidateData result for multifld: True
+Validation Success: Field 'multifld' (Row No: 1) with value 'mohan' is Valid.
+Processing field 11: richtext
+Calling RefreshFieldAsync for richtext
+Refresh Field - richtext Row No 1
+Refresh Field Value - t t 0404B
+RefreshFieldAsync completed for richtext: 't t 0404B'
+Calling RapidValidateData for richtext
+RapidValidateData result for richtext: True
+Validation Success: Field 'richtext' (Row No: 1) with value 't t 0404B' is Valid.
+Processing field 12: chklist
+Calling RefreshFieldAsync for chklist
+Refresh Field - chklist Row No 1
+Refresh Field Value - Check2,Check3
+RefreshFieldAsync completed for chklist: 'Check2,Check3'
+Calling RapidValidateData for chklist
+RapidValidateData result for chklist: True
+Validation Success: Field 'chklist' (Row No: 1) with value 'Check2,Check3' is Valid.
+Processing field 13: chkbox
+Calling RefreshFieldAsync for chkbox
+Refresh Field - chkbox Row No 1
+Refresh Field Value - T
+RefreshFieldAsync completed for chkbox: 'T'
+Calling RapidValidateData for chkbox
+RapidValidateData result for chkbox: True
+Validation Success: Field 'chkbox' (Row No: 1) with value 'T' is Valid.
+Processing field 14: radiogrp
+Calling RefreshFieldAsync for radiogrp
+Refresh Field - radiogrp Row No 1
+Refresh Field Value - Radio2
+RefreshFieldAsync completed for radiogrp: 'Radio2'
+Calling RapidValidateData for radiogrp
+RapidValidateData result for radiogrp: True
+Validation Success: Field 'radiogrp' (Row No: 1) with value 'Radio2' is Valid.
+Processing field 15: empng
+Calling RefreshFieldAsync for empng
+Refresh Field - empng Row No 1
+Database Type POSTGRE
+<b>[SQL]</b>
+select emplo1id, emp_id from emplo1
+<b>[Parameters]</b>
+<b>[Result]</b>
+Rows count: 3, Started: 2026-02-18 11:28:21.151, Ended: 2026-02-18 11:28:21.155, Duration: 4.68ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>emplo1id</th><th style='padding: 8px; background-color: #f2f2f2;'>emp_id</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1015550000000</td><td style='padding: 8px; text-align: left;'>001</td></tr><tr><td style='padding: 8px; text-align: left;'>1015880000000</td><td style='padding: 8px; text-align: left;'>002</td></tr><tr><td style='padding: 8px; text-align: left;'>1548330000000</td><td style='padding: 8px; text-align: left;'>003</td></tr></tbody></table>Refresh Field Value - 002
+RefreshFieldAsync completed for empng: '002'
+Calling RapidValidateData for empng
+RapidValidateData result for empng: True
+Validation Success: Field 'empng' (Row No: 1) with value '002' is Valid.
+Processing field 16: testa
+Calling RefreshFieldAsync for testa
+Refresh Field - testa Row No 1
+Refresh Field Value - 
+RefreshFieldAsync completed for testa: ''
+Calling RapidValidateData for testa
+RapidValidateData result for testa: True
+Validation Success: Field 'testa' (Row No: 1) with value '' is Valid.
+Processing field 17: gridtxt
+Calling RefreshFieldAsync for gridtxt
+Refresh Field - gridtxt Row No 1
+Refresh Field Value - DC2-1-04A
+RefreshFieldAsync completed for gridtxt: 'DC2-1-04A'
+Calling RapidValidateData for gridtxt
+RapidValidateData result for gridtxt: True
+Validation Success: Field 'gridtxt' (Row No: 1) with value 'DC2-1-04A' is Valid.
+Processing field 18: griddecimal
+Calling RefreshFieldAsync for griddecimal
+Refresh Field - griddecimal Row No 1
+Refresh Field Value - 4.00
+RefreshFieldAsync completed for griddecimal: '4.00'
+Calling RapidValidateData for griddecimal
+RapidValidateData result for griddecimal: True
+Validation Success: Field 'griddecimal' (Row No: 1) with value '4.00' is Valid.
+Processing field 19: griddate
+Calling RefreshFieldAsync for griddate
+Refresh Field - griddate Row No 1
+Refresh Field Value - 24/12/2045
+RefreshFieldAsync completed for griddate: '24/12/2045'
+Calling RapidValidateData for griddate
+RapidValidateData result for griddate: True
+Validation Success: Field 'griddate' (Row No: 1) with value '24/12/2045' is Valid.
+Processing field 20: gridtxt
+Calling RefreshFieldAsync for gridtxt
+Refresh Field - gridtxt Row No 2
+Refresh Field Value - DC2-2-04A
+RefreshFieldAsync completed for gridtxt: 'DC2-2-04A'
+Calling RapidValidateData for gridtxt
+RapidValidateData result for gridtxt: True
+Validation Success: Field 'gridtxt' (Row No: 2) with value 'DC2-2-04A' is Valid.
+Processing field 21: griddecimal
+Calling RefreshFieldAsync for griddecimal
+Refresh Field - griddecimal Row No 2
+Refresh Field Value - 5.04
+RefreshFieldAsync completed for griddecimal: '5.04'
+Calling RapidValidateData for griddecimal
+RapidValidateData result for griddecimal: True
+Validation Success: Field 'griddecimal' (Row No: 2) with value '5.04' is Valid.
+Processing field 22: griddate
+Calling RefreshFieldAsync for griddate
+Refresh Field - griddate Row No 2
+Refresh Field Value - 24/12/2045
+RefreshFieldAsync completed for griddate: '24/12/2045'
+Calling RapidValidateData for griddate
+RapidValidateData result for griddate: True
+Validation Success: Field 'griddate' (Row No: 2) with value '24/12/2045' is Valid.
+Processing field 23: gridtxt
+Calling RefreshFieldAsync for gridtxt
+Refresh Field - gridtxt Row No 3
+Refresh Field Value - DC2-3-04A
+RefreshFieldAsync completed for gridtxt: 'DC2-3-04A'
+Calling RapidValidateData for gridtxt
+RapidValidateData result for gridtxt: True
+Validation Success: Field 'gridtxt' (Row No: 3) with value 'DC2-3-04A' is Valid.
+Processing field 24: griddecimal
+Calling RefreshFieldAsync for griddecimal
+Refresh Field - griddecimal Row No 3
+Refresh Field Value - 6.00
+RefreshFieldAsync completed for griddecimal: '6.00'
+Calling RapidValidateData for griddecimal
+RapidValidateData result for griddecimal: True
+Validation Success: Field 'griddecimal' (Row No: 3) with value '6.00' is Valid.
+Processing field 25: griddate
+Calling RefreshFieldAsync for griddate
+Refresh Field - griddate Row No 3
+Refresh Field Value - 24/12/2045
+RefreshFieldAsync completed for griddate: '24/12/2045'
+Calling RapidValidateData for griddate
+RapidValidateData result for griddate: True
+Validation Success: Field 'griddate' (Row No: 3) with value '24/12/2045' is Valid.
+Processing field 26: largetext
+Calling RefreshFieldAsync for largetext
+Refresh Field - largetext Row No 1
+Refresh Field Value - TES SS TES 04A
+RefreshFieldAsync completed for largetext: 'TES SS TES 04A'
+Calling RapidValidateData for largetext
+RapidValidateData result for largetext: True
+Validation Success: Field 'largetext' (Row No: 1) with value 'TES SS TES 04A' is Valid.
+Processing field 27: grid2txt
+Calling RefreshFieldAsync for grid2txt
+Refresh Field - grid2txt Row No 1
+Refresh Field Value - DC4-1-04A
+RefreshFieldAsync completed for grid2txt: 'DC4-1-04A'
+Calling RapidValidateData for grid2txt
+RapidValidateData result for grid2txt: True
+Validation Success: Field 'grid2txt' (Row No: 1) with value 'DC4-1-04A' is Valid.
+Processing field 28: grid2txt2
+Calling RefreshFieldAsync for grid2txt2
+Refresh Field - grid2txt2 Row No 1
+Refresh Field Value - AAA-04A
+RefreshFieldAsync completed for grid2txt2: 'AAA-04A'
+Calling RapidValidateData for grid2txt2
+RapidValidateData result for grid2txt2: True
+Validation Success: Field 'grid2txt2' (Row No: 1) with value 'AAA-04A' is Valid.
+Processing field 29: grid2date
+Calling RefreshFieldAsync for grid2date
+Refresh Field - grid2date Row No 1
+Refresh Field Value - 24/12/2045
+RefreshFieldAsync completed for grid2date: '24/12/2045'
+Calling RapidValidateData for grid2date
+RapidValidateData result for grid2date: True
+Validation Success: Field 'grid2date' (Row No: 1) with value '24/12/2045' is Valid.
+Processing field 30: grid2num
+Calling RefreshFieldAsync for grid2num
+Refresh Field - grid2num Row No 1
+Refresh Field Value - 1004
+RefreshFieldAsync completed for grid2num: '1004'
+Calling RapidValidateData for grid2num
+RapidValidateData result for grid2num: True
+Validation Success: Field 'grid2num' (Row No: 1) with value '1004' is Valid.
+Processing field 31: empgg
+Calling RefreshFieldAsync for empgg
+Refresh Field - empgg Row No 1
+Database Type POSTGRE
+<b>[SQL]</b>
+select emplo1id, emp_id from emplo1
+<b>[Parameters]</b>
+<b>[Result]</b>
+Rows count: 3, Started: 2026-02-18 11:28:21.156, Ended: 2026-02-18 11:28:21.164, Duration: 7.91ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>emplo1id</th><th style='padding: 8px; background-color: #f2f2f2;'>emp_id</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1015550000000</td><td style='padding: 8px; text-align: left;'>001</td></tr><tr><td style='padding: 8px; text-align: left;'>1015880000000</td><td style='padding: 8px; text-align: left;'>002</td></tr><tr><td style='padding: 8px; text-align: left;'>1548330000000</td><td style='padding: 8px; text-align: left;'>003</td></tr></tbody></table>Refresh Field Value - 001
+RefreshFieldAsync completed for empgg: '001'
+Calling RapidValidateData for empgg
+RapidValidateData result for empgg: True
+Validation Success: Field 'empgg' (Row No: 1) with value '001' is Valid.
+Processing field 32: grid2txt
+Calling RefreshFieldAsync for grid2txt
+Refresh Field - grid2txt Row No 2
+Refresh Field Value - DC4-2-04A
+RefreshFieldAsync completed for grid2txt: 'DC4-2-04A'
+Calling RapidValidateData for grid2txt
+RapidValidateData result for grid2txt: True
+Validation Success: Field 'grid2txt' (Row No: 2) with value 'DC4-2-04A' is Valid.
+Processing field 33: grid2txt2
+Calling RefreshFieldAsync for grid2txt2
+Refresh Field - grid2txt2 Row No 2
+Refresh Field Value - BBB-04A
+RefreshFieldAsync completed for grid2txt2: 'BBB-04A'
+Calling RapidValidateData for grid2txt2
+RapidValidateData result for grid2txt2: True
+Validation Success: Field 'grid2txt2' (Row No: 2) with value 'BBB-04A' is Valid.
+Processing field 34: grid2date
+Calling RefreshFieldAsync for grid2date
+Refresh Field - grid2date Row No 2
+Refresh Field Value - 24/12/2045
+RefreshFieldAsync completed for grid2date: '24/12/2045'
+Calling RapidValidateData for grid2date
+RapidValidateData result for grid2date: True
+Validation Success: Field 'grid2date' (Row No: 2) with value '24/12/2045' is Valid.
+Processing field 35: grid2num
+Calling RefreshFieldAsync for grid2num
+Refresh Field - grid2num Row No 2
+Refresh Field Value - 2004
+RefreshFieldAsync completed for grid2num: '2004'
+Calling RapidValidateData for grid2num
+RapidValidateData result for grid2num: True
+Validation Success: Field 'grid2num' (Row No: 2) with value '2004' is Valid.
+Processing field 36: empgg
+Calling RefreshFieldAsync for empgg
+Refresh Field - empgg Row No 2
+Database Type POSTGRE
+<b>[SQL]</b>
+select emplo1id, emp_id from emplo1
+<b>[Parameters]</b>
+<b>[Result]</b>
+Rows count: 3, Started: 2026-02-18 11:28:21.165, Ended: 2026-02-18 11:28:21.169, Duration: 3.34ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>emplo1id</th><th style='padding: 8px; background-color: #f2f2f2;'>emp_id</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>1015550000000</td><td style='padding: 8px; text-align: left;'>001</td></tr><tr><td style='padding: 8px; text-align: left;'>1015880000000</td><td style='padding: 8px; text-align: left;'>002</td></tr><tr><td style='padding: 8px; text-align: left;'>1548330000000</td><td style='padding: 8px; text-align: left;'>003</td></tr></tbody></table>Refresh Field Value - 002
+RefreshFieldAsync completed for empgg: '002'
+Calling RapidValidateData for empgg
+RapidValidateData result for empgg: True
+Validation Success: Field 'empgg' (Row No: 2) with value '002' is Valid.
+Processing field 37: nongrid_largetext
+Calling RefreshFieldAsync for nongrid_largetext
+Refresh Field - nongrid_largetext Row No 1
+Refresh Field Value - TEST -04A
+RefreshFieldAsync completed for nongrid_largetext: 'TEST -04A'
+Calling RapidValidateData for nongrid_largetext
+RapidValidateData result for nongrid_largetext: True
+Validation Success: Field 'nongrid_largetext' (Row No: 1) with value 'TEST -04A' is Valid.
+Processing field 38: nongrid_num
+Calling RefreshFieldAsync for nongrid_num
+Refresh Field - nongrid_num Row No 1
+Refresh Field Value - 104
+RefreshFieldAsync completed for nongrid_num: '104'
+Calling RapidValidateData for nongrid_num
+RapidValidateData result for nongrid_num: True
+Validation Success: Field 'nongrid_num' (Row No: 1) with value '104' is Valid.
+RefreshField completed for row  Processed 38 fields. Final result: AxValidate.Dto.OperationResult
+Update SQL for tst231 : update tst231 set username = @username, modifiedon = to_timestamp( @modifiedon ,'dd/mm/yyyy hh24:mi:ss'), app_desc = @app_desc, app_level = @app_level, txtfld = @txtfld, txtfld2 = @txtfld2, datafld = to_timestamp( @datafld ,'dd/mm/yyyy hh24:mi:ss'), timestampfld = to_timestamp( @timestampfld ,'dd/mm/yyyy hh24:mi:ss'), richtext = @richtext, empng = @empng where tst231id = @tst231id
+<b>Parameters</b>
+["@username","@modifiedon","@app_desc","@app_level","@txtfld","@txtfld2","@datafld","@timestampfld","@richtext","@empng","@tst231id"]
+<b>Param Types</b>
+[16,16,12,12,16,16,16,16,16,12,12]
+<b>Values</b>
+["admin","18/02/2026 11:28:21",1,1,"BAD 04A B1","BAB 04A AAAAAB","26/12/2025","26/12/2025 00:00:00","t t 0404B",1015880000000,100000000005258]
+Record ID Params = []
+<b>Transaction started.</b>
+
+<b>[SQL]</b>
+update tst231 set username = @username, modifiedon = to_timestamp( @modifiedon ,'dd/mm/yyyy hh24:mi:ss'), app_desc = @app_desc, app_level = @app_level, txtfld = @txtfld, txtfld2 = @txtfld2, datafld = to_timestamp( @datafld ,'dd/mm/yyyy hh24:mi:ss'), timestampfld = to_timestamp( @timestampfld ,'dd/mm/yyyy hh24:mi:ss'), richtext = @richtext, empng = @empng where tst231id = @tst231id
+<b>[Parameters]</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@modifiedon</b> (String/System.String) : <b>18/02/2026 11:28:21</b>
+  <b>@app_desc</b> (Int64/System.Int32) : <b>1</b>
+  <b>@app_level</b> (Int64/System.Int32) : <b>1</b>
+  <b>@txtfld</b> (String/System.String) : <b>BAD 04A B1</b>
+  <b>@txtfld2</b> (String/System.String) : <b>BAB 04A AAAAAB</b>
+  <b>@datafld</b> (String/System.String) : <b>26/12/2025</b>
+  <b>@timestampfld</b> (String/System.String) : <b>26/12/2025 00:00:00</b>
+  <b>@richtext</b> (String/System.String) : <b>t t 0404B</b>
+  <b>@empng</b> (Int64/System.Int64) : <b>1015880000000</b>
+  <b>@tst231id</b> (Int64/System.Int64) : <b>100000000005258</b>
+<b>[SQL]</b>
+Rows Affected : 1
+Transaction : Success
+Total Statements : 1
+Total Rows Affected : 1
+<b>Transaction Committed.</b>
+
+Transaction Disposed.
+<b>Transaction : Success</b>
+
+<b>[SQL]</b>
+insert into axpertlog (sessionid, username, calledon, callfinished, structname, recordid, servicename, serviceresult, timetaken, dbtimetaken, db_conntime , calldetails ) values ( @sessionid, @username, to_timestamp( @starttime ,'dd/mm/yyyy hh24:mi:ss'), to_timestamp( @endtime ,'dd/mm/yyyy hh24:mi:ss'), @structname, @recordid, @servicename, @result , @timetaken, @dbtimetaken, @dbconntime, @calldetails)
+<b>[Parameters]</b>
+  <b>@sessionid</b> (String/System.String) : <b>4528cebf0ebb49dea6e593de472e0c</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@starttime</b> (String/System.String) : <b>18-02-2026 11:28:20</b>
+  <b>@endtime</b> (String/System.String) : <b>18-02-2026 11:28:21</b>
+  <b>@structname</b> (String/System.String) : <b></b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>0</b>
+  <b>@servicename</b> (String/System.String) : <b>ARM - AxPut API</b>
+  <b>@result</b> (String/System.String) : <b>success</b>
+  <b>@timetaken</b> (Int32/System.Int32) : <b>282</b>
+  <b>@dbtimetaken</b> (Int32/System.Int32) : <b>0</b>
+  <b>@dbconntime</b> (Int32/System.Int32) : <b>83</b>
+  <b>@calldetails</b> (String/System.String) : <b>tst23=100000000005258</b>
+<b>[Result]</b>
+Result: , Started: 2026-02-18 11:28:21.218, Ended: 2026-02-18 11:28:21.229, Duration: 11.83ms
+Result JSON - {"data":{"data":[{"message":"AxPut Test form saved successfully.","recordid":100000000005258,"transid":"tst23","caption":"AxPut Test form","username":"admin","trackchanges":{"ModifiedOn":"18/02/2026 11:28:21","Action":"edit","ChangedFields":[{"FieldName":"txtfld","OldValue":"QWWQQWWAAZ","NewValue":"BAD 04A B1","DcName":"dc1","RowNo":1,"FrameNo":1,"TableRecId":100000000005258,"IdValue":0,"OldIdValue":0,"RowAction":"EDIT"},{"FieldName":"txtfld2","OldValue":"","NewValue":"BAB 04A AAAAAB","DcName":"dc1","RowNo":1,"FrameNo":1,"TableRecId":100000000005258,"IdValue":0,"OldIdValue":0,"RowAction":"EDIT"},{"FieldName":"datafld","OldValue":"2025-12-25","NewValue":"2025-12-26","DcName":"dc1","RowNo":1,"FrameNo":1,"TableRecId":100000000005258,"IdValue":0,"OldIdValue":0,"RowAction":"EDIT"},{"FieldName":"timestampfld","OldValue":"2025-12-25 00:00:00","NewValue":"2025-12-26 00:00:00","DcName":"dc1","RowNo":1,"FrameNo":1,"TableRecId":100000000005258,"IdValue":0,"OldIdValue":0,"RowAction":"EDIT"},{"FieldName":"richtext","OldValue":"t t 0404A","NewValue":"t t 0404B","DcName":"dc1","RowNo":1,"FrameNo":1,"TableRecId":100000000005258,"IdValue":0,"OldIdValue":0,"RowAction":"EDIT"},{"FieldName":"empng","OldValue":"001","NewValue":"002","DcName":"dc1","RowNo":1,"FrameNo":1,"TableRecId":100000000005258,"IdValue":1015880000000,"OldIdValue":1015550000000,"RowAction":"EDIT"}]}}]},"success":true,"error":null}

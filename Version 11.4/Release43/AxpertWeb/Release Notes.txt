@@ -1,0 +1,163 @@
+Product Enhancement:
+-----------------------
+1)TASK-4763 ARM - Create microservices for existing ARM
+* ARM application is converted into microservices for improved performance, scalability and less release impact due to changes in other modules.
+* The ARM url is changed to multiple Microservice URLs based on the functionality/modules.
+* Appsettings.ini should be placed/replaced in the main root ARM folder. It should not be placed inside the microservice application folders. 
+* New HTTP Get api ValidateAppSettings is released to validate appsettings of ARM from browser level.
+
+Curl for ValidateAppSettings HTTPGET API:
+curl --location 'http://localhost/ARM_site2/ARM_APIs/api/v1/ValidateAppSettings?appname=pgbase114' \
+--data ''
+
+IIS Configuration:
+------------------
+* Either  Manual IIS configuration for this app is avaiable in the document 
+ARM_Microservices_IIS_Manual_Hosting_Guide.docx
+(or)
+* Batch file for "One click IIS installation for ARM Microservices" is avaiable in the release folder. Go through "ARM_Microservices_IIS_Hosting_Via_BATCH_Installer_Guide.docx" for more details.
+
+* Sample postman collection for the APIs is available in "ARM Microservice APIs.postman_collection.json" file.
+
+Note to solutions team:
+------------------
+Anyone using the ARM apis like SendSignalR, ARMPushToQueue, ExecuteAPIs,  from external apps / DB routines should change the ARM URL with the respective microservice URLs. 
+
+
+AXIS/ARM API fixes:
+------------------
+1) TASK-4861 AxPut - Peg edit
+* Basic Peg edit in Axput API is added as part of this release. 
+2) TASK-4860 AxList API - Proper error message should return by API incase of params missing 	
+* AxList API is modified to throw exact error in scenarios like ADS param missing in input json.
+3) TASK-4833 Axis - AxDelete and AxCancel API 
+* New AxDelete and AxCancel APIs are released as part of this release.
+
+Curl for AxDelete:
+curl --location 'http://localhost/ARM_site2/AxTstructData/api/v1/AxDelete' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <your token>' \
+--data '{
+    "ARMSessionId": "<your ARM sessionid>",
+    "trace": true,
+    "transid": "tst23", 
+    "keyfield": "recordid",
+    "keyvalue": "100000000005322"
+}
+'
+
+Curl for AxCancel:
+curl --location 'http://localhost/ARM_site2/AxTstructData/api/v1/AxCancel' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <your token>' \
+--data '{
+    "ARMSessionId": "<your ARM sessionid>",
+    "trace": true,
+    "transid": "tst23", 
+    "keyfield": "recordid",
+    "keyvalue": "100000000005330",
+    "Remarks": "Cancelled by admin"
+}
+'
+
+4) TASK-4870 Create a AxPlugins Project using AxExtend DLL to create custom plugins
+* A new dotnet core sample API project is created in following GITHUB Link.
+* GITHUB URL : https://github.com/Agileaxpert/Axpert/tree/main/AxPlugins
+* Refer to 'AxExtend DLL.docx' and 'AxPlugins.docx' for detailed info.
+
+5)TASK-4901 AxList API - Dimensions based filtering is added to Data Listing page
+* Dimensions based filtering is added to the AxList API (Data listing page and Analytics Charts. Note: Proper functionality release note will be provided in next release.)
+
+
+AxpertWeb:
+---------
+TASK-4789 -- Enhancement: Keep me signin feature has been enhanced with additional points as mentioned below.
+    1. Keep me signin can be set in application level by setting in Setting page under Config studio, Where number of days also can be set for keep me signin duration.
+    2. This application level setting can be override by user level setting. For this purpose, User login form has been enhanced by adding additional one switch button field for Keep me signin, if this button is On, number of days field also can be set for Keep me signin duration. 
+
+TASK-4839 -- Enhancement: Axpert studio can be opened in runtime AXI command line, Once AXI package is installed 
+
+TASK-4769 -BMRCL- Attachments with formats such as (.ifc , .dwg, .etc...) some more formats are saved correctly to the file server path,
+but when we try accessed through iView or TStruct,it does not allow file ( download or preview) .
+but for other format like (xlsx,pdf,doc,txt,png,ect.. ) it is working . 
+Developer option :
+       Property: Allow Specific File Types in Attachments
+       Property Code: Allow Specific File Types in Attachments
+       Property Value: true/false
+       Property Info: Comma separated file types need to be mentioned (ex.: zip, rar,mp3,mp4,ifc,msg)
+       Form/Report: ALL Forms / Single Form
+       User Role: All / Single role	
+Note to QA & Solution Team:
+1. AxpertWeb apps will not allow special file types like zip, rar,mp3,mp4 and ifc because of security reasons. But as per the business requirement any type files can be uploaded by using the above mentioned developer option. 
+2. Even though special file types can be uploaded by using above mentioned developer option, IIS will block when downloading it as per the security reason. So, if the business requirement required to download these type of files, the below setting needs to be done at application level. 
+  a. Site level IIS tab( AxpertWeb and AxpertWebScripts sites), The option 'MIME Types' needs to be open and add the required file types(ex.: zip, rar,mp3,mp4,ifc,msg), if it is not already exist.
+  Ex.: 1. File name extension: .ifc
+          MIME type: application/x-step , application/vnd.ms-outlook
+       2. File name extension: .msg
+          MIME type: application/vnd.ms-outlook
+       3. File name extension: .zip
+          MIME type: application/x-zip-compressed
+3. If the file size is more than 27 MB, please make sure the following settings as has been changed as follows.
+   a. In IIS settings goto Request Filtering and click on Edit Feature Settings 
+   b. Change the value of 'Maximum allowed content length (in KB)' to '536870912'
+
+TASK-4792 -RFPLDEV & AxiDev - Global import is not working. 
+
+TASK-4688 -Nuwab- we are unable to login choosing Arabic language in login page for users having role other than default role.
+
+TASK-4766 -Nuwab- In Nuwab Arabic login, unable to search a topic or any structures in Global Search as it throws Time Out Exception error. 
+
+TASK-4588 -JF&I- Unable to export some large excels even when new option from latest release it added. 
+
+TASK-4752 -BDF- when the attachment file name contains special characters, the user is unable to download the attachment.
+
+TASK-4788 -QA- Redis key creation logic based on ODBC connection (Postgre) 
+
+TASK-4840 -QA- Performance fine tunning during application login by cleaning unnecessary redis keys and redis calls.  
+
+
+ARM:
+---
+TASK-4758 -PAYAZZURE- Mobile App Issue – KPI Data Source Not Fetching Data
+
+TASK-4753 -BDF- If the user opens the form multiple times, the form does not load with the defined value. 
+
+TASK-4761 -QA- Enable groupby and select cols function in AxList Webmethod (Axi)
+
+TASK-4788 -QA- Redis key creation logic based on ODBC connection (Postgre) 
+
+AxpertStudio:
+--------------
+TASK-4839 -- Enhancement: Axpert studio can be opened in runtime AXI command line, Once AXI package is installed 
+
+TASK-4754 -BDF-	The field name allows creation with duplicate values instead of throwing a valid error.
+
+TASK-4565 -BDF-	Numeric field's are not allowing to change the field type. 
+
+TASK-4550 -BDF-	Large Text and Rich Text fields cannot be deleted, and the field type cannot be changed. 
+
+TASK-4122 -BDF-	When open the form throwing error and In FillGrid updated Source and Target Field values are getting unselected. 
+Note: If the existing field names changes using Axpert.exe, Fillgrid properties needs to be set again for that tstruct.
+
+TASK-4121 -BDF-	When open the form throwing error and In Genmap updated Source Field value is getting unselected. 
+Note: If the existing field names changes using Axpert.exe, GenMap properties needs to be set again for that tstruct.
+
+TASK-4779 -QA- Popup to add new field appears twice after "Change Field Type" operation.
+
+Structures:
+-----------
+TASK-4839 -- Enhancement: Axpert studio can be opened in runtime AXI command line, Once AXI package is installed 
+
+Consumer Services:
+-----------------
+TASK-4792 -RFPLDEV & AxiDev - Global import is not working. 
+
+TASK-4788 -QA- Redis key creation logic based on ODBC connection (Postgre) 
+
+Note: Please note the following points:
+ 1. ARMConvertXLtoJSONWorkerService, ARMExecuteScriptService and ARMExportWorkerService services have been changed for above mentioned tickets.
+ 2. Please make sure Old consumer service EXE's are not running once the WorkerService's started using.
+
+
+
+

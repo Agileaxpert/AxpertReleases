@@ -1,0 +1,211 @@
+Input JSON - {"ARMSessionId":"ARM-pgbase114-5634c28e-f376-45b5-91e8-90e3310745f4","AxSessionId":null,"Project":null,"UserName":null,"Trace":true,"ValidateOnly":false,"AxClient_DateFormat":"","Roles":[],"Data":[{"TransId":"tst23","RecordId":0,"Action":"create","KeyField":"","KeyValue":"","UserName":null,"Roles":[],"SubmitData":{"dc1":{"row1":{"txtfld":"BAD 04A AA","txtfld2":"BAB 04A AAAAAA","decnum":"04.00","wholenum":"0404","datafld":"23/04/2045","timefld":"04:04 AM","timestampfld":"24/04/2045 12:04:15","dropdown":"Item2","multifld":"mohan","richtext":"t t 0404A","chklist":"Check2,Check3","chkbox":"T","radiogrp":"Radio2","empng":"001"}},"dc2":{"row1":{"gridtxt":"DC2-1-04A","griddecimal":"4.00","griddate":"25/04/2045"},"row2":{"gridtxt":"DC2-2-04A","griddecimal":"5.04","griddate":"26/04/2045"},"row3":{"gridtxt":"DC2-3-04A","griddecimal":"6.00","griddate":"27/04/2045"},"row4":{"gridtxt":"DC2-4-04A","griddecimal":"7.04","griddate":"28/04/2045"},"row5":{"gridtxt":"DC2-5-04A","griddecimal":"8.00","griddate":"21/04/2045"},"row6":{"gridtxt":"DC2-4-04A","griddecimal":"9.04","griddate":"22/04/2045"}},"dc3":{"row1":{"largetext":"TES SS TES 04A"}},"dc4":{"row1":{"grid2txt":"DC4-1-04A","grid2txt2":"AAA-04A","grid2date":"07/04/2045","grid2num":"1004","empgg":"001"},"row2":{"grid2txt":"DC4-2-04A","grid2txt2":"BBB-04A","grid2date":"28/04/2045","grid2num":"2004","empgg":"002"}},"dc5":{"row1":{"nongrid_num":"104","nongrid_largetext":"TEST -04A"}}}}]}
+Initiating DB connection for application 'pgbase114'
+Reading AxProps XML: <axprops getfrom="" setto=""><lastlogin>pgbase114</lastlogin><oradatestring>dd/mm/yyyy hh24:mi:ss</oradatestring><crlocation></crlocation><lastusername>admin</lastusername><login>local</login><skin>Black</skin><lastlang>ENGLISH</lastlang><axhelp>true</axhelp><agileerpbase>agileerpbase,public</agileerpbase><pgbase114odbc>pgbase114</pgbase114odbc></axprops>
+
+<b>[SQL]</b>
+Select now() as sdt
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-18 11:08:42.247, Ended: 2026-02-18 11:08:42.253, Duration: 6.38ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>sdt</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>18-02-2026 05:24</td></tr></tbody></table><b>[SQL]</b>
+select * from  FN_AXDBPUT_GETRECID( @siteno, @rowscount )
+<b>[Parameters]</b>
+  <b>@siteno</b> (Int32/System.Int32) : <b>1</b>
+  <b>@rowscount</b> (Int32/System.Int32) : <b>11</b>
+<b>[Result]</b>
+Rows count: 11, Started: 2026-02-18 11:08:42.254, Ended: 2026-02-18 11:08:42.312, Duration: 58.59ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>recordid</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>100000000005247</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005248</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005249</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005250</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005251</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005252</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005253</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005254</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005255</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005256</td></tr><tr><td style='padding: 8px; text-align: left;'>100000000005257</td></tr></tbody></table><b>[SQL]</b>
+select * from fn_permissions_getpermission( @action , @transid, @username, @roles)
+<b>[Parameters]</b>
+  <b>@action</b> (String/System.String) : <b>create</b>
+  <b>@transid</b> (String/System.String) : <b>tst23</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@roles</b> (String/System.String) : <b>default</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-18 11:08:42.319, Ended: 2026-02-18 11:08:42.381, Duration: 61.62ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>transid</th><th style='padding: 8px; background-color: #f2f2f2;'>fullcontrol</th><th style='padding: 8px; background-color: #f2f2f2;'>userrole</th><th style='padding: 8px; background-color: #f2f2f2;'>allowcreate</th><th style='padding: 8px; background-color: #f2f2f2;'>view_access</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includedc</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludedc</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_access</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_includedc</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_excludedc</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>maskedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>filtercnd</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>permissiontype</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>tst23</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table>tst23_CREATE Access Result JSON - {"data":{},"success":false,"error":null}
+Client date format from AxPut Input Json: 
+Client date format from Global Vars: yyyy-MM-dd
+Final client date format: yyyy-MM-dd
+<b>StructDef and Validate initialized for {StructName}</b>
+tst23
+Starting to process 5 data containers
+Processing Data Container: dc1 (Frame 1)
+Processing Row: row1 (Row Number 1) in dc1
+Processing Field: 'txtfld' with Value: 'BAD 04A AA' in dc1->row1
+Successfully processed field 'txtfld' = 'BAD 04A AA'
+Processing Field: 'txtfld2' with Value: 'BAB 04A AAAAAA' in dc1->row1
+Successfully processed field 'txtfld2' = 'BAB 04A AAAAAA'
+Processing Field: 'decnum' with Value: '04.00' in dc1->row1
+Successfully processed field 'decnum' = '04.00'
+Processing Field: 'wholenum' with Value: '0404' in dc1->row1
+Successfully processed field 'wholenum' = '0404'
+Processing Field: 'datafld' with Value: '23/04/2045' in dc1->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 23/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '23/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field datafld in dc1->row1; Error: String '23/04/2045' was not recognized as a valid DateTime.
+Processing Field: 'timefld' with Value: '04:04 AM' in dc1->row1
+Successfully processed field 'timefld' = '04:04 AM'
+Processing Field: 'timestampfld' with Value: '24/04/2045 12:04:15' in dc1->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Timestamp, Value : 24/04/2045 12:04:15, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '24/04/2045 12:04:15' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2838\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field timestampfld in dc1->row1; Error: String '24/04/2045 12:04:15' was not recognized as a valid DateTime.
+Processing Field: 'dropdown' with Value: 'Item2' in dc1->row1
+Successfully processed field 'dropdown' = 'Item2'
+Processing Field: 'multifld' with Value: 'mohan' in dc1->row1
+Successfully processed field 'multifld' = 'mohan'
+Processing Field: 'richtext' with Value: 't t 0404A' in dc1->row1
+Successfully processed field 'richtext' = 't t 0404A'
+Processing Field: 'chklist' with Value: 'Check2,Check3' in dc1->row1
+Successfully processed field 'chklist' = 'Check2,Check3'
+Processing Field: 'chkbox' with Value: 'T' in dc1->row1
+Successfully processed field 'chkbox' = 'T'
+Processing Field: 'radiogrp' with Value: 'Radio2' in dc1->row1
+Successfully processed field 'radiogrp' = 'Radio2'
+Processing Field: 'empng' with Value: '001' in dc1->row1
+Successfully processed field 'empng' = '001'
+Completed processing all fields for dc1->row1
+Completed processing all rows for dc1
+Processing Data Container: dc2 (Frame 2)
+Processing Row: row1 (Row Number 1) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-1-04A' in dc2->row1
+Successfully processed field 'gridtxt' = 'DC2-1-04A'
+Processing Field: 'griddecimal' with Value: '4.00' in dc2->row1
+Successfully processed field 'griddecimal' = '4.00'
+Processing Field: 'griddate' with Value: '25/04/2045' in dc2->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 25/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '25/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field griddate in dc2->row1; Error: String '25/04/2045' was not recognized as a valid DateTime.
+Completed processing all fields for dc2->row1
+Processing Row: row2 (Row Number 2) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-2-04A' in dc2->row2
+Successfully processed field 'gridtxt' = 'DC2-2-04A'
+Processing Field: 'griddecimal' with Value: '5.04' in dc2->row2
+Successfully processed field 'griddecimal' = '5.04'
+Processing Field: 'griddate' with Value: '26/04/2045' in dc2->row2
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 26/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '26/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field griddate in dc2->row2; Error: String '26/04/2045' was not recognized as a valid DateTime.
+Completed processing all fields for dc2->row2
+Processing Row: row3 (Row Number 3) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-3-04A' in dc2->row3
+Successfully processed field 'gridtxt' = 'DC2-3-04A'
+Processing Field: 'griddecimal' with Value: '6.00' in dc2->row3
+Successfully processed field 'griddecimal' = '6.00'
+Processing Field: 'griddate' with Value: '27/04/2045' in dc2->row3
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 27/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '27/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field griddate in dc2->row3; Error: String '27/04/2045' was not recognized as a valid DateTime.
+Completed processing all fields for dc2->row3
+Processing Row: row4 (Row Number 4) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-4-04A' in dc2->row4
+Successfully processed field 'gridtxt' = 'DC2-4-04A'
+Processing Field: 'griddecimal' with Value: '7.04' in dc2->row4
+Successfully processed field 'griddecimal' = '7.04'
+Processing Field: 'griddate' with Value: '28/04/2045' in dc2->row4
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 28/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '28/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field griddate in dc2->row4; Error: String '28/04/2045' was not recognized as a valid DateTime.
+Completed processing all fields for dc2->row4
+Processing Row: row5 (Row Number 5) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-5-04A' in dc2->row5
+Successfully processed field 'gridtxt' = 'DC2-5-04A'
+Processing Field: 'griddecimal' with Value: '8.00' in dc2->row5
+Successfully processed field 'griddecimal' = '8.00'
+Processing Field: 'griddate' with Value: '21/04/2045' in dc2->row5
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 21/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '21/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field griddate in dc2->row5; Error: String '21/04/2045' was not recognized as a valid DateTime.
+Completed processing all fields for dc2->row5
+Processing Row: row6 (Row Number 6) in dc2
+Processing Field: 'gridtxt' with Value: 'DC2-4-04A' in dc2->row6
+Successfully processed field 'gridtxt' = 'DC2-4-04A'
+Processing Field: 'griddecimal' with Value: '9.04' in dc2->row6
+Successfully processed field 'griddecimal' = '9.04'
+Processing Field: 'griddate' with Value: '22/04/2045' in dc2->row6
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 22/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '22/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field griddate in dc2->row6; Error: String '22/04/2045' was not recognized as a valid DateTime.
+Completed processing all fields for dc2->row6
+Completed processing all rows for dc2
+Processing Data Container: dc3 (Frame 3)
+Processing Row: row1 (Row Number 1) in dc3
+Processing Field: 'largetext' with Value: 'TES SS TES 04A' in dc3->row1
+Successfully processed field 'largetext' = 'TES SS TES 04A'
+Completed processing all fields for dc3->row1
+Completed processing all rows for dc3
+Processing Data Container: dc4 (Frame 4)
+Processing Row: row1 (Row Number 1) in dc4
+Processing Field: 'grid2txt' with Value: 'DC4-1-04A' in dc4->row1
+Successfully processed field 'grid2txt' = 'DC4-1-04A'
+Processing Field: 'grid2txt2' with Value: 'AAA-04A' in dc4->row1
+Successfully processed field 'grid2txt2' = 'AAA-04A'
+Processing Field: 'grid2date' with Value: '07/04/2045' in dc4->row1
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 07/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '07/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field grid2date in dc4->row1; Error: String '07/04/2045' was not recognized as a valid DateTime.
+Processing Field: 'grid2num' with Value: '1004' in dc4->row1
+Successfully processed field 'grid2num' = '1004'
+Processing Field: 'empgg' with Value: '001' in dc4->row1
+Successfully processed field 'empgg' = '001'
+Completed processing all fields for dc4->row1
+Processing Row: row2 (Row Number 2) in dc4
+Processing Field: 'grid2txt' with Value: 'DC4-2-04A' in dc4->row2
+Successfully processed field 'grid2txt' = 'DC4-2-04A'
+Processing Field: 'grid2txt2' with Value: 'BBB-04A' in dc4->row2
+Successfully processed field 'grid2txt2' = 'BBB-04A'
+Processing Field: 'grid2date' with Value: '28/04/2045' in dc4->row2
+ConvertClientDateToDBDateFormat(CustomDataType : Date, Value : 28/04/2045, clientDateFormat: yyyy-MM-dd)
+ConvertClientDateToDBDateFormat Exception, {"ClassName":"System.FormatException","Message":"String '28/04/2045' was not recognized as a valid DateTime.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)\r\n   at ARMCommon.Helpers.Utils.ConvertClientDateToDBDateFormat(String customDataType, String value, String clientDateFormat) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\ARMCommon\\Helpers\\Utils.cs:line 2827\r\n   at AxStructDef.StructDef.SetFieldValue(String FieldName, String DataType, String CustomDataType, String TableName, String Value, String OldValue, Int32 RowNo, Int64 IdValue, Int64 OldIdValue, Int32 FrameNo, Int64 RecordId, Boolean SourceKey) in D:\\Codeset\\GIT\\ARM 11.4 for Release3\\AxStructDef\\StructDef.cs:line 2128","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2146233033,"Source":"System.Private.CoreLib","WatsonBuckets":null}
+<b>[Error]</b>
+Error processing field grid2date in dc4->row2; Error: String '28/04/2045' was not recognized as a valid DateTime.
+Processing Field: 'grid2num' with Value: '2004' in dc4->row2
+Successfully processed field 'grid2num' = '2004'
+Processing Field: 'empgg' with Value: '002' in dc4->row2
+Successfully processed field 'empgg' = '002'
+Completed processing all fields for dc4->row2
+Completed processing all rows for dc4
+Processing Data Container: dc5 (Frame 5)
+Processing Row: row1 (Row Number 1) in dc5
+Processing Field: 'nongrid_num' with Value: '104' in dc5->row1
+Successfully processed field 'nongrid_num' = '104'
+Processing Field: 'nongrid_largetext' with Value: 'TEST -04A' in dc5->row1
+Successfully processed field 'nongrid_largetext' = 'TEST -04A'
+Completed processing all fields for dc5->row1
+Completed processing all rows for dc5
+Processed 35 fields total across all data containers and rows
+<b>[SQL]</b>
+insert into axpertlog (sessionid, username, calledon, callfinished, structname, recordid, servicename, serviceresult, timetaken, dbtimetaken, db_conntime , calldetails ) values ( @sessionid, @username, to_timestamp( @starttime ,'dd/mm/yyyy hh24:mi:ss'), to_timestamp( @endtime ,'dd/mm/yyyy hh24:mi:ss'), @structname, @recordid, @servicename, @result , @timetaken, @dbtimetaken, @dbconntime, @calldetails)
+<b>[Parameters]</b>
+  <b>@sessionid</b> (String/System.String) : <b>493943a157e2413a99a968bbc3208f</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@starttime</b> (String/System.String) : <b>18-02-2026 11:08:42</b>
+  <b>@endtime</b> (String/System.String) : <b>18-02-2026 11:08:42</b>
+  <b>@structname</b> (String/System.String) : <b></b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>0</b>
+  <b>@servicename</b> (String/System.String) : <b>ARM - AxPut API</b>
+  <b>@result</b> (String/System.String) : <b>error</b>
+  <b>@timetaken</b> (Int32/System.Int32) : <b>449</b>
+  <b>@dbtimetaken</b> (Int32/System.Int32) : <b>0</b>
+  <b>@dbconntime</b> (Int32/System.Int32) : <b>98</b>
+  <b>@calldetails</b> (String/System.String) : <b>Error submitting field datafld with value '23/04/2045': String '23/04/2045' was not recognized as a valid DateTime.; 
+Error submitting field timestampfld with value '24/04/2045 12:04:15': String '24/04/2045 12:04:15' was not recognized as a valid DateTime.; 
+Error submitting field griddate with value '25/04/2045': String '25/04/2045' was not recognized as a valid DateTime.; 
+Error submitting field griddate with value '26/04/2045': String '26/04/2045' was not recognized as a valid DateTime.; 
+Error submitting field griddate with value '27/04/2045': String '27/04/2045' was not recognized as a valid DateTime.; 
+Error submitting field griddate with value '28/04/2045': String '28/04/2045' was not recognized as a valid DateTime.; 
+Error submitting field griddate with value '21/04/2045': String '21/04/2045' was not recognized as a valid DateTime.; 
+Error submitting field griddate with value '22/04/2045': String '22/04/2045' was not recognized as a valid DateTime.; 
+Error submitting field grid2date with value '07/04/2045': String '07/04/2045' was not recognized as a valid DateTime.; 
+Error submitting field grid2date with value '28/04/2045': String '28/04/2045' was not recognized as a valid DateTime.</b>
+<b>[Result]</b>
+Result: , Started: 2026-02-18 11:08:42.544, Ended: 2026-02-18 11:08:42.555, Duration: 11.18ms
+Result JSON - {"data":{"transid":"tst23","index":0},"success":false,"error":"Error submitting field datafld with value '23/04/2045': String '23/04/2045' was not recognized as a valid DateTime.; \r\nError submitting field timestampfld with value '24/04/2045 12:04:15': String '24/04/2045 12:04:15' was not recognized as a valid DateTime.; \r\nError submitting field griddate with value '25/04/2045': String '25/04/2045' was not recognized as a valid DateTime.; \r\nError submitting field griddate with value '26/04/2045': String '26/04/2045' was not recognized as a valid DateTime.; \r\nError submitting field griddate with value '27/04/2045': String '27/04/2045' was not recognized as a valid DateTime.; \r\nError submitting field griddate with value '28/04/2045': String '28/04/2045' was not recognized as a valid DateTime.; \r\nError submitting field griddate with value '21/04/2045': String '21/04/2045' was not recognized as a valid DateTime.; \r\nError submitting field griddate with value '22/04/2045': String '22/04/2045' was not recognized as a valid DateTime.; \r\nError submitting field grid2date with value '07/04/2045': String '07/04/2045' was not recognized as a valid DateTime.; \r\nError submitting field grid2date with value '28/04/2045': String '28/04/2045' was not recognized as a valid DateTime."}

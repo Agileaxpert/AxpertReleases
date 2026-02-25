@@ -1,0 +1,66 @@
+AxList API call started.
+Start Time: 19-02-2026 17:37:36
+Input JSON: {"ARMSessionId":"ARM-pgbase114-43fa6409-e779-4d15-b6f6-ed70d63dc4f7","TransId":"slord","ADSName":null,"AxSessionId":null,"ADSNames":["ds_test_ads1"],"Project":null,"UserName":null,"RecordId":null,"Action":"view","Trace":true,"KeyField":"username","KeyValue":"ALL","Fields":null,"Filter":null,"SqlParams":{},"GlobalParams":{},"ViewFilters":{},"Roles":[],"RolesStr":null,"PageNo":1,"PageSize":10,"Constraint":null,"SchemaName":null,"Language":null,"ConnectedData_TransIds":null,"Filters":[],"Sorting":[],"Select_Columns":[],"GroupBy_Columns":[],"Aggregations":{},"GetAllRecordsCount":false,"CachePermissions":true,"RefreshCache":false,"ADS":false,"AxClient_DateFormat":""}
+Client date format from AxList Input Json: 
+Client date format from Global Vars: yyyy-MM-dd
+Final client date format: yyyy-MM-dd
+Initiating DB connection for application 'pgbase114'
+Reading AxProps XML: <axprops getfrom="" setto=""><lastlogin>pgbase114</lastlogin><oradatestring>dd/mm/yyyy hh24:mi:ss</oradatestring><crlocation></crlocation><lastusername>admin</lastusername><login>local</login><skin>Black</skin><lastlang>ENGLISH</lastlang><axhelp>true</axhelp><agileerpbase>agileerpbase,public</agileerpbase><pgbase114odbc>pgbase114</pgbase114odbc></axprops>
+
+<b>[SQL]</b>
+Select now() as sdt
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 17:37:36.577, Ended: 2026-02-19 17:37:36.585, Duration: 8.30ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>sdt</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>19-02-2026 11:53</td></tr></tbody></table><b>[SQL]</b>
+select * from fn_permissions_getpermission( @action , @transid , @username , @roles )
+<b>[Parameters]</b>
+  <b>@action</b> (String/System.String) : <b>view</b>
+  <b>@transid</b> (String/System.String) : <b>slord</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@roles</b> (String/System.String) : <b>All</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 17:37:36.586, Ended: 2026-02-19 17:37:36.647, Duration: 61.34ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>transid</th><th style='padding: 8px; background-color: #f2f2f2;'>fullcontrol</th><th style='padding: 8px; background-color: #f2f2f2;'>userrole</th><th style='padding: 8px; background-color: #f2f2f2;'>allowcreate</th><th style='padding: 8px; background-color: #f2f2f2;'>view_access</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includedc</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludedc</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_access</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_includedc</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_excludedc</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>edit_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>maskedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>filtercnd</th><th style='padding: 8px; background-color: #f2f2f2;'>encryptedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>permissiontype</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>slord</td><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table>Excluded DC Elements - NONE
+Included DC Elements - ALL
+Excluded Elements - NONE
+Included Elements - ALL
+Masked Fields - 
+Encrypted Fields - 
+<b>[SQL]</b>
+select * from fn_permissions_getADScnd( @transid , @datasource, @username, @roles , @keyfield , @keyvalue)
+<b>[Parameters]</b>
+  <b>@transid</b> (String/System.String) : <b>slord</b>
+  <b>@datasource</b> (String/System.String) : <b>ds_test_ads1</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@roles</b> (String/System.String) : <b>All</b>
+  <b>@keyfield</b> (String/System.String) : <b>username</b>
+  <b>@keyvalue</b> (String/System.String) : <b>ALL</b>
+<b>[Result]</b>
+Rows count: 1, Started: 2026-02-19 17:37:36.682, Ended: 2026-02-19 17:37:36.734, Duration: 51.74ms
+<table border='1' style='border-collapse: collapse; width: 100%;'><thead><tr><th style='padding: 8px; background-color: #f2f2f2;'>fullcontrol</th><th style='padding: 8px; background-color: #f2f2f2;'>userrole</th><th style='padding: 8px; background-color: #f2f2f2;'>view_access</th><th style='padding: 8px; background-color: #f2f2f2;'>view_includeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>view_excludeflds</th><th style='padding: 8px; background-color: #f2f2f2;'>maskedflds</th><th style='padding: 8px; background-color: #f2f2f2;'>filtercnd</th><th style='padding: 8px; background-color: #f2f2f2;'>permissiontype</th></tr></thead><tbody><tr><td style='padding: 8px; text-align: left;'>T</td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td><td style='padding: 8px; text-align: left;'></td></tr></tbody></table>Excluded Elements - NONE
+Included Elements - ALL
+Masked Fields - 
+GetADSPermission Result JSON - {"data":{"ExcludedFields":"NONE","IncludedFields":"ALL","MaskedFields":"","FilterCond":""},"success":false,"error":null}
+<b>[Error]</b>
+Error in AxList : Parameter 'myinputparmam' is missing in input params.   at ARMCommon.Helpers.Utils.ValidateSQLAndExtractParams(String sqlText, String parameters, Dictionary`2 globalParams, Dictionary`2 sqlParams) in D:\Codeset\GIT\ARM 11.4 for Release3\ARMCommon\Helpers\Utils.cs:line 2261
+   at AxList.ADSDataService.GetADSDataWithCachingAsync(ADSDataSource dataSource, ADSDataRequest request, String schemaName) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\ADSDataService.cs:line 94
+   at AxList.ADSDataService.GetADSDataForAxList(AxList listData, String adsName, ADSDataRequest adsDataRequest) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\ADSDataService.cs:line 206
+   at AxList.Service.AxListService.AxList(AxList listData) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\AxListService.cs:line 136
+   at AxList.Service.AxListService.AxListAsync(AxList listData) in D:\Codeset\GIT\ARM 11.4 for Release3\AxList\Service\AxListService.cs:line 82
+<b>[SQL]</b>
+insert into axpertlog (sessionid, username, calledon, callfinished, structname, recordid, servicename, serviceresult, timetaken, dbtimetaken, db_conntime , calldetails ) values ( @sessionid, @username, to_timestamp( @starttime ,'dd/mm/yyyy hh24:mi:ss'), to_timestamp( @endtime ,'dd/mm/yyyy hh24:mi:ss'), @structname, @recordid, @servicename, @result , @timetaken, @dbtimetaken, @dbconntime, @calldetails)
+<b>[Parameters]</b>
+  <b>@sessionid</b> (String/System.String) : <b>6a40ed0515f54abb9dc6d785b70f38</b>
+  <b>@username</b> (String/System.String) : <b>admin</b>
+  <b>@starttime</b> (String/System.String) : <b>19-02-2026 17:37:36</b>
+  <b>@endtime</b> (String/System.String) : <b>19-02-2026 17:37:36</b>
+  <b>@structname</b> (String/System.String) : <b>slord</b>
+  <b>@recordid</b> (Int64/System.Int64) : <b>0</b>
+  <b>@servicename</b> (String/System.String) : <b>ARM - AxList API</b>
+  <b>@result</b> (String/System.String) : <b></b>
+  <b>@timetaken</b> (Int32/System.Int32) : <b>323</b>
+  <b>@dbtimetaken</b> (Int32/System.Int32) : <b>0</b>
+  <b>@dbconntime</b> (Int32/System.Int32) : <b>93</b>
+  <b>@calldetails</b> (String/System.String) : <b>ds_test_ads1</b>
+<b>[Result]</b>
+Result: , Started: 2026-02-19 17:37:36.794, Ended: 2026-02-19 17:37:36.837, Duration: 43.24ms

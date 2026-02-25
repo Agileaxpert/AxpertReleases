@@ -1,0 +1,1731 @@
+{
+  "info": {
+    "_postman_id": "41b8277d-5743-4e6e-b3a8-f03a55a4a7ff",
+    "name": "ARM Microservice APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16941006",
+    "_collection_link": "https://go.postman.co/collection/16941006-41b8277d-5743-4e6e-b3a8-f03a55a4a7ff?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "AxAuth",
+      "item": [
+        {
+          "name": "AppStatus",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/AppStatus",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "AppStatus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Signin - Only Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let bodydata = JSON.parse(JSON.stringify(pm.response.json()));\r",
+                  "if(bodydata.result.success){\r",
+                  "    sessionid = bodydata.result.ARMSessionId;\r",
+                  "    pm.globals.set('session', sessionid);\r",
+                  "    console.log(sessionid);\r",
+                  "    \r",
+                  "    token = bodydata.result.token;\r",
+                  "    pm.globals.set('token', bodydata.result.token);\r",
+                  "    console.log(token);\r",
+                  "}\r",
+                  "else\r",
+                  "    console.log(JSON.stringify(bodydata))"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// 1. Generate a GUID (UUID v4) using Postman's built-in utility\r",
+                  "const myGuid = pm.variables.replaceIn('{{$guid}}');\r",
+                  "\r",
+                  "// 2. Pass it to a variable (choose one of the options below)\r",
+                  "\r",
+                  "// Option A: Save to Environment Variable (best for temporary use in an environment)\r",
+                  "pm.environment.set(\"unique_id\", myGuid);\r",
+                  "\r",
+                  "// Option B: Save to Collection Variable (best for use across the whole collection)\r",
+                  "pm.collectionVariables.set(\"unique_id\", myGuid);\r",
+                  "\r",
+                  "// 3. (Optional) Log to console to verify\r",
+                  "console.log(\"Generated GUID: \" + myGuid);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"appname\": \"pgbase114\", //agileerpbasetest // orclbase114local //pgbase114 //agileerpbaseqa //erpdemo\r\n    \"UserName\": \"admin\",  //mohan // salesexecutive //admin\r\n    \"password\": \"22723bbd4217a0abf6d3e68073c7603d\", //827ccb0eea8a706c4c34a16891f84e7b //22723bbd4217a0abf6d3e68073c7603d\r\n    \"Language\": \"English\",\r\n    \"SessionId\": \"{{unique_id}}\",\r\n    \"Globalvars\": true, //true\r\n    \"ClearPreviousSession\": true, //true,\r\n    \"trace\" : true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/Signin",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "Signin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ARMSigninDetails",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let bodydata = JSON.parse(JSON.stringify(pm.response.json()));\r",
+                  "sessionid = bodydata.result.sessionid;\r",
+                  "pm.globals.set('session', bodydata.result.sessionid);\r",
+                  " \r",
+                  " \r",
+                  "token = bodydata.result.token;\r",
+                  "pm.globals.set('token', bodydata.result.token);\r",
+                  "console.log(token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"appname\": \"pgbase114\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/ARMSigninDetails",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "ARMSigninDetails"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetLoginUserDetails",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let bodydata = JSON.parse(JSON.stringify(pm.response.json()));\r",
+                  "sessionid = bodydata.result.sessionid;\r",
+                  "pm.globals.set('session', bodydata.result.sessionid);\r",
+                  " \r",
+                  " \r",
+                  "token = bodydata.result.token;\r",
+                  "pm.globals.set('token', bodydata.result.token);\r",
+                  "console.log(token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"appname\": \"pgbase114\", \r\n    \"UserName\": \"admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/GetLoginUserDetails",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "GetLoginUserDetails"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ValidateOTP",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let bodydata = JSON.parse(JSON.stringify(pm.response.json()));\r",
+                  "if(bodydata.result.success){\r",
+                  "    sessionid = bodydata.result.ARMSessionId;\r",
+                  "    pm.globals.set('session', sessionid);\r",
+                  "    console.log(sessionid);\r",
+                  "    \r",
+                  "    token = bodydata.result.token;\r",
+                  "    pm.globals.set('token', bodydata.result.token);\r",
+                  "    console.log(token);\r",
+                  "}\r",
+                  "else\r",
+                  "    console.log(JSON.stringify(bodydata))"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"OtpLoginKey\": \"ARM-agileerpbasetest-6fde8fbb-d88f-4d7b-b5b5-19bed587bfc7\",\r\n    \"OTP\": \"8738\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/ValidateOTP",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "ValidateOTP"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ResendOTP",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let bodydata = JSON.parse(JSON.stringify(pm.response.json()));\r",
+                  "sessionid = bodydata.result.sessionid;\r",
+                  "pm.globals.set('session', bodydata.result.sessionid);\r",
+                  " \r",
+                  " \r",
+                  "token = bodydata.result.token;\r",
+                  "pm.globals.set('token', bodydata.result.token);\r",
+                  "console.log(token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"OtpLoginKey\": \"{{session}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/ResendOTP",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "ResendOTP"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AxValidateSession",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/AxValidateSession",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "AxValidateSession"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "ARMConnectToAxpert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibW9oYW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJwb3dlciIsIkdyb3VwSWQiOiI0YmIwM2M0NS1lZjc5LTQ2NTUtOWE1NS0wMzYzMWE2MmEzNDEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjY5NGJiYjkzLWVkOGEtNDcxMy05MTk1LWMxOTRiNGM0NjgzYiIsImV4cCI6MTY3NTA2ODE3OCwiaXNzIjoiS01TLU9QLUVNUiIsImF1ZCI6IktNUy1PUC1FTVIifQ.Yy-cc_hRUljj77pDleVOjkcJAuKSsM46iLiIshNTW14",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/ARMConnectToAxpert",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "ARMConnectToAxpert"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ARMConnectFromAxpert",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibW9oYW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJwb3dlciIsIkdyb3VwSWQiOiI0YmIwM2M0NS1lZjc5LTQ2NTUtOWE1NS0wMzYzMWE2MmEzNDEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjY5NGJiYjkzLWVkOGEtNDcxMy05MTk1LWMxOTRiNGM0NjgzYiIsImV4cCI6MTY3NTA2ODE3OCwiaXNzIjoiS01TLU9QLUVNUiIsImF1ZCI6IktNUy1PUC1FTVIifQ.Yy-cc_hRUljj77pDleVOjkcJAuKSsM46iLiIshNTW14",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user\": \"admin\",\r\n    \"key\": \"9a99506f446981c4d5b4d6fee030d254\",\r\n    \"AxSessionId\": \"jpqyojawbzsp0mcpm2xswazm\",\r\n    \"Trace\": \"false\",\r\n    \"AppName\": \"pgbase114\",\r\n    \"SchemaName\" : \"pgbase114~axpertdb\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/ARMConnectFromAxpert",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "ARMConnectFromAxpert"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ARMSignOut",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxAuth/api/v1/ARMSignOut",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxAuth",
+                "api",
+                "v1",
+                "ARMSignOut"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AxUtils",
+      "item": [
+        {
+          "name": "AppStatus",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let bodydata = JSON.parse(JSON.stringify(pm.response.json()));\r",
+                  "if(bodydata.result.success){\r",
+                  "    sessionid = bodydata.result.ARMSessionId;\r",
+                  "    pm.globals.set('session', sessionid);\r",
+                  "    console.log(sessionid);\r",
+                  "    \r",
+                  "    token = bodydata.result.token;\r",
+                  "    pm.globals.set('token', bodydata.result.token);\r",
+                  "    console.log(token);\r",
+                  "}\r",
+                  "else\r",
+                  "    console.log(JSON.stringify(bodydata))"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// 1. Generate a GUID (UUID v4) using Postman's built-in utility\r",
+                  "const myGuid = pm.variables.replaceIn('{{$guid}}');\r",
+                  "\r",
+                  "// 2. Pass it to a variable (choose one of the options below)\r",
+                  "\r",
+                  "// Option A: Save to Environment Variable (best for temporary use in an environment)\r",
+                  "pm.environment.set(\"unique_id\", myGuid);\r",
+                  "\r",
+                  "// Option B: Save to Collection Variable (best for use across the whole collection)\r",
+                  "pm.collectionVariables.set(\"unique_id\", myGuid);\r",
+                  "\r",
+                  "// 3. (Optional) Log to console to verify\r",
+                  "console.log(\"Generated GUID: \" + myGuid);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxUtils/api/v1/AppStatus",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxUtils",
+                "api",
+                "v1",
+                "AppStatus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ARMGetMenu",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibW9oYW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJwb3dlciIsIkdyb3VwSWQiOiI0YmIwM2M0NS1lZjc5LTQ2NTUtOWE1NS0wMzYzMWE2MmEzNDEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjY5NGJiYjkzLWVkOGEtNDcxMy05MTk1LWMxOTRiNGM0NjgzYiIsImV4cCI6MTY3NTA2ODE3OCwiaXNzIjoiS01TLU9QLUVNUiIsImF1ZCI6IktNUy1PUC1FTVIifQ.Yy-cc_hRUljj77pDleVOjkcJAuKSsM46iLiIshNTW14",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"trace\" : true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxUtils/api/v1/ARMGetMenu",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxUtils",
+                "api",
+                "v1",
+                "ARMGetMenu"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AxStructUtils",
+      "item": [
+        {
+          "name": "AppStatus",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let bodydata = JSON.parse(JSON.stringify(pm.response.json()));\r",
+                  "if(bodydata.result.success){\r",
+                  "    sessionid = bodydata.result.ARMSessionId;\r",
+                  "    pm.globals.set('session', sessionid);\r",
+                  "    console.log(sessionid);\r",
+                  "    \r",
+                  "    token = bodydata.result.token;\r",
+                  "    pm.globals.set('token', bodydata.result.token);\r",
+                  "    console.log(token);\r",
+                  "}\r",
+                  "else\r",
+                  "    console.log(JSON.stringify(bodydata))"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// 1. Generate a GUID (UUID v4) using Postman's built-in utility\r",
+                  "const myGuid = pm.variables.replaceIn('{{$guid}}');\r",
+                  "\r",
+                  "// 2. Pass it to a variable (choose one of the options below)\r",
+                  "\r",
+                  "// Option A: Save to Environment Variable (best for temporary use in an environment)\r",
+                  "pm.environment.set(\"unique_id\", myGuid);\r",
+                  "\r",
+                  "// Option B: Save to Collection Variable (best for use across the whole collection)\r",
+                  "pm.collectionVariables.set(\"unique_id\", myGuid);\r",
+                  "\r",
+                  "// 3. (Optional) Log to console to verify\r",
+                  "console.log(\"Generated GUID: \" + myGuid);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxStructUtils/api/v1/AppStatus",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxStructUtils",
+                "api",
+                "v1",
+                "AppStatus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AxGetStructure",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"action\": \"view\",\r\n    \"trace\": true,\r\n    \"transid\": \"g2gs\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxStructUtils/api/v1/AxGetStructure",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxStructUtils",
+                "api",
+                "v1",
+                "AxGetStructure"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AxTstructData",
+      "item": [
+        {
+          "name": "AppStatus",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxTstructData/api/v1/AppStatus",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxTstructData",
+                "api",
+                "v1",
+                "AppStatus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AxGet Transid",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"action\": \"view\",\r\n    \"trace\": true,\r\n    \"transid\": \"tst23\", //cg2gs //cg2gt\r\n    \"keyfield\": \"recordid\",\r\n    \"keyvalue\": \"100000000005274\",\r\n    \"AxpertWSFormat\": false,\r\n    \"AxClient_DateFormat\": \"dd-MMM-yyyy\"\r\n}\r\n//1524550000007",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxTstructData/api/v1/AxGet",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxTstructData",
+                "api",
+                "v1",
+                "AxGet"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "AxDelete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"trace\": true,\r\n    \"transid\": \"tst23\", //cg2gs //cg2gt\r\n    \"keyfield\": \"recordid\",\r\n    \"keyvalue\": \"100000000005298\"\r\n}\r\n//1524550000007",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxTstructData/api/v1/AxDelete",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxTstructData",
+                "api",
+                "v1",
+                "AxDelete"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "AxCancel",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"trace\": true,\r\n    \"transid\": \"tst23\", //cg2gs //cg2gt\r\n    \"keyfield\": \"recordid\",\r\n    \"keyvalue\": \"100000000005330\",\r\n    \"Remarks\": \"Cancelled by admin\"\r\n}\r\n//1524550000007",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxTstructData/api/v1/AxCancel",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxTstructData",
+                "api",
+                "v1",
+                "AxCancel"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "AxPut Multiple records Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"trace\": false,\r\n    \"validateonly\": false,\r\n    \"axclient_dateformat\": \"yyyy-MM-dd\",\r\n    \"data\": [\r\n        {\r\n            \"transid\": \"tst23\",\r\n            \"action\": \"create\",\r\n            \"submitdata\": {\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"txtfld\": \"QWWQQWWAAZ\",\r\n                        \"txtfld2\": \"\",\r\n                        \"decnum\": \"04.00\",\r\n                        \"wholenum\": \"0404\",\r\n                        \"datafld\": \"2025-12-25\",\r\n                        \"timefld\": \"04:04 AM\",\r\n                        \"timestampfld\": \"2025-12-25\",\r\n                        \"dropdown\": \"Item2\",\r\n                        \"multifld\": \"mohan\",\r\n                        \"richtext\": \"t t 0404A\",\r\n                        \"chklist\": \"Check2,Check3\",\r\n                        \"chkbox\": \"T\",\r\n                        \"radiogrp\": \"Radio2\",\r\n                        \"empng\": \"001\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        //rowid1, edit                        \r\n                        \"gridtxt\": \"DC2-1-04A\",\r\n                        \"griddecimal\": \"4.00\",\r\n                        \"griddate\": \"2045-12-24\"\r\n                    },\r\n                    \"row2\": {\r\n                        //rowid2, edit                        \r\n                        \"gridtxt\": \"DC2-2-04A\",\r\n                        \"griddecimal\": \"5.04\",\r\n                        \"griddate\": \"2045-12-24\"\r\n                    },\r\n                    \"row3\": {\r\n                        //0, create\r\n                        \"gridtxt\": \"DC2-3-04A\",\r\n                        \"griddecimal\": \"6.00\",\r\n                        \"griddate\": \"2045-12-24\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"largetext\": \"TES SS TES 04A\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"grid2txt\": \"DC4-1-04A\",\r\n                        \"grid2txt2\": \"AAA-04A\",\r\n                        \"grid2date\": \"2045-12-24\",\r\n                        \"grid2num\": \"1004\",\r\n                        \"empgg\": \"001\"\r\n                    },\r\n                    \"row2\": {\r\n                        \"grid2txt\": \"DC4-2-04A\",\r\n                        \"grid2txt2\": \"BBB-04A\",\r\n                        \"grid2date\": \"2045-12-24\",\r\n                        \"grid2num\": \"2004\",\r\n                        \"empgg\": \"002\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"nongrid_num\": \"104\",\r\n                        \"nongrid_largetext\": \"TEST -04A\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxTstructData/api/v1/AxPut",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxTstructData",
+                "api",
+                "v1",
+                "AxPut"
+              ]
+            },
+            "description": "Generated from cURL: curl --location '[https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI'](https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI')  \n\\--header 'Content-Type: application/json'  \n\\--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs'  \n\\--data-raw '{  \n\"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",  \n\"publickey\": \"SaveData_WorkerPaybook_001\",  \n\"project\": \"paybook\",  \n\"submitdata\": {  \n\"username\": \"jaisurya\",  \n\"trace\": \"false\",  \n\"keyfield\": \"\",  \n\"dataarray\": {  \n\"data\": {  \n\"mode\": \"new\",  \n\"keyvalue\": \"\",  \n\"recordid\": \"0\",  \n\"dc1\": {  \n\"row1\": {  \n\"workerid\": \"Jennifer\",  \n\"workertype\": \"FTE\",  \n\"wusergroup\": \"\",  \n\"wcountry_code\": \"\",  \n\"countryid\": \"UK\",  \n\"country_name\": \"\",  \n\"suporgsid\": \"CEO_OFFICE_ORG\",  \n\"suporgssuperior\": \"\",  \n\"locationid\": \"BANGALORE_LOC\",  \n\"locationsupervisor\": \"\",  \n\"companyid\": \"AI_WORLD_INC\",  \n\"companysuperior\": \"\",  \n\"costcenterid\": \"SALES_CC\",  \n\"costcentersuperior\": \"\",  \n\"cdeptid\": \"FINANCE_DEPARTMENT\",  \n\"cdeptsuperior\": \"\",  \n\"groupsid\": \"\",  \n\"sdate\": \"\",  \n\"worker_json\": \"\"  \n}  \n},  \n\"dc2\": {  \n\"row1\": {  \n\"attrib6\": \"\",  \n\"attrib1\": \"Mr.\",  \n\"attrib2\": \"\",  \n\"attrib3\": \"\",  \n\"attrib4\": \"\",  \n\"attrib5\": \"\"  \n}  \n},  \n\"dc3\": {  \n\"row1\": {  \n\"nattrib1\": \"4610 Vesta Drive\",  \n\"nattrib2\": \"LA\",  \n\"nattrib3\": \"33619\",  \n\"nattrib4\": \"Chicago\",  \n\"nattrib5\": \"US\"  \n}  \n},  \n\"dc4\": {  \n\"row1\": {  \n\"govtid\": \"262-01-9383\",  \n\"issuer\": \"\",  \n\"issuedate\": \"\",  \n\"expirydate\": \"\"  \n}  \n},  \n\"dc5\": {  \n\"row1\": {  \n\"contactvalue\": \"\",  \n\"conatctmail\": \"[JenniferDReyes@armyspy.com](https://mailto:JenniferDReyes@armyspy.com)\",  \n\"contactcountrycode\": \"\",  \n\"ctype\": \"\",  \n\"alternatecontact\": \"\",  \n\"alternatemail\": \"\",  \n\"alternatecountrycode\": \"\",  \n\"alternatectype\": \"\"  \n}  \n},  \n\"dc6\": {  \n\"row1\": {  \n\"bank_account_number\": \"727-255-4815\",  \n\"gender\": \"Female\",  \n\"dob\": \"\",  \n\"maritalstatusvalue\": \"Single\"  \n}  \n},  \n\"dc7\": {  \n\"row1\": {  \n\"jobtitle\": \"Worker\",  \n\"doj\": \"\",  \n\"worklocation\": \"\"  \n}  \n}  \n}  \n}  \n}  \n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "AxPut Multiple records edit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"trace\": true,\r\n    \"validateonly\": false,\r\n    \"axclient_dateformat\": \"yyyy-MM-dd\",\r\n    \"data\": [\r\n        {\r\n            \"transid\": \"tst23\",\r\n            \"action\": \"edit\",\r\n            \"keyfield\": \"recordid\",\r\n            \"keyvalue\": \"100000000004654\",\r\n            \"submitdata\": {\r\n                \"dc1\": {                    \r\n                   \"row1\": {\r\n                        \"axp_recid\": \"100000000004654\",\r\n                        \"axrow_action\": \"edit\",\r\n                        \"txtfld\": \"BAD 04A B1\",\r\n                        \"txtfld2\": \"BAB 04A AAAAAB\",\r\n                        \"decnum\": \"04.00\",\r\n                        \"wholenum\": \"0404\",\r\n                         \"datafld\": \"2025-12-26\",\r\n                        \"timefld\": \"04:04 AM\",\r\n                        \"timestampfld\": \"2025-12-26\",\r\n                        \"dropdown\": \"Item2\",\r\n                        \"multifld\": \"mohan\",\r\n                        \"richtext\": \"t t 0404B\",\r\n                        \"chklist\": \"Check2,Check3\",\r\n                        \"chkbox\": \"T\",\r\n                        \"radiogrp\": \"Radio2\",\r\n                        \"empng\": \"002\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxTstructData/api/v1/AxPut",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxTstructData",
+                "api",
+                "v1",
+                "AxPut"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "AxPut  create g2gs genmap (testbed114)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"trace\": true,\r\n    \"data\": [\r\n        {\r\n            \"transid\": \"g2gs\",\r\n            \"action\": \"create\",\r\n            \"submitdata\": {\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"category\": \"Cat1001\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"cat\" : \"Cat1001Cat1\",\r\n                        \"iname\": \"ItemCat1001_1\",\r\n                        \"iqty\": \"12\"                \r\n                    },\r\n                    \"row2\": {\r\n                        \"cat\" : \"Cat1001Cat2\",\r\n                        \"iname\": \"ItemCat1001_2\",\r\n                        \"iqty\": \"14\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxTstructData/api/v1/AxPut",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxTstructData",
+                "api",
+                "v1",
+                "AxPut"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "AxPut  edit g2gs genmap (testbed114)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"trace\": true,\r\n    \"data\": [\r\n        {\r\n            \"transid\": \"g2gs\",\r\n            \"action\": \"edit\",\r\n            \"keyfield\": \"recordid\",\r\n            \"keyvalue\": \"100000000000030\",\r\n            \"submitdata\": {\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"axp_recid\": \"100000000000030\",\r\n                        \"axrow_action\": \"edit\",\r\n                        \"category\": \"Cat1002\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                         \"axp_recid\": \"100000000000031\",\r\n                        \"axrow_action\": \"edit\",\r\n                        \"cat\": \"Cat1002Cat1\",\r\n                        \"iname\": \"ItemCat1002_1\",\r\n                        \"iqty\": \"22\"\r\n                    },\r\n                    \"row2\": {\r\n                         \"axp_recid\": \"100000000000032\",\r\n                        \"axrow_action\": \"edit\",\r\n                        \"cat\": \"Cat1002Cat2\",\r\n                        \"iname\": \"ItemCat1002_2\",\r\n                        \"iqty\": \"24\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxTstructData/api/v1/AxPut",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxTstructData",
+                "api",
+                "v1",
+                "AxPut"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AxList",
+      "item": [
+        {
+          "name": "AppStatus",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxList/api/v1/AppStatus",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxList",
+                "api",
+                "v1",
+                "AppStatus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AxList based on Transid",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"action\": \"view\",\r\n    \"transid\": \"slord\",\r\n    \"CachePermissions\": true,\r\n    \"trace\": true,\r\n    \"pageno\": 1,\r\n    \"pagesize\": 100\r\n}   ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxList/api/v1/AxList",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxList",
+                "api",
+                "v1",
+                "AxList"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "AxList  based on ADSNames with Ax UI filters",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"action\": \"view\",\r\n    \"Project\": \"pgbase114odbc\",\r\n    \"ADSNames\": [\r\n        \"ds_groupby_test\"\r\n    ],\r\n    \"trace\": true,\r\n    \"getallrecordscount\": false,\r\n    \"CachePermissions\": false,    \r\n    \"pageno\": 1,\r\n    \"pagesize\": 10,\r\n    \"keyfield\": \"username\",\r\n    \"keyvalue\": \"ALL\",\r\n    \"AxClient_dateformat\" : \"MM/dd/yyyy\", //optional\r\n    \"select_columns\" : [\"username\",\"sqlsrc\"],\r\n    \"aggregations\" : {\"total_sqlname\": \"count(*)\"},\r\n    \"groupby_columns\" : [\"username\",\"sqlsrc\"],\r\n    \"sorting\": [\r\n        {\r\n            \"fldname\": \"sqlsrc\",\r\n            \"sort_order\": \"desc\"\r\n        }\r\n    ],\r\n    \"filters\": [\r\n        {\r\n            \"fldname\": \"sqlname\",\r\n            \"datatype\": \"TEXT\",\r\n            \"value\": \"test\",\r\n            \"condition\": \"NOT EQUALS\" //NOT EQUALS //NOT CONTAINS // STARTSWITH // ENDSWITH // CONTAINS // EQUALS\r\n        },   \r\n        {\r\n            \"fldname\": \"app_desc\",\r\n            \"datatype\": \"NUMERIC\",\r\n            \"from\": \"0\",\r\n            \"to\": \"3\"\r\n        },\r\n        {\r\n            \"fldname\": \"createdby\",\r\n            \"datatype\": \"DROPDOWN\",\r\n            \"condition\": \"IN\", \r\n            \"value\": [\r\n                \"admin\",\r\n                \"mohan\",\r\n                \"lakshmi\"\r\n            ]\r\n        },\r\n        {\r\n            \"fldname\": \"modifiedon\",\r\n            \"datatype\": \"DATE\",\r\n            \"from\": \"12/31/2021\",\r\n            \"to\": \"12/31/2026\"\r\n        },\r\n        {\r\n            \"fldname\": \"modifiedon\",\r\n            \"datatype\": \"TIMESTAMP\",\r\n            \"from\": \"12/31/2021 00:00:00\",\r\n            \"to\": \"12/31/2026 23:59:59\"\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxList/api/v1/AxList",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxList",
+                "api",
+                "v1",
+                "AxList"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "AxList  based on ADSName (invalid param scenario)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"action\": \"view\",\r\n    \"ADSNames\": [\r\n        \"ds_test_ads1\"\r\n    ],\r\n    \"trace\": true,\r\n    \"pageno\": 1,\r\n    \"pagesize\": 10,\r\n    \"getallrecordscount\": false,\r\n    \"CachePermissions\": true,\r\n    \"keyfield\": \"username\",\r\n    \"keyvalue\": \"ALL\",\r\n    \"transid\": \"slord\",\r\n    \"sqlparams\": {\r\n       //\"myinputparmam\": \"ALL\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxList/api/v1/AxList",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxList",
+                "api",
+                "v1",
+                "AxList"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://adcdemo.agilecloud.biz/ARMPaybook/api/v1/ARMExecutePublishedAPI' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQb3dlciIsIkdyb3VwSWQiOiJhMWJjNmQ1ZS0wMGM3LTRlMWEtOGY2Zi1kMjJhZjU3ZjMzYzEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmOGQ3YWJmLTY2MDUtNGNlMi04OTkxLTExYzQxZGJlZjc5MiIsImV4cCI6MTc0MTg0NDE5NiwiaXNzIjoiQUdJTEVDT05ORUNULUFSTSIsImF1ZCI6IkFHSUxFQ09OTkVDVC1BUk0ifQ.xQT3pImJB9PBFl54ItGyOowx6gtfSRfUIN2HVrDzscs' \\\r\n--data-raw '{\r\n    \"ARMSessionId\": \"ARMSESSION-87a7a108-441a-4dd0-97d3-3587d87b7200\",\r\n    \"publickey\": \"SaveData_WorkerPaybook_001\", \r\n    \"project\": \"paybook\",\r\n    \"submitdata\": {\r\n        \"username\": \"jaisurya\",\r\n        \"trace\": \"false\",\r\n        \"keyfield\": \"\",\r\n        \"dataarray\": {\r\n            \"data\": {\r\n                \"mode\": \"new\",\r\n                \"keyvalue\": \"\",\r\n                \"recordid\": \"0\",\r\n                \"dc1\": {\r\n                    \"row1\": {\r\n                        \"workerid\": \"Jennifer\",\r\n                        \"workertype\": \"FTE\",\r\n                        \"wusergroup\": \"\",\r\n                        \"wcountry_code\": \"\",\r\n                        \"countryid\": \"UK\",\r\n                        \"country_name\": \"\",\r\n                        \"suporgsid\": \"CEO_OFFICE_ORG\",\r\n                        \"suporgssuperior\": \"\",\r\n                        \"locationid\": \"BANGALORE_LOC\",\r\n                        \"locationsupervisor\": \"\",\r\n                        \"companyid\": \"AI_WORLD_INC\",\r\n                        \"companysuperior\": \"\",\r\n                        \"costcenterid\": \"SALES_CC\",\r\n                        \"costcentersuperior\": \"\",\r\n                        \"cdeptid\": \"FINANCE_DEPARTMENT\",\r\n                        \"cdeptsuperior\": \"\",\r\n                        \"groupsid\": \"\",\r\n                        \"sdate\": \"\",\r\n                        \"worker_json\": \"\"\r\n                    }\r\n                },\r\n                \"dc2\": {\r\n                    \"row1\": {\r\n                        \"attrib6\": \"\",\r\n                        \"attrib1\": \"Mr.\",\r\n                        \"attrib2\": \"\",\r\n                        \"attrib3\": \"\",\r\n                        \"attrib4\": \"\",\r\n                        \"attrib5\": \"\"\r\n                    }\r\n                },\r\n                \"dc3\": {\r\n                    \"row1\": {\r\n                        \"nattrib1\": \"4610 Vesta Drive\",\r\n                        \"nattrib2\": \"LA\",\r\n                        \"nattrib3\": \"33619\",\r\n                        \"nattrib4\": \"Chicago\",\r\n                        \"nattrib5\": \"US\"\r\n                    }\r\n                },\r\n                \"dc4\": {\r\n                    \"row1\": {\r\n                        \"govtid\": \"262-01-9383\",\r\n                        \"issuer\": \"\",\r\n                        \"issuedate\": \"\",\r\n                        \"expirydate\": \"\"\r\n                    }\r\n                },\r\n                \"dc5\": {\r\n                    \"row1\": {\r\n                        \"contactvalue\": \"\",\r\n                        \"conatctmail\": \"JenniferDReyes@armyspy.com\",\r\n                        \"contactcountrycode\": \"\",\r\n                        \"ctype\": \"\",\r\n                        \"alternatecontact\": \"\",\r\n                        \"alternatemail\": \"\",\r\n                        \"alternatecountrycode\": \"\",\r\n                        \"alternatectype\": \"\"\r\n                    }\r\n                },\r\n                \"dc6\": {\r\n                    \"row1\": {\r\n                        \"bank_account_number\": \"727-255-4815\",\r\n                        \"gender\": \"Female\",\r\n                        \"dob\": \"\",\r\n                        \"maritalstatusvalue\": \"Single\"\r\n                    }\r\n                },\r\n                \"dc7\": {\r\n                    \"row1\": {\r\n                        \"jobtitle\": \"Worker\",\r\n                        \"doj\": \"\",\r\n                        \"worklocation\": \"\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "GetCardsWithData HomePage",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",    \r\n    \"Trace\": true,\r\n    \"HomePageCards\": true,\r\n    \"RefreshData\": false,\r\n    \"IsMobile\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxList/api/v1/GetCardsWithData",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxList",
+                "api",
+                "v1",
+                "GetCardsWithData"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetCardsWithData Dashboard",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"Trace\": true,\r\n    \"HomePageCards\": false,\r\n    \"RefreshData\": true,\r\n    \"IsMobile\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxList/api/v1/GetCardsWithData",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxList",
+                "api",
+                "v1",
+                "GetCardsWithData"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AxPlugins",
+      "item": [
+        {
+          "name": "Auth/StringGet",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ARMSessionId\": \"{{session}}\",\r\n    \"Key\": \"aa\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxPlugins/AxRedis/Auth/StringGet",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxPlugins",
+                "AxRedis",
+                "Auth",
+                "StringGet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StringGet",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"AppName\": \"{{session}}\",\r\n    \"Key\": \"aa\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxPlugins/AxRedis/StringGet",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxPlugins",
+                "AxRedis",
+                "StringGet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AppStatus",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/AxPlugins/api/v1/AppStatus",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "AxPlugins",
+                "api",
+                "v1",
+                "AppStatus"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ARM_APIs",
+      "item": [
+        {
+          "name": "ValidateAppSettings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let bodydata = JSON.parse(JSON.stringify(pm.response.json()));\r",
+                  "sessionid = bodydata.result.sessionid;\r",
+                  "pm.globals.set('session', bodydata.result.sessionid);\r",
+                  " \r",
+                  " \r",
+                  "token = bodydata.result.token;\r",
+                  "pm.globals.set('token', bodydata.result.token);\r",
+                  "console.log(token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"appname\": \"pgbase114\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/ARM_APIs/api/v1/ValidateAppSettings",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "ARM_APIs",
+                "api",
+                "v1",
+                "ValidateAppSettings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ValidateAppSettings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LOCALARM}}/ARM_APIs/api/v1/ValidateAppSettings?appname=pgbase114",
+              "host": [
+                "{{LOCALARM}}"
+              ],
+              "path": [
+                "ARM_APIs",
+                "api",
+                "v1",
+                "ValidateAppSettings"
+              ],
+              "query": [
+                {
+                  "key": "appname",
+                  "value": "pgbase114"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "unique_id",
+      "value": ""
+    }
+  ]
+}

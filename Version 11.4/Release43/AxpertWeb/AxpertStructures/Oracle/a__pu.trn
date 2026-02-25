@@ -1,0 +1,1220 @@
+<root pform="yes" wflow="F" runtimemod="F" runtimetstruct="F" cachedsave="F" createdon="12/09/2025 14:51:34" createdby="admin" updatedon="26/12/2025 10:17:15" updatedby="admin" defpage="y" name="a__pu" caption="User permissions" pid="2116" peg="false" amendment="false" axoutboundqueues="false" autoprints="false" formnotify="false" updusername="" dbtype="oracle">
+	<a__pu cat="tstruct">
+		<a1>a__pu</a1>
+		<a2>User permissions</a2>
+		<a4></a4>
+		<a5></a5>
+		<a6>False</a6>
+		<a9></a9>
+		<a10></a10>
+		<a11></a11>
+		<a12></a12>
+		<a13></a13>
+		<a14></a14>
+		<a15></a15>
+		<a16>t</a16>
+		<a17></a17>
+		<a18>False</a18>
+		<a19>
+			<l/>
+		</a19>
+		<a20>False</a20>
+		<a24></a24>
+		<a25>False</a25>
+		<a59></a59>
+		<a26>False</a26>
+		<a27>False</a27>
+		<a28>None</a28>
+		<a29>Default</a29>
+		<a30>False</a30>
+		<a31 savemode="">
+			<apiqueuename></apiqueuename>
+			<savequeuename></savequeuename>
+		</a31>
+	</a__pu>
+	<dc1 cat="dc">
+		<a1>dc1</a1>
+		<a2>User permissions</a2>
+		<a3>1</a3>
+		<a4></a4>
+		<a5>axusers</a5>
+		<a6>False</a6>
+		<a7>False</a7>
+		<a17>True</a17>
+		<a26>True</a26>
+		<a27>False</a27>
+		<a9>False</a9>
+		<a14></a14>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a15></a15>
+		<a16></a16>
+		<a59></a59>
+	</dc1>
+	<pusername cat="field" dcno="1" fieldtype="Simple Text" applyrule="F" encrypted="F" runtimecriteria="F" displaytotal="F" runtimefld="F">
+		<a1>pusername</a1>
+		<a2>Username</a2>
+		<a69></a69>
+		<a3>Character</a3>
+		<a4>50</a4>
+		<a5>0</a5>
+		<a6>Accept</a6>
+		<a7>
+			<a22 txt="" firesql="false" param="n" pcount="0"></a22>
+			<a18></a18>
+			<a21>0</a21>
+			<a20>0</a20>
+			<a23>False</a23>
+			<a24>False</a24>
+			<a25/>
+			<a26 table="" cap="" stype="" scol="0"></a26>
+			<a27></a27>
+			<a28/>
+			<a29/>
+			<a30>False</a30>
+			<a40/>
+			<a41/>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>True</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>False</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a52>False</a52>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="" maskroles="">No Mask</a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58>
+			<s>axuserrole</s></a58>
+		<a64></a64>
+		<a59></a59>
+		<a60></a60>
+		<a65></a65>
+		<a67>True</a67>
+		<a70></a70>
+	</pusername>
+	<dc2 cat="dc" booleandc="FALSE">
+		<a1>dc2</a1>
+		<a2>User grouping</a2>
+		<a3>2</a3>
+		<a4></a4>
+		<a5>AxUserGrouping</a5>
+		<a6>False</a6>
+		<a7>True</a7>
+		<a17>True</a17>
+		<a26>False</a26>
+		<a27>False</a27>
+		<a9>False</a9>
+		<a14></a14>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a15></a15>
+		<a16></a16>
+		<a59></a59>
+	</dc2>
+	<dmy cat="field" dcno="2" fieldtype="Simple Text" applyrule="F" encrypted="F" runtimecriteria="F" displaytotal="F" runtimefld="F">
+		<a1>dmy</a1>
+		<a2>dmy</a2>
+		<a69></a69>
+		<a3>Character</a3>
+		<a4>10</a4>
+		<a5>0</a5>
+		<a6>Accept</a6>
+		<a7>
+			<a22 txt="" firesql="false" param="n" pcount="0"></a22>
+			<a18></a18>
+			<a21>0</a21>
+			<a20>0</a20>
+			<a23>False</a23>
+			<a24>False</a24>
+			<a25/>
+			<a26 table="" cap="" stype="" scol="0"></a26>
+			<a27></a27>
+			<a28/>
+			<a29/>
+			<a30>False</a30>
+			<a40/>
+			<a41/>
+			<a63/>
+		</a7>
+		<a8>True</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>False</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>False</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a52>False</a52>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="" maskroles="">No Mask</a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a64></a64>
+		<a59></a59>
+		<a60></a60>
+		<a65></a65>
+		<a67>True</a67>
+		<a70></a70>
+	</dmy>
+	<axug_cmpcmp cat="field" dcno="2" dccap="User grouping" fieldtype="DropDown" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axug_cmpcmp</a1>
+		<a2>cmpany</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0">
+				<l>select grpvalue from axgrouping where grpnamedb='cmpcmp' order by 1</l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axug_cmpcmp>
+	<axug_depdep cat="field" dcno="2" dccap="User grouping" fieldtype="DropDown" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axug_depdep</a1>
+		<a2>depdep</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0">
+				<l>select grpvalue from axgrouping where grpnamedb='depdep' order by 1</l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axug_depdep>
+	<axug_dptdpt cat="field" dcno="2" dccap="User grouping" fieldtype="DropDown" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axug_dptdpt</a1>
+		<a2>dpt</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0">
+				<l>select grpvalue from axgrouping where grpnamedb='dptdpt' order by 1</l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axug_dptdpt>
+	<axug_financeyr cat="field" dcno="2" dccap="User grouping" fieldtype="DropDown" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axug_financeyr</a1>
+		<a2>Financial year</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0">
+				<l>select grpvalue from axgrouping where grpnamedb='financeyr' order by 1</l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axug_financeyr>
+	<dc3 cat="dc" booleandc="FALSE">
+		<a1>dc3</a1>
+		<a2>Permissions</a2>
+		<a3>3</a3>
+		<a4></a4>
+		<a5>AxUserPermissions</a5>
+		<a6>True</a6>
+		<a7>True</a7>
+		<a17>True</a17>
+		<a26>True</a26>
+		<a27>True</a27>
+		<a9>False</a9>
+		<a14></a14>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a15></a15>
+		<a16></a16>
+		<a59></a59>
+	</dc3>
+	<axuserrole cat="field" dcno="3" fieldtype="DropDown" applyrule="F" encrypted="F" runtimecriteria="F" displaytotal="F" runtimefld="F">
+		<a1>axuserrole</a1>
+		<a2>User role</a2>
+		<a69></a69>
+		<a3>Character</a3>
+		<a4>200</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 txt="f" firesql="False" param="y" pcount="1">
+				<l>select usergroup from axuserlevelgroups a where username = :pusername order by 1</l>
+			</a22>
+			<a18></a18>
+			<a21>0</a21>
+			<a20>0</a20>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25/>
+			<a26 table="" cap="" stype="sql" scol="0" masterfield="" mastertstruct=""></a26>
+			<a27></a27>
+			<a28/>
+			<a29/>
+			<a30/>
+			<a40></a40>
+			<a41/>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>False</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>False</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a52>True</a52>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="" maskroles="">No Mask</a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a64></a64>
+		<a59></a59>
+		<a60></a60>
+		<a65></a65>
+		<a67>True</a67>
+		<a70></a70>
+	</axuserrole>
+	<sqltext cat="field" dcno="3" fieldtype="Simple Text" applyrule="F" encrypted="F" runtimecriteria="F" displaytotal="F" runtimefld="F">
+		<a1>sqltext</a1>
+		<a2>sqltext</a2>
+		<a69></a69>
+		<a3>Character</a3>
+		<a4>4000</a4>
+		<a5>0</a5>
+		<a6>Accept</a6>
+		<a7>
+			<a22 txt="" firesql="false" param="n" pcount="0">
+				<l>select fn_permissions_axupscript() qrytext from dual</l>
+			</a22>
+			<a18></a18>
+			<a21>0</a21>
+			<a20>0</a20>
+			<a23>True</a23>
+			<a24>False</a24>
+			<a25/>
+			<a26 table="" cap="" stype="" scol="0"></a26>
+			<a27></a27>
+			<a28/>
+			<a29/>
+			<a30>False</a30>
+			<a40/>
+			<a41/>
+			<a63/>
+		</a7>
+		<a8>True</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>False</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>False</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a52>False</a52>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="" maskroles="">No Mask</a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58>
+			<s>cnd</s></a58>
+		<a64></a64>
+		<a59></a59>
+		<a60></a60>
+		<a65></a65>
+		<a67>True</a67>
+		<a70></a70>
+	</sqltext>
+	<axup_dept_or cat="field" dcno="3" fieldtype="Multi Select" applyrule="F" encrypted="F" runtimecriteria="F" displaytotal="F" runtimefld="F">
+		<a1>axup_dept_or</a1>
+		<a2>axup_dept_or</a2>
+		<a69></a69>
+		<a3>Character</a3>
+		<a4>200</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 txt="f" firesql="false" mulselect="true" mulsep="," param="n" pcount="0">
+				<l>SELECT mslist,groupby,grouporder,selected FROM(SELECT 	grpvalue AS mslist,	'Dept' AS groupby,1 AS grouporder,'false' AS selected,2 AS ord 	FROM 	axgrouping 	WHERE grpnamedb = 'dept_or' UNION ALL 	SELECT 	'All' AS mslist,'Dept' AS groupby,1 AS grouporder,'false' AS selected,1 AS ord 	FROM dual) a ORDER BY ord</l>
+			</a22>
+			<a18></a18>
+			<a21>0</a21>
+			<a20>0</a20>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25/>
+			<a26 table="" cap="" stype="sql" scol="0" masterfield="" mastertstruct=""></a26>
+			<a27></a27>
+			<a28/>
+			<a29/>
+			<a30/>
+			<a40></a40>
+			<a41/>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a52>True</a52>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a64></a64>
+		<a59></a59>
+		<a60></a60>
+		<a65></a65>
+		<a67>True</a67>
+		<a70></a70>
+	</axup_dept_or>
+	<axup_cmpcmp cat="field" dcno="3" dccap="Permissions" fieldtype="Multi Select" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axup_cmpcmp</a1>
+		<a2>cmpany</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0" mulselect="true" mulsep=",">
+				<l>select mslist, groupby, grouporder, selected from (select grpvalue as mslist, 'cmpany' as groupby, 1 as grouporder, 'false' as selected, 2 as ord from axgrouping where grpnamedb = 'cmpcmp' union all select 'All' as mslist, 'cmpany' as groupby, 1 as grouporder, 'false' as selected, 1 as ord from dual) a order by ord </l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axup_cmpcmp>
+	<axup_depdep cat="field" dcno="3" dccap="Permissions" fieldtype="Multi Select" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axup_depdep</a1>
+		<a2>depdep</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0" mulselect="true" mulsep=",">
+				<l>select mslist, groupby, grouporder, selected from (select grpvalue as mslist, 'depdep' as groupby, 1 as grouporder, 'false' as selected, 2 as ord from axgrouping where grpnamedb = 'depdep' union all select 'All' as mslist, 'depdep' as groupby, 1 as grouporder, 'false' as selected, 1 as ord from dual) a order by ord </l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axup_depdep>
+	<axup_dptdpt cat="field" dcno="3" dccap="Permissions" fieldtype="Multi Select" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axup_dptdpt</a1>
+		<a2>dpt</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0" mulselect="true" mulsep=",">
+				<l>select mslist, groupby, grouporder, selected from (select grpvalue as mslist, 'dpt' as groupby, 1 as grouporder, 'false' as selected, 2 as ord from axgrouping where grpnamedb = 'dptdpt' union all select 'All' as mslist, 'dpt' as groupby, 1 as grouporder, 'false' as selected, 1 as ord from dual) a order by ord </l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axup_dptdpt>
+	<axup_financeyr cat="field" dcno="3" dccap="Permissions" fieldtype="Multi Select" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axup_financeyr</a1>
+		<a2>Financial year</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0" mulselect="true" mulsep=",">
+				<l>select mslist, groupby, grouporder, selected from (select grpvalue as mslist, 'Financial year' as groupby, 1 as grouporder, 'false' as selected, 2 as ord from axgrouping where grpnamedb = 'financeyr' union all select 'All' as mslist, 'Financial year' as groupby, 1 as grouporder, 'false' as selected, 1 as ord from dual) a order by ord </l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axup_financeyr>
+	<axup_poi cat="field" dcno="3" dccap="User permissions" fieldtype="Multi Select" customdatatype="NA" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axup_poi</a1>
+		<a2>3_poi</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0" mulselect="true" mulsep=",">
+				<l>select mslist, groupby, grouporder, selected from (select grpvalue as mslist, '3_poi' as groupby, 1 as grouporder, 'false' as selected, 2 as ord from axgrouping where grpnamedb = 'poi' union all select 'All' as mslist, '3_poi' as groupby, 1 as grouporder, 'false' as selected, 1 as ord from dual) a order by ord </l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axup_poi>
+	<axup_mnb cat="field" dcno="3" dccap="User permissions" fieldtype="Multi Select" customdatatype="NA" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axup_mnb</a1>
+		<a2>nb</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0" mulselect="true" mulsep=",">
+				<l>select mslist, groupby, grouporder, selected from (select grpvalue as mslist, 'nb' as groupby, 1 as grouporder, 'false' as selected, 2 as ord from axgrouping where grpnamedb = 'mnb' union all select 'All' as mslist, 'nb' as groupby, 1 as grouporder, 'false' as selected, 1 as ord from dual) a order by ord </l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axup_mnb>
+	<axup_iuy cat="field" dcno="3" dccap="User permissions" fieldtype="Multi Select" customdatatype="NA" runtimecriteria="F" runtimefld="T" applyrule="F" encrypted="F" displaytotal="F" customdecimal="F">
+		<a1>axup_iuy</a1>
+		<a2>iuy</a2>
+		<a3>Character</a3>
+		<a4>500</a4>
+		<a5>0</a5>
+		<a6>Select</a6>
+		<a7>
+			<a22 firesql="false" txt="f" param="n" pcount="0" mulselect="true" mulsep=",">
+				<l>select mslist, groupby, grouporder, selected from (select grpvalue as mslist, 'iuy' as groupby, 1 as grouporder, 'false' as selected, 2 as ord from axgrouping where grpnamedb = 'iuy' union all select 'All' as mslist, 'iuy' as groupby, 1 as grouporder, 'false' as selected, 1 as ord from dual) a order by ord </l>
+			</a22>
+			<a18 cfcap=""></a18>
+			<a20>0</a20>
+			<a21>0</a21>
+			<a23>False</a23>
+			<a24>True</a24>
+			<a25></a25>
+			<a26 table="" cap="" fcaption="" stype="sql" scol="0" masterfield="" mastertstruct="" mtcap=""></a26>
+			<a27 fcaption=""></a27>
+			<a28></a28>
+			<a29></a29>
+			<a30></a30>
+			<a40></a40>
+			<a41></a41>
+			<a63/>
+		</a7>
+		<a8>False</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>True</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a31></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="X" maskroles=""></a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a52>True</a52>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a60></a60>
+		<a64></a64>
+		<a65></a65>
+		<a66></a66>
+		<a67>True</a67>
+		<a69></a69>
+		<a70></a70>
+		<a59></a59>
+	</axup_iuy>
+	<cnd cat="field" dcno="3" fieldtype="Large Text" applyrule="F" encrypted="F" runtimecriteria="F" displaytotal="F" runtimefld="F">
+		<a1>cnd</a1>
+		<a2>cnd</a2>
+		<a69></a69>
+		<a3>Text</a3>
+		<a4>99999</a4>
+		<a5>0</a5>
+		<a6>Accept</a6>
+		<a7>
+			<a22 txt="" firesql="False" param="y" pcount="1">
+				<l>:sqltext</l>
+			</a22>
+			<a18></a18>
+			<a21>0</a21>
+			<a20>0</a20>
+			<a23>True</a23>
+			<a24>False</a24>
+			<a25/>
+			<a26 table="" cap="" stype="" scol="0"></a26>
+			<a27></a27>
+			<a28/>
+			<a29/>
+			<a30>False</a30>
+			<a40/>
+			<a41/>
+			<a63/>
+		</a7>
+		<a8>True</a8>
+		<a9>True</a9>
+		<a10>False</a10>
+		<a11>False</a11>
+		<a12>True</a12>
+		<a13></a13>
+		<a14></a14>
+		<a15>True</a15>
+		<a16>False</a16>
+		<a17>False</a17>
+		<a19>False</a19>
+		<a52>False</a52>
+		<a31 ctype="Memo" type="v"></a31>
+		<a32></a32>
+		<a33></a33>
+		<a34></a34>
+		<a35></a35>
+		<a36></a36>
+		<a37></a37>
+		<a46></a46>
+		<a47></a47>
+		<a48 masking="No Mask" lastcharmask="0" firstcharmask="0" maskchar="" maskroles="">No Mask</a48>
+		<a49></a49>
+		<a50></a50>
+		<a51></a51>
+		<a55>True</a55>
+		<a56></a56>
+		<a57></a57>
+		<a58></a58>
+		<a64></a64>
+		<a59></a59>
+		<a60></a60>
+		<a65></a65>
+		<a67>True</a67>
+		<a70></a70>
+	</cnd>
+	<scripts cat="actions">
+		<script1 cap="dataload" type="tstruct" apply="On Data Load" applyon="" sname="a__pu" scripts="yes" desc="" failmessage="" validate="no" formcontrol="true" breakonerror="no" localnum="3">
+			<r1 id="a1" op="5" task="scripts" type="" sname="" apply="" applyon="">
+				<param1 task="scripts" op="7">
+					<exprset>
+						<l0>AxHideControls({dc2})</l0>
+						<l1>AxDisableControls({dc1})</l1>
+					</exprset>
+				</param1>
+			</r1>
+		</script1>
+	</scripts>
+	<comps cat="comps" dwbtb="true" btn="2">
+		<x__headtext t="lbl" p="x__heading" c="Test11" tlhw="5,3,19,56" color="" font="Tahoma,12,tfff"/>
+		<btn1 cat="btn" parent="x__toolbar" key="btn1" caption="Save" sname="ta__pu" tlhw="4,9310210,26,28" flat="True" img="" position="" container="" hint="Save" action="" task="save" scut="Ctrl+S" def="" font="Tahoma,8,clBlack,ffff" footer="false" visible="true" api=""/>
+		<btn2 cat="btn" parent="x__toolbar" key="btn2" caption="Tasks" sname="ta__pu" tlhw="4,9310245,26,28" flat="True" img="" position="Default" container="" hint="Tasks" action="" task="tasks" scut="Ctrl+" def="" font="Tahoma,8,clBlack,ffff" footer="false" visible="false" folder="true" api=""/>
+		<x__heading t="head" tlhw="0,0,32,1108" color="00F2F0F0" font=",,,"/>
+	</comps>
+	<iframes cat="iframes" layout="default"><Frame1 align="top" pop="no" tlhw="89,0,254,1103" hp="33"><pages><dc>dc1</dc></pages></Frame1><Frame2 align="top" pop="no" tlhw="348,0,254,1103" hp="33"><pages><dc>dc2</dc></pages></Frame2><Frame3 align="top" pop="no" tlhw="607,0,254,1103" hp="33"><pages><dc>dc3</dc></pages></Frame3></iframes>
+	<temp>
+		<menupos>default</menupos>
+		<menulist></menulist>
+		<listview>false</listview>
+		<layout>Default</layout>
+		<fcaption>User permissions</fcaption>
+		<defpage>true</defpage>
+		<includepage>F</includepage>
+		<changeddc></changeddc>
+	</temp>
+	<axpconfigs_a__pu cat="config">
+		<CONFIGNAME>searchcols</CONFIGNAME>
+		<CVALUE>axuserrole,pusername,axug_cmpcmp,axug_depdep,axug_dptdpt,axug_financeyr</CVALUE>
+	</axpconfigs_a__pu>
+</root>
