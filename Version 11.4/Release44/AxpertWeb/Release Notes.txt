@@ -1,0 +1,91 @@
+
+
+AxpertWeb
+------------
+TASK-4594 -JF&I- Errors occurring when downloading certain reports as PDF
+
+TASK-4944 -JF&I- Duplicate transaction save issue 
+
+TASK-4847 -JF&I- Application not licensed error message
+
+TASK-4599 -JF&I- Issue with Column Visibility in List View - In the list view, some columns cannot be enabled
+
+TASK-4773 -JF&I- Local Purchase Order - Even when values are correct 
+
+TASK-4596 -JF&I- import Shipment Duty Details Grid - A syntax error ")" is appearing in UAT, making it difficult to complete the shipment process.
+
+TASK-4971 -PayBooks- ODBC connection issue in Managed Postgre instances when using the complex password with special characters. 
+
+TASK-4901 -Axi- AxList API - Dimensions based filtering is added to Data Listing page
+
+
+ARM:
+----
+TASK-4971 -PayBooks- ODBC connection issue in Managed Postgre instances when using the complex password with special characters.
+
+TASK-4975 -PayBooks- AxAudit column should capture hh:mi:ss:sss (Millisecond) Customer - Paybooks Technologies
+
+
+Consumer Services:
+-----------------
+TASK-4983 -- Enhancement: ARMAxpertJobsConsumer exe service has been converted to Worker service and avoided hangfire db for job scheduling. Accordingly, default dependency of postgre db has been avoided and Redis functionality introduced for scheduling the Jobs. Incase redis keys cleared / flushall, this worker service needs to be restarted. 
+Note: Please note the following points to set this worker service.
+      1. The service needs to be started with the following command in command prompt.
+         Service Start command ex.:
+          sc create ARMAxpertJobsWorkerService binPath= "D:\AxpertJobService\ARMAxpertJobsWorkerService.exe D:\AxpertJobService\appsettings.json"
+          sc start ARMAxpertJobsWorkerService  
+      2. This service wanted to stop or remove from the windows service needs to be run below command.
+          Ex.: sc stop ARMAxpertJobsWorkerService
+               sc delete ARMAxpertJobsWorkerService   
+      3. Please follow for Linux to start this consumer service. 
+          a. Create a folder for your service:
+              /home/ubuntu/ARMAxpertJobsWorkerService/
+          b. Create the systemd service file
+              sudo nano /etc/systemd/system/ARMAxpertJobsWorkerService.service
+          c. Reload system
+              sudo systemctl daemon-reload
+          d. Enable the service at boot
+              sudo systemctl enable ARMAxpertJobsWorkerService
+          e. Start the service
+              sudo systemctl start ARMAxpertJobsWorkerService
+          f. Check status
+              sudo systemctl status ARMAxpertJobsWorkerService
+          g. To STOP / RESTART the service
+              sudo systemctl stop ARMAxpertJobsWorkerService
+              sudo systemctl restart ARMAxpertJobsWorkerService
+
+
+TASK-4984 -- Enhancement: ARMCachedSaveConsumer exe service has been converted to Worker service. 
+Note: Please note the following points to set this worker service.
+      1. The service needs to be started with the following command in command prompt.
+         Service Start command ex.:
+          sc create ARMCachedSaveWorkerService binPath= "D:\CachedSaveWorkerService\ARMCachedSaveWorkerService.exe D:\CachedSaveWorkerService\appsettings.json"
+          sc start ARMCachedSaveWorkerService  
+      2. This service wanted to stop or remove from the windows service needs to be run below command.
+          Ex.: sc stop ARMCachedSaveWorkerService
+               sc delete ARMCachedSaveWorkerService   
+      3. Please follow for Linux to start this consumer service. 
+          a. Create a folder for your service:
+              /home/ubuntu/ARMCachedSaveWorkerService/
+          b. Create the systemd service file
+              sudo nano /etc/systemd/system/ARMCachedSaveWorkerService.service
+          c. Reload system
+              sudo systemctl daemon-reload
+          d. Enable the service at boot
+              sudo systemctl enable ARMCachedSaveWorkerService
+          e. Start the service
+              sudo systemctl start ARMCachedSaveWorkerService
+          f. Check status
+              sudo systemctl status ARMCachedSaveWorkerService
+          g. To STOP / RESTART the service
+              sudo systemctl stop ARMCachedSaveWorkerService
+              sudo systemctl restart ARMCachedSaveWorkerService
+
+
+AxpertStudio:
+-------------
+TASK-4971 -PayBooks- ODBC connection issue in Managed Postgre instances when using the complex password with special characters. 
+
+
+
+
