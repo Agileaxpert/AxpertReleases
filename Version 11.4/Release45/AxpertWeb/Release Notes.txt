@@ -1,0 +1,63 @@
+
+AxpertWeb:
+----------
+TASK-5000 -BDF- Issue Description: Product Issue (Reported by BDF Team): During runtime, the hidden button remains visible, even though button is hidden in Axpert Studio using the Visibility option for the user-defined button.
+
+TASK-5131 -PayBooks- Activating license in postgres managed service is not working
+
+TASK-4983 -QA- ARMAxpertJobsConsumer exe service has been converted to Worker service and avoided hangfire db for job scheduling. 
+Note: In Configuration Studio, the menu caption 'Script Jobs' under the Jobs console has been renamed to 'Axpert Jobs'.
+
+
+
+Consumer Services:
+-----------------
+TASK-5076 -- Enhancement: ARMPeriodicNotificationService exe service has been converted to Worker service and avoided hangfire db for job scheduling. Accordingly, default dependency of postgre db has been avoided and Redis functionality introduced for scheduling the Jobs. Incase redis keys cleared / flushall, this worker service needs to be restarted. 
+Note: Please note the following points to set this worker service.
+      1. The service needs to be started with the following command in command prompt.
+         Service Start command ex.:
+          sc create ARMPeriodicNotificationWorkerService binPath= "D:\PeriodicNotification\ARMPeriodicNotificationWorkerService.exe D:\PeriodicNotification\appsettings.json"
+          sc start ARMPeriodicNotificationWorkerService  
+      2. This service wanted to stop or remove from the windows service needs to be run below command.
+          Ex.: sc stop ARMPeriodicNotificationWorkerService
+               sc delete ARMPeriodicNotificationWorkerService   
+      3. Please follow for Linux to start this consumer service. 
+          a. Create a folder for your service:
+              /home/ubuntu/ARMPeriodicNotificationWorkerService/
+          b. Create the systemd service file
+              sudo nano /etc/systemd/system/ARMPeriodicNotificationWorkerService.service
+          c. Reload system
+              sudo systemctl daemon-reload
+          d. Enable the service at boot
+              sudo systemctl enable ARMPeriodicNotificationWorkerService
+          e. Start the service
+              sudo systemctl start ARMPeriodicNotificationWorkerService
+          f. Check status
+              sudo systemctl status ARMPeriodicNotificationWorkerService
+          g. To STOP / RESTART the service
+              sudo systemctl stop ARMPeriodicNotificationWorkerService
+              sudo systemctl restart ARMPeriodicNotificationWorkerService
+
+TASK-5058 -BetterWorks- ARMExportServiceWorker getting hang or silently failing to run even though in the services it appears like running.
+Pl refer to the screenshot, where web app is resulting an error as if consumer is not running but consumer service shows running.
+Only after forcible restart of service worker, its getting resolved.  In a day, this problem comes multiple times forcing developers to be always available on demand to restart this service whenever there is an issue.  This was working well when running on patch 37 with running the worker as console app previously.  After the recent upgrade to patch 43 and service worker, this problem has started.
+
+TASK-4983 -QA- ARMAxpertJobsConsumer exe service has been converted to Worker service and avoided hangfire db for job scheduling. 
+
+AxpertStudio:
+-------------
+TASK-4904 -BDF-	The created autogenerate field is shown as a short text field instead of an autogenerate field. 
+
+TASK-4905 -BDF-	The source field dropdown values are unselected when the user loads the selected dropdown list of values. 
+
+TASK-4933 -BDF- Master Field Dropdown Not Loading options in Newly Created MD Map and existing mdmap
+
+TASK-4934 -MPCO- Adding new gen map in Migrated structure- Gen map name in not created properly (NaN) 
+
+TASK-4980 -Rajashri- RFPLDEV - In axpert studio master field dropdown is not listing any fieldname while defining mdmap 
+
+TASK-0976 -QA- Oracle - Change Field(time field to large text)
+
+TASK-4943 -QA- When a field is added from the popup generated after a previous field was added, it is not marked as "new"
+
+
