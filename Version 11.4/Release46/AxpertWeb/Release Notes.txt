@@ -1,0 +1,113 @@
+AxpertWeb:
+----------
+TASK-4986 -- Applying user permission in Tstruct page   
+
+TASK-4977 -- Problem in opening Axpert in multiple tabs connecting to different schema 
+
+TASK-5152 -- When a Data page record is opened from command line using docid or some other keyfields (apart from recordid), getting error as User dont have access to this structure 
+
+TASK-5146---Product Issue Mobile: When the user navigates to any screen, an error message appears stating: “Error: Oops! There seems to be some problem. Please try later.”
+
+TASK-5163 -Payazzure- Display Nickname - [User ID] Instead of User ID in PEG Approval Pending Message
+
+TASK-5192 -Payazzure- Description: There is an issue while opening one IView from another using Hyperlink Parameters. We are trying to navigate from the Dummy IView to Increment Employeewise Listings IView by passing parameter values through the hyperlink. Although the parameter values are being passed from the source IView, the same values are not being applied in the SQL query of the target IView. When checking the trace file, the parameter values appearing there are different from the values passed through the hyperlink.
+Due to this mismatch, the target IView is not filtering the data based on the passed parameters.
+
+TASK-4864 -MPCO- Grid Buttons defined to open / load tstrctus or views using syntax axpbutton_scriptname. Button some of the structures it si not working and giving ora-00936 error.
+Unable to reproduce the issue.
+
+TASK-5190 -MPCO- Issue Description: When clearing only the searched cache keys in the MemDB Console, the system displays the following popup message: "Application will be signed out once all the keys are cleared. Do you want to proceed?"
+
+TASK-5200 -PayBooks- Issue Description: When the user provides the specific Word in JSON field(special Datatype), the system throws the error 'Invalid input detected. Please try again.' and does not accept the JSON configuration
+
+TASK-5230 -RFPLDEV- Auto refreshing is not working in iview reports even after enabling refresh on parent close.
+
+TASK-5218 -BMRCL- While trying to import the data through Global Import Option, we are getting issue like (File Upload Virtual Path is empty, Please verify and add the required path information through AxpertAdmin Settings.) But we already defined the path in Axpert Admin Page and the path is also there in the server Even though we are facing this issue.
+
+TASK-5251 -agilespace- After migrated to postgres managed service we're encountering the issue on agilespace
+
+TASK-5332 -JF&I- The modified date of AppSettings.ini updates whenever the application session expires or the browser is refreshed. 
+
+TASK-4949 -QA- Random Issue: After applying the Release 43 patch, in Global Import, once the file is uploaded and the Submit button is clicked, the following error is displayed: "File Upload Virtual Path is empty. Please verify and add the required path information through AxpertAdmin Settings.".
+
+TASK-5254 -QA- Unwanted IIS worker process requests avoided during SignOut call especially using duplicate tabs. 
+
+TASK-5277 -QA- Feature Dropdown values storing in localstorage by default enabled if the Axi plugin is enabled. 
+
+TASK-3451 –QA- In PEG, the status is now updated in the header table as in the prior workflow.
+
+TASK-5289 -- In axi global site, Fast reports are generating blank pdf and not working. In axi-global, database is connected using ODBC & ADO, but existing fast reports are are defined using DBXQuery components.
+
+TASK-5333 -QA- In IView: Added a wait cursor and prevented duplicate clicks when clicking the "Total Row Count(?)" icon.
+
+TASK-5334 -QA- Product Issue: When user create a chart from the data listing, the screen goes blank and throws the error like "Either ARM is not running or setup is not proper. Please contact administrator to rectify ARM setup issue."
+
+TASK-5339 -QA- Product Issue: In the Data Listing page, once all records are loaded, when the user tries to export the Print, PDF & Excel file, the page keeps loading and the schema becomes unresponsive for approximately 2 minutes and 30 seconds. After that, the user is able to download the Excel file with all records at the front-end level.
+Note: Listing page data export to Excel, PDF, or Word will be processed through ARMExportWorkerService, regardless of whether all data is available or not.
+
+ARM:
+----
+TASK-5075 -- AxUserPermission API and adding dimensions check in AxPut and AxGet APIs
+* Dimensions based user access control is added to AxGet and AxPut APIs.
+* New API AxUserPermission is added for View/Edit/Create access check.
+
+Please find the CURL request for the API:
+
+View/Edit Access:
+curl --location 'http://localhost/ARM_site/AxTstructData/api/v1/AxUserPermission' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <your token>' \
+--data '{
+    "ARMSessionId": "<your session id>",
+    "action": "view", //edit
+    "trace": false,
+    "transid": "tstdm",
+    "keyfield": "recordid",
+    "keyvalue": "1777990000000"
+}'
+
+Create Access:
+curl --location 'http://localhost/ARM_site/AxTstructData/api/v1/AxUserPermission' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <your token>' \
+--data '{
+    "ARMSessionId": "<your session id>",
+    "action": "Create",
+    "trace": false,
+    "transid": "tstdm"
+}'
+
+TASK-5107 -Payazzure- Issue in ARMMobileNotification API 
+* Fixed the issue and moved following APIs to ARMNotificationHub MicroserviceL
+--ARMMobileNotification
+--ARMDisableMobileNotificationForUser
+Note: JWT node is added to appsettings.json file of ARMNotificationHub microservice. Please add the node or use the file from release.
+
+TASK-5131 -PayBooks- Activating license in postgres managed service is not working
+
+TASK-5205 -- When No change is DC system still generating Update statement for non changed DC Customer (Paybooks)
+
+TASK-5232 -- AxPut - Autogenerate fields are not saving properly
+
+TASK-4986 -- Enhancement: Applying user permission in Tstruct page
+* Note: User permission is handled in AxPut, AxGet, AxList, AxDelete and AxCancel APIs now.
+
+TASK-5322 -- DataPage - Count mistatch between 'Load all records' row count and right side cards total records count Customer
+
+TASK-5321 -- DataPage - Pages getting hanged when 20000+ rows loaded via 'Load all records' button click
+Note: In data listing page Utilities -> View selection and View captions config is removed and Cards based view is withdrawn. Only Table view is supported by default in data listing page.
+
+
+Consumer Service:
+----------------
+TASK-4181 -- Enhancement: ARMExportService has been converted to Window Worker process services named 'ARMExportWorkerService'.
+Note: Map username and password authentication is enabled (if configured in the AxpertAdmin page) for the file upload path used in Excel export within the worker service
+
+TASK-5339 -QA- Product Issue: In the Data Listing page, once all records are loaded, when the user tries to export the Print, PDF & Excel file, the page keeps loading and the schema becomes unresponsive for approximately 2 minutes and 30 seconds. After that, the user is able to download the Excel file with all records at the front-end level.
+Note: Listing page data export to Excel, PDF, or Word will be processed through ARMExportWorkerService, regardless of whether all data is available or not.
+
+Structures:
+-----------
+TASK-4986 -- Applying user permission in Tstruct page   
+
+
