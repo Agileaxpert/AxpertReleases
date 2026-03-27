@@ -97,6 +97,11 @@ TASK-5322 -- DataPage - Count mistatch between 'Load all records' row count and 
 TASK-5321 -- DataPage - Pages getting hanged when 20000+ rows loaded via 'Load all records' button click
 Note: In data listing page Utilities -> View selection and View captions config is removed and Cards based view is withdrawn. Only Table view is supported by default in data listing page.
 
+TASK-5336 -- AxGet with User Perimissions
+* Issue1 : User permissions via the API. When executing the AxGet API, the response shows all DC fields for every DC -> Fixed.
+* Issue2 : While saving value for Select From Form(save Normalization- true) through api, it is throwing error "Error submitting field dropfrom with value 'EMP-202500005': Field dropfrom not found in struct definition; \r\nError submitting field fromdrop with value '1350990000000': Field fromdrop not found in struct definition" -> Not an issue as issue with fieldname in input json
+Issue 3: When saving record through api(Import Dropdown fields)Import Dropdown fields_), while loading record from web it is throwing "Unable to load. SQL : Select ENAME from SRDTD1 Where SRDTD1id ="
+
 
 Consumer Service:
 ----------------
@@ -106,8 +111,24 @@ Note: Map username and password authentication is enabled (if configured in the 
 TASK-5339 -QA- Product Issue: In the Data Listing page, once all records are loaded, when the user tries to export the Print, PDF & Excel file, the page keeps loading and the schema becomes unresponsive for approximately 2 minutes and 30 seconds. After that, the user is able to download the Excel file with all records at the front-end level.
 Note: Listing page data export to Excel, PDF, or Word will be processed through ARMExportWorkerService, regardless of whether all data is available or not.
 
+TASK-4949 -QA- Random Issue: in Global Import, once the file is uploaded and the Submit button is clicked, the following error is displayed: "File Upload Virtual Path is empty. Please verify and add the required path information through AxpertAdmin Settings.".
+Note: Records are successfully inserted using Global import. But, Along with success notification,one more error notifcations as "RapidSave Push to Queue rest api -error" (refer to the attached screenshot).
+
+
 Structures:
 -----------
 TASK-4986 -- Applying user permission in Tstruct page   
 
+AxpertStudio:
+-------------
+TASK-5001 -BDF- In the existing forms, Track Changes is enabled; however, when the forms are opened in Axpert Studio, it is displayed as disabled. 
+TASK-5099 -BDF-	Hidden fields appear in the ‘Search For' section (Tstruct Search) at runtime as the ‘Hide in Search' checkbox is not enabled by default after conversion from Desktop 
+TASK-5249 -BDF-	For Existing iview Caption field not selected by default in iview Subtotal section in 11.4studio
+TASK-5359 -AxiERP- axglo tstruct is not listing in Developer studio tstruct page.
+Task ID-012373 -- Developer Studio - Fill Grid Map Details
+
+Axpert Utilities:
+-----------------
+Task 5291 –AxiERP- Unable to create/edit fast report definitions; AxFast.exe throws an error (Customer: Axi ERP)
+Note: AxFast.exe and ASBThinclient.dll utilities has been released related to this ticket. Which is compatibility support with OCI service postgre database.
 
