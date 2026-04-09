@@ -1,0 +1,54 @@
+AxpertWeb:
+----------
+TASK-5506 -- Enhancement: ARMCachedSaveworkservice has been enhanced to handle multiple transactions from multiple transids. 
+    Note:1. A predefined input JSON format must be pushed to the queue. A sample JSON format is provided in the README.
+         2. The queue name for ARMCachedSaveworkservice has been changed to 'CachedSaveQueue' from 'RapidSaveQueue'. Update this in your appsettings.json file under the ARMCachedSaveworkservice folder, or use the updated file provided in the patch.
+
+TASK-5227 -JF&I- Issue with Column Visibility in List View - In the list view, "modified by" field cannot be enabled 
+
+TASK-5542 -JF&I- When downloading an excel, the comma is not coming.
+
+TASK-5327 -BMRCL- In the Fill Grid configuration, we need to populate data based on dependency from a previous DC by passing values dynamically into the SQL query. However, the dependency is not working in the current version. But This functionality was working in the earlier version.
+
+TASK-5536 -BMRCL- In the IView, parameters are initially filtered correctly based on the selected values. After clicking the Search button, the results are displayed as expected.
+However, when reopening the parameter panel, the previously selected parameter values are not retained and appear blank. Due to this issue, the IView refresh functionality is also not working as expected. Additionally, when using the axrow option to open the screen, the parameter values are correctly populated in the columns, but they are not retained in the parameter section in iview.
+
+TASK-5265 -Better works- Issue with Button Icons Displaying as Black Circles in 11.4 Web
+
+TASK-5244 -MPCO- Transaction Cancel/ delete issue : Read-only transactions are allowing for cancel / delete, Same not allowed in desktop
+Transaction Cancel/ delete issue : Read-only transactions are allowing for cancel / delete. Field access / readonly action defined in desktop - Cancel/ Delete is not allowed in desktop.
+
+TASK-4715 -MPCO- During entry and modification mode: Calendar expanding even though date is selected, when navigating previous and next tabs.  
+
+TASK-5535 -MPCO- Issue Description: Scripts created in 11.4 Studio are allowing users to cancel and delete transactions that are marked as read-only.
+
+TASK-5505 -Kauvery- Scroll bar issue in tstruct popup screens during GridDc Data import from Excel file. 
+
+TASK-5556 -BDF- Issue Description: Even though confirmation message  is configured in Dev Studio , it is not displayed when user clicks on hyperlink in runtime for iview
+Note: Assigning the script in “On Double Click” field
+
+TASK-5591 -QA- Global Import: Displays an “Oops” error when the Microsoft Access driver is not installed or is incompatible.
+Note: The import page will now show a proper error message instead of a generic “Oops” error.
+
+
+Consumer Service:
+----------------
+TASK-5506 -- Enhancement: ARMCachedSaveworkservice has been enhanced to handle multiple transactions from multiple transids. 
+    Note:1. A predefined input JSON format must be pushed to the queue. A sample JSON format is provided in the README.
+         2. The queue name for ARMCachedSaveworkservice has been changed to 'CachedSaveQueue' from 'RapidSaveQueue'. Update this in your appsettings.json file under the ARMCachedSaveworkservice folder, or use the updated file provided in the patch.
+
+TASK-5542 -JF&I- When downloading an excel, the comma is not coming(ARMExportWorkerService)
+
+TASK-5592 -QA- Below mentioned ARMWorkerServices error or exception log will create in AxpertWebScript log folder and those can preview or download form AxpertWeb 'Show Logs'
+1. ARMCachedSaveWorkerService
+2. ARMExportWorkerService
+3. ARMExecuteScriptService
+4. ARMConvertXLtoJSONWorkerService
+5. ARMRapidSaveWorkerService
+
+ARM:
+----
+TASK-5121 -PayBooks- Transaction data should capture Timestamp in the format [yyyy-MM-dd HH:mm:ss.SSS]
+
+
+
