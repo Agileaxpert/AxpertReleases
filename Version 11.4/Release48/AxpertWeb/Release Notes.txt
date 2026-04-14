@@ -1,0 +1,68 @@
+AxpertWeb:
+---------
+TASK-5672 -QA- Enhancement: The RTF textbox toolbar has been enhanced to display in a single line by default, with an option to expand/collapse to view all available options.
+   Note: Please note the following points related to RTF (rich textbox) field definition. 
+    1. The field name starts with 'rtf_' (rtf_fieldname) will have all the options of Rich textbox formats.
+    2. The field name starts with 'rtfm_' (rtfm_fieldname) will be having limited options for Rich textbox formats. 
+    3. The field name starts with 'fr_rtf_' (fr_rtf_fieldname) will be using for FastPrints templates with limited options for Rich textbox formats. 
+
+TASK-5671 -QA- Enhancement: Table type field popup height / width can be resized as required during runtime. 
+
+TASK-0375 -BDF- Issue Description: When user is Create Table field using SQL Function then in runtime table field is showing black
+
+TASK-5489 -Axi- Issue Description: Scenario1:In the form, when the user clicks on a dropdown field for the first time, it opens and closes immediately without allowing selection. However, on the second click, the dropdown behaves as expected.
+Scenario2:In the form, when the user clicks on a dropdown field for the first time, randomly it loads successfully. However, when the user starts typing to search for a value, the dropdown closes immediately without displaying the filtered results.
+
+AxpertStudio:
+------------
+TASK-5356 -BDF- When a form contains multiple fillgrids, the MapDetails target field does not load the correct options for the recently opened fillgrid. 
+
+TASK-5360 -BDF- The layout automatically changes to "default" instead of retaining the original "header-tabbed" setting.
+
+TASK-5368 -BDF- In Existing forms with mdmap has been defined and mapped with Source and Target fields as tablenameid as recordid. While opening these forms in Axpert Studio, we are getting the following error: "Error while getting structure details: An issue occurred while retrieving structure data from the database.
+	 
+TASK-5448 -BDF- In Axpert Desktop, the IView Action Name field allows up to 15 characters. However, in 11.4 Studio (Script), the script name fields restricts input to only 10 characters.
+
+TASK-5432 -BDF-	While opening an existing iView in 11.4 Studio, the following error is displayed: "Error while getting structure details: Object reference not set to an instance of an object." 
+NOTE: Iview columns with custom font-size will be parsed, but changes to font-size in 11.4 will be limited to provided options only, no custom values.
+
+TASK-5487 -QA- In the IView , under the Subtotal section, the Caption Field dropdown is not displaying any options	 
+
+
+ARM:
+----
+TASK-5629 -- Data page - Not loading properly. Also set detault theme as 'Light' for data page.  
+* Fixed. Now Select key value dropdown will not list any of following columns for selection - modifiedon,modifiedby,createdon,createdby
+* 'Light' theme is set as default for Data pages
+
+TASK-5593 -- AxPut API - MDMap feature is added 
+* MdMap functionality is added to AxPut API.
+
+
+Consumer Services:
+-----------------
+TASK-5636 -- Enhancement: ARMPEGNotification exe service has been converted to Worker service and avoided AgileConnect database dependency.
+Note: Please note the following points to set this worker service.
+      1. The service needs to be started with the following command in command prompt.
+         Service Start command ex.:
+          sc create ARMPEGNotificationWorkerService binPath= "D:\PEGNotificationWorkerService\ARMPEGNotificationWorkerService.exe D:\PEGNotificationWorkerService\appsettings.json"
+          sc start ARMPEGNotificationWorkerService  
+      2. This service wanted to stop or remove from the windows service needs to be run below command.
+          Ex.: sc stop ARMPEGNotificationWorkerService
+               sc delete ARMPEGNotificationWorkerService   
+      3. Please follow for Linux to start this consumer service. 
+          a. Create a folder for your service:
+              /home/ubuntu/ARMPEGNotificationWorkerService/
+          b. Create the systemd service file
+              sudo nano /etc/systemd/system/ARMPEGNotificationWorkerService.service
+          c. Reload system
+              sudo systemctl daemon-reload
+          d. Enable the service at boot
+              sudo systemctl enable ARMPEGNotificationWorkerService
+          e. Start the service
+              sudo systemctl start ARMPEGNotificationWorkerService
+          f. Check status
+              sudo systemctl status ARMPEGNotificationWorkerService
+          g. To STOP / RESTART the service
+              sudo systemctl stop ARMPEGNotificationWorkerService
+              sudo systemctl restart ARMPEGNotificationWorkerService
