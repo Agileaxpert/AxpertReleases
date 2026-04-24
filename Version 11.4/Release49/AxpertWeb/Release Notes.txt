@@ -1,0 +1,51 @@
+AxpertWeb:
+---------
+TASK-5652 -BetterWorks- DC disappearing in start assembly in tablet
+
+TKT-0014 -BDF- FastReport PDF printing is not working when the table has only a few records (e.g., 1 to 4). The issue occurs when the recordid is less than 10 digits.
+
+TASK-5662 -BDF- Issue Description(Reported by BDF Team):For an existing tstruct OnDataLoad event is not working as expected. I have defined OnDataLoad with AxHideControl for DC2 and DC3.
+When a workflow-approved record is loaded, DC2 and DC3 are not getting hidden. However, when a non-approved record is loaded, DC2 and DC3 are hiding correctly.
+Note: the existing form was converted into Axpert Studio, and added new script for AxHideControl were created using the OnDataLoad event. Also, the workflow was defined from the desktop.
+
+TASK-5615 -BDF- Issue Description: The loader is not displayed when LoadForm is defined in the first line of the script in the TStruct. Additionally, even a simple LoadForm action is taking more time to load. Due to the absence of a loader indication, users tend to click the button multiple times, which may lead to unintended behavior.
+
+TKT-0002 -ERPDemo- 1. No Formula is working from the 2nd Row 
+  2. Numeric values are not right aligned randomly 
+     Note: A new property named as 'align' introduced in Table type field JSON. The default value is 'left' aligned and "align":"right" property will set for right aligned.
+  3. Need a field to FILL like feature in TableField 
+     Note: A new property named as 'fillval' introduced in Table type field JSON. The 'filval' (ex.: "fillval":"fldfill") value should be set as source fill field name. 
+
+TASK-5705 -Trustline - Axpert logo displays for fraction of second and then the Trustline logo displays in login and password  page while browsing the url.
+On the login page, the Trustline logo should be displayed by default when the URL is accessed, as per the client’s requirement.
+The Axpert logo displayed during the loading of the login page and password page should be avoided.
+
+TASK-5714 -RFPLDEV- RFPLDEV Auto refreshing is not happening based on selected params in tstruct Dropdown Fields
+
+TKT-0034 -RFPLDEV- RFPLDEV Issue in refreshing of Dropdown fields and Getting Index out of range error while reselecting the drop down values.
+
+TSK-0024 -QA- Setting up plugins to product.
+ 1. AxpertPlugins folder can be accessible from 'Custom Plugins' menu
+ 2. Under Main Page -> Custom Main - Application Template options is added to configure the custom main based on Developer Options -> ApplicationTemplate config.
+
+
+AxpertStudio:
+------------
+TASK-2402 -Payazzure- Script Inactivation Issue during 11.3 to 11.4 Studio Conversion.
+ NOTE: All scripts from 11.3 will be set as "active=true" by default in the initial parsing from 11.3. If required, users can make it as in-active from 11.4 studio.
+
+TASK-5648 -BDF- In the existing forms, Track Changes is disabled; however, when the forms are opened in Axpert Studio, it is displayed as Enabled.
+
+TASK-5664 -BDF-In the existing form, when we open it in Axpert Studio, a few buttons are getting created with duplicate button IDs.
+
+TASK-5534 -BMRCL- Fill Grid Dependency Not Working with Previous grid DC Values
+
+TKT-0034 -RFPLDEV- RFPLDEV Issue in refreshing of Dropdown fields and Getting Index out of range error while reselecting the drop down values.
+
+TKT-0006 -QA- Validation for Axpert Keywords in Field Creation		
+
+TASK-1236 -QA- Apply checkbox functionality not working issue.
+ NOTE: The apply functionality is now removed for Subtotal. In order to not apply a subtotal, it needs to be deleted from the menu.
+
+
+
