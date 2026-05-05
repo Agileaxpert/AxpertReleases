@@ -1,0 +1,47 @@
+AxpertWeb:
+----------
+TKT-0079 -Zishta - Bug in iView Totalling
+
+TKT-0108 -GI- HTML page with data source issue in mobile
+
+TASK-5682 -BDF- Issue Description: For Existing form, In Axpert Studio, a custom Save button was defined with a script to show a message. However, when click
+
+TKT-0041 -BDF- In the existing form, a conditional workflow is configured and a created custom Save button with PDF generation using a script. However, this is not working as expected. When the same functionality is created using Desktop Actions, it works correctly.
+
+TKT-0078 -BDF- Issue Description: In an existing form, when a user clicks on a custom button at runtime that is configured using a LoadForm statement, the system throws an error popup instead of executing the action.
+
+TKT-0076 -JF&I- The Item Code field in the Ink Material grid should be filtered based on Item Category and Brand. However, the filtering is not working correctly.
+
+TKT-0068 -JF&I- Attachments not loading when there's a '+' symbol in the file name.
+Note: 1. AxpertWebScript(ASB folder) web.config file node should add because of '+' is contains in filename AxpertWebScripts site in IIS is blacking. 
+     <security>
+      <requestFiltering allowDoubleEscaping="true" />
+    </security>
+   2. Attached web.config file should be diffmerged with web.config file in AxpertWebScript folder. 
+
+TSK-0070 -QA- The ‘Max Attachments Size in MB (AxAttachmentSize)’ option has been moved from the Config Studio Settings page to the AxpertAdmin page under the File Upload/Download Information section. This setting will now be saved in the AppSettings.ini file.
+
+TKT-0050 -QA- Issue Description: When username and Select Language fields are empty/blank, click on Next button. After that enter the valid username, select the language but the 'Next' button is not working.
+
+TKT-0048 -QA- Issue Description: When Select Language field is empty and clicked on Next button then two Select Language fields are displayed for few seconds.
+
+TASK-5277 -QA- Feature Dropdown values storing in localstorage by default enabled if the Axi plugin is enabled. 
+Note: Default dropdown values caching in local storage has been withdrawn and needs to be enabled through developer option as and when required(Developer option: Store dropdown values in Localstorage). 
+
+
+AxpertStudio:
+-------------
+TASK-5651 -MPCO- Genmap- Row control setting are disappeared
+
+TKT-0100 -QA- Iview column properties missing "Negative number represented as" input
+
+TASK-5534 -QA- Fill Grid Dependency Not Working with Previous grid DC Values
+
+
+ARM:
+----
+TSK-0020 -QA- Handle Tstruct Attachments in AxPut micro services
+
+
+
+
