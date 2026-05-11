@@ -10,11 +10,11 @@ ALTER TABLE AXUSERACCESS MODIFY RNAME VARCHAR2(50)
 CREATE TABLE axgrouptstructs (
 	formcap varchar2(500) NULL,
 	ftransid varchar2(10) NULL
-);
+)
 >>
 
 <<
-CREATE OR REPLACE TYPE SYS_ODCINCLOBLIST AS TABLE OF NCLOB;
+CREATE OR REPLACE TYPE SYS_ODCINCLOBLIST AS TABLE OF NCLOB
 >>
 
 <<
@@ -23,11 +23,11 @@ CREATE OR REPLACE TYPE aximeta_obj AS OBJECT
     structtype VARCHAR2(50),
     caption    VARCHAR2(4000),
     transid    VARCHAR2(200)
-);
+)
 >>
 
 <<
-CREATE OR REPLACE TYPE aximeta_tab AS TABLE OF aximeta_obj;
+CREATE OR REPLACE TYPE aximeta_tab AS TABLE OF aximeta_obj
 >>
 
 <<
@@ -38,11 +38,11 @@ CREATE OR REPLACE TYPE axi_struct_meta_obj AS OBJECT
     objname    VARCHAR2(200),
     dcname     VARCHAR2(200),
     asgrid     VARCHAR2(50)
-);
+)
 >>
 
 <<
-CREATE OR REPLACE TYPE axi_struct_meta_tab AS TABLE OF axi_struct_meta_obj;
+CREATE OR REPLACE TYPE axi_struct_meta_tab AS TABLE OF axi_struct_meta_obj
 >>
 
 <<
@@ -221,7 +221,7 @@ select ''ADS'', sqlname, sqlname from axdirectsql';
     CLOSE rc;
 
     RETURN;
-END;
+END
 >>
 
 <<
@@ -286,7 +286,7 @@ BEGIN
    
    EXCEPTION WHEN OTHERS THEN null;
 
-END;
+END
 >>
 
 <<
@@ -306,7 +306,7 @@ BEGIN
     END LOOP;
  
  
-END;
+END
 >>
  
 <<
@@ -337,7 +337,7 @@ BEGIN
 
 EXCEPTION 
     WHEN OTHERS THEN NULL;
-END;
+END
 >>
 
 <<
@@ -370,7 +370,7 @@ INSERT INTO AXDIRECTSQL (AXDIRECTSQLID, CANCEL, SOURCEID, MAPNAME, USERNAME, MOD
 <<
 update axdirectsql set sqlsrc='Metadata' 
 where sqlname in('Text_Field_Intelligence','ds_getsmartlists','Axi_getmetadata','Axi_metadata_struct_obj','ds_smartlist_filters',
-'ds_smartlist_ads_metadata');
+'ds_smartlist_ads_metadata')
 >>
 
 <<
@@ -454,7 +454,7 @@ SELECT DISTINCT a2.username,
   LEFT JOIN axuserlevelgroups a2
     ON a2.usergroup = 'default'
 
- ;
+ 
 >>
 
 
@@ -468,7 +468,6 @@ GROUP BY groupname,caption
 ORDER BY 1 desc,2)a
 WHERE ccnt < 150
 GROUP BY groupname
- ;
 >>
  
 <<
@@ -585,7 +584,7 @@ select axpflds.tstruct transid,coalesce(lf.compcaption,t.caption) formcap, fname
 
 
 
-END;
+END
 >>
 
 
@@ -812,7 +811,7 @@ return v_final_sqls;
 
 
 
- END;
+ END
 >>
  
 <<
@@ -984,7 +983,7 @@ begin
    	
 
 RETURN v_final_sqls;
-END;
+END
 >>
 
 <<
@@ -1308,7 +1307,7 @@ begin
 
    return v_final_sqls;
 
-END;
+END
 >>
 
 <<
@@ -1353,7 +1352,7 @@ BEGIN
     RETURN v_final_result;
 
 EXCEPTION WHEN OTHERS THEN RETURN NULL;
-END;
+END
 >>
 
 <<
@@ -1376,7 +1375,7 @@ BEGIN
     RETURN 'T';
 
 
-END;
+END
 >>
 
 <<
@@ -1397,11 +1396,11 @@ CREATE OR REPLACE TYPE AXPDEF_PERMISSION_GETADSCND                              
     maskedflds clob,
     filtercnd CLOB,
     permissiontype    VARCHAR2(50)
-);
+)
 >>
 
 << 
-CREATE OR REPLACE TYPE AXPDEF_PERMISSION_GETADS_OBJ AS TABLE OF AXPDEF_PERMISSION_GETADSCND;
+CREATE OR REPLACE TYPE AXPDEF_PERMISSION_GETADS_OBJ AS TABLE OF AXPDEF_PERMISSION_GETADSCND
 >>
 
 <<
@@ -1409,11 +1408,11 @@ CREATE OR REPLACE TYPE fn_perm_getdcrecid_rec AS OBJECT (
     dcname   VARCHAR2(4000),
     rowno    NUMBER,
     recordid NUMBER
-);
+)
 >>
 
 << 
-CREATE OR REPLACE TYPE fn_perm_getdcrecid_tab AS TABLE OF fn_perm_getdcrecid_rec;
+CREATE OR REPLACE TYPE fn_perm_getdcrecid_tab AS TABLE OF fn_perm_getdcrecid_rec
 >>
 
 <<
@@ -1591,7 +1590,7 @@ select a2.usergroup ,b.cnd1 cnd from axusers a join axuserlevelgroups a2 on a2.a
     END IF;
  
     RETURN;
-END;
+END
 >>
 
 <<
@@ -1631,7 +1630,7 @@ BEGIN
            END;
         
 
-END;
+END
 >>
 
 <<
@@ -1719,7 +1718,7 @@ BEGIN
     END LOOP;
 
     RETURN;
-END;
+END
 >>
 
 <<
@@ -1751,7 +1750,7 @@ BEGIN
 
  
     RETURN v_result;
-END;
+END
 >>
 
 <<
@@ -1799,7 +1798,7 @@ END IF;
     RETURN v_json_string;
 
 EXCEPTION WHEN OTHERS THEN RETURN null;
-END;
+END
 >>
 
 <<
@@ -1832,15 +1831,15 @@ WHERE a.mskprop IS NOT NULL;
     RETURN v_mskprop;
 
 EXCEPTION WHEN OTHERS THEN RETURN NULL;
-END;
+END
 >>
 
 <<
-DROP FUNCTION FN_PERMISSIONS_GETCND;
+DROP FUNCTION FN_PERMISSIONS_GETCND
 >>
 
 <<
-DROP FUNCTION FN_PERMISSIONS_GETPERMISSION;
+DROP FUNCTION FN_PERMISSIONS_GETPERMISSION
 >>
 
 <<
@@ -2179,7 +2178,7 @@ FROM axpflds WHERE tstruct = ptransid AND encrypted = 'T'
 	-- EXCEPTION WHEN OTHERS THEN null;
 	 
     RETURN; -- End of function
-END;
+END
 >>
 
 <<
@@ -2474,5 +2473,5 @@ FROM axpflds WHERE tstruct = rec_transid.transid AND encrypted = 'T'
 
 
     RETURN; 
-END;
+END
 >>
