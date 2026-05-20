@@ -1,0 +1,112 @@
+AxpertWeb:
+----------
+TSK-0146 -- Enhancement: CachedSaveWorker service has been implemented to save data through the AxPut API. 
+Note: Multiple tstructs and multiple transactions data can be saved from Mobile and HTML pages by using this option. 
+
+TSK-0147 -Enhancement- Axpert Developer Options Menu accessibility has been introduced in AxpertAdmin page. Using this option required Option can be enabled as per the Application requirement.
+Note: To extend the Access control of the Axpert Developer option menu to customized mainpage templates, the below code needs to diffmerge and add for those App which is using already Customized mainpage templates. 
+Code:
+try {
+    axpertDevOptAccess();
+} catch (ex) { }
+
+TKT-0079 -Zishta - Bug in iView Totalling (There is issue in Sub total as well )
+
+TKT-0107 -RFPLDEV - Issue in dropdown auto refresh
+
+TKT-0153 -MPCO- MPCO: Unable to give access to the structures which not having pages. As a work around we are inserting data in axuseraccess , but when ever we modify responsibility then these structures gets deleted from axuseraccess.
+
+TKT-0159 -Kauvery- html print preview issue
+
+TASK-4654 -BetterWorks- Cancel entries not visible in List View – Web Version 11.4 Customer 
+
+TKT-0125 -JF&I- Expression validation failing in BRS screen during submit data. 
+
+TKT-0175 -JF&I- Based on JFI Security audit Findings below mentioned critical and high priority points are fixed. For more details please go though the attached Excel sheet. 
+ 1. FD-0001 - Unauthenticated Configuration Tampering via AxpertAdmin.aspx 
+ 2. FD-0002 - Unauthenticated Configuration Tampering via Config.aspx
+ 3. FD-0003 - SMB Coercion / NTLM Relay via ToolbarManager.aspx deleteIconImage
+ 4. FD-0004 - Authenticated Arbitrary File Upload RCE via ArrangeMenu.aspx	
+ 5. FD-0005 - Authenticated Remote Code Execution via tstruct.aspx/htmlPagePublish	
+ 6. FD-0006 - Authenticated SQL Injection to RCE via PostgreSQL Superuser COPY FROM PROGRAM
+ 7. FD-0007 - Default Admin Credentials on AxpertAdmin.aspx	
+ 8. FD-0008 - Authenticated SQL Injection via tstruct.aspx/GetWfPdComments	
+ 9. FD-0009 - Authenticated SQL Injection via axpertAPI.aspx/getIviewParams	
+ 10. FD-0010 - Server-Side Request Forgery (SSRF) via AxpertAdmin.aspx/VerifyARMSettings	
+ 11. FD-0011 - Arbitrary File Deletion via openfile.aspx/DeletePrintPDF	
+ 12. FD-0012 - Arbitrary File Deletion via htmltopdf.aspx/DeletePrintPDF	
+ 13. FD-0013 - Authenticated Arbitrary SQL Execution via AxDBScript.aspx/callGetSQLData	
+ 14. FD-0014 - Authenticary Arbitrary SQL Execution via tstruct.aspx/callExecuteSQL	
+ 15. FD-0015 - Authenticated SQL Injection / Dynamic Function Call via tstruct.aspx/GetFromDBJSON	
+ 16. FD-0016 - Authenticated Arbitrary SQL Execution via AxDBScript.aspx/callExecuteSQL	
+ 17. FD-0017 - Authenticary Arbitrary SQL Execution via tstruct.aspx/callExecuteSQL	
+ 18. FD-0018 - Authenticated Arbitrary SQL Execution via AxDBScript.aspx/callGetSQLData	
+ 19. FD-0019 - Path Traversal / Arbitrary File Read via tstruct.aspx/renderHtmlPagesFiles	
+ 20. FD-0020 - Weak Password Storage and Policy (MD5 Hashing)	
+ 21. FD-0021 - Authenticated Arbitrary File Deletion via htmltopdf.aspx/DeletePrintPDF
+
+TKT-0054 -QA- Require Cancel Columns and Messaging for Canceled Records
+	- Now 'Canceled?' and Cancel remarks column is available in data listing page and those fields can be used in Field selection and filtering
+	- Cancellation data is visible in 'Data Page' similar to tstruct page.
+	- Same columns are visible in connected data in 'Data Page'. 
+ 
+TKT-0061 -QA- When modifying configurations such as select field, charts, and hyperlink in datalisting page the system is inserting new records into the ax_userconfigdata table instead of updating the existing record.
+ 
+TKT-0160 -ERPDev- Hidden columns to be removed from Data List 
+ 
+TKT-0022 -QA- When the caption is removed for a field in Dev Studio, the field caption is displayed as "null" in the Data Listing page and Data Page during runtime
+
+TSK-0148 -QA- The application pool recycle issue has been fixed. While subscribing to the application from Axi, the application pools were hanging.
+
+TKT-0223 -QA- AxpertAdmin page Application Test Connection failing if AxpertDesktop(11.3) license is expired / not exist lic file in AxpertWebScripts. 
+
+AxpertStudio:
+-------------
+TASK-5613 -BDF- In button ,the script caption should also be displayed along with the script name in scriptdropdown.
+
+TKT-0011 -BDF- In the existing iView, if a hyperlink is defined as a dynamic structure with the recordid parameter, then when this definition is opened in Axpert Studio, it displays Objects instead of recordid.
+
+TKT-0069 -BDF- In the existing forms opened in Axpert Studio, the Fill Master Field is appearing as empty. 
+
+TKT-0071 -BDF- In the existing forms opened in Axpert Studio, the GenMap Source Field is appearing as empty.
+
+TKT-0073 -BDF- In Axpert Studio, when opening the Fill Source dropdown, it appears as an empty list if the Master SQL is defined using the Dynamic Filter Sql feature and could not change master field sql which is used dynamic filter.
+
+TKT-0134 -BDF- When configuring a script in the tstruct, selecting the "On Field Change" option from the Event dropdown does not correctly load the corresponding field in the Applied On dropdown. 
+
+TKT-0183 -BDF- In the existing form, if the tabstop node is not available or is empty, then while opening in Axpert Studio it is taking the default value as false. We need to change the default behavior to true. 
+	
+
+ARM:
+-----
+TASK-4654 -BetterWorks- Cancel entries not visible in List View
+ 
+TKT-0160 -ERPDev- Hidden columns to be removed from Data List Page. Hidden columns wont be visible in Data Listing page now.
+
+TSK-0120 -UB- AxGet and AxPut - Support for MS SQL with attachments
+ MS SQL DB support is added for AxGet and AxPut AXIS APIs with attachments.
+
+TSK-0121 -QA- ARM microservices -Avoid app pool recycle when a new application got added from AXI
+The requirement for 'Application pool recycle' in ARM microservices layer when new app is added or any details getting modified in axpertadmin.aspx page is removed. Now IIS App pool is only needed when DB/Redis config data is changed for that user.
+
+TKT-0143 -QA- FCM access token generation code change (Firebase notification for mobile)
+	- Firebase mobile notification API (<ARM_URL>/ARM_APIS/api/v1/SendFCMNotification) is modified to handle new token generation logic.
+
+TKT-0054 -QA- Require Cancel Columns and Messaging for Canceled Records
+	- Now 'Canceled?' and Cancel remarks column is available in data listing page and those fields can be used in Field selection and filtering
+	- Cancellation data is visible in 'Data Page' similar to tstruct page.
+	- Same columns are visible in connected data in 'Data Page'. 
+
+TKT-0061 -QA- When modifying configurations such as select field, charts, and hyperlink in datalisting page the system is inserting new records into the ax_userconfigdata table instead of updating the existing record. 
+	- Note: * Solutions team has to do data correction to remove old duplicate records from ax_userconfigdata table.
+ 
+TKT-0022 -QA- When the caption is removed for a field in Dev Studio, the field caption is displayed as "null" in the Data Listing page and Data Page during runtime
+
+TKT-0225 -QA- Error gets logged in 'Event viewer" when any API fails.
+	
+
+Consumer Services:
+------------------
+TSK-0146 -- CachedSaveWorkerservice has been implemented to save data through the AxPut API. 
+Note: Multiple tstructs and multiple transactions data can be saved from Mobile and HTML pages by using this option. 
+
