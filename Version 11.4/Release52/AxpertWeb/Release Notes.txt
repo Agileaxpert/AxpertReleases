@@ -1,0 +1,35 @@
+AxpertWeb:
+----------
+TKT-0259 -BDF- In runtime, the fill data is not auto-populated in the configured table field . The table field is configured to fetch data from sql which is defined in json; however, when opening the table field, the expected records are not displayed automatically and the table rows appears empty
+
+TKT-0243 -BDF- In runtime, the Zipcode field allows only 5 digits. However, in DevStudio, the default width for the Zipcode field is displayed as 6.
+
+TKT-0238 -BDF- After navigating from one Iview to another Iview through a hyperlink, the parameter is not passed to target iview,  when the data contains more than one “+” symbol.
+
+TKT-0222 -BDF- In Iview, used LoadForm along with parameters. The parameter values are not populated into the form fields when “Load Tstruct” is configured in the Iview property. If “Load Tstruct” is not configured, then it works as expected.
+
+TKT-0257 -agileops- Issue : on iview the report is appearing with correct format, but after download the excel values are showing without comma.
+
+TSK-0166 -rfpl- The Horizontal scroll bar Issue and navigate Issue found
+
+TKT-0285 -ERPDemo- 1.list page - on mouseover btn icon color to  be white instead of red
+2. Entity pop up page, fonts and space to be optimized and make some enhancement
+3. iview if column has rowoption exist - only icon should be hide instead of whole column in table 
+
+TSK-0201 -QA- Some of the Fast reports not working because of the error 'Arguments are of the wrong type, are out of acceptable range' when connecting managed postgre schemas.
+
+TSK-0202 -QA- Some of the transaction not saving because of the error 'violates foreign key constraint' when connecting managed postgre schemas. 
+
+TKT-0280 -QA- Issue when entered html script in Simple Text field
+
+AxpertStudio:
+-------------
+TKT-0240 -BDF- In DevStudio, for any field, after applying character masking and selecting roles, the selected roles are getting deselected after reloading the Structure Definition from DB. 
+
+TKT-0295 -QA- Facing an error for tstructs on reloading from DB, when tracking is active but track users and/or track fields is not set to any option.
+
+Consumer Services (ARMExportWorkerService):
+----------------------------------------------
+TKT-0257 -agileops- Issue : on iview the report is appearing with correct format, but after download the excel values are showing without comma.
+ 
+

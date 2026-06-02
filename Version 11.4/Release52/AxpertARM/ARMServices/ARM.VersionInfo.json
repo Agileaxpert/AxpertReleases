@@ -1,0 +1,21 @@
+{
+  "ARM_APIs": "11.4.0.0_release8",
+  "ARMNotificationHub": "11.4.0.0_release8",  
+  "AxAuth": "11.4.0.0_release8",
+  "AxList": "11.4.0.0_release8",
+  "AxExtend": "11.4.0.0_release7",
+  "AxPlugins": "11.4.0.0_release6",
+  "AxStructUtils": "11.4.0.0_release7",
+  "AxTstructData": "11.4.0.0_release8",
+  "AxUtils": "11.4.0.0_release7"
+  "ARMExecuteScriptService": "11.4.0.0_release3",
+  "ARMExportWorkerService": "11.4.0.0_release6",
+  "ARMConvertXLtoJSONWorkerService": "11.4.0.0_release3",
+  "ARMRapidSaveWorkerService": "11.4.0.0_release4",
+  "ARMCachedSaveWorkerService": "11.4.0.0_release3",
+  "ARMAxpertJobsWorkerService": "11.4.0.0_release2",
+  "ARMPeriodicNotificationWorkerService":"11.4.0.0_release1",
+  "ARMPEGNotificationWorkerService":"11.4.0.0_release1"
+}
+
+
