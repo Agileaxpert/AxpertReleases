@@ -1,0 +1,76 @@
+AxpertWeb:
+----------
+TSK-0252 -- Enchantment: If Iview data all rows are available in browser, implemented the functionality to export all data rows to excel without pushing to queue.
+Note: Below mentioned files should be deleted from 'Bin' folder in AxpertWeb after apply this patch other wise some of the export functionalities will not function properly. 
+ 1. ClosedXML.dll.refresh
+ 2. DocumentFormat.OpenXml.Framework.dll
+ 3. DocumentFormat.OpenXml.Framework.dll.refresh
+ 4. DocumentFormat.OpenXml.Framework.xml
+ 5. DocumentFormat.OpenXml.dll.refresh
+
+TSK-0253 -- Enhancement: The visibility of the 'Show All Records' button can now be controlled through the developer option mentioned below. This option has been introduced to manage the button's functionality during development, as end users were using it to load large volumes of data, which could cause the page to become unresponsive and result in browser performance issues. 
+   Developer option :
+       Property: Show All Records Button Hide in Iview
+       Property Code: Show All Records Button Hide in Iview
+       Property Value: true/false
+       Form/Report: ALL Reports / Single Reports
+       User Role: All / Single role
+
+TSK-0255 -- Enhancement: CachedSave enhanced to Update the records and handled normalised fields as well.
+
+TSK-0254 -JF&I -- The following point has been handled in the document 'Re-Assessment Report ERP Axpert Web Application-protected' 
+   Point:  FD-0007: Default Admin Credentials on AxpertAdmin.aspx 
+
+TKT-0182-JF&I- The current functionality appears to be incorrect. The “Primary key” field consistently updates an existing record rather than creating new records as expected. After updating, the primary key is getting null value.
+
+TASK-2626 -JF&I- Row one cannot be left empty error
+
+TKT-0254 -JF&I- JF&I Cyber sec: FD-0022 Username Enumeration on Login
+
+TKT-0186 -JF&I- Approval status of the Service Request is removing 
+
+TKT-0286 -krishtech- The old URL is working correctly. In the new URL, the Cost Comparison Report contains a quotation comparison hyperlink where we can compare and submit the quotation successfully. After submission, it should redirect back to the Cost Comparison parameter page. The required script is available, but it is not working in the new URL. Kindly check and fix the issue.
+
+TKT-0334 -ERPDemo- When choosing Phone Number - Unable to make it as Non-Mandatory
+
+TASK-4956 -BDF- Issue Description: Product Issue (Reported by BDF Team): When the user loads the same form using the Load Form Script button, if the checklist field contains more than one selected value, the form does not load with the selected values.
+
+TSK-0216 -QA- API to Read and write to Redis
+Note: The detailed readme note has been provided along with sample JSON, examples and postman collections. 
+
+
+ARM Micro Services:
+------------------
+TSK-0216 -QA- API to Read and write to Redis
+Note: The detailed readme note has been provided along with sample JSON, examples and postman collections. 
+
+TASK-5382 -QA- Axpert Flutter Apk Issue - If OTP enabled While login throwing error.
+
+TASK-5383 -QA- Axpert Flutter Apk Issue - If OTP enabled unable to login. 
+
+TSK-0164 -QA- Axput - Create db routines for AxGet and AxPut
+
+TSK-0265 -QA- AxRefreshSession API is not working
+
+
+Consumer Service:
+-----------------
+TSK-0256 -- Enhancement: ARMCachedSaveWorkerService has been handled with following points.
+    1. Based on the value of the 'isAxPut' flag, the Consumer Service determines how transaction data is saved to the database. If the flag is set to true, the Consumer Service uses the AxPut microservice to save the transaction data. Otherwise, it uses the ASBTStructRest.dll SaveData API. This applies to transaction data that is pushed to the CachedSaveQueue from Customized HTML pages or from forms configured for CachedSave.
+    2. Global Import functionality has been changed from RapidSaveQueue to CachedSaveQueue so that import data will be handling through ASBTstructRest dll SaveData API. 
+    
+
+Structures:
+----------
+TKT-0217 -AVDEL- Process Master- Getting error on submit of record in ind.axi-global site for avdel schema 
+ 
+TKT-0244 -AXPERTAGILE- Axpert Process Definition not working 
+
+TKT-0350 -QA- Remove product's default Data source and Cards which are fetching data from axpertlog table as it causes performance issues
+ 
+
+
+
+
+ 
+
