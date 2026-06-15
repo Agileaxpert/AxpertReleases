@@ -1895,9 +1895,16 @@ public class TStructData
                                         }
                                         string attServerFiles = HttpContext.Current.Session["attGridFileServer"].ToString();
                                         string[] lstServerFiles = attServerFiles.Split('♦');
-
-
                                         var lstServerFile = lstServerFiles.AsEnumerable().Where(x => x.StartsWith(fldName + irow + "~") && x.Contains(HttpContext.Current.Session["username"].ToString() + "-")).ToList();
+                                        if (lstServerFile.Count == 0)
+                                        {
+                                            int tiRow = j + 1;
+                                            if (dcDelRowTable != null && dcDelRowTable.Rows.Count > 0)
+                                            {
+                                                tiRow += dcDelRowTable.Rows.Count;
+                                            }
+                                            lstServerFile = lstServerFiles.AsEnumerable().Where(x => x.StartsWith(fldName + tiRow + "~") && x.Contains(HttpContext.Current.Session["username"].ToString() + "-")).ToList();
+                                        }
                                         string authenticationStatus = string.Empty;
                                         if (lstServerFile.Count > 0 && util.GetAuthentication(ref authenticationStatus))
                                         {

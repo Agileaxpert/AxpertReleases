@@ -23,6 +23,8 @@ TSK-0254 -JF&I -- The following point has been handled in the document 'Re-Asses
 
 TKT-0182-JF&I- The current functionality appears to be incorrect. The “Primary key” field consistently updates an existing record rather than creating new records as expected. After updating, the primary key is getting null value.
 
+TKT-0375 -JF&I- Attachments in grid are not loading. 404 error is coming.
+
 TASK-2626 -JF&I- Row one cannot be left empty error
 
 TKT-0254 -JF&I- JF&I Cyber sec: FD-0022 Username Enumeration on Login
