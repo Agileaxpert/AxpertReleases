@@ -1,4 +1,3 @@
-
 <<
 INSERT INTO axp_vp (axp_vpid, cancel, sourceid, mapname, username, modifiedon, createdby, createdon, wkid, app_level, app_desc, app_slevel, cancelremarks, wfroles, vpname, isparam, vscript, pcaption, pdatatype, modeofentry, sql_editor_psql, vpvalue, display, readonly, postaccept, postselect, customdatatype, datawidth, ttransid, dcselect, masterdl, "source", masterdlselect, masterdlui, isconstant, isvariable, isappparam, remarks) VALUES(1489990000000, 'F', 0, NULL, 'admin', '2025-01-02', 'admin', '2025-01-02', NULL, 1, 1, 0, NULL, NULL, 'AxpDbDirPath', 'F', NULL, NULL, NULL, NULL, NULL, '', 'F', 'F', 'F', 'F', NULL, 10, 'axglo', 'Global Parameters(dc1)', NULL, NULL, NULL, NULL, 'T', 'F', 'F', NULL);
 >>
