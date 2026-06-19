@@ -7041,8 +7041,9 @@ Use this property to attach custom javascript to Reports/forms. Set this propert
 
 Tstructs:
 Use this property to attach custom javascript to TStructs. Set this property value to "True" for a selected form. If this property is set to true, the custom javascript file should be saved into the web root\<ProjectName>\tstructs\js folder. The file name should <tstructname>.js. In case this property is set to true for all forms instead of a selected form, the file name should be custom.js.', 'configtypeCustom JavaScript', '', 'All', 'F', 'F', 'F', 'T', 'T', 'F');
+>>
 
-
+<<
 INSERT INTO axpstructconfigprops (axpstructconfigpropsid, cancel, sourceid, mapname, username, modifiedon, createdby, createdon, wkid, app_level, app_desc, app_slevel, cancelremarks, wfroles, configprops, propcode, description, dupchk, context, ptype, caction, chyperlink, cfields, alltstructs, alliviews, alluserroles) VALUES(1235660000010, 'F', 0, NULL, 'superadmin', '2022-12-25 22:29:56.485', 'admin', '2022-12-25 22:29:56.485', NULL, 1, 1, NULL, NULL, NULL, 'Custom CSS', 'Custom CSS', 'Reports:
 Use this property to attach custom CSS to Reports. Set this property value to "True" for a selected report. If for report this property is set to true, the custom CSS file should be saved into the web root\<ProjectName>\report\js folder. The file name should <reportName>.CSS. In case this property is set to true for all reports instead of a selected report, the file name should be custom.CSS.
 
