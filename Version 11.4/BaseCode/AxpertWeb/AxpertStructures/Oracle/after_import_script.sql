@@ -958,7 +958,10 @@ INSERT INTO AXDIRECTSQL (AXDIRECTSQLID, CANCEL, SOURCEID, MAPNAME, USERNAME, MOD
 from vw_pegv2_alltasks where case when cstatus=''Active'' then lower(touser) else lower(username) end = :username) 
 WHERE rno BETWEEN 1 AND 100
 order by edatetime desc 
-', 'username', 'username', 'ALL', NULL, 'Home configuration', 2);
+', 'username', 'username', 'ALL', NULL, 'Home configuration', 2)
+>>
+
+<<
 INSERT INTO AXDIRECTSQL (AXDIRECTSQLID, CANCEL, SOURCEID, MAPNAME, USERNAME, MODIFIEDON, CREATEDBY, CREATEDON, WKID, APP_LEVEL, APP_DESC, APP_SLEVEL, CANCELREMARKS, WFROLES, SQLNAME, DDLDATATYPE, SQLTEXT, PARAMCAL, SQLPARAMS, ACCESSSTRING, GROUPNAME, SQLSRC, SQLSRCCND) VALUES(1359330000000, 'F', 0, NULL, 'admin', TIMESTAMP '2024-12-24 15:56:26.000000', 'admin', TIMESTAMP '2024-12-24 15:56:26.000000', NULL, 1, 1, 0, NULL, NULL, 'ds_homepage_quicklinks', NULL, 'SELECT distinct 
 case when lower(servicename)=''get structure'' then t.caption
 when lower(servicename) in(''get iview new'',''get iview'') then i.caption end caption,
@@ -1054,7 +1057,7 @@ INSERT INTO axinqueues (axinqueuesid, cancel, sourceid, mapname, username, modif
 >>
 
 <<
-INSERT INTO axinqueues (axinqueuesid, cancel, sourceid, mapname, username, modifiedon, createdby, createdon, wkid, app_level, app_desc, app_slevel, cancelremarks, wfroles, axqueuename, axqueuedesc, active) VALUES(1540880000000, 'F', 0, NULL, 'admin',sysdate, 'admin', sysdate, NULL, 1, 1, NULL, NULL, NULL, 'Data import queue', 'This queue will import data into a given Db table in this application. The response will be given in DBTableImportResponse Queue.', 'T');
+INSERT INTO axinqueues (axinqueuesid, cancel, sourceid, mapname, username, modifiedon, createdby, createdon, wkid, app_level, app_desc, app_slevel, cancelremarks, wfroles, axqueuename, axqueuedesc, active) VALUES(1540880000000, 'F', 0, NULL, 'admin',sysdate, 'admin', sysdate, NULL, 1, 1, NULL, NULL, NULL, 'Data import queue', 'This queue will import data into a given Db table in this application. The response will be given in DBTableImportResponse Queue.', 'T')
 >>
 
 <<
@@ -1066,7 +1069,7 @@ INSERT INTO axoutqueuesmst (axoutqueuesmstid, cancel, sourceid, mapname, usernam
 >>
 
 <<
-INSERT INTO axpdef_axcalendar_event (axpdef_axcalendar_eventid, cancel, sourceid, mapname, username, modifiedon, createdby, createdon, wkid, app_level, app_desc, app_slevel, cancelremarks, wfroles, eventname, eventcolor) VALUES(1116010000000, 'F', 0, NULL, 'admin', sysdate, 'admin', sysdate, NULL, 1, 1, NULL, NULL, NULL, 'Meeting', 'cerise');
+INSERT INTO axpdef_axcalendar_event (axpdef_axcalendar_eventid, cancel, sourceid, mapname, username, modifiedon, createdby, createdon, wkid, app_level, app_desc, app_slevel, cancelremarks, wfroles, eventname, eventcolor) VALUES(1116010000000, 'F', 0, NULL, 'admin', sysdate, 'admin', sysdate, NULL, 1, 1, NULL, NULL, NULL, 'Meeting', 'cerise')
 >>
 
 <<
@@ -2534,7 +2537,7 @@ END
 >>
 
 <<
-CALL FN_AXPANALYTICS_INS_AXRELTN();
+CALL FN_AXPANALYTICS_INS_AXRELTN()
 >>
 
 <<
