@@ -221,7 +221,7 @@ select ''ADS'', sqlname, sqlname from axdirectsql';
     CLOSE rc;
 
     RETURN;
-END
+END;
 >>
 
 <<
@@ -286,7 +286,7 @@ BEGIN
    
    EXCEPTION WHEN OTHERS THEN null;
 
-END
+END;
 >>
 
 <<
@@ -306,7 +306,7 @@ BEGIN
     END LOOP;
  
  
-END
+END;
 >>
  
 <<
@@ -337,7 +337,7 @@ BEGIN
 
 EXCEPTION 
     WHEN OTHERS THEN NULL;
-END
+END;
 >>
 
 <<
@@ -452,9 +452,7 @@ SELECT DISTINCT a2.username,
        p.caption
   FROM axpages p
   LEFT JOIN axuserlevelgroups a2
-    ON a2.usergroup = 'default'
-
- 
+    ON a2.usergroup = 'default'; 
 >>
 
 
@@ -467,7 +465,7 @@ CREATE OR REPLACE  VIEW "VW_ROLE_MENUACCESS" ("GROUPNAME", "CAPTION") AS
 GROUP BY groupname,caption
 ORDER BY 1 desc,2)a
 WHERE ccnt < 150
-GROUP BY groupname
+GROUP BY groupname;
 >>
  
 <<
@@ -584,7 +582,7 @@ select axpflds.tstruct transid,coalesce(lf.compcaption,t.caption) formcap, fname
 
 
 
-END
+END;
 >>
 
 
@@ -811,7 +809,7 @@ return v_final_sqls;
 
 
 
- END
+ END;
 >>
  
 <<
@@ -983,7 +981,7 @@ begin
    	
 
 RETURN v_final_sqls;
-END
+END;
 >>
 
 <<
@@ -1307,7 +1305,7 @@ begin
 
    return v_final_sqls;
 
-END
+END;
 >>
 
 <<
@@ -1352,7 +1350,7 @@ BEGIN
     RETURN v_final_result;
 
 EXCEPTION WHEN OTHERS THEN RETURN NULL;
-END
+END;
 >>
 
 <<
@@ -1375,7 +1373,7 @@ BEGIN
     RETURN 'T';
 
 
-END
+END;
 >>
 
 <<
@@ -1590,7 +1588,7 @@ select a2.usergroup ,b.cnd1 cnd from axusers a join axuserlevelgroups a2 on a2.a
     END IF;
  
     RETURN;
-END
+END;
 >>
 
 <<
@@ -1630,7 +1628,7 @@ BEGIN
            END;
         
 
-END
+END;
 >>
 
 <<
@@ -1718,7 +1716,7 @@ BEGIN
     END LOOP;
 
     RETURN;
-END
+END;
 >>
 
 <<
@@ -1750,7 +1748,7 @@ BEGIN
 
  
     RETURN v_result;
-END
+END;
 >>
 
 <<
@@ -1798,7 +1796,7 @@ END IF;
     RETURN v_json_string;
 
 EXCEPTION WHEN OTHERS THEN RETURN null;
-END
+END;
 >>
 
 <<
@@ -1831,7 +1829,7 @@ WHERE a.mskprop IS NOT NULL;
     RETURN v_mskprop;
 
 EXCEPTION WHEN OTHERS THEN RETURN NULL;
-END
+END;
 >>
 
 <<
@@ -2178,7 +2176,7 @@ FROM axpflds WHERE tstruct = ptransid AND encrypted = 'T'
 	-- EXCEPTION WHEN OTHERS THEN null;
 	 
     RETURN; -- End of function
-END
+END;
 >>
 
 <<
@@ -2473,5 +2471,5 @@ FROM axpflds WHERE tstruct = rec_transid.transid AND encrypted = 'T'
 
 
     RETURN; 
-END
+END;
 >>
