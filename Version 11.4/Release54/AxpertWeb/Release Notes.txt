@@ -1,0 +1,144 @@
+AxpertWeb:
+----------
+TSK-0368 -- Enhancement: Added an additional option to set Home / Landing page as HTML template by using the below mentioned developer option(Landing Structure). Currently home / Landing page can be set as selected tstruct / iview / html pages. In addition main page templates can also be customized to show the data in cards view as home / landing page.
+   1. Developer option :
+       Property: Landing Structure
+       Property Code: General
+       Property Value: tstruct / iview / html pages / html templates
+       Form/Report: Reports / Tstructs
+       User Role: All / Single role  
+    Note: a. Property value select as 'tstruct' should choose the 'form' in Form/Report dropdown.
+          b. Property value select as 'iview' should choose the 'iview' in Form/Report dropdown.
+          c. Property value select as 'html pages' should choose the 'html page' in Form/Report dropdown.
+          d. If Property value select as 'html templates', than 'Landing Page HTML Template' file name should be entered in 'Property Info' and Form/Report dropdown will be empty.
+   2. Plugin Custom Code Page: A new option named "Landing Page HTML Template" has been added to the Plugin Custom Code menu. By selecting "Add Landing Page HTML Template" from the Plugin Custom Code button menu, users can create a new HTML template file (The generated file is saved in the LandingPageHTMLTemplates folder located under the AxpertWeb directory of the project (i.e., AxpertWeb\<ProjectName>\LandingPageHTMLTemplates)).
+   3.  Template Name Mapping: The Landing Page HTML Template file name must exactly match the value entered in the 'Property Info' field when Property Value is set to 'html templates'.
+
+TSK-0299 -- Enhancement: Make the default buttons in the menu optional  (dashboard, active list, calendar, analytics).
+Note: This requirement can be achieved in 'Custom Main' templates by adding the following CSS to the template HTML.
+Ex.: <style>
+     a.menu-icon[title="Active List"] {
+         display: none !important;
+     }
+   a.menu-icon[title="Dashboard"] {
+         display: none !important;
+     }
+    a.menu-icon[title="Calendar"] {
+         display: none !important;
+     }
+    a.menu-icon[title="Analytics"] {
+         display: none !important;
+     }
+ </style>
+
+TKT-0470 -AVDEL- In Rich Text, if we have any : used in the description then it is throwing error as Invalid Operation
+
+TKT-0470 -AVDEL- Issue in Rich Text and Amendment is not triggering  
+
+TKT-0474 -AVDEL -Header Details are getting deleted on approval of Amendment for the records imported from the backend 
+
+TKT-0375 -JF&I- Attachments in grid are not loading. 404 error is coming.
+
+TASK-2626 -JF&I- Row 1 cannot be left empty error OR Row 2 cannot be left empty error.
+
+TKT-0466 -JF&I- When searching using a parameter, the system should display all transactions related to that parameter, not just the first 10 records.
+
+TASK-3248 -JF&I- Text file is not getting generated after save of the supplier payment entry in the WEB
+
+TKT-0480 -Kauvery- If two Date field is available, when clicking on 2nd field calendar icon first field calendar is opening,
+
+TKT-0459 -Kauvery- Feature of axpbutton_script action is not working, 
+
+TKT-0357 -VEGOLA- Iview name with more than 8 characters created in earlier version (10.8) is not supporting in 11.4 version. 
+
+TKT-0406 -GISS- Bulk User Activation in user configuration Customer - GI Staffing Services Private Limited
+
+TKT-0383 –AgileSpace- Peg notifications are not working in AgileSpace
+
+TSK-0321 -QA- While opening Stock Ledger with Value Report, it is throwing "Data provider or other service returned an E_FAIL status"
+
+TSK-0278 -QA- Publish – Field Width Change Not Updated in Target
+
+TSK-0358 -QA- Axi Command line issues:
+1. Upload- After choosing form and uploaded the file to import, able to click on Submit button multiple times. Also user is not getting the text message that informs that import is successful.
+2. Configure responsibilities-selected any responsibility in the iview, navigated to edit responsibility page but not able to go back to responsibilities page.
+3. when user click on new icon in user role page the page is keep on loading, when we open the roles using popupupmode(Configure-roles-popup-click on new icon)
+4. If Import Access is disabled in User logins form, Export Access flag also getting false. 
+
+TSK-0359 -QA- The Subgrid(Table Type Field) header field should be freeze
+
+TKT-0568 -QA- The headers of Subgrid(Table Type Field) overlapped with options (Fill Data,Add,Delete)at top right corner
+
+TKT-0527 -QA- Currency field values are being rounded off when decimal values are entered. Instead of retaining the entered decimal value, the value is automatically rounded to the nearest whole number
+
+TKT-0581 -QA- Issue Description: When user tries to Update Data using global import by select Primary key field as 'Save Normalized Dropdown' field and Upload Excel field
+
+TKT-0579 -QA- Issue Description: While updating records through Global Import (Data Update) using a primary key other than the auto-generated field, if the Excel file contains random values for the auto-generated field, the system incorrectly updates the auto-generated field with the value provided in the Excel file.
+
+TKT-0596 -QA- Issue Description: When the user enables the "Multiple Form" toggle and uploads an Excel file, It is showing error.
+
+TKT-0603 -QA- PEG API's : Update Configuration Retrieval to Use Request-Based Variables Instead of axprops.xml table
+
+Microservices:
+--------------
+TKT-0296 -Axi ERP- Enhancement - API required to add a new field to a tstruct from front end using executeapi script Customer 
+Note: AxAddForm and AxAddField api's are introduced in AxStructUtils micro service. 
+AxAddForm API:
+URL:  http://localhost/ARM_API/AxStructUtils/api/v1/AxAddForm
+Payload: {
+    "ARMSessionId": "ARMSessionId",
+    "mode": "new",
+    "trace": false,
+    "structName": "transid",
+    "structCaption": "caption",
+    "structType": "tstruct",
+    "isComp": false,
+    "compJSON": "{}",
+    "propvalJSON": "{\"name\":\"transid\",\"caption\":\"caption\",\"schema\":\"\",\"menuaccess\":true,\"pform\":\"yes\",\"saveCtrlFld\":\"\",\"saveCtrlFldCaption\":\"\",\"saveCtrlFldsDDN\":\"\",\"dltCtrlFld\": \"\",\"dltCtrlFldCaption\":\"\",\"dltCtrlFldsDDN\":\"\",\"tracking\":false,\"trackby\":\"\",\"trackusrs\": \"\",\"trackUsrsDDN\":[],\"trackfldOption\":\"\",\"trackFlds\":\"\",\"trackFldCaps\":\"\",\"trackFldsDDN\":[],\"allowconfig\":false,\"enablecache\":false,\"enablewf\":false,\"allowattch\":false,\"enableListVW\":true,\"purpose\":\"\"}",
+    "fieldJSON": "{\"dcName\":\"dc1\",\"asgrid\":\"F\",\"autogenStr\":\"||0|True|0\",\"saveValue\":\"T\",\"name\":\"field name\",\"caption\":\"field caption\",\"fieldType\":\"Simple Text\",\"dataType\":\"Character\",\"width\":\"50\",\"decimal\":\"0\",\"MOE\":\"Accept\",\"allowEmpty\":\"T\",\"allowDuplicate\":\"T\",\"fldPosition\":\"After field\"}",
+    "runtimeInfo": "{\"formtype\":\"simple\"}"
+}
+
+AxAddField API:
+URL: http://localhost/ARM_API/AxStructUtils/api/v1/AxAddField
+Payload:{
+    "ARMSessionId": "ARMSessionId",
+    "mode": "new",
+    "trace": false,
+    "structName": "transid",
+    "structCaption": "form caption",
+    "structType": "tstruct",
+    "isComp": true,
+    "compJSON": "{}",
+    "fieldJSON": "{\"fldsdatatypes\":\"\",\"autogenStr\":\"||0|True|0\",\"saveValue\":\"T\",\"dcName\":\"dc1\",\"asgrid\":\"F\",\"name\":\"field name\",\"defSrcField\":\"\",\"defSrcFieldCaption\":\"\",\"caption\":\"field caption\",\"fieldType\":\"Check box\",\"dataType\":\"Character\",\"width\":\"20\",\"decimal\":\"0\",\"MOE\":\"Accept\",\"allowEmpty\":\"T\",\"allowDuplicate\":\"T\",\"fldPosition\":\"After field\"}",
+    "runtimeInfo": "{}"
+}
+
+TSK-0214 -QA- API to add fields. This API can be used in tstructs and custom pages to add a field to a tstruct. It should have capability to add to any DC in the tstruct. 
+
+Consumer service:
+-----------------
+TKT-0422 -QA- Currently, records are pushed to the queue using the CachedSave API. The processing result is communicated asynchronously through FCM notifications.
+In some scenarios, FCM notifications may not be received or triggered successfully. In such cases, there is no mechanism for mobile to retrieve the processing status of the submitted queue records. To address this gap, a new API is required to fetch the status of one or more CachedSave requests based on their axm_queueids.
+
+TSK-0322 -QA- CachedSaveService result file not downloading from notification (Global import scenario)
+
+Structures:
+-----------
+TSK-0300 -QA- Rename permission setup to "User permission setup" in config studio.
+
+TKT-0540 -QA- ADS for mobile cached save.
+
+Axpert Studio:
+--------------
+TKT-0241 -BDF- In DevStudio, provide a decimal field configuration option for the Currency field. Currently, in runtime, the Currency field automatically takes 2 decimal points by default, but there is no configuration available in DevStudio to control or customize the decimal precision. 
+
+TASK-4088 -BDF- Required an option to filter form fields in 11.4 Studio. 
+
+TASK-2992 -BDF- The cursor moves to the front of the query line when doing quick query update. 
+
+TKT-0301 -Agile labs- For a field, if MOE is selected to "fill", Master and Source should not empty on submit 
+
+TASK-5154 -QA- Cursor moves to the beginning when entering data quickly in the Script field.
+
+
