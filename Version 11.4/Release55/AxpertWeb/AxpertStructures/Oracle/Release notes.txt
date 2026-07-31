@@ -1,0 +1,12 @@
+## Data Import Instructions
+
+Use the attached "sect2.csv" and "sect4.csv" files to import the data into the corresponding target tables.
+
+1. Right-click the target table ("sect2" or "sect4") and select **Import Data**.
+2. Upload the corresponding CSV file:
+   * Upload "sect2.csv" for the "sect2" table.
+   * Upload "sect4.csv" for the "sect4" table.
+3. The source file and columns should be selected automatically based on the file and column names. Verify that the target database, target table, and column mappings are correct.
+4. Ensure that **Truncate table before load** is unchecked.
+5. Proceed with the import and verify that the data has been loaded successfully.
+6. Repeat the same steps for the other table and CSV file.

@@ -1,0 +1,124 @@
+AxpertWeb:
+----------
+TSK-0450 -- Enhancement: Signin page Captcha feature changes: 
+   1. Captcha settings have been introduced in the AxpertAdmin page, allowing administrators to configure the Captcha security feature for selected projects based on the applicable business agreement. Using this setting, the Captcha can be configured with the following options:
+     a. Captcha Type: Alphanumeric, Numeric, or Alphabetic (Alpha)
+     b. Character Length: Configurable from 4 to 8 characters
+This provides greater flexibility in enforcing project-specific security requirements while meeting business and compliance needs. 
+   2. Existing Web.config 'enableCaptcha' key has been withdrawn   
+      web.config key: <add key="enableCaptcha" value="false" />
+
+TSK-0491 -- Enhancement: Please note the below enhancements for Landing page / Home page. 
+    1. 'Landing Page HTML Templates' withdrawn from 'Plugin Custom Code' page and corresponding option(html templates) from developer option 'Landing Structures' also been withdrawn.
+    2. If a static landing page is required, the page can be named as 'HomePageTemplate.html', and can be keep in the 'CustomPages' folder ( same like mainpage template).
+    3. All other dynamic pages(tstruct/iview/html pages) can be loaded by using the developer option 'Landing Structure'
+
+TSK-0451 -JF&I- 1. Issue with Single Quotes (') in Dynamic Search: When there is a single quote/apostrophe (') in the item name and a user attempts to search for it using the dynamic search, they encounter an "Oops!" error screen.
+2. Issue with Ampersands (&) in the "In" Function: At the same time, we are facing an issue where the "In" function does not work properly when the value contains an ampersand (&).
+
+TSK-0493 -JF&I- Global Import: Data was not importing properly incase if the normalized grid dc fields are importing. 
+
+TSK-0496 -JF&I- On clicking the IView hyperlink, an "Oops" error is displayed instead of opening the TStruct.
+
+TKT-0699 -JF&I- Provide the transaction cancelled message display with the reason, username, date and time for clear visibility
+
+TKT-0573 -trustline- WCAG Compliance Points
+
+TKT-0717 -zishta- Bank Reconciliation UI 
+
+TKT-0356 -BDF- In the Area Chart,  One of the chart series is displayed in the legend and its data values are available; however, the corresponding series color is not rendered on the chart. Other series are displayed correctly.
+
+TKT-0355 -BDF- For certain chart cards, when the X-Axis Title and Y-Axis Title are configured inChart Properties, the axis titles are not displayed on the chart in runtime  both homepage and dashboard
+
+TKT-0358 -BDF- Legend color bullets are missing in Scatter Plot 3D chart in homepage  and dashboard
+
+TASK-3223 -BDF- The button order becomes collapsed or misaligned during runtime
+Note to QA: Please test TStructs where the "TStruct Button Style" developer option is set to "Old". Verify Desktop-created TStructs, Studio-created TStructs, and TStructs converted from Desktop to Studio.
+
+TKT-0569 -MPCO- Listing page Error - ARM is not running setup is proper 
+
+TKT-0525 -MPCO- Duplicate Tab Issue: When user opens duplicate tab, previous tab entry is hanging
+
+TKT-0524 -MPCO- Iviews : Add iview not working as expected, using to hide some of the columns.
+Note to QA: Please test iView exports from both the main view and added views. Previously, when exporting from an added view, the exported file incorrectly contained the columns from the main view instead of the selected added view.
+
+TSK-0503 -MPCO- Open multiple popups as iview / tstruct from iview hyperlink and on close of latest (current) popup application back button getting visible. As per the product if iview or tstruct open in popup should not back button should not be visible.
+
+TSK-0515 -MPCO- Dropdown queries are executing 2 times while transaction save 
+
+TKT-0683 -Kauvery- Using axpconfigs_transid table we are able to create a Print Button in previous releases, but now button is not created. Using this button we are taking HTML Print.
+
+TSK-0456 -QA- Open a Parameter IView normally (either from the menu or using the AXI command line). Then, open the same Parameter IView in an AXI command line popup. When you try to access the IView that was opened normally, an error is displayed.
+ Note to QA:1. Test all IView scenarios with and without parameters.
+            2. Test IViews opened in the AXI command line popup, including the following actions: 
+               a. New, b. Hyperlink navigation, c. Load Next Page, d. Record navigation, e. Refresh
+
+TSK-0470 -QA- Axpert Data Source(ADS): ADS form definition has been changed by adding 'Add dynamic tags' checkbox field for to handle the filters and grouping tags dynamically in sql function. 
+
+TKT-0753 -QA- Renaming the Configure Options List
+1. User listing 
+2. User permission setup
+3. Role listing
+4. Actor listing
+5. Responsibility listing
+6. Dimension listing
+7. Usergroup listing
+8. News & Announcement removed from Configuration studio menu.
+
+TSK-0518 -QA- Introduce smart view listing in Configuration studio
+
+
+Axpert Studio:
+-------------
+TKT-0564 -BDF- In iView under Parameter, the PreText is not displayed for the Expression and Validate Expression fields 
+
+TKT-0563 -BDF- While creating a button in iView or TStruct under DevStudio, the system currently allows both Script and Action to be configured simultaneously. A button should support only one configuration type—either Script or Action
+
+TASK-3223 -BDF- The button order becomes collapsed or misaligned during runtime. 
+
+TKT-0632 -BDF- When a user makes any changes in DevStudio for an existing form (converted from Desktop and containing data) and attempts to save the structure, the following error is displayed:"Column contains existing data. To change the datatype or decrease the column width or decimal precision, the column must be empty.
+
+TASK-2775 -MPCO- Structure Lock Retained After Undo Action Without Modification. 
+
+TSK-0507 -QA- Support Developer Studio Launch in New Object Creation Mode
+
+Consumer services:
+-----------------
+TSK-0493 -JF&I- Global Import: Data was not importing properly incase if the normalized grid dc fields are importing. 
+
+TSK-0457 -- Enhancement: Implement transaction status tracking in CachedSaveWorkerService by updating a Redis status key with total and processed transaction counts. This allows real-time progress monitoring while CachedSave is in progress. Refer to the CachedSave release notes for implementation details.
+
+Microservices:
+--------------
+TSK-0458 -PayAzure- AxScript API: Tstruct scripts not processing as expected  
+
+TSK-0470 -QA- Axpert Data Source(ADS): ADS form definition has been changed by adding 'Add dynamic tags' checkbox field for to handle the filters and grouping tags dynamically in sql function. 
+
+TKT-0615 -QA- Implement Double Encryption with Seed for Password in ARM SignIn API (Signin API change) 
+
+TKT-0614 -QA- axList API Fails to Execute MSSQL ADS Queries with Parameters (AxList API change) 
+
+TKT-0649 -QA- AxPut API Validation Error for Valid Records (AxPutAPI change)
+
+TKT-0574 -QA- The Forgot Password functionality is not working as expected in flutter apk  (New forgot password API)
+
+TASK-0299 -QA- Unable to change the password  (New Change Password API)
+
+TSK-0468 -QA- AES encryption support in Signin, AxForgotPassword and AxResetPassword APIs
+
+TSK-0494 -QA- Parallel API calls are throwing errors (Random issue)
+
+
+Structures:
+-----------
+TKT-0630 -QA- For an existing form, when the Purpose contains multiline text, opening the form in 11.4 Studio displays the content as a single line instead of preserving the original line breaks.	
+
+TKT-0753 -QA- Renaming the Configure Options List
+1. User listing 
+2. User permission setup
+3. Role listing
+4. Actor listing
+5. Responsibility listing
+6. Dimension listing
+7. Usergroup listing
+8. News & Announcement removed from Configuration studio menu.
