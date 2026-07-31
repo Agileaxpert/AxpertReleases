@@ -33,14 +33,12 @@ TKT-0355 -BDF- For certain chart cards, when the X-Axis Title and Y-Axis Title a
 TKT-0358 -BDF- Legend color bullets are missing in Scatter Plot 3D chart in homepage  and dashboard
 
 TASK-3223 -BDF- The button order becomes collapsed or misaligned during runtime
-Note to QA: Please test TStructs where the "TStruct Button Style" developer option is set to "Old". Verify Desktop-created TStructs, Studio-created TStructs, and TStructs converted from Desktop to Studio.
 
 TKT-0569 -MPCO- Listing page Error - ARM is not running setup is proper 
 
 TKT-0525 -MPCO- Duplicate Tab Issue: When user opens duplicate tab, previous tab entry is hanging
 
 TKT-0524 -MPCO- Iviews : Add iview not working as expected, using to hide some of the columns.
-Note to QA: Please test iView exports from both the main view and added views. Previously, when exporting from an added view, the exported file incorrectly contained the columns from the main view instead of the selected added view.
 
 TSK-0503 -MPCO- Open multiple popups as iview / tstruct from iview hyperlink and on close of latest (current) popup application back button getting visible. As per the product if iview or tstruct open in popup should not back button should not be visible.
 
@@ -49,9 +47,6 @@ TSK-0515 -MPCO- Dropdown queries are executing 2 times while transaction save
 TKT-0683 -Kauvery- Using axpconfigs_transid table we are able to create a Print Button in previous releases, but now button is not created. Using this button we are taking HTML Print.
 
 TSK-0456 -QA- Open a Parameter IView normally (either from the menu or using the AXI command line). Then, open the same Parameter IView in an AXI command line popup. When you try to access the IView that was opened normally, an error is displayed.
- Note to QA:1. Test all IView scenarios with and without parameters.
-            2. Test IViews opened in the AXI command line popup, including the following actions: 
-               a. New, b. Hyperlink navigation, c. Load Next Page, d. Record navigation, e. Refresh
 
 TSK-0470 -QA- Axpert Data Source(ADS): ADS form definition has been changed by adding 'Add dynamic tags' checkbox field for to handle the filters and grouping tags dynamically in sql function. 
 
