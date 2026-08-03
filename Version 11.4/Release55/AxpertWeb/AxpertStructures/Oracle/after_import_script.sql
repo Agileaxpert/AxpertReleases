@@ -282,7 +282,7 @@ WHERE NOT EXISTS (
     FROM axactivetaskstatus b
     WHERE axactivemessages.taskid = b.taskid
 ) 
-AND axactivemessages.transid NOT IN ('tassk', 'ticke', 'send', 'retun', 'taskc', 'close', 'drop', 'infor', 'stupd', 'Taskm');
+AND axactivemessages.transid NOT IN ('tassk', 'ticke', 'send', 'retun', 'taskc', 'close', 'drop', 'infor', 'stupd', 'Taskm')
 >>
 
 <<
