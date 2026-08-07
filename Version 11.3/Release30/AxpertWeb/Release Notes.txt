@@ -1,0 +1,209 @@
+TKT-0573 - Trustline - WCAG Compliance Points
+Note: Please refer the excel file for more details on each point. 
+
+TKT-0758 - Trustline - VAPT to be incorporated in 11.3 version for Trustline.
+Note: Please refer the below points for more details on attached PDF file
+
+1. Unauthorized user access admin dashboard
+   Action: Fixed
+
+2. Stack Trace error 
+   Action: Verify that the following settings are configured in the application:
+    1. In web.config: debug="false" and customErrors mode="On"
+    2. In Global.asax: Verify that unhandled exceptions are redirected to the custom error page, for example: Response.Redirect("~/CusError/AxCustomError.aspx");
+
+3. Improper error handling 
+    Action: Verify that the following settings are configured in the application:
+     1. In web.config: debug="false" and customErrors mode="On"
+     2. In Global.asax: Verify that unhandled exceptions are redirected to the custom error page, for example: Response.Redirect("~/CusError/AxCustomError.aspx");
+
+4. Version Disclosure
+  Action: Verify that the following settings are configured in the application:
+   1. In web.config: debug="false" and customErrors mode="On"
+   2. In Global.asax: Verify that unhandled exceptions are redirected to the custom error page, for example: Response.Redirect("~/CusError/AxCustomError.aspx");
+ 
+5. User id email leak in forget password.
+   Action: Fixed
+
+6. Username Enumeration.
+    Action: Fixed
+
+7. IIS Default page found.
+  Action: 1. Verify the IIS configuration:
+     a. Ensure <directoryBrowse enabled="false" /> is configured.
+     b. Verify that the IIS Default Welcome Page (iisstart.htm or other default IIS content) is removed or inaccessible.
+     c. Confirm that the website bindings point to the application site and not the IIS Default Web Site.
+  2. Verify infrastructure configuration:
+     a. Check the load balancer configuration and ensure all backend servers are serving the application instead of the IIS default page.
+     b. Verify that the SSL certificate is correctly bound to the application website.
+     c. Confirm that no backend server exposes the IIS Welcome Page.
+  3. Security hardening (web.config keys):
+      b. <httpCookies httpOnlyCookies="true" requireSSL="true" />
+      c. <add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />
+
+8. Missing HSTS Header.
+   Action: a. Enable the following web.config setting to include the HSTS header in HTTPS responses:
+     <add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />
+  b. Verify that the application is accessible only over HTTPS and that HTTP requests are redirected to HTTPS.
+
+9. Options Method Enabled.
+   Action: Please verify whether the following configuration exists in the application's web.config. If it is not present, merge it from the product web.config.
+      <verbs allowUnlisted="true">
+   <add verb="OPTIONS" allowed="false"/>
+   <add verb="TRACE" allowed="false"/>
+   <add verb="HEAD" allowed="false"/>
+   <add verb="DELETE" allowed="false"/>
+   <add verb="PUT" allowed="false"/>
+   <add verb="PATCH" allowed="false"/>
+ </verbs>
+
+10. Back Up file exposed.
+    Action: a. As per the product release, no .rar or .zip files are included.
+            b. Please check the application folder/web root for any .rar, .zip, or other backup files.
+            c. If found, move them to a backup location outside the web root and remove them from the application folder.
+
+TASK-3579  -JF&I- Unnecessary Redis push in Notify method, creating keys in the format:
+
+TKT-0774 -eDPC- Action Required: Security Audit Issues in eDPC
+Note: Please refer the below points for more details on attached PDF file
+
+1. Blind SQL Injection
+   --> Fixed
+
+2. API Mass Assignment: GetProjectAppLogo
+   --> Fixed
+
+3. API Mass Assignment: keepsigninwebdetailsnew
+   --> Fixed
+
+4. API Mass Assignment: getsession
+  --> Fixed
+
+5. API Mass Assignment : GetDateParams
+6. API Mass Assignment: GetVacancyDashboard
+7. API Mass Assignment: GetDpcMembers
+   Note: These methods are referred from CustomFunctions.aspx page which is not from product page. Please check with concerned person and fix it.
+
+8. API Mass Assignment: getsession
+   --> Fixed
+
+9. API Mass Assignment: ExecutionTraceInterval
+   --> Fixed
+
+Note: Point # 10 to 21: index.min.js is referring in custom html page (DPC_New_Dashbord_1736747437570.html) which needs to be removed or extremal reference (http://schemas.openxmlformats.org/officeDocument/2006/relationships/image) needs to be removed 
+
+22. Reflected Cross Site Scripting:
+   --> Fixed
+
+23. Unencrypted Login Request: 
+    Note: Configure SSL/TLS (HTTPS) on the web server and enforce HTTPS for all login requests by redirecting HTTP traffic to HTTPS. This ensures that login credentials and other sensitive information are encrypted during transmission and resolves the "Unencrypted Login Request" vulnerability.
+ Action Required (web.config): Enable the following security settings in web.config:
+ <!--<httpCookies httpOnlyCookies="true" requireSSL="true" />-->
+ <!--<add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />-->
+
+
+24. Check for SRI (Subresource Integrity) support:
+    Note: Below link added in tstruct.aspx which is causing the issue. This link is not there in product tstruct.aspx page. Please check with concerned person and fix it.
+<script src="https://www.gstatic.com/inputtools/js/ln/mt.js"></script>
+
+25. Check for SRI (Subresource Integrity) support:
+    Note: Below link added in html page (DPC_Main_Dashboard_1734347913740.html) which is causing the issue. Please check with concerned person and fix it.
+    Page: DPC_Main_Dashboard_1734347913740.html?v=1&load=1734347913740
+    Link: https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+
+26. Check for SRI (Subresource Integrity) support:
+    Note: Below link added in html page (DPC_Main_Dashboard_1734347913740.html) which is causing the issue. Please check with concerned person and fix it.
+    Page: DPC_New_Dashbord_1736747437570.html?v=1&load=1736747437570
+    Link:  https://code.jquery.com/jquery-3.6.0.min.js
+
+27. Check for SRI (Subresource Integrity) support
+    Note: Below link added in html page (DPC_Main_Dashboard_1734347913740.html) which is causing the issue. Please check with concerned person and fix it.
+   Page: DPC_New_Dashbord_1736747437570.html?v=1&load=1736747437570
+   Link: <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+   Link: <link type="text/css" rel="stylesheet" href="../../dpcnew/HTMLPages/Css/_1726048002854.css?v=1727070892868">
+   Link: <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   Link: <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+   Link: <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+   Link: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+28. Cookie with Insecure or Improper or Missing SameSite attribute
+   Note: Action Required (web.config): Enable the following security settings in web.config:
+      <!--<httpCookies httpOnlyCookies="true" requireSSL="true" />-->
+     <!--<add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />-->
+
+29. Cross-Site Request Forgery:
+     Note: Action Required: Add cookieSameSite="Strict" to the <sessionState> configuration in web.config. This enables the SameSite=Strict attribute for the ASP.NET session cookie, preventing it from being sent in cross-site requests and mitigating CSRF-related risks.
+   web.config key: <sessionState mode="StateServer" cookieSameSite="Strict"/>
+
+
+30. Database Error Pattern Found: 
+   Note: These methods are referred from CustomFunctions.aspx page which is not from product page. Please check with concerned person and fix it.
+
+31. Missing or insecure Cross-Origin-Embedder-Policy (COEP) header
+    Note: Action Required (web.config): Enable the following security settings in web.config:
+      <!--<httpCookies httpOnlyCookies="true" requireSSL="true" />-->
+     <!--<add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />-->
+
+32. Missing or insecure Cross-Origin-Opener-Policy (COOP) header:
+    Note: Action Required (web.config): Enable the following security settings in web.config:
+      <!--<httpCookies httpOnlyCookies="true" requireSSL="true" />-->
+     <!--<add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />-->
+
+33. Body Parameters Accepted in Query: dashboard.aspx
+    --> Fixed
+
+34. Body Parameters Accepted in Query: reconnect.aspx
+    --> Fixed
+
+35. Body Parameters Accepted in Query: AxpertLogs.aspx
+    --> Fixed
+
+36. Body Parameters Accepted in Query: Complaint.aspx
+    --> Fixed
+
+37. Body Parameters Accepted in Query: mainnew.aspx
+       Note: Action Required (web.config): Enable the following security settings in web.config:
+      <!--<httpCookies httpOnlyCookies="true" requireSSL="true" />-->
+     <!--<add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />-->
+
+37. Body Parameters Accepted in Query: AxCustomError.aspx
+    --> Fixed
+
+38. Body Parameters Accepted in Query: iview.aspx
+     --> Fixed
+
+39. Internal IP Disclosure Pattern Found in Parameter Value:
+    Note: This is an environment-specific configuration and not a product code issue. The application uses the host name configured in the web server (IIS). To avoid disclosure of internal IP addresses, the IIS website binding or reverse proxy should be configured to use the organization's public domain name (e.g., https://app.company.com) instead of an internal IP address. Alternatively, a DNS host name should be configured so that client responses contain the domain name rather than the internal IP address.
+
+40. Internal IP Disclosure Pattern Found in Parameter Value:
+    Note: This is an environment-specific configuration and not a product code issue. The application uses the host name configured in the web server (IIS). To avoid disclosure of internal IP addresses, the IIS website binding or reverse proxy should be configured to use the organization's public domain name (e.g., https://app.company.com) instead of an internal IP address. Alternatively, a DNS host name should be configured so that client responses contain the domain name rather than the internal IP address.
+
+41. Missing "Content-Security-Policy" header:
+       Note: Action Required (web.config): Enable the following security settings in web.config:
+      <!--<httpCookies httpOnlyCookies="true" requireSSL="true" />-->
+     <!--<add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />-->
+
+42. Missing or insecure "X-Content-Type-Options" header:
+       Note: Action Required (web.config): Enable the following security settings in web.config:
+      <!--<httpCookies httpOnlyCookies="true" requireSSL="true" />-->
+     <!--<add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />-->
+
+43. Web Application Source Code Disclosure Pattern Found
+44. Web Application Source Code Disclosure Pattern Found
+45. Web Application Source Code Disclosure Pattern Found
+    --> If Point#41 is taken care no fix required for 43,44 and 44 points 
+
+46. Application Error: CustomFunctions.aspx/GetDateParams
+    Note: These methods are referred from CustomFunctions.aspx page which is not from product page. Please check with concerned person and fix it.
+
+47. Application Error: WebService.asmx/GetSession
+    --> Fixed
+
+
+48. Application Error: CustomFunctions.aspx/GetDpcMembers
+49. Application Error: CustomFunctions.aspx/GetDpcMembers
+50. Application Error: CustomFunctions.aspx/GetDpcMembers
+50. Application Error: CustomFunctions.aspx/GetVacancyDashboard	
+51. Application Error: CustomFunctions.aspx/GetDpcMembers
+52. Application Error: CustomFunctions.aspx/GetVacancyDashboard
+   Note: These methods are referred from CustomFunctions.aspx page which is not from product page. Please check with concerned person and fix it.
