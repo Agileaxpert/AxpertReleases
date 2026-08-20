@@ -1,0 +1,92 @@
+AxpertWeb:
+---------
+TSK-0593 -- Enhancement: When end users attempt to load iViews/reports containing a high volume of data, the application may encounter a timeout or the browser may become unresponsive. To address this issue, the application has been enhanced to load only a minimal number of records initially when a high-volume dataset is detected. Users are also provided with options to export the complete dataset to Excel, PDF, or Word. 
+
+TSK-0594 -- Enhancement: When long-running web services, such as SaveData, Action, and Script, are executed, the client-side timeout may occur without displaying an appropriate message to the end user. To address this issue, the product has been enhanced to detect long-running web service requests and handle client-side timeouts gracefully.
+If a client-side timeout occurs while the web service is still processing, the end user will be informed that the request is still in progress and that a notification will be provided once the web service completes. The application detects the client-side timeout and pushes the completion notification to the Notification Hub, allowing the end user to be notified accordingly once the web service execution is completed.
+
+TSK-0513 -- Enhancement: Data posting API  (used in custom pages) - Introduce Progress Update.
+Posting from custom pages is now done by pushing a JSON to Queue. The JSON may contain one or more transactions related to one or more tstructs.
+Note: The detailed readme note has been provided along with sample JSON, examples and postman collections in ARMServices. 
+
+TKT-0912 -RFPL- Tstruct Grid View in Mobile and Tab Browser - Tstruct with Grid should load in Desktop Mode if i will open in the browser  on opening web app in mobile or tab
+Note#1: The exiting developer option 'Apply Mobile UI' property values has been changed to show Mobile & Tab in Grid view and Browser App(desktop) in Form view 
+Developer option:
+  Property code: 'Apply Mobile UI'
+  Property name: 'Apply Mobile UI'
+  Property value: Show as grid in mobile / Show as grid in tabs / Show as form in desktop
+  Form/Report : All Forms / single form
+  User Role: All / Single role
+Note#2: Along with this change below mentioned developer option has been withdrawn. Backward compatibility has been provided for the existing applications. 
+Developer option:
+  Property: Display form grids in tabular format for mobile
+  property Code: Display form grids in tabular format for mobile
+  Property Value: true/false (default value is false )
+  Form/Report: ALL Forms / Single Form
+  User Role: All / Single role
+
+TKT-0954 -RFPL- Mobile App Getting an Error on Submit of FG Weight tstruct for RFPL site in rfpluat schema
+
+TSK-0569 -ERPGOLDDEV/BAFCO- Getting error while submitting transaction in Payment and Receipt
+
+TKT-1031 -BAFCO- Selected data is not storing in DB , instead it is saving the default expression value. 
+
+TKT-0681 -BMRCL- We are experiencing issue with a popup tstruct which is opened via an another popup iview.  While coming out of the popup tstruct after submitting, the session is getting expired.
+
+TKT-0748 -BMRCL- In the iView, when the "All Records" option is selected and the user scrolls to the last record, a slight upward scroll causes the page to jump towards the top instead of scrolling smoothly. This unexpected jump makes it difficult to navigate the records.
+
+TKT-0879 -Delmo- Dev options automatically disable error. When we enter the global parameter after the login dev option automatically will remove. But if we close the parameter screen dev option remain.
+
+TKT-0910 -MPCO- Application session expires when accessing Configuration Studio, Import and export 
+
+TSK-0573 -PayAzzure- Axpert Experts – Fill Grid SQL Not Persisting in Database Metadata
+
+TSK-0616 -PayAzzure- Dropdown List Values Not Captured Completely in axpflds(column listvalues ) Metadata
+
+TSK-0615 -PayAzzure- axHiddenColumn and axpdynamiccaption Not Working in Pay Register Report
+
+TKT-1047 -Kauvery- Invalid Selection in Grid Drop down query on Save data
+
+TKT-1048 -Kauvery- On Save and Print, PDF data is viewed but in Email Empty PDF is sending
+
+TSK-0216 -QA- API: AxRedisDelete API has been introduced to delete keys from Redis.
+Note: The detailed readme note has been provided along with sample JSON, examples and postman collections. 
+
+
+Consumer services:
+-----------------
+TSK-0513 -- Enhancement: Data posting API  (used in custom pages) - Introduce Progress Update.
+Posting from custom pages is now done by pushing a JSON to Queue. The JSON may contain one or more transactions related to one or more tstructs. 
+Note: The detailed readme note has been provided along with sample JSON, examples and postman collections.
+
+
+Microservices:
+--------------
+TSK-0513 -- Enhancement: Data posting API  (used in custom pages) - Introduce Progress Update.
+Posting from custom pages is now done by pushing a JSON to Queue. The JSON may contain one or more transactions related to one or more tstructs. 
+Note: The detailed readme note has been provided along with sample JSON, examples and postman collections.
+
+TSK-0216 -QA- API: AxRedisDelete API has been introduced to delete keys from Redis.
+Note: The detailed readme note has been provided along with sample JSON, examples and postman collections. 
+
+AxpertStudio:
+-------------
+TKT-0760 -BDF- In DevStudio, for a TStruct, the Undo operation successfully reverts the changes after reloading the TStruct from AxpertStudio. However, after the changes are reverted, the application does not navigate to the appropriate page as expected. Additionally, an "Error while fetching data" message is displayed. 
+
+TKT-0583 -BDF- In DevStudio, when searching with a parameter using the Search this TStruct , the search operation experiences a performance delay. While typing in the Search TStruct field, there is a noticeable lag in displaying the entered text. Additionally, after initiating the search, the data takes longer than expected to load.
+
+TKT-0891 -Agile- AXI CMD Line : Create New- Select structures to save issue
+
+TKT-1003 -Agile- Getting an error if we perform undo operation after accessing a node from search
+
+TKT-0705 -QA- Iview dev studio window-Submit button is not working in SQL Query maximized screen
+
+TSK-0551 -QA- Developer Studio: Auto-Expand Navigation and Auto-Select Form During Edit
+
+Structures:
+-----------
+TSK-0513 -- Enhancement: Data posting API  (used in custom pages) - Introduce Progress Update.
+Posting from custom pages is now done by pushing a JSON to Queue. The JSON may contain one or more transactions related to one or more tstructs.
+
+TKT-0912 -RFPL- Tstruct Grid View in Mobile and Tab Browser - Tstruct with Grid should load in Desktop Mode if i will open in the browser  on opening web app in mobile or tab
+
