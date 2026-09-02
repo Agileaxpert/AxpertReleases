@@ -1,0 +1,30 @@
+AxpertWeb:
+---------
+TKT-1071 -- Enhancement: Direct access for home page from mobile application
+
+TKT-1083 -AVDEL- avdeldev In Publish, Records are not getting refreshed after 500 records
+
+TKT-1080 -BAFCO- Attached file from one form is not loading in another form through fill grid in 11.4
+
+TKT-1098 -BAFCO- Unable to open the attached file
+
+TKT-1081 -BAFCO- In Reset Password: password validation message based on application properties should be displayed
+
+TKT-1090 -ERP- Fill value and validate expression is not working in Table field
+
+TKT-1103 -ERP- Issues in Table field. 
+
+TKT-1036 -MPCO- dropdown field values are not displaying for some users, while the same admin login works correctly.
+
+TKT-0736 -BDF- In the Grid DC, after adding multiple records, delete any one record(s), and submit the form, the application opens a new form as expected. However, the default row is not displayed in the Grid DC. When a new row is added in the newly opened form, an "Invalid Number" toast message is displayed. In grid dc the Sequence Number is not displayed in the correct order. 	
+
+TKT-0600 -BDF- In existing forms, DC buttons that were created using the Desktop application is not Hide/Unhide or Enable/Disable script when referenced by Button Caption or Button Name in Form Control Events in the axpert studio
+	
+TKT-0580 -BDF- The Hide/Unhide and Enable/Disable actions using Button Caption are not working for buttons placed inside a Data Control (DC) in Form Control Events. These actions work correctly only for buttons available in the toolbar when referenced by their button caption.
+
+TKT-0450 -BDF- When Cached Saving is enabled in runtime a form is submitted with invalid data, an Exception Notification is generated in SignalR. Upon navigating through the exception notification hyperlink, the Rich Text Field content that was entered with bold formatting is displayed as HTML tags instead of being rendered correctly.
+
+TKT-0322 -BDF- In the table field, the validation message displays the column name instead of the configured column caption. The validation message should display the column caption for better user readability.
+
+TKT-1068 -QA- Issue Description: Open an IView containing more than 1,000 records. When the user clicks the Show All button, only records 1 to 500 are loaded, even though the total number of records is greater than 1,000. If the user searches for a value that exists after the first 500 records, the search does not filter or display the matching record.
+
