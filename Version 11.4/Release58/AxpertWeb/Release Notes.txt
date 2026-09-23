@@ -1,0 +1,166 @@
+AxpertWeb:
+----------
+TSK-0593 -- Enhancement:  High-Volume Data Loading in iViews/Reports
+When end users attempt to load iViews or reports containing a high volume of data, the application may experience performance issues, such as request timeouts or the browser becoming unresponsive. This is particularly applicable when the Page Size is set to 0, which causes all records to be loaded without pagination.
+To address this issue, the application has been enhanced to initially load only a minimal number of records when a high-volume dataset is detected. This helps improve application responsiveness and prevents unnecessary browser or server resource consumption.
+Users can still export the complete dataset to Excel, PDF, or Word when the full data is required.
+Note: If a specific report requires all records to be displayed without pagination, the required Page Size (Fetch Size) can be configured through the Developer Options.
+However, setting an excessively large Fetch Size, such as 50,000 or 100,000 records, may significantly degrade application performance. Therefore, the Page Size/Fetch Size should be configured intelligently by the Solution Developer based on the actual business requirement and expected data volume.
+
+TSK-0690 -- Enhancement: React Page Support in Plugin Custom Code
+ Notes: 1. A new 'React Pages' option has been introduced in the 'Custom Plugins' page to enable users to create React pages.
+        2. React page files are stored in both: 
+            a. The 'database'
+            b. The 'Project folder', under the 'ReactPages' folder located in the 'AxpertWeb application code folder'.
+        3. To load React pages from the 'Menu' or 'Global Search', the following IIS configuration is required:
+           a. Create a new application pool named 'AxReact' and set Managed Runtime Version to 'No Managed Code'.
+           b. Create a new site/application named 'AxReact' under the 'AxpertWeb application/site'.
+           c. Assign the 'AxReact' application pool to this application.
+           d. Set the physical path to the 'ReactPages' folder available under the AxpertWeb application code folder.
+        4. The 'Custom Pages' option has been withdrawn from the Options menu and its functionality has been moved to the 'Custom Plugins' page.    
+
+TSK-0755 -- Enhancement: IView data export functionality for PDF and Word has been moved to the WorkerService for exporting all records, similar to the existing Excel export functionality.
+
+TKT-1164 -BAFCO- Search records should sort in DESC by default
+Note: By default, Product Transaction Search works in ASC order. Based on the user's requirement, the search order can be changed to DESC order by enabling the following Developer Option.
+Developer Option:
+       Property: Transaction Search Order
+       Property Code: Transaction Search Order
+       Property value: asc / desc
+       Form/Report : All Forms / single form
+       User Role: All / Single role  
+
+TKT-1161 -BAFCO- Cancel Remarks textbox is not showing when cancelling the transaction
+
+TKT-1112 -BAFCO- Avatar picture is not showing in the users login
+
+TKT-1062 -GI- In script, sqls are executed using firesql or bulkexecute.  If any error exists, system throws an popup error message as Retry or Abort.  Need option to skip the errors and execute the next line.  This should be configurable.  In 10.8 version system will throw error and continues and in latest version it stops executing the next line.   We used to check the trace for the errors in 10.8.  Entire payroll process runs using scripts and it has more than 1000 lines.
+Note : BreakOnerror has been made false by default (same like action definition). 
+
+TKT-1177 -BDF- Header Attachment displays "File already exists" when uploading the same file in different transactions.
+
+TKT-1201 -BDF- Issue Description: Previously attached files are not displayed in Grid Attachment on record load when AxBeforeTstLoad() function is defined in custom.js file
+
+TKT-1146 -ERP- Getting error if we use Validate expression in Table field.
+
+TKT-1055 -QA- Global variable: Following variables have been published and also available in parser, Which can be accessed by frontend developers as well as script defintions.
+Variables: 1. ARM_SessionId    - ARM SessionId
+           2. ARM_Token        - ARM Token
+           3. AxRMQAPIURL      - PushtoQueue API URL
+           4. AxSignalRapiURL  - SendSignalR API URL
+           5. AxFCMSendMsgURL  - SendFCMNotification API URL ( Mobile notifications)
+           6. AxRapidSaveURL   - RapidSave Rest API url
+           7. axpegemailactionurl - ARMMailTaskAction API URL
+           8. AxScriptsAPIURL   - ScriptsAPI Rest API URL
+
+TKT-1072 -QA- CSS change if the TStruct or IView loaded from mobile
+TKT-1133 -QA- Mobile app UI Enhancement for tstruct and iview 
+
+TSK-0716 -QA- To improve Forms/Tstructs performance, the Tstruct object and XML have been separated and stored in-memory using separate key and avoided the unwanted redis key creation
+Note: In-memory keys needs to be cleared after apply this patch. 
+
+TSK-0756 -QA- Redis persistence has been disabled because Redis is being used as a cache. Disabling persistence prevents cached data from being restored after a Redis restart.
+     Steps to disable Redis persistence:
+       1. Disable RDB snapshots: CONFIG SET save ""
+       2. Disable AOF persistence:  CONFIG SET appendonly no
+       3. Save the configuration changes: CONFIG REWRITE
+       4. Verify the Redis persistence settings:
+           a. CONFIG GET save
+           b. CONFIG GET appendonly
+           c. INFO persistence
+
+TKT-1180 -Mobile- 1. Back Button Issue:
+On some screens, clicking the back button from the mobile device is not working as expected. We are currently using JavaScript execution to trigger the back button action. However, when the same screen is opened through CMD, the back button works correctly.
+2. Home Screen Back Button Handling:
+When the user is already on the Home screen and clicks the back button, a console message such as "Home screen" should be triggered. The message can be changed if required. This will be used to handle the back button functionality at the Flutter level when the user is on the Home screen.
+Note: When the user clicks the mobile device back button while the current page is the Landing page, log 'axm_mainpageloaded' to the console to identify the Landing page as the last page in the mobile application.
+
+TKT-1277 -QA- Issue Description: In the Axpert flutter app, when a user tries to log in with any user account other than the Admin account, the application displays the following error: Application is not licensed.
+
+
+Structures:
+-----------
+TKT-1191 -Betterworks - fn_permissions_apptstructs -- Invalid indentifiers
+
+TSK-0711 -QA- ADS listing report is throwing error when user selects show all record
+
+TSK-0712 -QA- React Page - New form to create react pages
+
+
+AxpertStudio:
+-------------
+TASK-3952 -BDF-	For form Old or previously created buttons the Iconpicker UI is not proper. 
+
+TKT-0757 -BDF- In the existing IView, multiple UNION queries are defined, and the bind parameter is the same. In the first UNION query the parameter is written as :pusername (lowercase), while in the second UNION query it is written as :PUSERNAME (uppercase). The existing IView treats both as a single parameter. In Axpert Studio, they are being recognized as two different parameters
+
+
+Micro Services:
+---------------
+TSK-0688 –- Enhancement: Provision to Update an Existing Record Without Using Record ID in AXPUT = true API
+The **AXPUT API** has been enhanced to support updating existing records without requiring `axp_recid`.
+* `keyfield`, `keyvalue`, and `axrow_action` are mandatory for each row.
+* `axp_recid` is now optional.
+* If `axp_recid` is provided, it must be valid; otherwise, it should be excluded.
+* When `axp_recid` is not provided, `keyfield` and `keyvalue` are used to identify the existing record.
+* The same `axp_recid` approach must be followed consistently across all DCSs and rows.
+
+TSK-0668 –- Enhancement: Additional Details to be Returned by AxGet API
+The **AxGet API** now returns the following additional nodes:
+* `createdon`
+* `createdby`
+* `modifiedon`
+* `modifiedby`
+
+TSK-0741 -- AxPut: Enhance DateTime Handling in Core Methods
+The **AxPut** date and time handling has been enhanced to ensure values are processed using the appropriate database formats.
+- Introduced `ApiDateFormat` and `ApiTimeFormat` variables in the `ARMCommon` helper.
+- Integrated the database date and time formats wherever required.
+
+TKT-1066 –GI- GetDataFromAxList Function Not Working as Expected
+
+TSK-0698 –QA- Data Not Saving with AXPUT = true Due to Validation Errors
+The issue was reported when using the **CachedSave Consumer Worker Service**, where `AXPUT = true` invokes the ARM AxPut API.
+The following issues have been fixed:
+* **Date Validation:** Handled date validation using `ClientDateFormat` when fetching date values.
+* **Numeric / ID Fields:** Handled Numeric and ID fields properly during MDMap execution for SQL-related operations.
+* **Duplicate Check:** Fixed the Duplicate Check issue by handling the conditions properly.
+* **Picklist Validation:** Fixed Picklist execution where valid data was incorrectly reported as an invalid selection.
+* **Normalized Fields:** Reset `IDValue` properly during normalized field processing.
+* **Multiple Picklist Fields:** Fixed the **"A command is already in progress"** error when multiple Picklist fields are processed sequentially by properly handling asynchronous execution 
+using `await`.
+* **Date Type Issue:** Fixed the parser's date function used in GenMap to ensure date values are processed correctly.
+ 
+TSK-0723 -QA- AXPUT – Record Identification and Validation
+The **AXPUT API** record identification and validation logic has been enhanced to handle different combinations of `axp_recid`, `keyfield`, `keyvalue`, and `axrow_action`.
+- **Invalid KeyField Error:** Updated AXPUT to return the DB error message when an invalid KeyField is provided.
+- **Enhanced Record Identification:** Updated the handling of `axp_recid`, `keyfield`, and `keyvalue` based on the following scenarios:
+  - If `axp_recid` exists but is empty, use `keyfield` and `keyvalue` for edit operations.
+  - If `axp_recid` is `0` and `action = edit`, use `keyfield` and `keyvalue` to identify the record.
+  - If `axp_recid` is `0` and `action = create`, process the request based on `axp_recid`, as applicable.
+  - If `axp_recid` contains a valid Record ID and `action = edit`, update the record using `axp_recid`.
+  - If `axp_recid` is not provided and `action = edit`, identify the record using `keyfield` and `keyvalue`.
+  - If `axp_recid` is not provided and `action = create`, process the request using `keyfield` and `keyvalue`, as applicable.
+  - Give first preference to `axp_recid` when it exists and contains a valid value.
+  - Use `keyfield` and `keyvalue` when `axp_recid` is unavailable or not applicable.
+
+TSK-0724 -QA- AXPUT – Data Type and MDMap Verification
+The **AXPUT API** MDMap and data type handling have been enhanced to resolve field mapping and date-related issues.
+- **Duplicate Column Error:** Fixed the MDMap issue when the Update Field and Search Field are the same.
+- **Fill and MDMap Date Mapping:** Fixed the date mapping issue in `getRowValue`.
+- **Timestamp Handling:** Enhanced timestamp processing to save values using the appropriate database data type.
+
+TKT-1277 -QA- Issue Description: In the Axpert flutter app, when a user tries to log in with any user account other than the Admin account, the application displays the following error: Application is not licensed.
+
+ 
+Consumer Services:
+-----------------
+TSK-0755 -- Enhancement: IView data export functionality for PDF and Word has been moved to the WorkerService for exporting all records, similar to the existing Excel export functionality.
+ 
+TKT-1053 -AVDEL- Not receiving notification while inserting data from custom page. 
+
+TKT-1228 -BDF- While exporting to Excel from IView, getting exceptions in some of iviews. 
+
+TSK-0681 -QA- Updating of existing record using keyfield and keyvalue through axput = false
+ 
+
+
