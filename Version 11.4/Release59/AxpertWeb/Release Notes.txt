@@ -42,7 +42,6 @@ Note: When the user clicks the mobile device back button while the current page 
 
 TKT-1439 -- Axpert support has replicated agilespace schema as new application bescomitms and anup has reported that newly created schema is very slow and they are getting request time out in config studio reports.
 1) 404 issues on Css files
-Note to QA: 2) SignalR- notification request is taking more than 4 Mins -- No fix from product, it is working fine as expected. 
 
 
 Consumer Services:
