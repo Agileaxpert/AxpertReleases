@@ -1,0 +1,97 @@
+AxpertWeb:
+----------
+TKT-1315 -RFPL- TStruct Data Load Failure on Subsequent Attempts via Report Hyperlink
+
+TKT-1331 -RFPL- Total and Sub Total are not showing in Iview when on click of Show All Records
+
+TKT-1348 -RFPL- Drop Down not fetching records randomly, only on clear of in-memory drop down fields are fetching 
+
+TKT-1258 -VEGOLA- Issue in Tablefield Descriptor for Date column.
+
+TKT-1241 -Zishta- Display Total Not Working in Grid for Fill Mode Entry Screens
+
+TKT-1176 -BMRCL- Dropdown Filtering Issue with Special Character
+
+TKT-1308 -BDF- When a user adds an icon to the menu through Arrange Menu and saves it, the menu appears blank after signing out and signing back in.
+
+TKT-1242 -BDF- In Iview, user first load the 50 records then user clicks "Show All Records on Demand" and scrolls through the records, the next batch of 500 records is not loaded. Instead, a blank area is displayed. The loader is also not displayed while the records are being loaded. Additionally, after scrolling through all the records, the total record count does not match the count that was displayed previously.
+
+TKT-1205 -avdel- Pop-up Mode: Voucher Listing Hyperlinks and Chart of Accounts Functionality Not Working
+
+TKT-1336 -agilespace- Video file attachment issue in agilespace.
+
+TKT-1378 -BAFCO- Reset Password Existing Validation should throw when next button is clicked
+
+TKT-1379 -BAFCO- when the user is resetting password through SSO login, after successful reset pwd, the application is taking back to login page instead of SSO login
+
+TKT-1072 -QA- CSS change if the TStruct or IView loaded from mobile
+
+TSK-0831 -QA- Main page template changes required for Axi Command line. 
+
+TSK-0832 -QA- When the user logs in to the Axpert Application Offline(without internet) mode, AxpertStudio option icon not showing.
+
+TSK-0817 -QA- Tstruct Transaction Delete loader issue: Currently, when the Delete button is clicked in a Tstruct transaction, the product loader is not displayed while the delete operation is being processed.
+
+TSK-0786 -QA- Plugin Custom Code: Custom HTML Pages menu list has changed to show only 'HTML Page name' instead of showing with page name and id
+
+TKT-1180 -Mobile- 1. Back Button Issue:
+On some screens, clicking the back button from the mobile device is not working as expected. We are currently using JavaScript execution to trigger the back button action. However, when the same screen is opened through CMD, the back button works correctly.
+2. Home Screen Back Button Handling:
+When the user is already on the Home screen and clicks the back button, a console message such as "Home screen" should be triggered. The message can be changed if required. This will be used to handle the back button functionality at the Flutter level when the user is on the Home screen.
+Note: When the user clicks the mobile device back button while the current page is the Landing page, log 'axm_homepageloaded' to the console to identify the Landing page as the last page in the mobile application.
+
+TKT-1439 -- Axpert support has replicated agilespace schema as new application bescomitms and anup has reported that newly created schema is very slow and they are getting request time out in config studio reports.
+1) 404 issues on Css files
+Note to QA: 2) SignalR- notification request is taking more than 4 Mins -- No fix from product, it is working fine as expected. 
+
+
+Consumer Services:
+-------------------
+AxpertJobsWorkerService:
+------------------------
+TSK-0818 -- Enhancement: Separate Application Pools for ASBScriptRest.
+Since multiple scheduled jobs for different projects are executed through the AxpertJobsWorkerServices, the concerned ARMScript application pool may experience heavy traffic. Consequently, CPU and memory utilization of the application pool can increase significantly.
+To address this issue, the product has been enhanced to support configuring separate application pools for the ASBScriptRest DLL for different projects.
+A separate configuration node can now be added under the APPConfig section in AppSettings.json using the following format:
+"AccessCodeName_ASBScriptRest_URL": "http://localhost/ASBScriptRestSite/"
+Ex.:  "AppConfig": {
+  "pgbase114_ASBScriptRest_URL": "http://localhost/ASBScriptRestSite/"
+}
+Here, pgbase114 represents the AccessCode of the concerned project.
+Note: For the ASBRestDll's application pool, configuring a 'Private Memory Limit' under the Application Pool Recycling settings is not required.
+
+TKT-1230 -AxiERP - Axpert jobs is not firing as per the schedule
+
+TKT-1284 -QA- Axpert jobs - Scripts defined in job definition is not getting executed while running the jobs
+
+TKT-1295 -QA- Axpert jobs, we need an enhancement to schedule a Job to execute Yearly once
+
+TSK-0792 -QA- AxpertJobs and AXNotify services not writing trace file
+Note: A `trace` flag has been added to the `appsettings.json` file. By default, tracing is disabled.
+When Webservice tracing is required, change the value to `"true"` and restart the service for the change to take effect.
+Ex. : "AppConfig": {
+   "trace": "false"
+ }
+
+
+CachedSaveWorkerService: 
+------------------------
+TSK-0819 -- Enhancement: Separate Application Pools for ASBTStructRest.
+Since multiple projects use the Import functionality and save large volumes of form data, the CachedSaveWorkerServices are used to process these operations. As a result, the concerned ARMScript application pool may experience heavy traffic, leading to increased CPU and memory utilization.
+To address this issue, the product has been enhanced to support configuring separate application pools for the ASBTStructRest DLL for different projects.
+A separate configuration node can now be added under the APPConfig section in AppSettings.json using the following format:
+"AccessCodeName_ASBTStructRest_URL": "http://localhost/ASBTStructRestSite/"
+Ex.: "AppConfig": {
+  "pgbase114_ASBTStructRest_URL": "http://localhost/ASBTStructRestSite/"
+}
+Here, pgbase114 represents the AccessCode of the concerned project.
+Note: For the ASBRestDll's application pool, configuring a 'Private Memory Limit' under the Application Pool Recycling settings is not required.
+
+ARM:
+----
+
+TSK-0847 -- AxGetQueueStatus – ARM Microservice API: 
+The `AxGetQueueStatus` API has been introduced in the ARM microservice to check the status of RabbitMQ and the corresponding consumer service (`WorkerService`) for a specified queue.
+Note: This is an Open API (Anonymous) and does not require `ARMSessionId` or `Token` to be passed in the request.
+This can be used from Postman or from custom HTML pages to know the status of Queue and Consumer services(WorkerServices)
+
