@@ -145,7 +145,13 @@ Changes:
 Note: The payload-level 'PageSize' takes precedence over the ADS definition-level configuration. If the payload does not specify 'PageSize', the configured ADS-level value will be used instead of the previous product-level default of '100'.
 
 TSK-0896 -- Enhancement: User Creation form has been enhanced to support adding users who are 'Entitled for License Activation'.
-   Note: A new checkbox field 'Entitled for License Activation', has been introduced in the User Listing Form.
+   Note: A new checkbox field, Entitled for License Activation, has been introduced in the User Listing Form.
+ 
+- For projects with customised User Login (axusr) and User Configuration (a__ua) structures:
+Add the Entitled for License Activation checkbox field to the customised User Login Form.
+ 
+- For projects using Product structure:
+Manually import the appropriate ZIP file provided in the AxpertStructures folder, based on the database.
 
 
 
