@@ -1,0 +1,151 @@
+AxpertWeb:
+----------
+TSK-0894 -- Enhancement: Dropdown Value Caching Using IndexedDB
+As part of the product performance improvement initiative, dropdown field values will now be stored locally in the browser using 'IndexedDB'. This enhancement helps improve performance by reducing repeated database requests when retrieving dropdown values.
+Important Notes:
+1. Refresh on Save: For fields configured with `MOE` as the select option, avoid enabling the 'Refresh on Save' property unless it is required by the business logic. This helps maximize the performance benefits of local caching.
+2. Refresh Button: Use the 'Refresh' button whenever the latest dropdown values need to be retrieved from the database.
+Recommendation: Configure the 'Refresh on Save' property only when necessary, and use the 'Refresh' button when updated database values are required.
+Note: After applying this patch, all existing in-memory cache keys must be cleared to ensure the updated caching mechanism works correctly.
+
+TSK-0895 -- Enhancement: ADS-Level PageSize Configuration
+The ADS definition has been enhanced to support configuring the PageSize for individual ADS definitions.
+Changes:
+1. Previous Behavior: If the ADS payload did not contain the 'PageSize' parameter, the product-level default value of '100' was used.
+2. New Configuration Field: A new field, 'Pagesize for API', has been added to the ADS definition with the following dropdown values:25, 50, 100, 500, 1000, 5000
+3. Updated Behavior:
+   a. If the ADS payload contains 'PageSize', the value specified in the payload will be used.
+   b. If the ADS payload does not contain 'PageSize', the value configured in the 'Pagesize for API' field of the respective ADS definition will be used.
+Note: The payload-level 'PageSize' takes precedence over the ADS definition-level configuration. If the payload does not specify 'PageSize', the configured ADS-level value will be used instead of the previous product-level default of '100'.
+
+TSK-0896 -- Enhancement: User Creation form has been enhanced to support adding users who are 'Entitled for License Activation'.
+   Note: A new checkbox field, Entitled for License Activation, has been introduced in the User Listing Form.
+ 
+- For projects with customised User Login (axusr) and User Configuration (a__ua) structures:
+Add the Entitled for License Activation checkbox field to the customised User Login Form.
+ 
+- For projects using Product structure:
+Manually import the appropriate ZIP file provided in the AxpertStructures folder, based on the database.
+
+TKT-1238 -- Enhancement: To prevent direct loading of HTML Pages
+Configuration: Add the following configuration under the <system.webServer> section in the application's Web.config file.
+  <modules runAllManagedModulesForAllRequests="true">
+    <add name="AxpertHtmlAuth" type="AxpertHtmlAuthModule" />
+  </modules>
+
+Note:
+1. Applicable `.html` and `.htm` pages require a valid login. 
+2. `AppSettings.json` is optional and is not required by default. Create it in the application root only when specific HTML files need to bypass authentication.
+3. Add bypass filenames to the `HtmlAuthBypassFiles` JSON array, for example:
+   ```
+   {
+     "HtmlAuthBypassFiles": [
+       "healthcheck.html",
+       "CustomHtmlPage.html"
+     ]
+   }
+   ```
+4. Add each listed file to the site folder if it is not already present.
+5. Use filenames only. Entries containing `/`, `\`, or `:` are ignored.
+6. If the file is missing, unreadable, malformed, or has no valid filename array, no bypass files are configured; normal authentication handling continues.
+7. Bypassed files are served without login. Only add static pages with no sensitive content, and only at the Environment or Network team’s request or custom pages if required.
+8. The list is read when the application starts. Recycle the application pool after changing it.
+Example: The AxpertWeb code folder contains `healthcheck.html` on the alpha.axi server, but that file is not released with the product. To allow it on that server, create `AppSettings.json` in the deployed application root and include `"healthcheck.html"` in `HtmlAuthBypassFiles`.
+
+TKT-1435 -BAFCO- Allow access for DEFAULT users to Activate "Users Activation" in Configuration Studio
+
+TKT-1248 -BDF- In the existing IViews, the button order has changed after saving them in Axpert Developer Studio. 
+
+TKT-1492 -BDF- In Tstruct 'Show Few Characters' option in the Mask Property configured in DevStudio does not work as expected at runtime. The first-character and last-character masking configurations are applied in reverse in runtime
+
+TKT-1494 -BDF- In TStruct, the "Show Few Characters" Mask Property configured for a specific user role in DevStudio is applied to all user roles at runtime instead of being restricted to the configured role. 
+
+TKT-1498 -BDF- In TStruct, when an invalid format is entered in the IP Address field, the system display the expected validation error and allows the record to be saved. Additionally, when more than six characters are entered, no validation error message is displayed, and the record is saved successfully.
+
+TKT-1250 -BDF- When clicking the Refresh button, an error occurs in the Select-type IView parameter.
+
+TKT-1497 -BDF- The Caps, InitCaps, and Small Pattern properties configured for a TStruct field in DevStudio are not working as expected at runtime. Even when valid data is entered according to the configured property, the system displays a validation error.
+
+TKT-1496 -BDF- The "Show Few Characters" option configured in the Mask Property for a TStruct field in DevStudio is applied only on the TStruct page. The masking is not applied on the Data List page or Data Page (Entity page) at runtime.
+
+TKT-1564 -GI- Flutter Application - Attachment File Not Saving to Configured Folder Path
+
+TKT-1510 -JF&I- Email Notifications not generated through the Sales Return Process
+
+TKT-1540 -SMPE- Global Import not working in Managed Postgres DB's
+
+TKT-1443 -QA(Mobile)- Issue Description: Clear All Icon Appears Randomly During Screen Navigation in Axpert Hybrid APK
+
+TKT-1511 -QA- Description: The "Axi Command Line Enable" developer option is not applied per user role. Whatever value is saved applies to all users, regardless of the role.
+
+TKT-1443 -QA(Mobile)- Issue Description: Clear All Icon Appears Randomly During Screen Navigation in Axpert Hybrid APK
+
+TKT-1432 -QA- In axpert hybrid apk/axpert flutter griddc is not showing in tabular format when Apply mobileui'Show as Grid' in the mobile ,property is enabled in dev options 
+
+TKT-1419 -QA- In Expert hybrid apk, In tstruct, Buttons are overlapping with the field name for Table Field 
+
+TKT-1422 -QA- In Axpert Hybrid apk, axrow icon and checkbox are overlapping in iView 
+
+TKT-1434 -QA- In axpert hybrid apk, for tstruct ,When the custom buttons are in the footer, the buttons are overflowing 
+ 
+TKT-1475 -QA- In griddc when user add documents in attachments fields and submited the form if they open in a edit page grey color background is not showing for attatchmentsfield 
+ 
+TKT-1476 -QA- The Large Text Field is displayed smaller in Non-Grid DC compared to Grid DC
+
+TKT-1477 -QA- In mobile app /mobile browser when user click on 
+field the purpose is showing next to buttons , user not able to see the purpose until they scroll horizontally(this form contains multiple custom button in footer)
+
+
+
+AxpertStudio:
+-------------
+TASK-3299 -BDF- Button rearrangement option required 
+Note: The button rearrangement option is supported only for TStructs.
+
+TKT-1249 -BDF- In the existing IViews, if a column caption is empty, the column cannot be opened properly in Axpert Developer Studio.
+
+TKT-1440 -BDF- In Axpert Studio, when trying to delete a field or change field type where Save Value = False with dependency exist, the system does not allow the operation and displays the following error and log also not creating this case. "Exception while checking field data" When Save Value = True with dependency, the system allows the field to be deleted or change field type to be changed. It also correctly displays the dependency popup window.
+
+TKT-1248 -BDF- In the existing IViews, the button order has changed after saving them in Axpert Developer Studio. 
+
+
+
+ARM Microservice:
+-----------------
+TSK-0895 -- Enhancement: ADS-Level PageSize Configuration
+The ADS definition has been enhanced to support configuring the PageSize for individual ADS definitions.
+Changes:
+1. Previous Behavior: If the ADS payload did not contain the 'PageSize' parameter, the product-level default value of '100' was used.
+2. New Configuration Field: A new field, 'Pagesize for API', has been added to the ADS definition with the following dropdown values:25, 50, 100, 500, 1000, 5000
+3. Updated Behavior:
+   a. If the ADS payload contains 'PageSize', the value specified in the payload will be used.
+   b. If the ADS payload does not contain 'PageSize', the value configured in the 'Pagesize for API' field of the respective ADS definition will be used.
+Note: The payload-level 'PageSize' takes precedence over the ADS definition-level configuration. If the payload does not specify 'PageSize', the configured ADS-level value will be used instead of the previous product-level default of '100'.
+ 
+TSK-0802 -QA- AxPut: Unable to Save Data with AxPut = true from Custom Page/Browser Console
+Note: The actual fix for this issue (TSK-0802) was already included in the previous release. However, this issue is related to another screen where the **Validate** operation fails. The details of the fixes for this issue are listed below.
+* Fixed expression validation to use `fld.cexpr` instead of `fld.Exprn`.
+* Added a `NOT NULL` check for picklist field `SQLResult`.
+* Fixed the parser's `IsEmpty` check for the internal `~e~` value, following the existing Delphi implementation.
+* Implemented Genmap control field handling.
+* Fixed issues with multiple Genmaps sharing the same `Transid`.
+
+TKT-1496 -BDF- The "Show Few Characters" option configured in the Mask Property for a TStruct field in DevStudio is applied only on the TStruct page. The masking is not applied on the Data List page or Data Page (Entity page) at runtime.
+
+Structures:
+-----------
+TSK-0895 -- Enhancement: ADS-Level PageSize Configuration
+The ADS definition has been enhanced to support configuring the PageSize for individual ADS definitions.
+Changes:
+1. Previous Behavior: If the ADS payload did not contain the 'PageSize' parameter, the product-level default value of '100' was used.
+2. New Configuration Field: A new field, 'Pagesize for API', has been added to the ADS definition with the following dropdown values:25, 50, 100, 500, 1000, 5000
+3. Updated Behavior:
+   a. If the ADS payload contains 'PageSize', the value specified in the payload will be used.
+   b. If the ADS payload does not contain 'PageSize', the value configured in the 'Pagesize for API' field of the respective ADS definition will be used.
+Note: The payload-level 'PageSize' takes precedence over the ADS definition-level configuration. If the payload does not specify 'PageSize', the configured ADS-level value will be used instead of the previous product-level default of '100'.
+
+TSK-0896 -- Enhancement: User Creation form has been enhanced to support adding users who are 'Entitled for License Activation'.
+   Note: A new checkbox field 'Entitled for License Activation', has been introduced in the User Listing Form.
+
+
+

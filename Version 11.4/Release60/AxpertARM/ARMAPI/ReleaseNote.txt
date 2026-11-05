@@ -1,0 +1,34 @@
+1) TSK-0802 – AxPut: Unable to Save Data with AxPut = true from Custom Page/Browser Console
+DATE :#12102026
+Note: The actual fix for this issue (TSK-0802) was already included in the previous release. However, this issue is related to another screen where the **Validate** operation fails. The details of the fixes for this issue are listed below.
+
+* Fixed expression validation to use `fld.cexpr` instead of `fld.Exprn`.
+* Added a `NOT NULL` check for picklist field `SQLResult`.
+* Fixed the parser's `IsEmpty` check for the internal `~e~` value, following the existing Delphi implementation.
+* Implemented Genmap control field handling.
+* Fixed issues with multiple Genmaps sharing the same `Transid`.
+
+======================================================================
+
+DATE :#15102026
+- GENMAP and VALIDATIONS, DOCID NULL UPDATE ISSUES FIXED (QA REPORTED)
+
+Items :
+	The same fields and their respective values used during runtime transaction creation are being passed to the AxPut API Payload. Getting response as 
+"{"result":{"message":"Validation Fail: Field 'itemdesc' (Row No: 1) with value ''; Item Name* cannot be left empty.;Validation Fail: Field 'valuationmethod' (Row No: 1) with value ''; Valuation Method* cannot be left empty.;Validation Fail: Field 'itemname' (Row No: 1) with value ''; Item Name* cannot be left empty.;Validation Fail: Field 'conversion_stockpurchase' (Row No: 1) with value ''; Purchase Unit Conv. Factor* cannot be left empty.;Validation Fail: Field 'conversion_stocksales' (Row No: 1) with value ''; Sale Unit Conv. Factor* cannot be left
+[Fixed]
+
+Delivery Note & Items Forms:
+  - Fixed Genmap-related issues for Grid-to-Grid, Grid-to-Non-Grid, and Non-Grid-to-Non-Grid mappings.
+[Fixed]
+
+Sales Order:
+  - The AxPut API payload contains the same fields and corresponding values used during runtime transaction creation. However, the record is saved in the database with a `NULL` `docid`.
+[Fixed]
+
+Goods Receipt Note :
+	The same fields and their corresponding values used during runtime transaction creation are passed in the AxPut API payload. But, getting response as {"result":{"message":"42701: column \"grn_itemsrow\" specified more than once\r\n\r\nPOSITION: 70"
+[NOT AN ISSUE - This form is having tablename+row as field in grid but actaully its a Axpert System field which should be created as field, to block creating keywords as fields already ticket raised.]
+
+
+Note: Redis must be cleared after applying this fix due to changes in `StructDef` serialization.

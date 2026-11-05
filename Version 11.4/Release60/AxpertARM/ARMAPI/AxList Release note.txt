@@ -1,0 +1,9 @@
+TSK-0895 -- Enhancement: ADS-Level PageSize Configuration
+The ADS definition has been enhanced to support configuring the PageSize for individual ADS definitions.
+Changes:
+1. Previous Behavior: If the ADS payload did not contain the 'PageSize' parameter, the product-level default value of '100' was used.
+2. New Configuration Field: A new field, 'Pagesize for API', has been added to the ADS definition with the following dropdown values:25, 50, 100, 500, 1000, 5000
+3. Updated Behavior:
+   a. If the ADS payload contains 'PageSize', the value specified in the payload will be used.
+   b. If the ADS payload does not contain 'PageSize', the value configured in the 'Pagesize for API' field of the respective ADS definition will be used.
+Note: The payload-level 'PageSize' takes precedence over the ADS definition-level configuration. If the payload does not specify 'PageSize', the configured ADS-level value will be used instead of the previous product-level default of '100'.
