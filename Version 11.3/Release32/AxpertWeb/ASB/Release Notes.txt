@@ -1,0 +1,16 @@
+TKT-1526 – Trustline – VAPT Compliance to be Implemented for the Mentioned Points.
+1. Sensitive Data Exposure:
+   Status: Fixed
+   Note: The attached `Web.config` file must be placed in both the AxpertWebScripts and ARMScript folders.
+
+2. Directory Listing:
+   Status: Fixed
+   Note: The attached `Web.config` file must be placed in both the AxpertWebScripts and ARMScript folders.
+
+3. Version Disclosure:
+    Status: Fixed
+    Note: Addressed as part of the changes implemented for Point #1.
+
+
+
+
