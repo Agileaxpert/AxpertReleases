@@ -1,0 +1,64 @@
+
+TKT-0735 -GCMS- RCSAT SECURITY AUDIT REPORT
+1. Inline script execution allowed in CSP
+   Please note that, as mentioned below:
+    a. The CSP issue related to script-src 'self' 'unsafe-inline' has been fixed.
+    b. In the GCMS shared web.config, <compilation debug="true"> is currently configured. This should be changed to <compilation debug="false"> for production sites.
+
+2. Reflected Cross Site Scripting
+   --> Fixed
+
+3. Cookie with Insecure or Improper or Missing SameSite attribute
+ Note: The following web.config file node should be enabled based on the customer's site configuration and integration requirements.
+  a. HTTPS without SSO and without external iframe calls to AxpertWeb: 
+    Web.Config node: <httpCookies httpOnlyCookies="true" requireSSL="true" sameSite="Strict"/>
+     a1. Enables HttpOnly and Secure cookie protection.
+     a2. SameSite=Strict provides stronger protection against cookies being sent in cross-site contexts.
+     a3. Recommended where SSO and cross-site iframe scenarios are not required.
+   b. HTTPS with SSO and/or external iframe calls to AxpertWeb:
+     Web.Config node: <httpCookies httpOnlyCookies="true" requireSSL="true" />
+     b1. HttpOnly and Secure remain enabled.
+     b2. SameSite=Strict is not enabled by default because it may affect SSO redirects or cross-site iframe scenarios.
+     b3. The appropriate SameSite policy should be determined based on the customer's SSO/integration architecture and validated through the applicable SSO and iframe flows.
+   c. For HTTP deployments where cross-site access is not required:
+    Web.Config node: <httpCookies httpOnlyCookies="true" sameSite="Strict"/>
+     c1. HttpOnly protects the cookie from client-side JavaScript access.
+     c2. SameSite=Strict restricts the cookie to same-site contexts.
+     c3. HTTPS is strongly recommended for production, because HTTP does not provide encrypted transport and the cookie cannot have the Secure protection while being used over HTTP.
+
+4. Cross-Site Request Forgery 
+   --> Fixed
+
+5. Cross-Site Request Forgery 
+  Note on this security point: The reported CSRF condition was reviewed. The signin.aspx page uses an _antiforgery token, which is validated against a server-side session token. When the _antiforgery parameter is removed or modified, anti-forgery validation fails and the request is not processed. The additional parameters reported by AppScan are optional/application-flow-specific parameters and are not required in all login scenarios. Therefore, their removal does not indicate successful CSRF execution.
+ Action Required: No additional configuration or code changes are required for this security point.
+
+6. Cross-Site Request Forgery 
+  Note on this security point: The reported parameter hdnbtforLogin is an application-specific login parameter and is not the CSRF security control. The signin.aspx page implements server-side anti-forgery token validation using the _antiforgery parameter. The token is validated against the server-side session token before processing the request. The additional parameters removed by the scanner are flow-specific and are not mandatory for every request. Therefore, their removal or manipulation does not by itself indicate a successful CSRF attack.
+  Action Required: No additional configuration or code changes are required for this security point.
+
+7. Cross-Site Request Forgery 
+  Note on this security point: The modified hdnSrtforLogin value (10/08/2026 11:21:55 → 110/08/2026 11:21:551) does not contain any executable script or XSS payload and does not demonstrate a security vulnerability. The _antiforgery token is validated server-side before the request is processed, providing CSRF protection.
+ Action Required: No additional configuration or code changes are required for this security point.
+
+8. Cross-Site Request Forgery 
+   Note on this security point: This issue was fixed in Release 30. The CSRF validation is implemented and working as expected. When the request is manipulated as described in the security test case, the request is rejected and returns HTTP 500 – Internal Server Error, and the intended operation is not executed. 
+   Action Required: No additional configuration or code changes are required for this security point.
+
+9. Cross-Site Request Forgery
+   Note on this security point: The reported CSRF condition for hdnBwsrid was reviewed. The signin.aspx page uses an _antiforgery token, which is validated against a server-side session token. When the _antiforgery parameter is removed or modified, anti-forgery validation fails and the request is not processed. The hdnBwsrid parameter is an application-flow-specific parameter and is not the CSRF security token. Therefore, manipulation or removal of hdnBwsrid does not demonstrate successful CSRF execution.
+ Action Required: No additional configuration or code changes are required for this security point.
+
+10. Cross-Site Request Forgery 
+   Note on this security point: The _antiforgery token is validated server-side. If the _antiforgery value is modified, the request is rejected and returns HTTP/1.1 302 Found. This issue was fixed in Release 30.
+ Action Required: No additional configuration or code changes are required for this security point.
+
+11. Misconfiguration related to the strict-dynamic directive
+   --> Fixed
+
+12. Missing or insecure Cross-Origin-Embedder-Policy (COEP) header
+   --> Fixed
+
+13. Unsafe eval() used in CSP
+   --> Fixed
+

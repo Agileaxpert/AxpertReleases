@@ -1,0 +1,144 @@
+11-11-2026:
+-----------
+TKT-1622 - Trustline- Low severity VAPT issues to be fixed.
+
+
+TKT-1526 – Trustline – VAPT Compliance to be Implemented for the Mentioned Points.
+1. Sensitive Data Exposure:
+   Status: Fixed
+   Note: The attached `Web.config` file must be placed in both the AxpertWebScripts and ARMScript folders.
+
+2. Directory Listing:
+   Status: Fixed
+   Note: The attached `Web.config` file must be placed in both the AxpertWebScripts and ARMScript folders.
+
+3. Information Disclosure:
+    Note: `config.aspx` is intended for administrator login only. Ensure that valid administrator credentials (username and password) are maintained and that unauthorized users are restricted from accessing this page.
+
+4. Improper Error Handling:
+   Note: Please verify the following configurations:
+     1. Ensure that Debug mode is disabled in the AxpertWeb `Web.config`.
+     2. Ensure that `customErrors` is set to `On` in the AxpertWeb `Web.config`.
+     3. Verify the required error-handling code in `Global.asax`. If the following line is commented out, uncomment it:
+     `Response.Redirect("~/CusError/AxCustomError.aspx");`
+
+5. Version Disclosure:
+    Status: Fixed
+    Note: Addressed as part of the changes implemented for Point #1.
+
+
+12-10-2026:
+-----------
+TKT-0735 – GCMS – RCSAT Security Audit Report
+1. Known Vulnerable Components:
+   Note: The fixes for the identified components were already implemented and included in the previous release. Browser caching may be a possible reason for the previous versions still appearing in the scan results.
+   Before retesting, please clear the browser cache or perform a hard refresh (`Ctrl + Shift + R`) and rerun the security scans. If the versions still appear, verify the JavaScript files being served by the server and check whether any proxy or CDN is serving cached files.
+
+2. Improper Error Handling:
+   a. ClearSessExpiry
+     Status: Fixed
+   b. AddSessionPair
+     Status: Fixed
+   c. SaveDataXML  
+     Status: No product-level change required at this stage.
+     The HTTP 500 error occurs during product data validation and is not necessarily caused by request manipulation. Therefore, the existing validation behavior has been retained.
+However, the error response should not expose internal exception details, stack traces, or server implementation information. The response should be reviewed to ensure that only a generic error message is returned to the client, while detailed exceptions are logged on the server.
+
+3. Content Security Policy (CSP):
+   Status: Fixed
+   Note: Before deploying this fix to the live environment, thoroughly test the application to ensure that all required external JavaScript and CSS resources load correctly and that SSO login functionality continues to work as expected, if custom JavaScript, CSS, or SSO integration is used in the application. Since a strict Content Security Policy is enabled as part of this fix, any resources or integrations not permitted by the policy may be blocked.
+
+05-10-2026:
+-----------
+TKT-0735 – GCMS – RCSAT Security Audit Report:
+1. Using Known Vulnerable Components:
+  a. Moment.js: Version removed 
+  b. Lodash : Version removed 
+  c. Handlebars: Handlebars was identified as version 4.7.9. The security advisories reviewed list versions up to and including 4.7.8 as affected, with 4.7.9 identified as the patched version. Therefore, no vulnerability was identified for the deployed Handlebars version based on the advisories reviewed. Since 4.7.9 is a secure/patched version, it should continue to be used.
+Version disclosure note: The Handlebars version is intentionally retained because version 4.7.9 is the patched version. Removing the version information would only hide the version from tools such as Wappalyzer/Retire.js and would not provide any security benefit.
+
+
+2. CSV Injection:
+   a. Input characters: Characters such as =, +, -, @, and tab can be valid data and therefore should not be prohibited globally. The CSV Injection risk occurs when an exported value is interpreted as a formula by spreadsheet applications. Formula-leading values should therefore be neutralized during CSV generation/export.
+   b. Form-level validation: For the affected form(s), an AxBeforeBlur hook in custom.js can validate user input for values that may be interpreted as spreadsheet formulas and display a warning or restrict the entry as required.
+If such values are restricted at the data-entry level, they will not be saved to the database through that form and consequently will not appear in reports generated from the stored data.
+
+Implementation / Reference: 
+For reference, the custom.js file has also been provided. Please add it to the application and identify the forms that require this validation.
+custom.js is common to all forms. If the validation is required only for a particular form or specific forms, the validation can instead be implemented in the corresponding form-specific JavaScript file, using the form's transid as the filename (for example, transid.js).
+
+
+29-09-2026:
+-----------
+TKT-0735 – GCMS – RCSAT Security Audit Report
+1. Known Vulnerable Component:
+   Status: Fixed
+2. Improper Error Handling:
+   Status: Fixed
+3. Sensitive Data Exposure:
+   TStruct Fields:
+    a. Masking should be enabled for the required fields in the field definition.
+    b. Field value array encryption implemented.
+      Status: Fixed
+   Reset Password:
+   Status: Fixed
+4. Content Security Policy (CSP):
+   a. CSP has been implemented with default-src 'self' and a nonce-based script-src.
+   b. External script injection was tested on mainnew.aspx and was successfully blocked by the browser's CSP.
+   Note to GCMS Team: Please clear the browser cache before conducting the security audit again.
+5. Home Page Card Clicks Not Working:
+   Status: Fixed
+
+
+
+TKT-0774 - eDPC - Action Required: Security Audit Issues in eDPC Customer - DOIT Rajasthan Partner - Orbitnext
+
+1. Using Known Vulnerable Components:
+    Status: Fixed
+2. Malicious File Upload:
+   I. Application should check allowed file extension and file type (MIME Type) in the upload module using a whitelist filter at server side.
+       Status: Fixed
+   II. File to be uploaded should be restricted to a particular size.
+       Note: Application-level setting is available and can be configured based on the requirement.
+   III. Server-side check for not allowing long filenames with double extension, double dot (.), null byte (%00), and meta characters.
+       Status: Fixed
+   IV. Assign only Read and Write permissions to the upload folders as required.
+       Note: Folder/FTP path-level permissions should be configured accordingly.
+
+3. CSV Injection:
+   Status: Fixed
+
+4. Inline Script Execution Allowed in CSP:
+   a. As highlighted in the security assessment PDF, the CSP issue identified on the main page has been addressed.
+   b. As highlighted in the security assessment PDF, the following URL appears to be an additional customer-configured endpoint included in the CSP configuration in web.config:
+   [https://10.68.198.40:3015](https://10.68.198.40:3015)
+   Note to eDPC Team: Please verify why this URL has been added to the CSP configuration in the customer environment and confirm whether it is required. If it is not required, please remove it from the CSP configuration.
+5. Insecure URL Schemes in CSP:
+   Note to eDPC Team: This was fixed in Product Release31.
+
+6. Cookie with Insecure or Improper or Missing SameSite Attribute:
+   a. The below web.config setting was released as part of Release31. However, it appears that the setting is still commented out and therefore is not enabled. Hence, the same issue may still occur.
+   web.config:
+   <!-- HTTPS without SSO and without external iframe calls to AxpertWeb -->
+   <!--<httpCookies httpOnlyCookies="true" requireSSL="true" sameSite="Strict"/>-->
+
+   b. Based on the application URL provided in the security report, the customer environment appears to be running over HTTP rather than HTTPS. Therefore, enabling requireSSL="true" is not suitable for the current customer environment, as it would require the application to be accessed over HTTPS.
+   For the current HTTP deployment, the below setting has been added to web.config. This configuration enables HttpOnly and SameSite=Strict for cookies without requiring SSL, allowing the application to continue operating over HTTP.
+   web.config:
+   <!-- HTTP without SSO and without external iframe calls to AxpertWeb -->
+   <httpCookies httpOnlyCookies="true" sameSite="Strict"/>
+
+   c. For environments where AxpertWeb is deployed over HTTPS, the HTTPS-specific configuration should be enabled instead:
+   web.config:
+   <!-- HTTPS without SSO and without external iframe calls to AxpertWeb -->
+   <httpCookies httpOnlyCookies="true" requireSSL="true" sameSite="Strict"/>
+
+   d. The appropriate configuration should be enabled based on the customer's deployment environment:
+   HTTP environment: httpOnlyCookies="true" sameSite="Strict"
+   HTTPS environment: httpOnlyCookies="true" requireSSL="true" sameSite="Strict"
+
+7. Medium and Low Priority Issues:
+   Note to eDPC Team: All Medium and Low priority issues mentioned in the security assessment PDF will be addressed along with the above fixes.
+
+
+
