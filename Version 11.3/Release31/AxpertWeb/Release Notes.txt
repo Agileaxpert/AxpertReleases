@@ -1,4 +1,3 @@
-
 TKT-0735 -GCMS- RCSAT SECURITY AUDIT REPORT
 1. Inline script execution allowed in CSP
    Please note that, as mentioned below:

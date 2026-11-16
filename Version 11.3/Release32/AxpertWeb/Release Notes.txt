@@ -1,5 +1,3 @@
-11-11-2026:
------------
 TKT-1622 - Trustline- Low severity VAPT issues to be fixed.
 
 
@@ -26,9 +24,6 @@ TKT-1526 – Trustline – VAPT Compliance to be Implemented for the Mentioned P
     Status: Fixed
     Note: Addressed as part of the changes implemented for Point #1.
 
-
-12-10-2026:
------------
 TKT-0735 – GCMS – RCSAT Security Audit Report
 1. Known Vulnerable Components:
    Note: The fixes for the identified components were already implemented and included in the previous release. Browser caching may be a possible reason for the previous versions still appearing in the scan results.
@@ -48,8 +43,6 @@ However, the error response should not expose internal exception details, stack 
    Status: Fixed
    Note: Before deploying this fix to the live environment, thoroughly test the application to ensure that all required external JavaScript and CSS resources load correctly and that SSO login functionality continues to work as expected, if custom JavaScript, CSS, or SSO integration is used in the application. Since a strict Content Security Policy is enabled as part of this fix, any resources or integrations not permitted by the policy may be blocked.
 
-05-10-2026:
------------
 TKT-0735 – GCMS – RCSAT Security Audit Report:
 1. Using Known Vulnerable Components:
   a. Moment.js: Version removed 
@@ -67,9 +60,6 @@ Implementation / Reference:
 For reference, the custom.js file has also been provided. Please add it to the application and identify the forms that require this validation.
 custom.js is common to all forms. If the validation is required only for a particular form or specific forms, the validation can instead be implemented in the corresponding form-specific JavaScript file, using the form's transid as the filename (for example, transid.js).
 
-
-29-09-2026:
------------
 TKT-0735 – GCMS – RCSAT Security Audit Report
 1. Known Vulnerable Component:
    Status: Fixed
@@ -88,8 +78,6 @@ TKT-0735 – GCMS – RCSAT Security Audit Report
    Note to GCMS Team: Please clear the browser cache before conducting the security audit again.
 5. Home Page Card Clicks Not Working:
    Status: Fixed
-
-
 
 TKT-0774 - eDPC - Action Required: Security Audit Issues in eDPC Customer - DOIT Rajasthan Partner - Orbitnext
 
